@@ -1,0 +1,15 @@
+{
+  "name": "徐晓龙的博客",
+  "version": "1.0.0",
+  "author": "reco_luan",
+  "scripts": {
+    "dev": "vuepress dev . --open --host \"localhost\"",
+    "build": "vuepress build .",
+    "serve": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress dev . --open --host \"localhost\" --temp .temp"
+  },
+  "devDependencies": {
+    "vuepress": "1.9.7",
+    "vuepress-theme-reco": "1.6.17"
+  },
+  "description": "描述"
+}
