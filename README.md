@@ -1,7 +1,33 @@
 ---
 home: true
-heroText: vuepress-theme-reco
-tagline: A simple and beautiful vuepress blog theme.
+heroText: xiaolong_blog
+tagline: 荷尽已无擎雨盖，菊残犹有傲霜枝。
+modules: # 指定首页展示模块
+  - BannerBrand
+  - MdContent
+  - Footer
+#banner: # banner 模块的配置
+#  heroText: 午后南杂
+#  tagline: Enjoy when you can, and endure when you must.
+#  heroImage: /logo.png
+#  heroImageStyle:
+#    maxWidth: 200px
+#    margin: 0 auto 2rem
+#  bgImage: /banner.jpg
+#  bgImageStyle:
+#    height: 450px
+bannerBrand: # bannerBrand 模块的配置
+  title: vuepress-reco
+  description: 一款简洁的 vuepress 博客 & 文档 主题。
+  tagline: vuepress-theme-reco 2.0 继续坚持简洁的风格，所有功能开箱即用，首页模块化组装，使用 tailwindcss 书写样式，将 Vite 作为默认编译器。你只需要负责内容创作，其他请交给我。
+  buttons:
+    - { text: Guide, link: '/docs/guide/introduce' }
+    - { text: Default Style, link: '/docs/theme/introduce', type: 'plain' }
+  socialLinks: # 社交地址
+    - { icon: 'BrandGithub', link: 'https://github.com/recoluan' }
+blog: # blog 模块的配置
+  socialLinks: # 社交地址
+    - { icon: 'BrandGithub', link: 'https://github.com/recoluan' }
 # heroImage: /hero.png
 # heroImageStyle: {
 #   maxWidth: '600px',
@@ -11,17 +37,17 @@ tagline: A simple and beautiful vuepress blog theme.
 #   background: '#fff',
 #   borderRadius: '1rem',
 # }
-bgImageStyle: {
-  height: '450px'
-}
-isShowTitleInHome: false
-actionText: Guide
-actionLink: /views/other/guide
+#bgImageStyle: {
+#  height: '450px'
+#}
+#isShowTitleInHome: false
+#actionText: Guide
+#actionLink: /views/other/guide
 features:
 - title: Yesterday
-  details: 开发一款看着开心、写着顺手的 vuepress 博客主题
+  details: 把所有的不快给昨天
 - title: Today
-  details: 希望帮助更多的人花更多的时间在内容创作上，而不是博客搭建上
+  details: 把所有的不快给昨天
 - title: Tomorrow
-  details: 希望更多的爱好者能够参与进来，帮助这个主题更好的成长
+  details: 把所有的不快给昨天
 ---
