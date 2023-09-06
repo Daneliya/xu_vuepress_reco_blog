@@ -1,8 +1,9 @@
 ---
+title: RocketMQ-03
 tags:
- - RabbitMQ
+ - RocketMQ
 categories: 
- - RabbitMQ
+ - RocketMQ
 ---
 
 # 1. 高级功能

@@ -1,8 +1,9 @@
 ---
+title: RocketMQ-01
 tags:
- - RabbitMQ
+ - RocketMQ
 categories: 
- - RabbitMQ
+ - RocketMQ
 ---
 
 # 1. MQ介绍
@@ -11,7 +12,7 @@ categories:
 
 消息队列是一种“先进先出”的数据结构
 
-![](./img/queue1.png)
+![](img/queue1.png)
 
 其应用场景主要包含以下3个方面
 
@@ -19,19 +20,19 @@ categories:
 
 系统的耦合性越高，容错性就越低。以电商应用为例，用户创建订单后，如果耦合调用库存系统、物流系统、支付系统，任何一个子系统出了故障或者因为升级等原因暂时不可用，都会造成下单操作异常，影响用户使用体验。
 
-![](./img/解耦1.png)
+![](img/解耦1.png)
 
 使用消息队列解耦合，系统的耦合性就会提高了。比如物流系统发生故障，需要几分钟才能来修复，在这段时间内，物流系统要处理的数据被缓存到消息队列中，用户的下单操作正常完成。当物流系统回复后，补充处理存在消息队列中的订单消息即可，终端系统感知不到物流系统发生过几分钟故障。
 
-![](./img/解耦2.png)
+![](img/解耦2.png)
 
 * 流量削峰
 
-![](./img/mq-5.png)
+![](img/mq-5.png)
 
 应用系统如果遇到系统请求流量的瞬间猛增，有可能会将系统压垮。有了消息队列可以将大量请求缓存起来，分散到很长一段时间处理，这样可以大大提到系统的稳定性和用户体验。
 
-![](./img/mq-6.png)
+![](img/mq-6.png)
 
 一般情况，为了保证系统的稳定性，如果系统负载超过阈值，就会阻止用户请求，这会影响用户体验，而如果使用消息队列将请求缓存起来，等待系统处理完毕后通知用户下单完毕，这样总不能下单体验要好。
 
@@ -41,11 +42,11 @@ categories:
 
 * 数据分发
 
-![](./img/mq-1.png)
+![](img/mq-1.png)
 
 通过消息队列可以让数据在多个系统更加之间进行流通。数据的产生方不需要关心谁来使用数据，只需要将数据发送到消息队列，数据使用方直接在消息队列中直接获取数据即可
 
-![](./img/mq-2.png)
+![](img/mq-2.png)
 
 ## 1.2 MQ的优点和缺点
 
@@ -75,7 +76,7 @@ categories:
 
 常见的MQ产品包括Kafka、ActiveMQ、RabbitMQ、RocketMQ。 
 
-![](./img/MQ比较.png)
+![](img/MQ比较.png)
 
 # 2. RocketMQ快速入门
 
@@ -186,7 +187,7 @@ sh bin/mqshutdown broker
 * Topic：区分消息的种类；一个发送者可以发送消息给一个或者多个Topic；一个消息的接收者可以订阅一个或者多个Topic消息
 * Message Queue：相当于是Topic的分区；用于并行发送和接收消息
 
-![](./img/RocketMQ角色.jpg)
+![](img/RocketMQ角色.jpg)
 
 ## 3.2 集群搭建方式
 
@@ -231,7 +232,7 @@ sh bin/mqshutdown broker
 
 消息高可用采用2m-2s（同步双写）方式
 
-![](./img/RocketMQ集群.png)
+![](img/RocketMQ集群.png)
 
 ### 3.3.2 集群工作流程
 
@@ -722,7 +723,7 @@ nohup sh mqbroker -c /install/soft/rocketmq/rocketmq-all-4.8.0-bin-release/conf/
 
 启动后通过JPS查看启动进程
 
-![](./img/jps1.png)
+![](img/jps1.png)
 
 ### 3.3.12 查看日志
 
@@ -1936,7 +1937,7 @@ tail -500f ~/logs/rocketmqlogs/broker.log
 
 `RocketMQ`有一个对其扩展的开源项目[incubator-rocketmq-externals](https://github.com/apache/rocketmq-externals)，这个项目中有一个子模块叫`rocketmq-console`，这个便是管理控制台项目了，先将[incubator-rocketmq-externals](https://github.com/apache/rocketmq-externals)拉到本地，因为我们需要自己对`rocketmq-console`进行编译打包运行。
 
-![](./img/rocketmq-console.png)
+![](img/rocketmq-console.png)
 
 ### 3.5.2 下载并编译打包
 
@@ -1960,11 +1961,11 @@ java -jar rocketmq-console.jar
 
 启动成功后，我们就可以通过浏览器访问`http://localhost:8080`进入控制台界面了，如下图：
 
-![](./img/rocketmq-console2.png)
+![](img/rocketmq-console2.png)
 
 集群状态：
 
-![](./img/rocketmq-console3.png)
+![](img/rocketmq-console3.png)
 
 # 4. 消息发送样例
 
@@ -2598,7 +2599,7 @@ consumer.start();
 
 ###4.6.1 流程分析
 
-![](./img/事务消息.png)
+![](img/事务消息.png)
 
 
 

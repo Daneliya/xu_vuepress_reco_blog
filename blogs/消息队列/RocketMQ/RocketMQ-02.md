@@ -1,8 +1,9 @@
 ---
+title: RocketMQ-02
 tags:
- - RabbitMQ
+ - RocketMQ
 categories: 
- - RabbitMQ
+ - RocketMQ
 ---
 
 # 1. 案例介绍
@@ -13,7 +14,7 @@ categories:
 
 ###1）下单
 
-![](./img/下单组件图.png)
+![](img/下单组件图.png)
 
 1. 用户请求订单系统下单
 2. 订单系统通过RPC调用订单服务下单
@@ -26,7 +27,7 @@ categories:
 
 ###2）支付
 
-![](./img/支付组件图.png)
+![](img/支付组件图.png)
 
 1. 用户请求支付系统
 2. 支付系统调用第三方支付平台API进行发起支付流程
@@ -43,7 +44,7 @@ categories:
 
 如何保证数据的完整性？
 
-![](./img/下单失败流程图.png)
+![](img/下单失败流程图.png)
 
 <u>使用MQ保证在下单失败后系统数据的完整性</u>
 
