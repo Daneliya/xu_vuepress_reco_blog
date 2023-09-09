@@ -1,6 +1,6 @@
 ---
 home: true
-heroText: xiaolong_blog
+heroText: 徐晓龙的博客
 tagline: 荷尽已无擎雨盖，菊残犹有傲霜枝。
 modules: # 指定首页展示模块
   - BannerBrand

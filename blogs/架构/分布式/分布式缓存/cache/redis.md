@@ -1,3 +1,13 @@
+---
+title: Redis
+date: 2022/12/15
+tags:
+ - Redis
+categories: 
+ - Redis
+---
+
+
 ## 一、Nosql概述
 
 ### 为什么使用Nosql

@@ -1,15 +1,21 @@
 {
-  "name": "徐晓龙的博客",
+  "name": "xuxiaolong",
   "version": "1.0.0",
   "author": "reco_luan",
   "scripts": {
     "dev": "vuepress dev . --open --host \"localhost\"",
-    "build": "vuepress build .",
-    "serve": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress dev . --open --host \"localhost\" --temp .temp"
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress build .",
+    "serve": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress dev . --open --host \"localhost\" --temp .temp",
+    "nav": "vuepress nav -f"
   },
   "devDependencies": {
     "vuepress": "1.9.7",
+    "vuepress-plugin-auto-sidebar": "^2.4.0-alpha.5",
     "vuepress-theme-reco": "1.6.17"
   },
-  "description": "描述"
+  "description": "描述",
+  "dependencies": {
+    "markdown-it-disable-url-encode": "^1.0.1",
+    "vuepress-theme-sidebar": "^0.0.9"
+  }
 }

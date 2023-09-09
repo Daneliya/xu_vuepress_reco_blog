@@ -1,3 +1,14 @@
+---
+title: 分布式搜索引擎Elasticsearch02
+sidebar: 'auto'
+tags:
+ - 分布式搜索引擎
+ - Elasticsearch
+categories: 
+ - 分布式搜索引擎
+---
+
+
 # 分布式搜索引擎02
 
 在昨天的学习中，我们已经导入了大量数据到elasticsearch中，实现了elasticsearch的数据存储功能。但elasticsearch最擅长的还是搜索和数据分析。

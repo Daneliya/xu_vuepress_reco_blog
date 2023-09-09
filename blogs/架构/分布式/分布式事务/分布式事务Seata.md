@@ -1,3 +1,14 @@
+---
+title: 分布式事务
+sidebar: 'auto'
+tags:
+ - 分布式事务
+ - Seata
+categories: 
+ - 分布式事务
+---
+
+
 # 分布式事务
 
 
