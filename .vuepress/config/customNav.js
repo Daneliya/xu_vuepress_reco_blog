@@ -1,3 +1,10 @@
+const customSidebar = require("./customSidebar");
+// enhanceApp.js 文件内容
+// import '../styles/font_20csbaofexh/iconfont.css'
+// import '../styles/font_cs5v8kb16mu/iconfont.css'
+require( '../styles/font_20csbaofexh/iconfont.css');
+require( '../styles/font_cs5v8kb16mu/iconfont.css');
+
 module.exports = [
     {
         "text": "主页",
@@ -5,12 +12,37 @@ module.exports = [
         "icon": "reco-home"
     },
     {
-        "text": "随笔文档",
-        "icon": "reco-message",
+        "text": "Java",
+        "icon": "iconfont icon-cafei",
+        "sidebar": customSidebar,
         "items": [
             {
-                "text": "随笔文档",
-                "link": "/docs/theme-reco/"
+                "text": "JVM相关",
+                "icon": "iconfont icon-iconfontmoshi",
+                "link": "/Java/JVM相关/Java 类加载机制"
+            },
+            {
+                "text": "函数式编程",
+                "link": "/Java/JVM相关/Java 类加载机制"
+            },
+            {
+                "text": "并发编程",
+                "link": "/Java/JVM相关/Java 类加载机制"
+            }
+        ]
+    },
+    {
+        "text": "随笔文档",
+        "icon": "reco-message",
+        "link": "/docs/",
+        "items": [
+            {
+                "text": "日常笔记🚀",
+                "link": "/docs/日常笔记/IDEA+Linux远程开发"
+            },
+            {
+                "text": "开发文档🚀",
+                "link": "/docs/开发文档/Mysql主从复制"
             }
         ]
     },

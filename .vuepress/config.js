@@ -2,6 +2,7 @@ const customNav = require("./config/customNav.js");
 const customSidebar = require("./config/customSidebar.js");
 const pluginsConf = require("./config/pluginsConf.js");
 const nav = require("./nav.js");
+const sidebarConfig = require("./vuepress-sidebar-atuo/sidebarConfig");
 
 module.exports = {
     "title": "xuxiaolong",
@@ -9,34 +10,22 @@ module.exports = {
     "dest": "public",
     "port": 8081,
     "head": [
-        [
-            "link",
-            {
-                "rel": "icon",
-                "href": "/logo2.ico"
-            }
-        ],
-        [
-            "meta",
-            {
-                "name": "viewport",
-                "content": "width=device-width,initial-scale=1,user-scalable=no"
-            }
-        ]
+        ["link", {"rel": "icon", "href": "/logo2.png"}],
+        ["meta", {"name": "viewport", "content": "width=device-width,initial-scale=1,user-scalable=no"}]
     ],
     "theme": "reco",
-    // "theme": themeSidebar,
-    "colorMode": 'dark', // dark, light
+    // "colorMode": 'dark', // dark, light
     // 自动设置分类
-    //"autoSetBlogCategories": true,
+    "autoSetBlogCategories": true,
     // 当 autoAddCategoryToNavbar 为 true 时，则全部取默认值
-    //"autoAddCategoryToNavbar": true,
+    "autoAddCategoryToNavbar": true,
     // 自动设置分类
-    // "autoSetSeries": true,
-    // "sidebar": 'auto',
+    "autoSetSeries": true,
     "themeConfig": {
+        "mode": 'auto', // 默认 auto，auto 跟随系统，dark 暗色模式，light 亮色模式
+        "modePicker": true, // 默认 true，false 不显示模式调节按钮，true 则显示
+        "sidebarDepth": 4,
         "nav": customNav,
-        "subSidebar": 'auto',//在所有页面中启用自动生成子侧边栏，原 sidebar 仍然兼容
         // 左侧边栏
         // "sidebar": {
         //     "/docs/theme-reco/": [
@@ -46,20 +35,21 @@ module.exports = {
         //         "api"
         //     ]
         // },
-        // "sidebar": customSidebar,
-        "sidebar": nav,
-
+        "sidebar": customSidebar,
+        // "sidebar": nav,
+        // "sidebar": 'auto',
+        // "sidebar": sidebarConfig,
+        "subSidebar": 'auto',//在所有页面中启用自动生成子侧边栏，原 sidebar 仍然兼容
         "type": "blog",
         // 博客配置
         "blogConfig": {
             "category": {
-                "location": 3, // 在导航栏菜单中所占的位置，默认2
+                "location": 4, // 在导航栏菜单中所占的位置，默认2
                 "text": "分类",
-                // "subSidebar": 'auto',
-                "subSidebar": 'left',
+                "sidebarDepth": 3,
             },
             "tag": {
-                "location": 4,
+                "location": 5,
                 "text": "标签"
             }
         },
@@ -80,10 +70,10 @@ module.exports = {
         "logo": "/logo2.png",
         "search": true,
         "searchMaxSuggestions": 10,
-        // "lastUpdated": "Last Updated",
+        "lastUpdated": "最近修改于",
         "author": "xuxiaolong",
         "authorAvatar": "/logo2.png",
-        // "record": "xxxx",
+        "record": "xuxiaolong",
         "startYear": "2016"
     },
     "markdown": {

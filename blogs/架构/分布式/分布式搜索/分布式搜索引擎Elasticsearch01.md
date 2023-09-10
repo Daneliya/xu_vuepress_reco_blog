@@ -2,10 +2,9 @@
 title: 分布式搜索引擎Elasticsearch01
 sidebar: 'auto'
 tags:
- - 分布式搜索引擎
- - Elasticsearch
+ - 架构
 categories: 
- - 分布式搜索引擎
+ - 架构
 ---
 
 
