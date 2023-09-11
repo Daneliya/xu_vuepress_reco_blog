@@ -1,7 +1,10 @@
-
-
-
-
+---
+title: Linux新建用户并授予root权限
+tags:
+ - Linux
+categories: 
+ - Linux
+---
 
 
 ## 一、新建用户

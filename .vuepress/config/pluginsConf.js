@@ -13,18 +13,18 @@ module.exports = {
     // 音乐播放器
     "@vuepress-reco/vuepress-plugin-bgm-player": {
         audios: [
-            // 本地文件示例
-            // {
-            //   name: '장가갈 수 있을까',
-            //   artist: '咖啡少年',
-            //   url: '/bgm/1.mp3',
-            //   cover: '/bgm/1.jpg'
-            // },
-            // 网络文件示例
+            // 本地文件
             {
-                name: '강남역 4번 출구',
-                artist: 'Plastic / Fallin` Dild',
-                url: 'https://assets.smallsunnyfox.com/music/2.mp3',
+              name: '和宇宙温柔的关联',
+              artist: '房东的猫',
+              url: '/bgm/和宇宙温柔的关联 - 房东的猫.m4a',
+              cover: '/logo2.png'
+            },
+            // 网络文件
+            {
+                name: '所念皆星河',
+                artist: '房东的猫',
+                url: 'https://c6.y.qq.com/base/fcgi-bin/u?__=ss8n0Ojvcz2B',
                 cover: 'https://assets.smallsunnyfox.com/music/2.jpg'
             },
             {

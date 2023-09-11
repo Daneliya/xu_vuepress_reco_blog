@@ -2,8 +2,17 @@ const customSidebar = require("./customSidebar");
 // enhanceApp.js 文件内容
 // import '../styles/font_20csbaofexh/iconfont.css'
 // import '../styles/font_cs5v8kb16mu/iconfont.css'
-require( '../styles/font_20csbaofexh/iconfont.css');
-require( '../styles/font_cs5v8kb16mu/iconfont.css');
+// require('../styles/font_20csbaofexh/iconfont');
+// require('../styles/font_cs5v8kb16mu/iconfont');
+// import('../styles/font_20csbaofexh/iconfont.css')
+// import('../styles/font_cs5v8kb16mu/iconfont.css')
+// <style>
+//     export default{
+//         mounted(){
+//             import('../styles/font_cs5v8kb16mu/iconfont.css').then(icon=>{})
+//         }
+//     }
+// </style>
 
 module.exports = [
     {
@@ -17,17 +26,38 @@ module.exports = [
         "sidebar": customSidebar,
         "items": [
             {
-                "text": "JVM相关",
+                "text": "🚀JVM相关",
                 "icon": "iconfont icon-iconfontmoshi",
+                "href": "/logo2.png",
                 "link": "/Java/JVM相关/Java 类加载机制"
             },
             {
-                "text": "函数式编程",
+                "text": "🚀函数式编程",
                 "link": "/Java/JVM相关/Java 类加载机制"
             },
             {
-                "text": "并发编程",
+                "text": "🚀并发编程",
                 "link": "/Java/JVM相关/Java 类加载机制"
+            },
+            {
+                "text": "🚀Linux",
+                "link": "/Java/Linux/Linux常用命令"
+            },
+            {
+                "text": "🚀设计模式",
+                "link": "/Java/设计模式/设计模式"
+            },
+            {
+                "text": "🚀微服务专栏",
+                "link": "/Java/微服务专栏/流控组件Sentinel/微服务保护"
+            },
+            {
+                "text": "🚀架构",
+                "link": "/Java/架构/分布式/分布式缓存/缓存"
+            },
+            {
+                "text": "🚀数据结构",
+                "link": "/Java/架构/分布式/分布式缓存/缓存"
             }
         ]
     },
@@ -37,11 +67,11 @@ module.exports = [
         "link": "/docs/",
         "items": [
             {
-                "text": "日常笔记🚀",
+                "text": "🚀日常笔记",
                 "link": "/docs/日常笔记/IDEA+Linux远程开发"
             },
             {
-                "text": "开发文档🚀",
+                "text": "🚀开发文档",
                 "link": "/docs/开发文档/Mysql主从复制"
             }
         ]

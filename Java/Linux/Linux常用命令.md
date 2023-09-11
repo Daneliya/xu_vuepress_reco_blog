@@ -1,7 +1,10 @@
-
-
-
-
+---
+title: Linux常用命令
+tags:
+ - Linux
+categories: 
+ - Linux
+---
 
 
 ### 命令操作之文件与目录
