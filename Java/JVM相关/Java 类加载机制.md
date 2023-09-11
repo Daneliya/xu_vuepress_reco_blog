@@ -1,6 +1,5 @@
 ---
 title: Java 类加载机制
-sidebar: 'Java'
 tags:
  - JVM
 categories: 
