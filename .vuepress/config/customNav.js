@@ -26,14 +26,18 @@ module.exports = [
         "sidebar": customSidebar,
         "items": [
             {
-                "text": "🚀JVM相关",
+                "text": "🚀java开发技巧",
                 "icon": "iconfont icon-iconfontmoshi",
                 "href": "/logo2.png",
+                "link": "/Java/java开发技巧/语法糖"
+            },
+            {
+                "text": "🚀JVM相关",
                 "link": "/Java/JVM相关/Java 类加载机制"
             },
             {
                 "text": "🚀函数式编程",
-                "link": "/Java/JVM相关/Java 类加载机制"
+                "link": "/Java/函数式编程/函数式编程"
             },
             {
                 "text": "🚀并发编程",
