@@ -67,3 +67,6 @@
 ### 分布式事务
 
 - [腾讯最新分布式事务夺命7连问，涵盖99%分布式事务难点！](https://gitee.com/link?target=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1bM4y1z71o)
+
+
+https://gitee.com/zhengqingya/java-developer-document

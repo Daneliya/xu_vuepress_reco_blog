@@ -96,3 +96,17 @@ Caused by: sun.jvm.hotspot.debugger.DebuggerException: cannot open binary file
         at sun.jvm.hotspot.debugger.linux.LinuxDebuggerLocal$1AttachTask.doit(LinuxDebuggerLocal.java:269)
         at sun.jvm.hotspot.debugger.linux.LinuxDebuggerLocal$LinuxDebuggerLocalWorkerThread
 ```
+
+
+
+
+
+
+
+参考
+
+常见OOM异常分析：https://blog.csdn.net/u012260238/article/details/110308147
+
+Java性能分析神器-JProfiler详解：https://blog.csdn.net/u013613428/article/details/53926825
+
+如果在线上遇到了OOM，该如何解决？https://blog.csdn.net/Park33/article/details/126379445
