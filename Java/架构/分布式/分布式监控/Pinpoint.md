@@ -93,3 +93,6 @@ Pinpoint是一款强大的分布式应用性能监控工具，旨在帮助开发
 参考资料
 
 [1]. [大侠之运维 12.9k star，最强链路监控系统推荐，推荐](https://mp.weixin.qq.com/s/q1fFmwL1HqDNlY87FNLAfw)
+http://www.rainbond.net/docs/micro-service/tracking/pinpoint/
+https://blog.csdn.net/zhou920786312/article/details/131891599
+https://blog.csdn.net/weixin_43931358/article/details/107671436
