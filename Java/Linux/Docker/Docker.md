@@ -391,7 +391,7 @@ docker load -i nginx.tar
 
 需求：去DockerHub搜索并拉取一个Redis镜像
 
-目标：
+步骤：
 
 1）去DockerHub搜索Redis镜像
 

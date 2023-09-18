@@ -43,7 +43,7 @@ yum remove docker \
 
 ### 1.2.安装docker
 
-首先需要大家虚拟机联网，安装yum工具
+首先需要虚拟机联网，安装yum工具
 
 ```sh
 yum install -y yum-utils \
@@ -127,6 +127,19 @@ docker官方镜像仓库网速较差，我们需要设置国内镜像服务：
 
 参考阿里云的镜像加速文档：https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors
 
+~~~shell
+# Centos/Ubuntu 通过修改daemon配置文件/etc/docker/daemon.json来使用加速器
+
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://2ktfn1p8.mirror.aliyuncs.com"]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+~~~
+
 
 
 
@@ -142,9 +155,12 @@ Linux下需要通过命令下载：
 ```sh
 # 安装
 curl -L https://github.com/docker/compose/releases/download/1.23.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# 提示 command not found
+apt-get install curl -y # ubuntu/debian
+yum install curl -y # centos
 ```
 
-上传到`/usr/local/bin/`目录也可以。
+本地下载，上传到`/usr/local/bin/`目录也可以。
 
 
 
@@ -256,7 +272,9 @@ systemctl restart docker
 
 
 
+参考资料
 
+https://www.bilibili.com/video/BV11L411g7U1、[👨‍👦‍👦 多容器通信 - Docker 快速入门 - 易文档 (easydoc.net)](https://docker.easydoc.net/doc/81170005/cCewZWoN/U7u8rjzF)
 
-
+https://blog.csdn.net/pushiqiang/article/details/78682323
 
