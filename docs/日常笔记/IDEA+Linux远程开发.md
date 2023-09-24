@@ -56,7 +56,12 @@ docker -v
 sudo docker run hello-world
 ```
 
+扩展：[Vmware Ubuntu（20.04）扩充磁盘及黑屏问题解决](https://blog.csdn.net/weixin_44961033/article/details/131886106)
+
+
+
 ## 远程开发准备
+
 远程开发，在本地Win上操作Linux服务器开发
 方式一：远程部署
 方式二：纯远程开发
