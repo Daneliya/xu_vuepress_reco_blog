@@ -39,3 +39,34 @@ categories:
 
 
 
+### 防火墙相关
+
+https://www.python100.com/html/691DUEI971RX.html
+
+#### firewall-cmd命令
+
+~~~
+firewall-cmd --list-all
+
+# 查看开启的端口
+firewall-cmd --zone=public --list-ports
+
+# 添加/删除端口
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --zone=public --remove-port=80/tcp --permanent
+
+# 重新载入防火墙
+firewall-cmd --reload
+
+# FirewallD is not running 未开启
+systemctl status firewalld
+systemctl start firewalld
+
+# unit is masked 防火墙默认是锁定的，需要取消服务的锁定
+systemctl unmask firewalld
+
+# 开启防火墙范围
+vim /etc/firewalld/zones/public.xml
+port="9001-9050"
+~~~
+
