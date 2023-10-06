@@ -32,6 +32,8 @@ https://zhuanlan.zhihu.com/p/322094284
 
 ### 问题
 
+1、The telnet port 3658 is used by process 28221 instead of target process 96492, you will connect to an unexpected process
+
 ~~~bash
 [ERROR] The telnet port 3658 is used by process 28221 instead of target process 96492, you will connect to an unexpected process.
 [ERROR] 1. Try to restart arthas-boot, select process 28221, shutdown it first with running the ‘stop’ command.
@@ -54,9 +56,19 @@ kill -9 进程id
 
 
 
+2、arthas报“Can not find java process”
+
+解决方式一：未使用root权限，sudo执行命令
+
+解决方式二：找不到jps命令，默认安装的openjdk是不支持jps的，所以需要卸载Open JDK，安装Oracle JDK：https://www.cnblogs.com/andy020/p/17511279.html
+
 
 
 参考：
+
+https://www.cnblogs.com/lyn8100/p/17377845.html
+
+https://zhuanlan.zhihu.com/p/519213445
 
 https://www.bilibili.com/video/BV19k4y1k7o9/
 
