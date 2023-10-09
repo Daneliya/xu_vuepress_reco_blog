@@ -74,3 +74,9 @@ https://blog.csdn.net/u012954706/article/details/79592060
 https://blog.csdn.net/qq_36120342/article/details/123729329
 
 https://gitee.com/zhengqingya/docker-compose/blob/master/Linux/graylog/docker-compose-graylog.yml#
+
+graylog查询语法
+
+https://blog.csdn.net/weixin_43066697/article/details/126303133
+
+https://archivedocs.graylog.org/en/latest/pages/searching/query_language.html
