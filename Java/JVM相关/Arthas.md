@@ -60,9 +60,10 @@ kill -9 进程id
 
 解决方式一：未使用root权限，sudo执行命令
 
-解决方式二：找不到jps命令，默认安装的openjdk是不支持jps的，所以需要卸载Open JDK，安装Oracle JDK：https://www.cnblogs.com/andy020/p/17511279.html
-
-
+解决方式二：找不到jps命令，默认安装的openjdk是不支持jps的，所以需要卸载Open JDK，
+安装Oracle JDK：https://www.cnblogs.com/andy020/p/17511279.html
+or
+安装关联包：https://blog.51cto.com/u_13890915/4653202
 
 参考：
 
