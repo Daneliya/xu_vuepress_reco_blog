@@ -23,7 +23,7 @@ module.exports = [
     {
         "text": "Java",
         "icon": "iconfont icon-cafei",
-        "sidebar": customSidebar,
+        // "sidebar": customSidebar,
         "items": [
             {
                 "text": "🚀java开发技巧",
@@ -45,11 +45,12 @@ module.exports = [
             },
             {
                 "text": "🚀Linux",
-                "link": "/Java/Linux/Linux常用命令"
+                "link": "/Java/Linux/Linux/Linux常用命令"
             },
             {
                 "text": "🚀设计模式",
-                "link": "/Java/设计模式/设计模式"
+                "link": "/Java/设计模式/设计模式",
+                "children": ["/Java/设计模式/行为型/16_strategy"]
             },
             {
                 "text": "🚀微服务专栏",
@@ -65,6 +66,36 @@ module.exports = [
             }
         ]
     },
+    {
+        "text": "数据库",
+        "icon": "microchip",
+        "items": [
+            {
+                "text": "🚀java开发技巧",
+                "icon": "iconfont icon-iconfontmoshi",
+                "href": "/logo2.png",
+                "link": "/Java/java开发技巧/语法糖"
+            }
+        ]
+    },
+    {
+        "text": "Redis专栏",
+        // "icon": "reco-message",
+        "icon": "fa-solid fa-microchip",
+        "link": "/Redis/Redis解决限流问题"
+    },
+    // {
+    //     "text": "常用框架",
+    //     "icon": "reco-message",
+    //     "items": [
+    //         {
+    //             "text": "🚀java开发技巧",
+    //             "icon": "iconfont icon-iconfontmoshi",
+    //             "href": "/logo2.png",
+    //             "link": "/Java/java开发技巧/语法糖"
+    //         }
+    //     ]
+    // },
     {
         "text": "随笔文档",
         "icon": "reco-message",

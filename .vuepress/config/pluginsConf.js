@@ -15,10 +15,10 @@ module.exports = {
         audios: [
             // 本地文件
             {
-              name: '和宇宙温柔的关联',
-              artist: '房东的猫',
-              url: '/bgm/和宇宙温柔的关联 - 房东的猫.m4a',
-              cover: '/logo2.png'
+                name: '和宇宙温柔的关联',
+                artist: '房东的猫',
+                url: '/bgm/和宇宙温柔的关联 - 房东的猫.m4a',
+                cover: '/logo2.png'
             },
             // 网络文件
             {
@@ -34,5 +34,22 @@ module.exports = {
                 cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
             }
         ]
-    }
+    },
+    // PWA刷新内弹窗插件
+    // npm install -D @vuepress/plugin-pwa
+    "@vuepress/pwa": {
+        serviceWorker: true,
+        updatePopup: {
+            message: "发现新内容可用",
+            buttonText: "刷新"
+        }
+    },
+    // 复制弹窗插件
+    // npm install -D vuepress-plugin-nuggets-style-copy
+    // "vuepress-plugin-nuggets-style-copy": {
+    //     copyText: "复制代码",
+    //     tip: {
+    //         content: "复制成功!"
+    //     }
+    // }
 }

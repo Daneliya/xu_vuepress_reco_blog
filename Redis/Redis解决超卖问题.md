@@ -1,3 +1,10 @@
+---
+title: Redis 解决超卖问题
+tags:
+   - Redis
+categories:
+   - Redis
+---
 
 
 # Redis 解决超卖问题

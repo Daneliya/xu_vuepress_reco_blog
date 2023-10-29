@@ -23,6 +23,8 @@ Content-Type: application/json
 }
 ~~~
 
+HTTP Client请求测试工具的使用 https://blog.csdn.net/huantai3334/article/details/115905570
+
 https://blog.csdn.net/weixin_44000238/article/details/109501241
 
 ## javadoc生成
