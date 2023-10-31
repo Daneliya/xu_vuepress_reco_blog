@@ -21,3 +21,7 @@ https://www.pikamumu.top/blogs/other/guide.html#%E9%85%8D%E7%BD%AEconfig-js
 http://v1.vuepress-reco.recoluan.com/views/1.x/valine.html
 
 https://console.leancloud.cn/account/profile
+
+https://www.cnblogs.com/ff-upday/p/14964825.html
+
+https://shanyuhai123.github.io/vuepress-plugin-auto-sidebar/zh/features/markdown-file-config.html#autoignore
