@@ -1,5 +1,6 @@
 ---
 title: Linux下安装Tomcat
+autoGroup-1: Linux
 tags:
  - Linux
 categories: 

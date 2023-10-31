@@ -1,3 +1,13 @@
+---
+title: Docker安装Graylog
+autoGroup-2: Docker
+tags:
+ - Linux
+ - Docker
+categories: 
+ - Linux
+ - Docker
+---
 
 
 前期准备

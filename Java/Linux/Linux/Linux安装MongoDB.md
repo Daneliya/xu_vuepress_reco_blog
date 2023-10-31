@@ -1,5 +1,6 @@
 ---
 title: Linux安装MongoDB
+autoGroup-1: Linux
 tags:
  - Linux
 categories: 

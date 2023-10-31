@@ -1,5 +1,6 @@
 ---
 title: Linux安装Docker
+autoGroup-2: Docker
 tags:
  - Linux
 categories: 

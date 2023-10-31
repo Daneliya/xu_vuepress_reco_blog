@@ -1,5 +1,6 @@
 ---
 title: Linux新建用户并授予root权限
+autoGroup-1: Linux
 tags:
  - Linux
 categories: 

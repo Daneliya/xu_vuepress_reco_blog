@@ -19,6 +19,7 @@
   "dependencies": {
     "@vuepress-reco/vuepress-plugin-bgm-player": "^1.1.4",
     "markdown-it-disable-url-encode": "^1.0.1",
+    "mkdir-recursive": "^0.4.0",
     "vuepress-theme-sidebar": "^0.0.9"
   }
 }

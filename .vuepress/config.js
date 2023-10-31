@@ -29,57 +29,7 @@ module.exports = {
         "modePicker": true, // 默认 true，false 不显示模式调节按钮，true 则显示
         "sidebarDepth": 4,
         "nav": customNav, // 顶部导航栏配置
-        // 左侧边栏
-        "sidebar": {
-            // "/docs/theme-reco/": ["", "theme", "plugin", "api", "Mysql主从复制", "系统优化之限流"],
-            "/docs/": ["", "theme", "plugin", "api", "Mysql主从复制", "系统优化之限流"],
-            // "/Java/Linux/": ["/Java/Linux/Docker/Docker","/Java/Linux/Linux常用命令"],
-            // '/Java/Linux/': [
-            //     {
-            //         title: 'Linux1',   // 必要的
-            //         //path: '/Java/Linux/Docker',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-            //         collapsable: true, // 可选的, 默认值是 true,
-            //         // sidebarDepth: 1,    // 可选的, 默认值是 1
-            //         children: [
-            //             'Docker/Docker'
-            //         ]
-            //     },
-            //     {
-            //         title: 'Linux2',   // 必要的
-            //         //path: '/Java/Linux/Linux常用命令',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-            //         collapsable: true, // 可选的, 默认值是 true,
-            //         // sidebarDepth: 1,    // 可选的, 默认值是 1
-            //         children: [
-            //             'Linux/Linux常用命令'
-            //         ]
-            //     },
-            //     {
-            //         title: 'Linux 2',
-            //         children: ['/Java/Linux/Linux常用命令'],
-            //         initialOpenGroupIndex: -1 // 可选的, 默认值是 0
-            //     }
-            // ]
-            '/Java/Linux/Linux/Linux常用命令/': [
-                {
-                    title: 'Linux1',   // 必要的
-                    path: '/Java/Linux/Docker/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-                    collapsable: true, // 可选的, 默认值是 true,
-                    sidebarDepth: 2,    // 可选的, 默认值是 1
-                    children: [
-                        'Docker'
-                    ]
-                },
-                {
-                    title: 'Linux2',   // 必要的
-                    path: '/Java/Linux/Linux/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-                    collapsable: true, // 可选的, 默认值是 true,
-                    sidebarDepth: 2,    // 可选的, 默认值是 1
-                    children: [
-                        'Linux常用命令'
-                    ]
-                }
-            ]
-        },
+        "sidebar": customSidebar, // 左侧边栏
         "subSidebar": 'auto',//在所有页面中启用自动生成子侧边栏，原 sidebar 仍然兼容
         "type": "blog",
         // 博客配置
