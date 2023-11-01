@@ -45,7 +45,7 @@ module.exports = [
             },
             {
                 "text": "🚀Linux",
-                "link": "/Java/Linux/Linux/Linux常用命令"
+                "link": "/Java/Linux/Linux常用命令"
             },
             {
                 "text": "🚀设计模式",
@@ -69,14 +69,7 @@ module.exports = [
     {
         "text": "数据库",
         "icon": "microchip",
-        "items": [
-            {
-                "text": "🚀java开发技巧",
-                "icon": "iconfont icon-iconfontmoshi",
-                "href": "/logo2.png",
-                "link": "/Java/java开发技巧/语法糖"
-            }
-        ]
+        "link": "/Java/数据库/Mysql索引"
     },
     {
         "text": "Redis专栏",

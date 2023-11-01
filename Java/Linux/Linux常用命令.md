@@ -1,6 +1,7 @@
 ---
 title: Linux常用命令
 autoGroup-1: Linux
+autoSort: 1
 tags:
  - Linux
 categories: 

@@ -1,3 +1,11 @@
+---
+title: Mysql索引
+autoGroup-1: MySQL高级
+tags:
+ - MySQL
+categories: 
+ - MySQL
+---
 
 
 添加索引

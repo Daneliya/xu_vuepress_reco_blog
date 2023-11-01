@@ -30,21 +30,21 @@ module.exports = {
     '/Java/Linux/': [
         {
             title: 'Docker',   // 必要的
-            // path: '/Java/Linux/Docker/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+            path: '/Java/Linux/Docker/Docker',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
             collapsable: true, // 可选的, 默认值是 true,
-            sidebarDepth: 2,    // 可选的, 默认值是 1
+            sidebarDepth: 3,    // 可选的, 默认值是 1
             children: [
-                'Docker/'
+                'Docker'
             ]
         },
         {
             title: 'Linux模块',   // 必要的
-            // path: '/Java/Linux/Linux/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+            path: '/Java/Linux/Linux/Linux常用命令',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
             collapsable: true, // 可选的, 默认值是 true,
-            sidebarDepth: 2,    // 可选的, 默认值是 1
+            sidebarDepth: 3,    // 可选的, 默认值是 1
             children: [
-                'Linux/Linux常用命令',
-                'Linux/',
+                'Linux常用命令',
+                // 'Linux/',
             ]
         }
     ]

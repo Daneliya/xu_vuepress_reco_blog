@@ -1,6 +1,7 @@
 ---
 title: Docker安装Graylog
 autoGroup-2: Docker
+autoSort: 3
 tags:
  - Linux
  - Docker

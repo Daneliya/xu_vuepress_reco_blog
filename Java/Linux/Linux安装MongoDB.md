@@ -1,6 +1,7 @@
 ---
 title: Linux安装MongoDB
 autoGroup-1: Linux
+autoSort: 3
 tags:
  - Linux
 categories: 

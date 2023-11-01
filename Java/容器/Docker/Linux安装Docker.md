@@ -1,6 +1,7 @@
 ---
 title: Linux安装Docker
 autoGroup-2: Docker
+autoSort: 4
 tags:
  - Linux
 categories: 
