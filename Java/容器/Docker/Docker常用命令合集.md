@@ -1,7 +1,7 @@
 ---
 title: Docker常用命令合集
-autoGroup-2: Docker
-autoSort: 2
+autoGroup-1: 容器化部署Docker
+autoSort: 9
 tags:
  - Linux
  - Docker

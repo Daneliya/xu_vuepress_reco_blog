@@ -145,7 +145,7 @@ source /etc/profile
 
 如图：
 
-![image-20210402161102887](../../../../../../../../../BaiduNetdiskDownload/Java项目实战/微服务开发框架SpringCloud+RabbitMQ+Docker+Redis+搜索+分布式史上最全面的微服务全技术栈课程【2021-08】/实用篇/学习资料/day01-SpringCloud01/资料/assets/image-20210402161102887.png)
+![image-20210402161102887](Nacos安装.assets/image-20210402161102887.png)
 
 
 
