@@ -1,5 +1,5 @@
 ---
-title: 分布式搜索引擎Elasticsearch03
+title: Elasticsearch03
 tags:
  - 架构
 categories: 

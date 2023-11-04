@@ -1,5 +1,5 @@
 ---
-title: 分布式搜索引擎Elasticsearch02
+title: Elasticsearch02
 sidebar: 'auto'
 tags:
  - 架构

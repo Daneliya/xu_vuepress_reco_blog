@@ -3,32 +3,28 @@ module.exports = [
     "text": "Java",
     "items": [
       {
-        "text": "Cache",
-        "link": "/Java/架构/分布式/分布式缓存/cache/"
-      },
-      {
-        "text": "Docker",
-        "link": "/Java/Linux/Docker/"
-      },
-      {
         "text": "JVM相关",
         "link": "/Java/JVM相关/"
       },
       {
         "text": "Linux",
-        "link": "/Java/Linux/Linux/"
+        "link": "/Java/Linux/"
       },
       {
         "text": "Nacos",
         "link": "/Java/微服务专栏/Nacos/"
       },
       {
-        "text": "Rabbit MQ",
+        "text": "RabbitMQ",
         "link": "/Java/架构/分布式/分布式消息队列/RabbitMQ/"
       },
       {
-        "text": "Rocket MQ",
+        "text": "RocketMQ",
         "link": "/Java/架构/分布式/分布式消息队列/RocketMQ/"
+      },
+      {
+        "text": "cache",
+        "link": "/Java/架构/分布式/分布式缓存/cache/"
       },
       {
         "text": "java开发技巧",
@@ -63,6 +59,10 @@ module.exports = [
         "link": "/Java/架构/分布式/分布式缓存/"
       },
       {
+        "text": "容器化部署Docker",
+        "link": "/Java/容器/Docker/"
+      },
+      {
         "text": "并发编程",
         "link": "/Java/并发编程/"
       },
@@ -71,7 +71,7 @@ module.exports = [
         "link": "/Java/架构/高并发/数据库/"
       },
       {
-        "text": "数据库",
+        "text": "数据库问题及解决方案",
         "link": "/Java/数据库/"
       },
       {
@@ -129,7 +129,7 @@ module.exports = [
     "text": "blogs",
     "items": [
       {
-        "text": "Other",
+        "text": "other",
         "link": "/blogs/other/"
       },
       {
@@ -155,8 +155,26 @@ module.exports = [
     "text": "project",
     "items": [
       {
-        "text": "Project",
+        "text": "project",
         "link": "/project/"
+      }
+    ]
+  },
+  {
+    "text": "常用框架",
+    "items": [
+      {
+        "text": "MybatisPlus",
+        "link": "/常用框架/MybatisPlus/"
+      }
+    ]
+  },
+  {
+    "text": "数据库",
+    "items": [
+      {
+        "text": "MySQL常见问题及解决方案",
+        "link": "/数据库/MySQL常见问题及解决方案/"
       }
     ]
   }

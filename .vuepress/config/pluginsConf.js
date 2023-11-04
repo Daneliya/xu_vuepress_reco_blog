@@ -1,18 +1,16 @@
+// 插件配置js
 module.exports = {
     // 自动生成侧边栏
-    "vuepress-plugin-auto-sidebar": {
-        nav: true,
-        // 标题
-        // 更多选项: `default`、`lowercase`、`uppercase`、`capitalize`、`camelcase`、`kebabcase`、`titlecase`
-        title: {mode: "default"},
-        sort: {mode: "asc"}, // 排序
-        sidebarDepth: 5, // 标题深度
-        collapse: {open: false}, // 折叠
-        removeEmptyGroup: true // 隐藏空分组，当文件夹中所有文件都配置了 autoGroup 时，会导致默认分组为空，想隐藏它时可使用
-    },
-    // "vuepress-theme-sidebar": {
-    //     sidebarType: true
-    // }
+    // "vuepress-plugin-auto-sidebar": {
+    //     nav: true,
+    //     // 标题
+    //     // 更多选项: `default`、`lowercase`、`uppercase`、`capitalize`、`camelcase`、`kebabcase`、`titlecase`
+    //     title: {mode: "default"},
+    //     sort: {mode: "asc"}, // 排序
+    //     sidebarDepth: 5, // 标题深度
+    //     collapse: {open: false}, // 折叠
+    //     removeEmptyGroup: true // 隐藏空分组，当文件夹中所有文件都配置了 autoGroup 时，会导致默认分组为空，想隐藏它时可使用
+    // },
     // 音乐播放器
     "@vuepress-reco/vuepress-plugin-bgm-player": {
         audios: [

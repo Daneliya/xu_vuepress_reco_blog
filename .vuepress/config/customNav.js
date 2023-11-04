@@ -1,3 +1,4 @@
+// 顶部导航栏js
 const customSidebar = require("./customSidebar");
 // enhanceApp.js 文件内容
 // import '../styles/font_20csbaofexh/iconfont.css'
@@ -29,15 +30,11 @@ module.exports = [
                 "text": "🚀java开发技巧",
                 "icon": "iconfont icon-iconfontmoshi",
                 "href": "/logo2.png",
-                "link": "/Java/java开发技巧/语法糖"
+                "link": "/Java/java开发技巧/其他/语法糖"
             },
             {
                 "text": "🚀JVM相关",
                 "link": "/Java/JVM相关/JVM"
-            },
-            {
-                "text": "🚀函数式编程",
-                "link": "/Java/函数式编程/函数式编程"
             },
             {
                 "text": "🚀并发编程",

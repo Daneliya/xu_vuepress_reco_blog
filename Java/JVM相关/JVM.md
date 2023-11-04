@@ -7,7 +7,6 @@ categories:
 ---
 
 
-# JVM及GC一些概念
 
 ## JVM
 

@@ -1,76 +1,110 @@
+// 侧边栏目录js
+const path = require('./path.js');
+
 module.exports = {
-    // "/docs/theme-reco/": ["", "theme", "plugin", "api", "Mysql主从复制", "系统优化之限流"],
-    // "/docs/": ["", "theme", "plugin", "api", "Mysql主从复制", "系统优化之限流"],
-    // "/Java/Linux/": ["/Java/Linux/Docker/Docker","/Java/Linux/Linux常用命令"],
-    // '/Java/Linux/': [
-    //     {
-    //         title: 'Linux1',   // 必要的
-    //         //path: '/Java/Linux/Docker',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-    //         collapsable: true, // 可选的, 默认值是 true,
-    //         // sidebarDepth: 1,    // 可选的, 默认值是 1
-    //         children: [
-    //             'Docker/Docker'
-    //         ]
-    //     },
-    //     {
-    //         title: 'Linux2',   // 必要的
-    //         //path: '/Java/Linux/Linux常用命令',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-    //         collapsable: true, // 可选的, 默认值是 true,
-    //         // sidebarDepth: 1,    // 可选的, 默认值是 1
-    //         children: [
-    //             'Linux/Linux常用命令'
-    //         ]
-    //     },
-    //     {
-    //         title: 'Linux 2',
-    //         children: ['/Java/Linux/Linux常用命令'],
-    //         initialOpenGroupIndex: -1 // 可选的, 默认值是 0
-    //     }
-    // ]
+    '/Java/java开发技巧/': [
+        {
+            title: '函数式编程',   // 必要的
+            //path: '/Java/java开发技巧/函数式编程/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/Java/java开发技巧/函数式编程/')
+        },
+        {
+            title: 'IDEA使用技巧',   // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/Java/java开发技巧/IDEA/')
+        },
+        {
+            title: '其他',   // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/Java/java开发技巧/其他/')
+        },
+    ],
+    '/Java/JVM性能调优/': [
+        {
+            title: 'JVM性能调优',   // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/Java/JVM性能调优/')
+        }
+    ],
     '/Java/Linux/': [
         {
-            title: 'Docker',   // 必要的
-            path: '/Java/Linux/Docker/Docker',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-            collapsable: true, // 可选的, 默认值是 true,
+            title: 'Linux',   // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/Java/Linux/')
+        }
+    ],
+    '/Java/中间件/': [
+        {
+            title: '中间件',   // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/Java/中间件/')
+        }
+    ],
+    '/Java/容器/': [
+        {
+            title: '容器',   // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/Java/容器/')
+        }
+    ],
+    '/Java/并发编程/': [
+        {
+            title: '并发编程',   // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/Java/并发编程/')
+        }
+    ],
+    '/Java/微服务专栏/': [
+        {
+            title: '微服务专栏',   // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/Java/微服务专栏/')
+        }
+    ],
+    '/Java/架构/': [
+        {
+            title: '分布式',   // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
             sidebarDepth: 3,    // 可选的, 默认值是 1
             children: [
-                'Docker'
+                {
+                    title: '分布式事务',   // 必要的
+                    collapsable: false, // 可选的, 默认值是 true,
+                    sidebarDepth: 3,    // 可选的, 默认值是 1
+                    children: path.findMdFiles('/Java/架构/分布式/分布式事务/')
+                },
+                {
+                    title: '分布式搜索',   // 必要的
+                    collapsable: false, // 可选的, 默认值是 true,
+                    sidebarDepth: 3,    // 可选的, 默认值是 1
+                    children: path.findMdFiles('/Java/架构/分布式/分布式搜索/')
+                }
             ]
         },
         {
-            title: 'Linux模块',   // 必要的
-            path: '/Java/Linux/Linux/Linux常用命令',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-            collapsable: true, // 可选的, 默认值是 true,
+            title: '高可用',   // 必要的
+            // path: '/Java/架构/高可用/降级熔断/README',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+            collapsable: false, // 可选的, 默认值是 true,
             sidebarDepth: 3,    // 可选的, 默认值是 1
-            children: [
-                'Linux常用命令',
-                // 'Linux/',
-            ]
+            children: path.findMdFiles('/Java/架构/高可用/')
         }
-    ]
-    // "/Java/": [
-    //     {
-    //         "title": 'Group 1',   // 必要的
-    //         "path": '/Java/JVM相关/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-    //         "collapsable": true, // 可选的, 默认值是 true,
-    //         "sidebarDepth": 2,    // 可选的, 默认值是 1
-    //         "children": [
-    //             'JVM相关',
-    //             'Java 类加载机制'
-    //         ]
-    //     },
-    //     {
-    //         "title": 'Group 2',
-    //         "path": '/Java/函数式编程/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-    //         "collapsable": false, // 可选的, 默认值是 true,
-    //         "sidebarDepth": 2,    // 可选的, 默认值是 1
-    //         "children": [
-    //             'JVM相关',
-    //             'Java 类加载机制'
-    //         ]
-    //     }
-    // ],
-    // "/Java/设计模式/": [
-    //     "/Java/设计模式/设计模式", "/Java/设计模式/行为型/16_strategy"
-    // ]
+    ],
+    '/Java/设计模式/': [
+        {
+            title: '设计模式',   // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/Java/设计模式/')
+        }
+    ],
 }
