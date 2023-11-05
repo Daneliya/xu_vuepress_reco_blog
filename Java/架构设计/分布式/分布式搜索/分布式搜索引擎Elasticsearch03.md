@@ -1,9 +1,11 @@
 ---
-title: Elasticsearch03
+title: Elasticsearch-学习笔记03
 tags:
- - 架构
+ - 分布式搜索
+ - Elasticsearch
 categories: 
- - 架构
+ - 分布式搜索
+ - Elasticsearch
 ---
 
 

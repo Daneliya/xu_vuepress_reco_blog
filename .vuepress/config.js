@@ -33,10 +33,10 @@ module.exports = {
             //     "text": "分类",
             //     "sidebarDepth": 3,
             // },
-            "tag": {
-                "location": 5,
-                "text": "标签"
-            }
+            // "tag": {
+            //     "location": 5,
+            //     "text": "标签"
+            // }
         },
         // 友情链接
         "friendLink": [

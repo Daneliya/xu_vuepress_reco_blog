@@ -25,3 +25,7 @@ https://console.leancloud.cn/account/profile
 https://www.cnblogs.com/ff-upday/p/14964825.html
 
 https://shanyuhai123.github.io/vuepress-plugin-auto-sidebar/zh/features/markdown-file-config.html#autoignore
+
+6. 背景图
+
+https://bbs.csdn.net/topics/607761494

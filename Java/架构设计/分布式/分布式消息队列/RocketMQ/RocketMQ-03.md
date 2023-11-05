@@ -1,8 +1,10 @@
 ---
-title: RocketMQ-03
+title: RocketMQ-学习笔记03
 tags:
+ - 消息队列
  - RocketMQ
 categories: 
+ - 消息队列
  - RocketMQ
 ---
 

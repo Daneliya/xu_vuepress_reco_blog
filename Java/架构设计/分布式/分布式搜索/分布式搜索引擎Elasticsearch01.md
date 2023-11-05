@@ -1,10 +1,12 @@
 ---
-title: Elasticsearch01
+title: Elasticsearch-学习笔记01
 sidebar: 'auto'
 tags:
- - 架构
+ - 分布式搜索
+ - Elasticsearch
 categories: 
- - 架构
+ - 分布式搜索
+ - Elasticsearch
 ---
 
 

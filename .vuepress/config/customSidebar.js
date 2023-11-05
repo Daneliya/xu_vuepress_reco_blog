@@ -88,6 +88,24 @@ module.exports = {
                     collapsable: false, // 可选的, 默认值是 true,
                     sidebarDepth: 3,    // 可选的, 默认值是 1
                     children: path.findMdFiles('/Java/架构设计/分布式/分布式搜索/')
+                },
+                {
+                    title: '分布式消息队列',   // 必要的
+                    collapsable: false, // 可选的, 默认值是 true,
+                    sidebarDepth: 3,    // 可选的, 默认值是 1
+                    children: path.findMdFiles('/Java/架构设计/分布式/分布式消息队列/')
+                },
+                {
+                    title: '分布式监控',   // 必要的
+                    collapsable: false, // 可选的, 默认值是 true,
+                    sidebarDepth: 3,    // 可选的, 默认值是 1
+                    children: path.findMdFiles('/Java/架构设计/分布式/分布式监控/')
+                },
+                {
+                    title: '分布式缓存',   // 必要的
+                    collapsable: false, // 可选的, 默认值是 true,
+                    sidebarDepth: 3,    // 可选的, 默认值是 1
+                    children: path.findMdFiles('/Java/架构设计/分布式/分布式缓存/')
                 }
             ]
         },
@@ -107,4 +125,28 @@ module.exports = {
             children: path.findMdFiles('/Java/设计模式/')
         }
     ],
+    '/Java/数据结构/': [
+        {
+            title: '数据结构',   // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/Java/数据结构/')
+        }
+    ],
+    '/数据库/': [
+        {
+            title: '数据库',   // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/数据库/')
+        }
+    ],
+    '/Redis/': [
+        {
+            title: 'Redis',   // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/Redis/')
+        }
+    ]
 }

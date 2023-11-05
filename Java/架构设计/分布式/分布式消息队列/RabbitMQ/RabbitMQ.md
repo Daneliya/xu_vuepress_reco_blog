@@ -1,17 +1,15 @@
 ---
-title: RabbitMQ
+title: RabbitMQ消息队列
 tags:
+ - 消息队列
  - RabbitMQ
 categories: 
+ - 消息队列
  - RabbitMQ
 ---
 
 
 # RabbitMQ
-
-
-
-
 
 
 

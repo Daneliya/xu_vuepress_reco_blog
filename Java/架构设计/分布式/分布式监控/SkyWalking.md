@@ -1,3 +1,16 @@
+---
+title: skywalking链路追踪
+tags:
+ - 分布式监控
+ - 链路追踪
+ - skywalking
+categories: 
+ - 分布式监控
+ - 链路追踪
+ - skywalking
+---
+
+
 ## 基本介绍
 
 - 什么是链路追踪
@@ -102,6 +115,6 @@ java -javaagent:/data/apache-skywalking-apm-bin-es7/agent/skywalking-agent.jar -
 
 参考资料：
 
-https://blog.csdn.net/chengqwertyuiop/article/details/125065633
+[1]. https://blog.csdn.net/chengqwertyuiop/article/details/125065633
 
-http://doc.ruoyi.vip/ruoyi-cloud/cloud/skywalking.html
+[2]. http://doc.ruoyi.vip/ruoyi-cloud/cloud/skywalking.html

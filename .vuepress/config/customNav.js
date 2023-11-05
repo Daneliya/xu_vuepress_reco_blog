@@ -32,7 +32,7 @@ module.exports = [
             {
                 "text": "设计模式",
                 "icon": "iconfont icon-iconfontmoshi",
-                "link": "/Java/设计模式/设计模式",
+                "link": "/Java/设计模式/1基本概念/设计模式",
             },
             {
                 "text": "微服务专栏",
@@ -42,12 +42,12 @@ module.exports = [
             {
                 "text": "架构设计",
                 "icon": "iconfont icon-jiagou",
-                "link": "/Java/架构/分布式/分布式缓存/缓存"
+                "link": "/Java/架构设计/分布式/分布式事务/分布式事务Seata"
             },
             {
                 "text": "数据结构",
                 "icon": "iconfont icon-shujujiegou",
-                "link": "/Java/架构/分布式/分布式缓存/缓存"
+                "link": "/Java/数据结构/排序算法"
             }
         ]
     },
@@ -63,23 +63,23 @@ module.exports = [
     },
     {
         "text": "常用框架",
-        "icon": "reco-message",
+        "icon": "iconfont icon-zuzhijiagou",
         "items": [
             {
                 "text": "Spring",
                 "icon": "iconfont icon-iconfontmoshi",
-                "link": "/常用框架/Spring/"
+                "link": "/常用框架/Spring/1"
             },
             {
                 "text": "MybatisPlus",
                 "icon": "iconfont icon-iconfontmoshi",
-                "link": "/常用框架/MybatisPlus/"
+                "link": "/常用框架/MybatisPlus/1"
             }
         ]
     },
     {
         "text": "随笔文档",
-        "icon": "reco-message",
+        "icon": "iconfont icon-biji",
         "link": "/docs/",
         "items": [
             {
@@ -123,7 +123,7 @@ module.exports = [
     {
         "text": "时间线",
         "link": "/timeline/",
-        "icon": "reco-date"
+        "icon": "iconfont icon-shijianzhou"
     },
     {
         "text": "关于",
