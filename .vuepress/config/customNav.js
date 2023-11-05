@@ -1,20 +1,4 @@
 // 顶部导航栏js
-const customSidebar = require("./customSidebar");
-// enhanceApp.js 文件内容
-// import '../styles/font_20csbaofexh/iconfont.css'
-// import '../styles/font_cs5v8kb16mu/iconfont.css'
-// require('../styles/font_20csbaofexh/iconfont');
-// require('../styles/font_cs5v8kb16mu/iconfont');
-// import('../styles/font_20csbaofexh/iconfont.css')
-// import('../styles/font_cs5v8kb16mu/iconfont.css')
-// <style>
-//     export default{
-//         mounted(){
-//             import('../styles/font_cs5v8kb16mu/iconfont.css').then(icon=>{})
-//         }
-//     }
-// </style>
-
 module.exports = [
     {
         "text": "主页",
@@ -24,68 +8,75 @@ module.exports = [
     {
         "text": "Java",
         "icon": "iconfont icon-cafei",
-        // "sidebar": customSidebar,
         "items": [
             {
-                "text": "🚀java开发技巧",
-                "icon": "iconfont icon-iconfontmoshi",
-                "href": "/logo2.png",
+                "text": "java开发技巧",
+                "icon": "iconfont icon-LBhouduanfuwuzu",
                 "link": "/Java/java开发技巧/其他/语法糖"
             },
             {
-                "text": "🚀JVM相关",
-                "link": "/Java/JVM相关/JVM"
+                "text": "JVM性能调优",
+                "icon": "iconfont icon-duozhongzhifu",
+                "link": "/Java/JVM性能调优/JVM"
             },
             {
-                "text": "🚀并发编程",
+                "text": "并发编程",
+                "icon": "iconfont icon-bingfashuliang",
                 "link": "/Java/并发编程/JUC"
             },
             {
-                "text": "🚀Linux",
+                "text": "Linux",
+                "icon": "iconfont icon-centos",
                 "link": "/Java/Linux/Linux常用命令"
             },
             {
-                "text": "🚀设计模式",
+                "text": "设计模式",
+                "icon": "iconfont icon-iconfontmoshi",
                 "link": "/Java/设计模式/设计模式",
-                "children": ["/Java/设计模式/行为型/16_strategy"]
             },
             {
-                "text": "🚀微服务专栏",
+                "text": "微服务专栏",
+                "icon": "iconfont icon-mseweifuwuyinqing",
                 "link": "/Java/微服务专栏/流控组件Sentinel/微服务保护"
             },
             {
-                "text": "🚀架构",
+                "text": "架构设计",
+                "icon": "iconfont icon-jiagou",
                 "link": "/Java/架构/分布式/分布式缓存/缓存"
             },
             {
-                "text": "🚀数据结构",
+                "text": "数据结构",
+                "icon": "iconfont icon-shujujiegou",
                 "link": "/Java/架构/分布式/分布式缓存/缓存"
             }
         ]
     },
     {
         "text": "数据库",
-        "icon": "microchip",
-        "link": "/Java/数据库/Mysql索引"
+        "icon": "iconfont icon-shujuku",
+        "link": "/数据库/Mysql索引"
     },
     {
         "text": "Redis专栏",
-        // "icon": "reco-message",
-        "icon": "fa-solid fa-microchip",
+        "icon": "iconfont icon-redis",
         "link": "/Redis/Redis解决限流问题"
     },
-    // {
-    //     "text": "常用框架",
-    //     "icon": "reco-message",
-    //     "items": [
-    //         {
-    //             "text": "🚀java开发技巧",
-    //             "icon": "iconfont icon-iconfontmoshi",
-    //             "href": "/logo2.png",
-    //             "link": "/Java/java开发技巧/语法糖"
-    //         }
-    //     ]
-    // },
+    {
+        "text": "常用框架",
+        "icon": "reco-message",
+        "items": [
+            {
+                "text": "Spring",
+                "icon": "iconfont icon-iconfontmoshi",
+                "link": "/常用框架/Spring/"
+            },
+            {
+                "text": "MybatisPlus",
+                "icon": "iconfont icon-iconfontmoshi",
+                "link": "/常用框架/MybatisPlus/"
+            }
+        ]
+    },
     {
         "text": "随笔文档",
         "icon": "reco-message",

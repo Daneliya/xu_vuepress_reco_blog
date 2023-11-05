@@ -1,5 +1,9 @@
 ---
 title: IDEA使用技巧
+tags:
+  - IDEA
+categories:
+  - IDEA
 ---
 
 

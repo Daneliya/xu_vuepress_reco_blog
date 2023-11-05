@@ -1,5 +1,9 @@
 ---
 title: IDEA插件
+tags:
+  - IDEA
+categories:
+  - IDEA
 ---
 
 

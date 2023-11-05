@@ -1,21 +1,15 @@
 const customNav = require("./config/customNav.js");
 const customSidebar = require("./config/customSidebar.js");
 const pluginsConf = require("./config/pluginsConf.js");
+const head = require("./config/head.js");
 const nav = require("./nav.js");
-const sidebarConfig = require("./vuepress-sidebar-atuo/sidebarConfig");
 
 module.exports = {
     "title": "xuxiaolong",
     "description": "描述",
     "dest": "public",
     "port": 8081,
-    "head": [
-        ["link", {"rel": "icon", "href": "/logo2.png"}],
-        ["meta", {"name": "viewport", "content": "width=device-width,initial-scale=1,user-scalable=no"}],
-        // 评论功能
-        ['script', {type: 'text/javascript', src: 'http://libs.baidu.com/jquery/2.1.4/jquery.min.js'}],
-        ['script', {type: 'text/javascript', src: '/js/visitor.js'}],
-    ],
+    "head": head,
     "theme": "reco",
     // "colorMode": 'dark', // dark, light
     // 自动设置分类
