@@ -148,3 +148,7 @@ management:
 [1]. [若依中关于SpringBootAdmin的使用](http://doc.ruoyi.vip/ruoyi-cloud/cloud/monitor.html#%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81)
 
 [2]. [Spring Boot Admin 介绍及使用_bootadmin-CSDN博客](https://blog.csdn.net/zouliping123456/article/details/121977792)
+
+[3]. [Spring Boot Admin 监控指标接入Grafana可视化的实例详解(IT技术) (qb5200.com)](https://www.qb5200.com/article/589139.html)
+
+[4]. [springboot基础(54):Spring Boot Admin的metrics端点指标控制_springboot admin metrics-CSDN博客](https://blog.csdn.net/u011628753/article/details/125922904)
