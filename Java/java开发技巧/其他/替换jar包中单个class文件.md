@@ -44,7 +44,13 @@ jar -uvf archive-manage-service.jar  BOOT-INF/classes/cn/com/chnsys/handler/impl
 
 
 
+## 补充
 
+替换 BOOT-INF/lib 下的jar包里的class
+
+https://www.cnblogs.com/Marlo/p/15674097.html
+
+https://wenku.baidu.com/view/10fabd6f7cd5360cba1aa8114431b90d6c858928.html
 
 
 ## 反编译软件
