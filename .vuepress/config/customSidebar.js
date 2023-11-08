@@ -143,10 +143,26 @@ module.exports = {
     ],
     '/Redis/': [
         {
-            title: 'Redis',   // 必要的
+            title: 'Redis',     // 必要的
             collapsable: false, // 可选的, 默认值是 true,
             sidebarDepth: 3,    // 可选的, 默认值是 1
             children: path.findMdFiles('/Redis/')
+        }
+    ],
+    '/常用框架/Mybatis': [
+        {
+            title: 'Mybatis',   // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/常用框架/Mybatis/')
+        }
+    ],
+    '/常用框架/Spring': [
+        {
+            title: 'Spring',    // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/常用框架/Spring/')
         }
     ]
 }
