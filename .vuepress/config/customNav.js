@@ -73,7 +73,7 @@ module.exports = [
             {
                 "text": "MybatisPlus",
                 "icon": "iconfont icon-iconfontmoshi",
-                "link": "/常用框架/MybatisPlus/1"
+                "link": "/常用框架/Mybatis/Mybatis-Plus-Join连表查询"
             }
         ]
     },
