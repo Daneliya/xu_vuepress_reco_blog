@@ -23,4 +23,5 @@ module.exports = [
     ['link', {rel: 'stylesheet', href: '/iconfont/font_iju5isejpxc/iconfont.css'}], // redis
     ['link', {rel: 'stylesheet', href: '/iconfont/font_3nnhx9n8ea/iconfont.css'}], // biji
     ['link', {rel: 'stylesheet', href: '/iconfont/font_6oyf4j0cvmu/iconfont.css'}], // zuzhijiagou
+    ['link', {rel: 'stylesheet', href: '/iconfont/font_tmecser0ml/iconfont.css'}], // rongqi
 ]
