@@ -138,3 +138,11 @@ vim /etc/firewalld/zones/public.xml
 port="9001-9050"
 ~~~
 
+## 查看Linux系统版本
+
+
+
+1. 使用`cat`命令查看`/etc/issue`文件。这种方法适用于所有Linux发行版，但在双核CPU中，`cpuinfo`中会看到两个CPU，可能会让人误以为是两个单核的CPU，实际上应该通过`Physical Processor ID`来区分单核和双核。
+2. 使用`uname`命令查看系统信息。例如，`uname -a`命令可以查看系统的内核名/版本、网络主机名、操作系统等信息。
+3. 查看配置文件`/etc/issue`或`/etc/*release`文件。这些文件中会写有操作系统和版本号等信息。例如，对于Redhat/Centos系统，可以查看`/etc/redhat_release`文件；对于Debian系统，可以查看`/etc/os-release`文件。
+4. 此外，还可以通过查看内存文件`/proc/version`来查看操作系统版本号、内核版本号、网络主机名等信息。

@@ -21,13 +21,13 @@ categories:
 
 
 
-### [仓库地址](https://mp.weixin.qq.com/s?__biz=MzUzMTA2NTU2Ng==&mid=2247487551&idx=1&sn=18f64ba49f3f0f9d8be9d1fdef8857d9&scene=21#wechat_redirect)
+### 仓库地址
 
 https://gitee.com/best_handsome/mybatis-plus-join
 
 ## 使用
 
-### [安装](https://mp.weixin.qq.com/s?__biz=MzUzMTA2NTU2Ng==&mid=2247487551&idx=1&sn=18f64ba49f3f0f9d8be9d1fdef8857d9&scene=21#wechat_redirect)
+### 安装
 
 - Maven
 
@@ -49,7 +49,7 @@ https://gitee.com/best_handsome/mybatis-plus-join
 
 注意：mybatis plus version >= 3.4.0。
 
-### [使用](https://mp.weixin.qq.com/s?__biz=MzUzMTA2NTU2Ng==&mid=2247487551&idx=1&sn=18f64ba49f3f0f9d8be9d1fdef8857d9&scene=21#wechat_redirect)
+### 使用
 
 - mapper继承MPJBaseMapper (必选)
 - service继承MPJBaseService (可选)
