@@ -52,7 +52,11 @@ categories:
 
 ![image-20231112195342965](Jenkins实战之自动化配置.assets/image-20231112195342965.png)
 
+配置Credentials
 
+用户名填写gitlab/gitee账号，这里随便填写的名字，勾选上名字保护（Treat username as secret）,在确定之后名会展示成加密。
+
+![image-20231112230459858](Jenkins实战之自动化配置.assets/image-20231112230459858.png)
 
 ### 设置pom文件地址
 
@@ -122,10 +126,33 @@ Transfers Set——Exec command：运行jar包的路径，如果不确定上传�
 
 启动jar包指定日志输出文件
 
-~~~
+~~~bash
 nohup java -jar /var/lib/jenkins/workspace/springbootTestFirst/jenkins/target/jenkins-*.jar >mylog.log 2>&1 &
 ~~~
 
 
 
 ## Jenkins配置SSH超时连接时间
+
+点击高级选项，如果超过了这个时间，jenkins会认为上传失败。
+
+![image-20231112224804918](Jenkins实战之自动化配置.assets/image-20231112224804918.png)
+
+
+
+
+
+
+
+
+
+
+
+参考资料
+
+[1]. https://blog.gitee.com/2020/12/15/gitee-jenkins/
+
+[2]. https://blog.csdn.net/qq_20957669/article/details/128662560
+
+[3]. https://segmentfault.com/a/1190000020374673
+
