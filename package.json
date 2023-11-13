@@ -4,8 +4,9 @@
   "author": "reco_luan",
   "scripts": {
     "dev": "vuepress dev . --open --host \"localhost\"",
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress build .",
-    "serve": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress dev . --open --host \"localhost\" --temp .temp",
+    "build": "vuepress build .",
+    "build_node": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress build .",
+    "serve_node": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress dev . --open --host \"localhost\" --temp .temp",
     "nav": "vuepress nav -f"
   },
   "devDependencies": {

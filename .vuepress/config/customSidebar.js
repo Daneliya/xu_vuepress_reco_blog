@@ -146,24 +146,24 @@ module.exports = {
             children: path.findMdFiles('/Java/数据结构/')
         }
     ],
-    '/微服务专栏/': [
+    '/Java/微服务专栏/': [
         {
             title: 'Nacos',     // 必要的
             collapsable: false, // 可选的, 默认值是 true,
             sidebarDepth: 3,    // 可选的, 默认值是 1
-            children: path.findMdFiles('/微服务专栏/Nacos/')
+            children: path.findMdFiles('/Java/微服务专栏/Nacos/')
         },
         {
             title: '服务网关Gateway',     // 必要的
             collapsable: false,         // 可选的, 默认值是 true,
             sidebarDepth: 3,            // 可选的, 默认值是 1
-            children: path.findMdFiles('/微服务专栏/服务网关Gateway/')
+            children: path.findMdFiles('/Java/微服务专栏/服务网关Gateway/')
         },
         {
             title: '流控组件Sentinel',     // 必要的
             collapsable: false,          // 可选的, 默认值是 true,
             sidebarDepth: 3,             // 可选的, 默认值是 1
-            children: path.findMdFiles('/微服务专栏/流控组件Sentinel/')
+            children: path.findMdFiles('/Java/微服务专栏/流控组件Sentinel/')
         },
         {
             title: '远程调用Feign',     // 必要的
