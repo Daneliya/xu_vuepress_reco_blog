@@ -76,9 +76,19 @@ module.exports = [
                 "link": "/常用框架/Mybatis/Mybatis-Plus-Join连表查询"
             },
             {
+                "text": "搜索引擎ElasticSearch",
+                "icon": "iconfont icon-iconfontmoshi",
+                "link": "/Java/架构设计/分布式/分布式搜索/分布式搜索引擎Elasticsearch01"
+            },
+            {
                 "text": "工作流引擎Activiti7",
                 "icon": "iconfont icon-iconfontmoshi",
                 "link": "/常用框架/Activiti7/Activiti整合Spring"
+            },
+            {
+                "text": "SpringBootAdmin",
+                "icon": "iconfont icon-iconfontmoshi",
+                "link": "/Java/架构设计/分布式/分布式监控/SpringBootAdmin"
             }
         ]
     },

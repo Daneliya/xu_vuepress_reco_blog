@@ -1,5 +1,5 @@
 ---
-title: Seata
+title: 分布式事务Seata
 sidebar: 'auto'
 tags:
  - 分布式事务
@@ -8,17 +8,6 @@ categories:
  - 分布式事务
  - Seata
 ---
-
-
-# 分布式事务
-
-
-
-
-
-# 0.学习目标
-
-
 
 
 
