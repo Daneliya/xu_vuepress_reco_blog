@@ -31,14 +31,6 @@ module.exports = {
             children: path.findMdFiles('/Java/JVM性能调优/')
         }
     ],
-    '/Java/Linux/': [
-        {
-            title: 'Linux',     // 必要的
-            collapsable: false, // 可选的, 默认值是 true,
-            sidebarDepth: 3,    // 可选的, 默认值是 1
-            children: path.findMdFiles('/Java/Linux/')
-        }
-    ],
     '/Java/中间件/': [
         {
             title: '中间件',     // 必要的
@@ -196,6 +188,14 @@ module.exports = {
             children: path.findMdFiles('/常用框架/Mybatis/')
         }
     ],
+    '/常用框架/Activiti7': [
+        {
+            title: '工作流引擎Activiti7',    // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/常用框架/Activiti7/')
+        }
+    ],
     '/常用框架/Spring': [
         {
             title: 'Spring',    // 必要的
@@ -203,5 +203,13 @@ module.exports = {
             sidebarDepth: 3,    // 可选的, 默认值是 1
             children: path.findMdFiles('/常用框架/Spring/')
         }
-    ]
+    ],
+    '/Linux/': [
+        {
+            title: 'Linux',     // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/Linux/')
+        }
+    ],
 }

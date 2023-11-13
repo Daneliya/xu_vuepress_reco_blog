@@ -25,11 +25,6 @@ module.exports = [
                 "link": "/Java/并发编程/JUC"
             },
             {
-                "text": "Linux",
-                "icon": "iconfont icon-centos",
-                "link": "/Java/Linux/Linux常用命令"
-            },
-            {
                 "text": "容器相关",
                 "icon": "iconfont icon-rongqi",
                 "link": "/Java/容器/Docker/Docker",
@@ -79,8 +74,18 @@ module.exports = [
                 "text": "MybatisPlus",
                 "icon": "iconfont icon-iconfontmoshi",
                 "link": "/常用框架/Mybatis/Mybatis-Plus-Join连表查询"
+            },
+            {
+                "text": "工作流引擎Activiti7",
+                "icon": "iconfont icon-iconfontmoshi",
+                "link": "/常用框架/Activiti7/Activiti整合Spring"
             }
         ]
+    },
+    {
+        "text": "Linux",
+        "icon": "iconfont icon-centos",
+        "link": "/Linux/Linux常用命令"
     },
     {
         "text": "随笔文档",
