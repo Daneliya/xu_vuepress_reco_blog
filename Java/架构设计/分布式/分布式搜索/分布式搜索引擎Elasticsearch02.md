@@ -12,15 +12,9 @@ categories:
 
 # 分布式搜索引擎02
 
-在昨天的学习中，我们已经导入了大量数据到elasticsearch中，实现了elasticsearch的数据存储功能。但elasticsearch最擅长的还是搜索和数据分析。
+在上一篇中，导入了大量数据到elasticsearch中，实现了elasticsearch的数据存储功能。但elasticsearch最擅长的还是搜索和数据分析。
 
-所以今天，我们研究下elasticsearch的数据搜索功能。我们会分别使用**DSL**和**RestClient**实现搜索。
-
-
-
-# 0.学习目标
-
-
+所以，继续研究elasticsearch的数据搜索功能。分别使用**DSL**和**RestClient**实现搜索。
 
 
 
@@ -34,7 +28,7 @@ Elasticsearch提供了基于JSON的DSL（[Domain Specific Language](https://www.
 
 - **查询所有**：查询出所有数据，一般测试用。例如：match_all
 
-- **全文检索（full text）查询**：利用分词器对用户输入内容分词，然后去倒排索引库中匹配。例如：
+- **全文检索（full text）查询** ：利用分词器对用户输入内容分词，然后去倒排索引库中匹配。例如：
   - match_query
   - multi_match_query
 - **精确查询**：根据精确词条值查找数据，一般是查找keyword、数值、日期、boolean等类型字段。例如：

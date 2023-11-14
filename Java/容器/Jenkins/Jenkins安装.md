@@ -1,5 +1,5 @@
 ---
-title: Jenkins安装
+title: Jenkins及其所必备环境安装
 tags:
  - Jenkins
 categories: 
