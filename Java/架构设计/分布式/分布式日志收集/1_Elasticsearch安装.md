@@ -1,10 +1,10 @@
 ---
 title: 安装ElasticSearch和Kibana
 tags:
- - 分布式搜索
+ - 分布式日志收集
  - Elasticsearch
 categories: 
- - 分布式搜索
+ - 分布式日志收集
  - Elasticsearch
 ---
 
@@ -172,6 +172,25 @@ GET _search
     "match_all": {}
   }
 }
+~~~
+
+### 设置中文
+
+~~~sh
+# 查看Kibana容器id
+docker ps 
+# 进入容器
+docker exec -it Kibana容器id bash
+# 进入config 目录下
+cd config/
+# 编辑 kibana.yml 文件
+vi kibana.yml 
+# 添加一行配置即可
+i18n.locale: "zh-CN"
+# 退出容器
+exit
+# 重启Kibana
+docker restart Kibana容器id/name
 ~~~
 
 
@@ -509,4 +528,49 @@ Run `docker-compose` to bring up the cluster:
 ~~~sh
 docker-compose up
 ~~~
+
+
+
+## 安装Logstach
+
+> 下载地址：https://www.elastic.co/cn/downloads/logstash
+
+下载镜像
+
+~~~sh
+docker pull docker.elastic.co/logstash/logstash:7.17.15
+~~~
+
+配置文件logstash.yml（可忽略）
+
+```yml
+http.host: "0.0.0.0"
+path.config: /usr/share/logstash/config/conf.d/*.conf
+path.logs: /usr/share/logstash/logs
+
+xpack.monitoring.enabled: true
+xpack.monitoring.elasticsearch.username: logstash_system
+xpack.monitoring.elasticsearch.password: {密码}
+xpack.monitoring.elasticsearch.hosts: [ "http://{ip1}:9200","http://{ip2}:9200" ]
+```
+
+创建文件夹，将logstash.yml放到conf文件夹下（可忽略）
+
+```sh
+mkdir /home/tools/logstash/conf/
+```
+
+部署容器
+
+```sh
+docker run -dit --name=logstash \
+  --restart=always --privileged=true\
+  -e ES_JAVA_OPTS="-Xms512m -Xmx512m" \
+  # -v /home/tools/logstash/conf/logstash.yml:/usr/share/logstash/config/logstash.yml \
+  # -v /home/tools/logstash/conf/conf.d/:/usr/share/logstash/config/conf.d/ \
+  -p 5044:5044 \
+  logstash:7.17.15
+```
+
+
 

@@ -50,6 +50,29 @@
 
 
 
+## 微服务
+
+学习视频
+
+| 名称                                                         | 地址                                        |      |
+| ------------------------------------------------------------ | ------------------------------------------- | ---- |
+| SpringCloud+RabbitMQ+Docker+Redis+搜索+分布式，系统详解springcloud微服务技术栈课程\|黑马程序员Java微服务 | https://www.bilibili.com/video/BV1LQ4y127n4 | 推荐 |
+| SpringCloud (微服务架构入门） ——尚硅谷 周阳                  | https://www.bilibili.com/video/BV1mf4y1R7Mr |      |
+
+
+
+## ElasticStack
+
+学习视频
+
+| 名称                                                         | 地址                                        |                        |
+| ------------------------------------------------------------ | ------------------------------------------- | ---------------------- |
+| SpringCloud+RabbitMQ+Docker+Redis+搜索+分布式，系统详解springcloud微服务技术栈课程\|黑马程序员Java微服务 | https://www.bilibili.com/video/BV1LQ4y127n4 | p77往后elasticsearch篇 |
+| java中级教程-ELK高级搜索，深度详解ElasticStack技术栈         | https://www.bilibili.com/video/BV1Nt4y1m7qL |                        |
+| 尚硅谷】ElasticSearch教程入门到精通（基于ELK技术栈elasticsearch 7.x+8.x新特性） | https://www.bilibili.com/video/BV1hh411D7sb |                        |
+
+
+
 
 
 ## 项目
@@ -74,4 +97,8 @@ https://gitee.com/zhengqingya/java-developer-document
 蜗牛哥：https://gitee.com/fuqiangma/demo
 
 https://www.yuque.com/zilvbenxiangziyou/fue6m0
+
+
+
+
 

@@ -1,10 +1,10 @@
 ---
-title: Logstash
+title: Logstash使用
 tags:
- - 分布式搜索
+ - 分布式日志收集
  - Logstash
 categories: 
- - 分布式搜索
+ - 分布式日志收集
  - Logstash
 ---
 

@@ -1,10 +1,10 @@
 ---
 title: ElasticStack概述
 tags:
- - 分布式搜索
+ - 分布式日志收集
  - Elasticsearch
 categories: 
- - 分布式搜索
+ - 分布式日志收集
  - Elasticsearch
 ---
 
@@ -29,7 +29,7 @@ categories:
 
 ## **Elasticsearch 概念**
 
-> Elasticsearch详细文档可参考后面Elasticsearch学习笔记
+> Elasticsearch详细文档可参考分布式搜索中Elasticsearch学习笔记
 
 你就把它当成 MySQL 一样的数据库去学习和理解。
 

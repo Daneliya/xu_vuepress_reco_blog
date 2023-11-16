@@ -89,6 +89,12 @@ module.exports = {
                     children: path.findMdFiles('/Java/架构设计/分布式/分布式事务/')
                 },
                 {
+                    title: '分布式日志收集',   // 必要的
+                    collapsable: false,     // 可选的, 默认值是 true,
+                    sidebarDepth: 3,        // 可选的, 默认值是 1
+                    children: path.findMdFiles('/Java/架构设计/分布式/分布式日志收集/')
+                },
+                {
                     title: '分布式搜索',   // 必要的
                     collapsable: false,  // 可选的, 默认值是 true,
                     sidebarDepth: 3,     // 可选的, 默认值是 1
