@@ -1,5 +1,5 @@
 ---
-title: Logstash使用
+title: ELK篇之Logstash使用
 tags:
  - 分布式日志收集
  - Logstash
@@ -163,3 +163,14 @@ output {
 }
 ~~~
 
+
+
+
+
+参考资料：
+
+https://developer.aliyun.com/article/826944
+
+https://www.cnblogs.com/hahaha111122222/p/14949786.html
+
+https://www.cnblogs.com/likecoke/p/13646653.html

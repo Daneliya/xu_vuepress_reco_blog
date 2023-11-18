@@ -1,5 +1,5 @@
 ---
-title: SpringBoot集成ELK
+title: ELK篇之SpringBoot集成ELK
 tags:
  - 分布式日志收集
  - Logstash

@@ -1,5 +1,5 @@
 ---
-title: 安装ElasticSearch和Kibana
+title: ELK篇之安装ElasticSearch和Kibana
 tags:
  - 分布式日志收集
  - Elasticsearch
@@ -191,6 +191,23 @@ i18n.locale: "zh-CN"
 exit
 # 重启Kibana
 docker restart Kibana容器id/name
+~~~
+
+问题1：执行`vi kibana.yml`报错 bash: vi: command not found
+
+~~~sh
+# 在容器内更新
+apt-get update
+# 然后安装vim
+apt-get install vim
+~~~
+
+问题2：使用`apt`命令报错 E: List directory /var/lib/apt/lists/partial is missing. - Acquire (13: Permission）
+
+~~~sh
+# 权限不够，使用root权限进入容器
+docker exec -u 0 -it Kibana容器id /bin/bash # 0 表示root
+# 然后就可以使用apt-get命令了
 ~~~
 
 
@@ -531,46 +548,91 @@ docker-compose up
 
 
 
-## 安装Logstach
+## 使用Docker安装Logstach
 
 > 下载地址：https://www.elastic.co/cn/downloads/logstash
 
-下载镜像
+1、下载镜像
 
 ~~~sh
 docker pull docker.elastic.co/logstash/logstash:7.17.15
 ~~~
 
-配置文件logstash.yml（可忽略）
+2、新建挂载文件
+
+~~~
+mkdir -p /home/tools/logstash/config
+mkdir -p /home/tools/logstash/conf.d
+mkdir -p /home/tools/logstash/logs
+~~~
+
+3、赋权
+
+```sh
+chmod -777 /home/tools/logstash
+```
+
+4、挂载配置文件
+
+4.1、新建配置文件`logstash.yml`，放入`/home/tools/logstash/config/`中，在容器启动后，使用的就是该文件配置。
+
+`logstash.yml`文件内容
 
 ```yml
-http.host: "0.0.0.0"
+http.host: "0.0.0.0"  # 不需要指定ip，填写"0.0.0.0"即可
 path.config: /usr/share/logstash/config/conf.d/*.conf
 path.logs: /usr/share/logstash/logs
 
 xpack.monitoring.enabled: true
-xpack.monitoring.elasticsearch.username: logstash_system
-xpack.monitoring.elasticsearch.password: {密码}
-xpack.monitoring.elasticsearch.hosts: [ "http://{ip1}:9200","http://{ip2}:9200" ]
+xpack.monitoring.elasticsearch.username: logstash_system  #es xpack账号密码
+xpack.monitoring.elasticsearch.password: {密码}            #es xpack账号密码
+xpack.monitoring.elasticsearch.hosts: ["http://{ip1}:9200", "http://{ip2}:9200"]  #es地址
 ```
 
-创建文件夹，将logstash.yml放到conf文件夹下（可忽略）
+4.2、挂载日志收集文件
 
-```sh
-mkdir /home/tools/logstash/conf/
-```
+新建自定义日志收集文件，将文件放入`/home/tools/logstash/conf.d/`，在收集日志时，使用的就是该配置。
 
-部署容器
+以如下配置为例，文件名log_to_es.conf
+
+~~~conf
+input {
+  tcp {
+    mode => "server"
+    port => 5044
+  }
+}
+filter {}
+output {
+  elasticsearch {
+    action => "index"
+    hosts  => ["192.168.64.128:9200"]
+    index  => "test-log"
+  }
+}
+~~~
+
+5、部署容器，启动
 
 ```sh
 docker run -dit --name=logstash \
   --restart=always --privileged=true\
   -e ES_JAVA_OPTS="-Xms512m -Xmx512m" \
-  # -v /home/tools/logstash/conf/logstash.yml:/usr/share/logstash/config/logstash.yml \
-  # -v /home/tools/logstash/conf/conf.d/:/usr/share/logstash/config/conf.d/ \
+  -v /home/tools/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml \
+  -v /home/tools/logstash/conf.d/:/usr/share/logstash/config/conf.d/ \
+  -v /home/tools/logstash/logs/:/usr/share/logstash/logs/ \
   -p 5044:5044 \
   logstash:7.17.15
 ```
 
+参数详解：
 
+- -p 5044:5044：映射的端口号，与上文conf.d下配置中的input一定要相同！多个地址往后拼接即可`-p 5045:5045-p 5046:5046`
+- --name=logstash：容器名称
+- --restart=always --privileged=true：启动配置
+- -e ES_JAVA_OPTS="-Xms512m -Xmx512m"：指定内存
+- -v /home/tools/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml：配置文件挂载
+- -v /home/tools/logstash/conf.d/:/usr/share/logstash/config/conf.d/：日志收集配置挂载位置
+- -v /home/tools/logstash/logs/:/usr/share/logstash/logs/：日志挂载位置
+- -d logstash:7.17.15：指定镜像
 
