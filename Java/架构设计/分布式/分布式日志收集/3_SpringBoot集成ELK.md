@@ -12,6 +12,8 @@ categories:
 
 ## 项目中集成Logstash
 
+### 增加依赖
+
 `pom.xml`增加`logback` 整合 `logstash` 的依赖
 
 ~~~xml
@@ -22,105 +24,111 @@ categories:
 </dependency>
 ~~~
 
+### 增加配置
+
  `application.yaml` 文件中添加`logstash`配置
 
 ~~~yml
 server:
   port: 8081
 
+spring:
+  application:
+    name: springboot_elk
+
 log:
   # logstash 地址和端口，注意修改
-  logstash-host: 192.168.64.128:5044
+  logstashhost: 192.168.64.128:5044
 ~~~
+
+### 增加日志组件
 
 `logback-spring.xm`l增加`logback`组件
 
+配置方式一
+
 ~~~xml
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration scan="true" scanPeriod="60 seconds" debug="false">
-    <!-- 日志存放路径 -->
-    <property name="log.path" value="logs/test-log"/>
-    <!-- 日志输出格式 -->
-    <property name="log.pattern" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n"/>
+<configuration debug="false">
+    <!--提取配置文件中的服务名-->
+    <springProperty scope="context" name="springApplicationName" source="spring.application.name"/>
     <!-- 读取SpringBoot配置文件获取logstash的地址和端口 -->
     <springProperty scope="context" name="logstash-host" source="log.logstash-host"/>
-
-    <!-- 控制台输出 -->
-    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>${log.pattern}</pattern>
+    <property name="LOG_HOME" value="logs/demo.log"/>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <!-- 系统日志输出 -->
-    <appender name="file_info" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/info.log</file>
-        <!-- 循环政策：基于时间创建日志文件 -->
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- 日志文件名格式 -->
-            <fileNamePattern>${log.path}/info.%d{yyyy-MM-dd}.log</fileNamePattern>
-            <!-- 日志最大的历史 7天 -->
-            <maxHistory>7</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>${log.pattern}</pattern>
-        </encoder>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <!-- 过滤的级别 -->
-            <level>INFO</level>
-            <!-- 匹配时的操作：接收（记录） -->
-            <onMatch>ACCEPT</onMatch>
-            <!-- 不匹配时的操作：拒绝（不记录） -->
-            <onMismatch>DENY</onMismatch>
-        </filter>
-    </appender>
-
-    <appender name="file_error" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/error.log</file>
-        <!-- 循环政策：基于时间创建日志文件 -->
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- 日志文件名格式 -->
-            <fileNamePattern>${log.path}/error.%d{yyyy-MM-dd}.log</fileNamePattern>
-            <!-- 日志最大的历史 60天 -->
-            <maxHistory>60</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>${log.pattern}</pattern>
-        </encoder>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <!-- 过滤的级别 -->
-            <level>ERROR</level>
-            <!-- 匹配时的操作：接收（记录） -->
-            <onMatch>ACCEPT</onMatch>
-            <!-- 不匹配时的操作：拒绝（不记录） -->
-            <onMismatch>DENY</onMismatch>
-        </filter>
-    </appender>
-
-    <!-- 将日志文件输出到Logstash -->
     <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-        <!-- 获取logstash地址作为输出的目的地 -->
         <destination>${logstash-host}</destination>
-        <encoder chatset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <!--定义appName的名字是服务名,多服务时,根据这个进行区分日志-->
+            <customFields>{"appName": "${springApplicationName}"}</customFields>
+        </encoder>
     </appender>
 
-    <!-- 系统模块日志级别控制  -->
-    <logger name="com.greateme" level="info"/>
-    <!-- Spring日志级别控制  -->
-    <logger name="org.springframework" level="warn"/>
-
-    <root level="info">
-        <appender-ref ref="console"/>
-    </root>
-
-    <!--系统操作日志-->
-    <root level="info">
-        <appender-ref ref="file_info"/>
-        <appender-ref ref="file_error"/>
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
         <appender-ref ref="logstash"/>
     </root>
 </configuration>
 ~~~
+
+配置方式二
+
+~~~xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+   <springProperty scope="context" name="springApplicationName" source="spring.application.name" />
+   <property name="LOG_HOME" value="logs/demo.log" />
+   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+       <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+           <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+       </encoder>
+   </appender>
+
+   <!--DEBUG日志输出到LogStash-->
+   <appender name="LOG_STASH_DEBUG" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+       <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+           <level>DEBUG</level>
+       </filter>
+       <destination>124.223.119.48:4560</destination>
+       <encoder charset="UTF-8" class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+           <providers>
+               <timestamp>
+                   <timeZone>Asia/Shanghai</timeZone>
+               </timestamp>
+               <!--自定义日志输出格式-->
+               <pattern>
+                   <pattern>
+                       {
+                       "project": "elk",
+                       "level": "%level",
+                       "service": "${springApplicationName:-}",
+                       "pid": "${PID:-}",
+                       "thread": "%thread",
+                       "class": "%logger",
+                       "message": "%message",
+                       "stack_trace": "%exception"
+                       }
+                   </pattern>
+               </pattern>
+           </providers>
+       </encoder>
+   </appender>
+
+   <root >
+       <appender-ref ref="STDOUT" />
+       <appender-ref ref="LOG_STASH_DEBUG" />
+   </root>
+</configuration>
+~~~
+
+
+
+### 业务增加日志
 
 业务代码增加日志输出进行测试
 
@@ -143,7 +151,27 @@ public class ElkController {
 }
 ~~~
 
+## Kibana看板配置
 
+日志收集文件配置参考上一篇es安装文章
+
+Kibana索引配置![image-20231118222611162](3_SpringBoot集成ELK.assets/image-20231118222611162.png)
+
+进入索引列表
+
+![image-20231118222640606](3_SpringBoot集成ELK.assets/image-20231118222640606.png)
+
+创建索引
+
+![image-20231118223003203](3_SpringBoot集成ELK.assets/image-20231118223003203.png)
+
+进入Discover中，切换索引就可以看到输出的日志
+
+![image-20231118223130547](3_SpringBoot集成ELK.assets/image-20231118223130547.png)
+
+日志添加筛选条件
+
+![image-20231118223235934](3_SpringBoot集成ELK.assets/image-20231118223235934.png)
 
 ## 参考资料
 
@@ -157,4 +185,4 @@ public class ElkController {
 
 [5]. [Elasticsearch：如何在 Elastic Agents 中配置 Beats 来采集定制日志_elastic_agen_Elastic](https://blog.csdn.net/UbuntuTouch/article/details/128213642)
 
-
+[6]. https://www.bilibili.com/video/BV1sP4y1U7eh

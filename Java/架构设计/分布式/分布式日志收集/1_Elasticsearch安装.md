@@ -600,6 +600,7 @@ input {
   tcp {
     mode => "server"
     port => 5044
+    codec => "json"
   }
 }
 filter {}
@@ -607,7 +608,7 @@ output {
   elasticsearch {
     action => "index"
     hosts  => ["192.168.64.128:9200"]
-    index  => "test-log"
+    index  => "springboot-%{+YYYY.MM.dd}"
   }
 }
 ~~~
