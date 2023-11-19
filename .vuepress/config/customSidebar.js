@@ -167,7 +167,7 @@ module.exports = {
             title: '远程调用Feign',     // 必要的
             collapsable: false,       // 可选的, 默认值是 true,
             sidebarDepth: 3,          // 可选的, 默认值是 1
-            children: path.findMdFiles('/微服务专栏/远程调用Feign/')
+            children: path.findMdFiles('/Java/微服务专栏/远程调用Feign/')
         }
     ],
     '/数据库/': [
