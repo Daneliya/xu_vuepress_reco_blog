@@ -95,7 +95,7 @@ module.exports = [
     {
         "text": "Linux",
         "icon": "iconfont icon-centos",
-        "link": "/Linux/Linux常用命令"
+        "link": "/Linux/0_Linux常用命令"
     },
     {
         "text": "随笔文档",
