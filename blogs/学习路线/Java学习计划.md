@@ -33,13 +33,13 @@
 
 可以先看下黑马的，然后再看尚硅谷的巩固记忆
 
-| **已阅**                                  | **来源**                                                     |
-| ----------------------------------------- | ------------------------------------------------------------ |
-| √（学习耗时3天）                          | [黑马程序员JVM完整教程，Java虚拟机快速入门，全程干货不拖沓](https://gitee.com/link?target=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1yE411Z7AP) |
-| √（这个内容更加详细丰富，学习耗时一星期） | [尚硅谷宋红康JVM全套教程（详解java虚拟机）](https://gitee.com/link?target=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1PJ411n7xZ) |
-|                                           | [【JVM极简教程】2小时快速学会JVM，史上用时最短，效率最高！](https://gitee.com/link?target=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1he4y1e7nW) |
-|                                           | [阿里大佬终于把 JVM 做成动画片了，通俗易懂，2023最新版，学完即可面试！拿走不谢，学不会我退出Java圈！](https://gitee.com/link?target=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1hX4y1m7QP) |
-|                                           | [【狂神说Java】JVM快速入门篇](https://gitee.com/link?target=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1iJ411d7jS) |
+| **已阅**                                  | **来源**                                                     | 文档                                                         |
+| ----------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| √（学习耗时3天）                          | [黑马程序员JVM完整教程，Java虚拟机快速入门，全程干货不拖沓](https://gitee.com/link?target=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1yE411Z7AP) |                                                              |
+| √（这个内容更加详细丰富，学习耗时一星期） | [尚硅谷宋红康JVM全套教程（详解java虚拟机）](https://gitee.com/link?target=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1PJ411n7xZ) |                                                              |
+|                                           | [【JVM极简教程】2小时快速学会JVM，史上用时最短，效率最高！](https://gitee.com/link?target=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1he4y1e7nW) |                                                              |
+|                                           | [阿里大佬终于把 JVM 做成动画片了，通俗易懂，2023最新版，学完即可面试！拿走不谢，学不会我退出Java圈！](https://gitee.com/link?target=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1hX4y1m7QP) |                                                              |
+|                                           | [【狂神说Java】JVM快速入门篇](https://gitee.com/link?target=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1iJ411d7jS) | [JVM快速入门篇-KuangStudy-文章](https://www.kuangstudy.com/bbs/1557549426359590914) |
 
 ### 文档资源
 
