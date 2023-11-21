@@ -25,10 +25,16 @@ module.exports = {
     ],
     '/Java/JVM性能调优/': [
         {
-            title: 'JVM性能调优',   // 必要的
+            title: 'JVM概念',      // 必要的
             collapsable: false,   // 可选的, 默认值是 true,
             sidebarDepth: 3,      // 可选的, 默认值是 1
-            children: path.findMdFiles('/Java/JVM性能调优/')
+            children: path.findMdFiles('/Java/JVM性能调优/JVM概念/')
+        },
+        {
+            title: 'JVM调优',      // 必要的
+            collapsable: false,   // 可选的, 默认值是 true,
+            sidebarDepth: 3,      // 可选的, 默认值是 1
+            children: path.findMdFiles('/Java/JVM性能调优/JVM调优/')
         }
     ],
     '/Java/中间件/': [

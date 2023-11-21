@@ -17,7 +17,7 @@ module.exports = [
             {
                 "text": "JVM性能调优",
                 "icon": "iconfont icon-duozhongzhifu",
-                "link": "/Java/JVM性能调优/JVM"
+                "link": "/Java/JVM性能调优/JVM概念/0_JVM体系结构"
             },
             {
                 "text": "并发编程",
