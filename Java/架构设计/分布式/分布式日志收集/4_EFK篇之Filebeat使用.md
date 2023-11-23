@@ -121,6 +121,8 @@ systemctl restart filebeat
 
 [1]. 公众号【奇妙的Linux世界】一文读懂开源日志管理方案 ELK 和 EFK 的区别
 
-[1]. https://zhuanlan.zhihu.com/p/141439013
+[2]. https://zhuanlan.zhihu.com/p/141439013
 
-[1]. https://blog.csdn.net/zyxwvuuvwxyz/article/details/108831962
+[3]. https://blog.csdn.net/zyxwvuuvwxyz/article/details/108831962
+
+[4]. https://www.bilibili.com/video/BV18u4y1e7rs

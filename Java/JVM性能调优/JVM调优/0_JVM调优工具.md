@@ -92,4 +92,6 @@ Sun JDK监控和故障处理命令：
 
 ## 推荐资料
 
-https://www.bilibili.com/video/BV1oE411t7pZ
+[1]. https://www.bilibili.com/video/BV1oE411t7pZ
+
+[2]. https://www.bilibili.com/video/BV1BT411A738
