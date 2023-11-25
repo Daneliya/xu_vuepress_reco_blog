@@ -54,7 +54,7 @@ module.exports = [
     {
         "text": "数据库",
         "icon": "iconfont icon-shujuku",
-        "link": "/数据库/Mysql索引"
+        "link": "/数据库/ACID"
     },
     {
         "text": "Redis专栏",

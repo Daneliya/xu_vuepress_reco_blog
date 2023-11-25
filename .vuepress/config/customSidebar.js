@@ -178,10 +178,22 @@ module.exports = {
     ],
     '/数据库/': [
         {
-            title: '数据库',     // 必要的
+            title: 'MySQL',     // 必要的
             collapsable: false, // 可选的, 默认值是 true,
             sidebarDepth: 3,    // 可选的, 默认值是 1
-            children: path.findMdFiles('/数据库/')
+            children: path.findMdFiles('/数据库/ACID/')
+        },
+        {
+            title: 'MySQL常见问题及解决方案',     // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/数据库/MySQL常见问题及解决方案/')
+        },
+        {
+            title: 'Neo4j图数据库',     // 必要的
+            collapsable: false,       // 可选的, 默认值是 true,
+            sidebarDepth: 3,          // 可选的, 默认值是 1
+            children: path.findMdFiles('/数据库/Neo4j/')
         }
     ],
     '/Redis/': [
