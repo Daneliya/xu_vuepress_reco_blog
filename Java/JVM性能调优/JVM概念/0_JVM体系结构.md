@@ -1,5 +1,6 @@
 ---
 title: JVM体系结构
+date: '2023-11-20'
 tags:
  - JVM
 categories: 

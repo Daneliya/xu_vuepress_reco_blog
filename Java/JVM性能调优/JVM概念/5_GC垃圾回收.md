@@ -1,5 +1,6 @@
 ---
 title: GC垃圾回收
+date: '2023-11-25'
 tags:
  - JVM
 categories: 

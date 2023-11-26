@@ -1,5 +1,6 @@
 ---
 title: JMM内存模型
+date: '2023-11-26'
 tags:
  - JVM
 categories: 

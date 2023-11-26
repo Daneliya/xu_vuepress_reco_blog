@@ -1,5 +1,6 @@
 ---
 title: Native、方法区和寄存器
+date: '2023-11-22'
 tags:
  - JVM
 categories: 
