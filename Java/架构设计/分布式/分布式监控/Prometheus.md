@@ -271,3 +271,5 @@ docker run -d --name grafana -p 3000:3000 -v /usr/local/grafana:/var/lib/grafana
 ## 参考资料
 
 [1]. [springboot+Prometheus+grafana 实现自定义监控（请求数、响应时间、JVM性能）](https://blog.csdn.net/GZ946/article/details/126619218)
+
+[2]. https://blog.51cto.com/u_16099246/7607251
