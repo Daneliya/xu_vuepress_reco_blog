@@ -178,10 +178,16 @@ module.exports = {
     ],
     '/数据库/': [
         {
+            title: 'MongoDB',     // 必要的
+            collapsable: false,   // 可选的, 默认值是 true,
+            sidebarDepth: 3,      // 可选的, 默认值是 1
+            children: path.findMdFiles('/数据库/MongoDB/')
+        },
+        {
             title: 'MySQL',     // 必要的
             collapsable: false, // 可选的, 默认值是 true,
             sidebarDepth: 3,    // 可选的, 默认值是 1
-            children: path.findMdFiles('/数据库/ACID/')
+            children: path.findMdFiles('/数据库/MySQL/')
         },
         {
             title: 'MySQL常见问题及解决方案',     // 必要的

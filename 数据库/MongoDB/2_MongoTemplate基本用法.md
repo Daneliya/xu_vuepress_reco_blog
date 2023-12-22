@@ -223,6 +223,10 @@ mongoTemplate.insert(list,"mongodb_user");
 mongoTemplate.insert(list,User.class);
 ~~~
 
+**insert**: 若新增数据的主键已经存在，则会抛 `org.springframework.dao.DuplicateKeyException` 异常提示主键重复，不保存当前数据。
+
+**save**: 若新增数据的主键已经存在，则会对当前已经存在的数据进行修改操作。 
+
 #### 更新数据
 
 ~~~java
