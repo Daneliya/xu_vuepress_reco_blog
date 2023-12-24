@@ -10,7 +10,7 @@ categories:
 
 SpringBoot集成MongoDB使用MongoTemplate
 
-### 引入pxm.xml依赖
+## 引入pxm.xml依赖
 
 ~~~xml
 <!--SpringBoot整合MongoDB-->
@@ -26,7 +26,7 @@ SpringBoot集成MongoDB使用MongoTemplate
 </dependency>
 ~~~
 
-### 配置文件
+## 配置文件
 
 properties文件
 
@@ -82,7 +82,7 @@ spring:
 
 
 
-### 实体准备
+## 实体准备
 
 要有mongodb的Document对应的实体类，标注@Document(collection="")注解。
 
@@ -104,10 +104,12 @@ public class SysUser {
     private String idNumber;
     
     private Date birthday;
+    
+    private Integer money;
 }
 ~~~
 
-### 初始化测试数据
+## 初始化测试数据
 
 使用javafaker初始化测试数据
 
@@ -123,15 +125,17 @@ public class SysUser {
 实体增加构造方法
 
 ~~~java
-public SysUser() {
+public SysUser(String userName) {
+    this.userName = userName;
 }
 
-public SysUser(String userName, String phoneNumber, String address, String idNumber, Date birthday) {
+public SysUser(String userName, String phoneNumber, String address, String idNumber, Date birthday, Integer money) {
     this.userName = userName;
     this.phoneNumber = phoneNumber;
     this.address = address;
     this.idNumber = idNumber;
     this.birthday = birthday;
+    this.money = money;
 }
 ~~~
 
@@ -152,7 +156,8 @@ public void init() {
         FAKER.phoneNumber().cellPhone(),
         FAKER.address().city() + FAKER.address().streetAddress(),
         FAKER.idNumber().validSvSeSsn(),
-        FAKER.date().birthday()))
+        FAKER.date().birthday(),
+        RandomUtil.randomInt(100, 1000000)))
         .limit(10000)
         .collect(Collectors.toList());
     mongoTemplate.insert(sysUserList, SysUser.class);
@@ -161,7 +166,7 @@ public void init() {
 
 
 
-### MongoTemplate的基本方法
+## MongoTemplate的基本方法
 
 使用@Autowired注入MongoTemplate。
 
@@ -170,7 +175,36 @@ public void init() {
 private MongoTemplate mongoTemplate;
 ~~~
 
-#### 检索数据
+### 插入数据
+
+~~~java
+List<SysUser> list = new ArrayList<>();
+SysUser user = new SysUser();
+user.setUserName("admin");
+user.setAddress("地址");
+list.add(user);
+
+// 保存对象到mongodb
+mongoTemplate.save(user);
+mongoTemplate.insert(user);
+
+// 根据集合名称保存对象到mongodb
+mongoTemplate.save(user, "sys_user");
+mongoTemplate.insert(user, "sys_user");
+
+// 根据集合名称保存list到mongodb
+mongoTemplate.save(list, "sys_user");
+mongoTemplate.insert(list, "sys_user");
+mongoTemplate.insert(list, SysUser.class);
+~~~
+
+**insert**: 若新增数据的主键已经存在，则会抛 `org.springframework.dao.DuplicateKeyException` 异常提示主键重复，不保存当前数据。
+
+**save**: 若新增数据的主键已经存在，则会对当前已经存在的数据进行修改操作。 
+
+
+
+### 检索数据
 
 ~~~java
 // 查询 userName=xxl，结果为集合列表
@@ -202,72 +236,108 @@ Query query = Query.query(criteria);
 long count = mongoTemplate.count(query, SysUser.class);
 ~~~
 
-#### 插入数据
+
+
+### 更新数据
 
 ~~~java
-List<User> list = new ArrayList<>();
-User user= new User();//
-user.setName("admin");
-user.setAddress("测试");
-list.add(user);
+Query query = Query.query(Criteria.where("_id").is("658712b96a3c742d4070f6ca"));
+Update update = Update.update("userName", "xxl");
 
-//  保存对象到mongodb
-mongoTemplate.save(user);
-mongoTemplate.insert(user);
-//  根据集合名称保存对象到mongodb
-mongoTemplate.save(user,"mongodb_user");
-mongoTemplate.insert(user,"mongodb_user");
-//  根据集合名称保存list到mongodb
-mongoTemplate.save(list,"mongodb_user");
-mongoTemplate.insert(list,"mongodb_user");
-mongoTemplate.insert(list,User.class);
+// 更新一条数据
+mongoTemplate.updateFirst(query, update, SysUser.class);
+mongoTemplate.updateFirst(query, update, "sys_user");
+mongoTemplate.updateFirst(query, update, SysUser.class, "sys_user");
+
+// 更新多条数据
+mongoTemplate.updateMulti(query, update, SysUser.class);
+mongoTemplate.updateMulti(query, update, "sys_user");
+mongoTemplate.updateMulti(query, update, SysUser.class, "sys_user");
+
+// 更新数据，如果数据不存在就新增
+mongoTemplate.upsert(query, update, SysUser.class);
+mongoTemplate.upsert(query, update, "sys_user");
+mongoTemplate.upsert(query, update, SysUser.class, "sys_user");
+
+// 更新条件不变，更新字段改成了一个我们集合中不存在的，用set方法如果更新的key不存在则创建一个新的key
+update = Update.update("userName", "xxl").set("nickName", "xxl");
+mongoTemplate.upsert(query, update, SysUser.class);
+
+// update的inc方法用于做累加操作，将money在之前的基础上加上100
+update = Update.update("userName", "xxl").inc("money", 100);
+mongoTemplate.updateMulti(query, update, SysUser.class);
+
+// update的rename方法用于修改key的名称
+update = Update.update("userName", "xxl").rename("nickName", "nickNameNew");
+mongoTemplate.updateMulti(query, update, SysUser.class);
+
+// update的unset方法用于删除key
+update = Update.update("userName", "xxl").unset("nickNameNew");
+mongoTemplate.updateMulti(query, update, SysUser.class);
+
+// update的pull方法用于删除tags数组中的java
+List<String> tags = new ArrayList<>();
+tags.add("java");
+tags.add("python");
+update = Update.update("userName", "xxl").set("tags", tags);
+mongoTemplate.upsert(query, update, SysUser.class);
+update = Update.update("userName", "xxl").pull("tags", "java");
+mongoTemplate.updateMulti(query, update, SysUser.class);
 ~~~
 
-**insert**: 若新增数据的主键已经存在，则会抛 `org.springframework.dao.DuplicateKeyException` 异常提示主键重复，不保存当前数据。
 
-**save**: 若新增数据的主键已经存在，则会对当前已经存在的数据进行修改操作。 
 
-#### 更新数据
+### 删除数据
 
 ~~~java
-User user = new User();
-user.setId("5d1312aeb1829c279c6c256b");
-user.setName("admin");
-user.setAddress("测试");
-
-Query query = Query.query(Criteria.where("_id").is("5d1312aeb1829c279c6c256b"));
-Update update = Update.update("name","zs");
-//  更新一条数据
-mongoTemplate.updateFirst(query,update, User.class);
-mongoTemplate.updateFirst(query,update, "mongodb_user");
-mongoTemplate.updateFirst(query,update, User.class,"mongodb_user");
-//  更新多条数据
-mongoTemplate.updateMulti(query,update, User.class);
-mongoTemplate.updateMulti(query,update,"mongodb_user");
-mongoTemplate.updateMulti(query,update, User.class,"mongodb_user");
-//  更新数据，如果数据不存在就新增
-mongoTemplate.upsert(query,update, User.class);
-mongoTemplate.upsert(query,update,"mongodb_user");
-mongoTemplate.upsert(query,update, User.class,"mongodb_user");
-~~~
-
-
-
-#### 删除数据
-
-~~~java
-List<MongoDbJavaTest> list = new ArrayList<>();
-User user= new User();
-user.setId("5d1312aeb1829c279c6c256b");
-list.add(user);
-
-Query query = Query.query(Criteria.where("_id").in("5d1312aeb1829c279c6c256b","5d13133ab1829c29d02ce29c"));
-//  根据条件删除
-mongoTemplate.remove(query);
+// 根据条件删除（可删除多条）
+Query query = Query.query(Criteria.where("id").in("65846bbd6a3c7445686c974a", "65846bbd6a3c7445686c974b"));
+mongoTemplate.remove(query, SysUser.class); // 指定对象
+mongoTemplate.remove(query, "sys_user"); // 直接指定MongoDB集合名称
+mongoTemplate.remove(query, SysUser.class, "sys_user");
+SysUser user = new SysUser();
+user.setId("65846bbd6a3c7445686c974a");
 mongoTemplate.remove(user);
-mongoTemplate.remove(User.class);
-//  根据条件删除（可删除多条）
-mongoTemplate.remove(query,User.class,"mongodb_user");
+
+// 删除集合，可传实体类，也可以传名称
+mongoTemplate.dropCollection(SysUser.class);
+mongoTemplate.dropCollection("sys_user");
+
+// 删除数据库；在开发中，开发所使用的数据库是在配置文件中配置的；使用这个方法即可直接删除配置对应的数据库
+mongoTemplate.getDb().drop();
+
+// 查询出符合条件的第一个结果，并将符合条件的数据删除,只会删除第一条
+query = Query.query(Criteria.where("userName").is("xxl"));
+SysUser article = mongoTemplate.findAndRemove(query, SysUser.class);
+// 查询出符合条件的所有结果，并将符合条件的所有数据删除
+query = Query.query(Criteria.where("userName").is("xxl"));
+List<SysUser> articles = mongoTemplate.findAllAndRemove(query, SysUser.class);
+~~~
+
+注意：
+
+mongoTemplate.remove();传入不同类型参数，对于 实体类中有无 `_id`属性的要求不一样。
+
+比如 mongoTemplate.remove(object, collection)方法，如果对应object实体类中没有`_id`属性就会
+
+报错：org.springframework.data.mapping.model.MappingException: No id property found for object
+
+ of type。但是 mongoTemplate.remove(query, entityClass, collectionName)就运行正常；
+
+mongoTemplate.findAllAndRemove();对应的实体类的就需要有`_id`属性；
+
+mongoTemplate.findAndRemove();对应的实体类的不是必须有`_id`属性。
+
+原因在MongoTemplate代码中有的方法调用其中的extractIdPropertyAndValue(Object object)，有的
+
+没有。因此，为了方便，建议在实体类添加_id属性。
+
+
+
+### 集合查询
+
+~~~
+
 ~~~
 
 

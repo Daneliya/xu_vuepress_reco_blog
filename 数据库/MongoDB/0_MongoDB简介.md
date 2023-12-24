@@ -1,5 +1,5 @@
 ---
-title: MongoDB简介
+title: MongoDB基本概念
 tags:
  - MongoDB
 categories: 
@@ -8,7 +8,7 @@ categories:
 
 
 
-## MongoDB简介
+## MongoDB基本概念
 
 ### 介绍
 
