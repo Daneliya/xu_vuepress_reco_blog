@@ -10,6 +10,24 @@ categories:
 
 SpringBoot集成MongoDB使用MongoTemplate
 
+> 官方文档：[Query and Projection Operators — MongoDB Manual](https://www.mongodb.com/docs/v4.4/reference/operator/query/)
+
+## MongoTemplate相关概念
+
+- MongoTemplate：官方提供的操作MongoDB的对象。位于：org.springframework.data.mongodb.core。 使用的时候，需要注入。
+- 基本查询
+  - Query：用于创建查询条件的对象。 位于：package org.springframework.data.mongodb.core.query。 使用时一般需要传入如"Criteria"构建的查询条件。
+  - Criteria: 构建具体查询条件的对象，和Query位于同个包下。
+- 管道操作
+  - AggregationOperation：聚合管道的操作对象，这是适用于Aggregate Pipeline Stages的操作，比如$group/$lookup/$unwind/$sort.......使用的时候，需要先构建对应的聚合操作，比如$group（需要构建具体操作）， 可以创建多个，最后一并传入到Aggregation对象中，再交给template去执行管道聚合。
+  - Aggregation：Pipeline stage的集合，也就是上面AggregationOperation的集合，把上面的所有聚合操作存在一起，template调用aggregate方法的时候，传入该对象。
+  - 以上类位于 package org.springframework.data.mongodb.core.aggregation。
+- 高级操作
+  - Aggregates: Pipeline stage操作对象。 和Aggregation有几乎一样的功能，但是会更加灵活，一般除了预先提供的操作符，还可以自己传入Bson操作对象去灵活实现。 整体的使用难度，比Aggregation可能高一些。
+  - Bson、BsonDocument、BsonField: Bson就是灵活的表达式，查询条件、聚合操作符之类的构建定义，都可以由它接收，并最后传给template的aggregate方法去执行聚合操作。BsonDocument则是Bson的具体实现，用于灵活构建表达式的对象。BsonField也是构建灵活的聚合表达式的一个类，比如快速地定义{"count": { $sum: 1 } ，作为聚合操作的一部分传入到具体的聚合阶段中。
+  - 以上类位于 package com.mongodb.client.model; Bson/BsonDocument则是另外的包org.bson中。感兴趣自行去源码中查找。
+    
+
 ## 引入pxm.xml依赖
 
 ~~~xml
@@ -318,42 +336,84 @@ List<SysUser> articles = mongoTemplate.findAllAndRemove(query, SysUser.class);
 
 mongoTemplate.remove();传入不同类型参数，对于 实体类中有无 `_id`属性的要求不一样。
 
-比如 mongoTemplate.remove(object, collection)方法，如果对应object实体类中没有`_id`属性就会
-
-报错：org.springframework.data.mapping.model.MappingException: No id property found for object
-
- of type。但是 mongoTemplate.remove(query, entityClass, collectionName)就运行正常；
+比如 mongoTemplate.remove(object, collection)方法，如果对应object实体类中没有`_id`属性就会报错：org.springframework.data.mapping.model.MappingException: No id property found for object of type。但是 mongoTemplate.remove(query, entityClass, collectionName)就运行正常；
 
 mongoTemplate.findAllAndRemove();对应的实体类的就需要有`_id`属性；
 
 mongoTemplate.findAndRemove();对应的实体类的不是必须有`_id`属性。
 
-原因在MongoTemplate代码中有的方法调用其中的extractIdPropertyAndValue(Object object)，有的
-
-没有。因此，为了方便，建议在实体类添加_id属性。
+原因在MongoTemplate代码中有的方法调用其中的extractIdPropertyAndValue(Object object)，有的没有。因此，为了方便，建议在实体类添加_id属性。
 
 
 
 ### 集合查询
 
+> [收集方法 — MongoDB 手册](https://www.mongodb.com/docs/manual/reference/method/js-collection/)
+
+~~~java
+Query query = Query.query(Criteria.where("userName").exists(true));
+// 查询指定字段的list集合，是去重后的结果
+// entityClass：实体类，实际上就是实体类.class；如：SysUser.class
+// mongoTemplate.getCollectionName(entityClass)：可获取到entityClass实体类所对应的集合名称
+// mongoTemplate.getCollection(mongoTemplate.getCollectionName(entityClass))：可通过集合名称获取到对应集合
+// mongoTemplate.getCollection(collectionName)：返回的是基本的Driver集合对象，即DBCollection类型
+// 因此使用 getCollection() 方法获取到的集合类型，不是我们在开发过程中所使用的集合类型
+// key：指定键值，实际上就是MongoDB数据库集合中文档的字段名
+// query：查询对象
+// query.getQueryObject()：获取对应查询对象的查询条件
+// .distinct(key, query.getQueryObject())：在单个集合或视图，查询满足条件的所有文档中，指定字段的不同值
+String collectionName = mongoTemplate.getCollectionName(SysUser.class);
+MongoCollection<Document> collection = mongoTemplate.getCollection(collectionName);
+DistinctIterable<String> userName = collection.distinct("userName", query.getQueryObject(), String.class);
+List<String> userNameList = StreamSupport.stream(userName.spliterator(), false).collect(Collectors.toList());
+System.out.println(userNameList);
+// 统计去重后的数量
+int size = this.mongoTemplate.getCollection(collectionName)
+    .distinct("userName", query.getQueryObject(), String.class)
+    .into(new ArrayList<>())
+    .size();
+System.out.println(size);
 ~~~
 
+补充
+
+~~~json
+{ "_id": 1, "dept": "A", "item": { "sku": "111", "color": "red" }, "sizes": [ "S", "M" ] }
+{ "_id": 2, "dept": "A", "item": { "sku": "111", "color": "blue" }, "sizes": [ "M", "L" ] }
+{ "_id": 3, "dept": "B", "item": { "sku": "222", "color": "blue" }, "sizes": [ "S" ] }
+{ "_id": 4, "dept": "A", "item": { "sku": "333", "color": "black" }, "sizes": [ "S" ] }
+~~~
+
+- mongoTemplate.getCollection("inventory").distinct("dept") ：从inventory集合中的所有文档返回dept字段的不同值；结果为：[ "A", "B" ]
+- mongoTemplate.getCollection("inventory").distinct("item.sku") ：从inventory集合中的所有文档返回sku嵌入字段的不同值；结果为：[ "111", "222", "333" ]
+- mongoTemplate.getCollection("inventory").distinct("sizes") ：从inventory集合中的所有文档返回数组字段的不同值；结果为：[ "M", "S", "L" ]
+- mongoTemplate.getCollection("inventory").distinct("item.sku", { dept: "A" }) ：从inventory集合中 dept字段等于A 的文档中返回sku嵌入字段的不同值；结果为：[ "111", "333" ]
+
+~~~java
+Query query2 = Query.query(Criteria.where("_id").is("658712b96a3c742d4070f6ca"));
+SysUser sysUser = new SysUser("xxl2", "110", "洛杉矶", "911", new Date(), 9999);
+Update update = Update.update("userName", "xxl").set("child", sysUser);
+mongoTemplate.upsert(query2, update, SysUser.class);
+
+DistinctIterable<String> address = collection.distinct("child.address", query.getQueryObject(), String.class);
+List<String> addressList = StreamSupport.stream(address.spliterator(), false).collect(Collectors.toList());
+System.out.println(addressList);
 ~~~
 
 
 
-### 复杂查询
-
-分页
-
-分组
 
 
 
 
-
-参考资料
+## 参考资料
 
 https://blog.csdn.net/Ciel_Y/article/details/121626495
 
 https://blog.csdn.net/Java_Rookie_Xiao/article/details/125602833
+
+https://blog.csdn.net/harlan95/article/details/129521760
+
+https://blog.csdn.net/qq_36826506/article/details/82082988
+
+mongoTemplate去重排序查询：https://www.cnblogs.com/guangxiang/p/12366017.html
