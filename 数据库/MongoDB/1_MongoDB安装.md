@@ -1,5 +1,6 @@
 ---
 title: MongoDB安装
+date: '2023-12-21'
 tags:
  - MongoDB
 categories: 

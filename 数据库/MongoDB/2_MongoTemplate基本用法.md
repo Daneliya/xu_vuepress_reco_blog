@@ -1,5 +1,6 @@
 ---
 title: MongoTemplate基本用法
+date: '2023-12-22'
 tags:
   - MongoDB
 categories:
