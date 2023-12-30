@@ -48,6 +48,10 @@ categories:
 
 - 动态查看日志：**docker ps logs -f id/name**
 
+- 查看容器创建的网络：**docker network ls**
+
+- 删除网络：**docker network rm container_name_net**
+
 
 
 容器启动之attached和detached模式
