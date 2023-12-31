@@ -275,7 +275,11 @@ systemctl restart docker
 
 参考资料
 
-https://www.bilibili.com/video/BV11L411g7U1、[👨‍👦‍👦 多容器通信 - Docker 快速入门 - 易文档 (easydoc.net)](https://docker.easydoc.net/doc/81170005/cCewZWoN/U7u8rjzF)
+https://www.bilibili.com/video/BV11L411g7U1
+
+[👨‍👦‍👦 多容器通信 - Docker 快速入门 - 易文档 (easydoc.net)](https://docker.easydoc.net/doc/81170005/cCewZWoN/U7u8rjzF)
 
 https://blog.csdn.net/pushiqiang/article/details/78682323
+
+[Ubuntu Docker 安装 | 菜鸟教程 (runoob.com)](https://www.runoob.com/docker/ubuntu-docker-install.html)
 

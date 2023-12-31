@@ -1,12 +1,11 @@
 ---
 title: Docker安装Graylog
-autoGroup-2: Docker热门镜像
+date: '2023-12-31'
+autoGroup-2: Docker镜像安装
 autoSort: 10
 tags:
- - Linux
  - Docker
 categories: 
- - Linux
  - Docker
 ---
 
