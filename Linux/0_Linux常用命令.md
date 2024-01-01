@@ -113,7 +113,7 @@ https://www.python100.com/html/691DUEI971RX.html
 
 #### firewall-cmd命令
 
-~~~
+~~~sh
 firewall-cmd --list-all
 
 # 查看开启的端口
