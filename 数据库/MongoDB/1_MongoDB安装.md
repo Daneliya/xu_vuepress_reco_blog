@@ -106,3 +106,47 @@ net stop mongodb	#关闭服务
 mongod #是处理MongoDB系统的主要进程。它处理数据请求，管理数据存储，和执行后台管理操作。当我们运行mongod命令意味着正在启动MongoDB进程,并且在后台运行。
 ~~~
 
+
+
+### 6. 日志输出配置
+
+1. IDEA插件：MongoQuery
+
+2. 项目配置文件：
+
+   yml配置
+
+   ~~~yaml
+   #mongodb打印日志
+   logging:
+     level:
+       org.springframework.data.mongodb.core.MongoTemplate: DEBUG
+   ~~~
+
+   properties配置
+
+   ~~~properties
+   #mongodb打印日志
+   logging.level.org.springframework.data.mongodb.core.MongoTemplate=DEBUG
+   ~~~
+
+   日志示例
+
+   ~~~sh
+   DEBUG 11284 --- [           main] o.s.data.mongodb.core.MongoTemplate      : find using query: { "status" : 1, "$and" : [{ "$or" : [{ "userId" : "abcd" }, { "price" : { "$gte" : 2 } }] }] } fields: Document{{}} for class: class com.example.ademo.model.MongoDbTest in collection: mongoDbTest
+   ~~~
+
+   
+
+
+
+
+
+参考资料
+
+[1]. mongodb template打印sql：https://blog.csdn.net/weixin_35754676/article/details/129072221
+
+[2]. MongoDB 性能监控：https://www.mryunwei.com/371009.html
+
+[3]. MongoDB调优-查询优化-MongoDB Profiler：https://www.cnblogs.com/operationhome/p/10728654.html
+

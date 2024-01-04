@@ -116,8 +116,98 @@ long total = mongoTemplate.count(query, SysUser.class);
 | regex()       | $regex  | 正则表达式用于模式匹配，基本上是用于文档中的发现字符串 |
 | set()         | $set    | 给字段赋值，字段不存在，增加字段并赋值                 |
 
+## Aggregation函数
+
+> Aggregation官方SQL语法：[Aggregation Pipeline Stages — MongoDB Manual](https://www.mongodb.com/docs/v4.4/reference/operator/aggregation-pipeline/)
+
+### 常用函数
+
+1. Aggregation.group() : 聚合函数，将某个字段或者某个数组作为分组统计的依据,在group的基础上又扩展出以下函数：
+   - sum() : 求和
+   - max() : 获取最大值
+   - min() : 获取最小值
+   - avg() : 获取平均值
+   - count() : 统计条目数
+   - first () : 获取group by 后的某个字段的首个值
+   - last() : 获取 group by 后的某个字段的最后一个值
+   - push() : 在结果文档中插入值到一个数组中
+   - addToSet() : 在结果文档中插入值到一个数组中，但不创建副本(作为集合)。
+2. Aggregation.match() : 过滤函数，主要存储过滤数据的条件，输出符合条件的记录，相当于where条件。
+   - is()：==相等
+3. Aggregation.project(): 修改数据结构函数,将前面管道中的获取的字段进行重名,增加，修改字段等操作。
+4. Aggregation.unwind()：将文档中的某一个数组类型字段拆分成多条，每条包含数组中的一个值。当preserveNullAndEmptyArrays为true时，将包括字段为null，空，或者缺失的数据;
+5. Aggregation.sort(): 排序函数，将上级管道的内容按照某个字段进行排序并且输出。值为1升、-1降。sort一般放在group后,也就是说得到结果后再排序，如果先排序再分组没什么意义;
+6. Aggregation.limit(): 限制输出函数，将聚合返回的内容限定在某个条目之内。通常作为页面大小
+7. Aggregation.skip(): 跳过指定数量的条目再开始返回数据的函数，**通常和sort()，limit()配合，实现数据翻页查询等操作**。
+8. Aggregation.lookup(): 连表查询，将被关联集合添加到执行操作的集合中。
+
+### 示例代码
+
+~~~java
+int page = 1;
+int size = 10;
+Date startTime = DateUtil.parse("1900-01-01 00:00:00");
+Date endTime = new Date();
+String userName = "xxl";
+
+Aggregation aggregation = Aggregation.newAggregation(
+    Aggregation.match(Criteria.where("birthday").gte(startTime).lte(endTime)),
+    Aggregation.match(Criteria.where("userName").is(userName)),
+    Aggregation.group("idNumber").count().as("sum")
+    .first("userName").as("userName")
+    .first("phoneNumber").as("phoneNumber")
+    .first("birthday").as("birthday"),
+    Aggregation.sort(Sort.by("sum").descending()),
+    Aggregation.skip(page > 1 ? (page - 1) * size : 0),
+    Aggregation.limit(size)
+);
+
+List<SysUser> results = mongoTemplate.aggregate(aggregation, "sys_user", SysUser.class).getMappedResults();
+System.out.println(results);
+~~~
+
+### 示例SQL
+
+~~~sql
+db.getCollection("sys_user").aggregate([
+    {
+        $match: {
+            birthday: {
+                $gte: ISODate('1900-01-01 00:00:00.014'),
+                $lte: ISODate('2023-10-23 15:30:00.014')
+            },
+            userName: 'xxl'
+        }
+    },
+    {
+        $group: {
+            _id: "$idNumber",
+            sum: { $sum: 1 },
+            userName: { $first: "$userName" },
+            phoneNumber: { $first: "$phoneNumber" },
+            birthday: { $first: "$birthday" }
+        }
+    },
+    {
+        $sort: { sum: -1 }
+    },
+		{
+        $skip: 0
+    },
+    {
+        $limit: 10
+    }
+])
+~~~
+
+
+
 
 
 ## 参考资料
 
 https://blog.csdn.net/Java_Rookie_Xiao/article/details/125602833
+
+[org.springframework.data.mongodb.core.aggregation.Aggregation Java Exaples (programcreek.com)](https://www.programcreek.com/java-api-examples/index.php?api=org.springframework.data.mongodb.core.aggregation.Aggregation)
+
+[mongodb聚合在Java中的使用（包含mongo多表关联查询） - B1nbin - 博客园 (cnblogs.com)](https://www.cnblogs.com/wangzhebin/p/16494929.html)
