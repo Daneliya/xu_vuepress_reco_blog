@@ -141,32 +141,9 @@ long total = mongoTemplate.count(query, SysUser.class);
 7. Aggregation.skip(): 跳过指定数量的条目再开始返回数据的函数，**通常和sort()，limit()配合，实现数据翻页查询等操作**。
 8. Aggregation.lookup(): 连表查询，将被关联集合添加到执行操作的集合中。
 
-### 示例代码
+### group、match
 
-~~~java
-int page = 1;
-int size = 10;
-Date startTime = DateUtil.parse("1900-01-01 00:00:00");
-Date endTime = new Date();
-String userName = "xxl";
-
-Aggregation aggregation = Aggregation.newAggregation(
-    Aggregation.match(Criteria.where("birthday").gte(startTime).lte(endTime)),
-    Aggregation.match(Criteria.where("userName").is(userName)),
-    Aggregation.group("idNumber").count().as("sum")
-    .first("userName").as("userName")
-    .first("phoneNumber").as("phoneNumber")
-    .first("birthday").as("birthday"),
-    Aggregation.sort(Sort.by("sum").descending()),
-    Aggregation.skip(page > 1 ? (page - 1) * size : 0),
-    Aggregation.limit(size)
-);
-
-List<SysUser> results = mongoTemplate.aggregate(aggregation, "sys_user", SysUser.class).getMappedResults();
-System.out.println(results);
-~~~
-
-### 示例SQL
+#### mongo语句
 
 ~~~sql
 db.getCollection("sys_user").aggregate([
@@ -200,6 +177,192 @@ db.getCollection("sys_user").aggregate([
 ])
 ~~~
 
+#### java代码
+
+~~~java
+int page = 1;
+int size = 10;
+Date startTime = DateUtil.parse("1900-01-01 00:00:00");
+Date endTime = new Date();
+String userName = "xxl";
+
+Aggregation aggregation = Aggregation.newAggregation(
+    Aggregation.match(Criteria.where("birthday").gte(startTime).lte(endTime)),
+    Aggregation.match(Criteria.where("userName").is(userName)),
+    Aggregation.group("idNumber").count().as("sum")
+    .first("userName").as("userName")
+    .first("phoneNumber").as("phoneNumber")
+    .first("birthday").as("birthday"),
+    Aggregation.sort(Sort.by("sum").descending()),
+    Aggregation.skip(page > 1 ? (page - 1) * size : 0),
+    Aggregation.limit(size)
+);
+
+List<SysUser> results = mongoTemplate.aggregate(aggregation, "sys_user", SysUser.class).getMappedResults();
+System.out.println(results);
+~~~
+
+
+
+### project筛选字段
+
+#### mongo语句
+
+~~~sql
+db.getCollection("sys_user").aggregate([
+    {
+        $group: {
+            _id: "$idNumber",
+            sum: {
+                $sum: "$money"
+            },
+            userName: {
+                $first: "$userName"
+            },
+            phoneNumber: {
+                $first: "$phoneNumber"
+            },
+            birthday: {
+                $last: "$birthday"
+            }
+        }
+    },
+    {
+        "$project": {
+            "_id": 1,
+            "sum": 1,
+            "userName": 1,
+            "phoneNumber": 1,
+            "birth": "$birthday"
+        }
+    }
+])
+~~~
+
+
+
+#### java代码
+
+~~~java
+Aggregation aggregation = Aggregation.newAggregation(
+    Aggregation.group(new String[]{"_id"})
+    .sum("money").as("sum")
+    .first("userName").as("userName")
+    .first("phoneNumber").as("phoneNumber")
+    .last("birthday").as("birthday"),
+    Aggregation.project("_id", "sum", "userName", "phoneNumber")
+    .and("birthday").as("birth") // 重新命名字段
+);
+List<SysUser> results = mongoTemplate.aggregate(aggregation, "sys_user", SysUser.class).getMappedResults();
+System.out.println(results);
+~~~
+
+
+
+### unwind拆分数组
+
+#### mongo语句
+
+~~~sql
+db.getCollection('sys_user').aggregate([
+    {
+        $match: {
+            userName: "xxl"
+        }
+    },
+    {
+        $unwind: {
+            path: "$tags",
+            includeArrayIndex: "arrayIndex"
+        }
+    }
+])
+
+# 原始数据
+{
+    "_id": ObjectId("658712b96a3c742d4070f6ca"),
+    "userName": "xxl",
+    "phoneNumber": "15285602889",
+    "address": "北州市戴栋25802号",
+    "idNumber": "790324-1128",
+    "birthday": ISODate("1961-12-16T06:03:38.014Z"),
+    "money": NumberInt("204"),
+    "_class": "com.xxl.mongodb.result.SysUser",
+    "tags": [
+        "python",
+        "c",
+        "c#",
+        "java"
+    ],
+    "child": {
+        "userName": "xxl2",
+        "phoneNumber": "110",
+        "address": "洛杉矶",
+        "idNumber": "911",
+        "birthday": ISODate("2023-12-24T16:31:40.753Z"),
+        "money": NumberInt("9999"),
+        "_class": "com.xxl.mongodb.result.SysUser"
+    }
+}
+
+# 查询出的数据
+_id	userName	phoneNumber	address	idNumber	birthday	money	_class	tags	child	arrayIndex
+658712b96a3c742d4070f6ca	xxl	15285602889	北州市戴栋25802号	790324-1128	1961-12-16 06:03:38.014	204	com.xxl.mongodb.result.SysUser	python	(Document) 7 Fields	0
+658712b96a3c742d4070f6ca	xxl	15285602889	北州市戴栋25802号	790324-1128	1961-12-16 06:03:38.014	204	com.xxl.mongodb.result.SysUser	c	(Document) 7 Fields	1
+658712b96a3c742d4070f6ca	xxl	15285602889	北州市戴栋25802号	790324-1128	1961-12-16 06:03:38.014	204	com.xxl.mongodb.result.SysUser	c#	(Document) 7 Fields	2
+658712b96a3c742d4070f6ca	xxl	15285602889	北州市戴栋25802号	790324-1128	1961-12-16 06:03:38.014	204	com.xxl.mongodb.result.SysUser	java	(Document) 7 Fields	3
+~~~
+
+#### java代码
+
+~~~java
+Aggregation aggregation = Aggregation.newAggregation(
+    Aggregation.match(new Criteria().and("userName").is("xxl")),
+    Aggregation.unwind("tags", true)
+);
+List<SysUser> results = mongoTemplate.aggregate(aggregation, "sys_user", SysUser.class).getMappedResults();
+System.out.println(results);
+~~~
+
+
+
+
+
+### lookup多表关联查询
+
+~~~sql
+// 创建新集合，增加关联数据
+db.sys_user_label.insert({"user_name" : "xxl", "label_name" : "唱"})
+db.sys_user_label.insert({"user_name" : "xxl", "label_name" : "跳"})
+db.sys_user_label.insert({"user_name" : "xxl", "label_name" : "Rap"})
+~~~
+
+#### mongo语句
+
+~~~sql
+db.getCollection('sys_user').aggregate([
+    {
+        $lookup: {
+            from: "sys_user_label",    // 被关联表名
+            localField: "userName",    // 主表（mro_accounts）中用于关联的字段
+            foreignField: "user_name", // 被关联表（mro_profiles）中用于关联的字段
+            as: "label" 			   // 被关联的表的别名
+        }
+    }
+])
+~~~
+
+#### java代码
+
+~~~java
+Aggregation aggregation = Aggregation.newAggregation(
+    //分别对应from, localField, foreignField, as
+    Aggregation.lookup("sys_user_label", "userName", "user_name", "label")
+);
+List<SysUser> results = mongoTemplate.aggregate(aggregation, "sys_user", SysUser.class).getMappedResults();
+System.out.println(results);
+~~~
+
 
 
 
@@ -211,3 +374,4 @@ https://blog.csdn.net/Java_Rookie_Xiao/article/details/125602833
 [org.springframework.data.mongodb.core.aggregation.Aggregation Java Exaples (programcreek.com)](https://www.programcreek.com/java-api-examples/index.php?api=org.springframework.data.mongodb.core.aggregation.Aggregation)
 
 [mongodb聚合在Java中的使用（包含mongo多表关联查询） - B1nbin - 博客园 (cnblogs.com)](https://www.cnblogs.com/wangzhebin/p/16494929.html)
+
