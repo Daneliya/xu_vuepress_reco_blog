@@ -15,7 +15,7 @@ categories:
 
 ```
 # 安装git命令： yum install -y git
-git clone https://gitee.com/zhengqingya/docker-compose.git
+git clone https://gitee.com/xu_xiaolong/docker-compose.git
 cd docker-compose/Linux
 ```
 
