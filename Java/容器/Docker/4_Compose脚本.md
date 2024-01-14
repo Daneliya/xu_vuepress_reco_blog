@@ -16,9 +16,9 @@ categories:
 ```
 # 安装git命令： yum install -y git
 git clone https://gitee.com/xu_xiaolong/docker-compose.git
-cd docker-compose/Linux
+cd docker-compose/compose
 ```
 
 ###  二、运行服务
 
-> 环境部署见每个服务下的`run.md`； eg: `Linux/portainer/run.md`
+> 环境部署见每个服务下的`run.md`； eg: `docker-compose/compose/portainer/run.md`
