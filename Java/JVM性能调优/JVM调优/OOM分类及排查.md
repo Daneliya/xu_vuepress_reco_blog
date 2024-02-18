@@ -110,3 +110,7 @@ Caused by: sun.jvm.hotspot.debugger.DebuggerException: cannot open binary file
 Java性能分析神器-JProfiler详解：https://blog.csdn.net/u013613428/article/details/53926825
 
 如果在线上遇到了OOM，该如何解决？https://blog.csdn.net/Park33/article/details/126379445
+
+内存溢出的原因及解决方式：https://blog.51cto.com/u_16213603/7622457
+
+Java多线程异常及解决方案，如何合理控制线程数：https://refblogs.com/article/577

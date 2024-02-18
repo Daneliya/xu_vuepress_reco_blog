@@ -90,6 +90,17 @@ HTTP Client请求测试工具的使用 https://blog.csdn.net/huantai3334/article
 
 https://blog.csdn.net/weixin_44000238/article/details/109501241
 
+
+
+
+
+## 快捷键
+
+- 小写/大写转换Mac：Command + Shift + U
+- 小写/大写转换Windows：Ctrl + Shift + U
+
+
+
 ## javadoc生成
 
 1. Tools >> Generate JavaDoc

@@ -6,6 +6,7 @@ tags:
  - Linux
 categories: 
  - Linux
+
 ---
 
 
@@ -94,13 +95,43 @@ find  实际搜寻硬盘查询文件名称。
 
 
 
+### 查看内存使用情况
+
+- ps -ef|grep java (查看所有java运行的进程)
+- df -h (查看磁盘使用情况)
+- free -m|g （m和g表示单位，二选一）查看内存使用情况
+- top (实时显示系统中各个进程的资源占用状况)
+- top -d 1 -p pid (pid 进程id) 查看单个进程占用资源状况
+
+
+
 ### 查看端口被哪个进程被占用的六个方法
 
 - lsof命令：lsof(list open files)命令可以列出当前系统中打开的所有文件，包括网络端口。可以使用lsof命令查看某个端口被哪个进程占用。具体的命令为：**sudo lsof -i :端口号**，其中端口号为需要查询的端口号。
+
+  例如查询mysql的路径：
+
+  ```sh
+  # 查看所有端口
+  netstat -nlp
+  # 查看进程
+  top
+  # 根据端口查看进程
+  lsof -i tcp:3306
+  # 拿到pid后，由于linux在启动一个进程时，会在/proc下创建一个以PID命名的文件夹，该进程的信息存在该文件夹下。在该文件夹下有一个名为exe的文件，该文件指向了具体的命令文件，所以可以通过ls -l或者ll命令根据ps或top查到的PID查找命令的绝对路径
+  cd /proc/15330
+  ll
+  # 打印的exe就是mysql的绝对路径 exe -> /usr/libexec/mysqld
+  ```
+
 - netstat命令：使用netstat命令：netstat命令可以显示网络连接、路由表和网络接口信息等。可以使用netstat命令查看某个端口被哪个进程占用。具体的命令为：**sudo netstat -tlnp | grep 端口号**，其中端口号为需要查询的端口号。
+
 - ss命令：ss命令可以列出当前系统中打开的套接字(socket)信息，包括网络端口。可以使用ss命令查看某个端口被哪个进程占用。具体的命令为：**sudo ss -tlnp | grep 端口号**，其中端口号为需要查询的端口号。
+
 - fuser命令：fuser命令可以查看某个文件或目录被哪个进程占用。对于网络端口，也可以使用fuser命令进行查询，具体的命令为：**sudo fuser 端口号/tcp**，其中端口号为需要查询的端口号。
+
 - ps命令：ps命令可以列出当前系统中正在运行的进程信息。可以使用ps命令结合grep命令来查找某个进程，然后再查看该进程打开的网络端口。具体的命令为：**sudo ps -ef | grep 进程名**，其中进程名为需要查询的进程名。**ps -aux | grep 8090**，-aux 显示所有状态。
+
 - proc文件系统：使用/proc文件系统：在Linux系统中，每个进程都有一个对应的目录，存储了该进程的相关信息。可以使用/proc文件系统来查看某个端口被哪个进程占用。具体的命令为：**sudo ls -l /proc/$(sudo lsof -t -i:端口号) | grep exe**，其中端口号为需要查询的端口号。
 
 
@@ -138,8 +169,7 @@ vim /etc/firewalld/zones/public.xml
 port="9001-9050"
 ~~~
 
-## 查看Linux系统版本
-
+### 查看Linux系统版本
 
 
 1. 使用`cat`命令查看`/etc/issue`文件。这种方法适用于所有Linux发行版，但在双核CPU中，`cpuinfo`中会看到两个CPU，可能会让人误以为是两个单核的CPU，实际上应该通过`Physical Processor ID`来区分单核和双核。
