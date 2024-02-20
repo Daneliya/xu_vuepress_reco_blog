@@ -98,6 +98,11 @@ module.exports = [
         "link": "/Linux/0_Linux常用命令"
     },
     {
+        "text": "Stable Diffusion",
+        "icon": "iconfont icon-a-stablediffusion",
+        "link": "/StableDiffusion/0_ComfyUI简介"
+    },
+    {
         "text": "随笔文档",
         "icon": "iconfont icon-biji",
         "link": "/docs/",

@@ -24,4 +24,5 @@ module.exports = [
     ['link', {rel: 'stylesheet', href: '/iconfont/font_3nnhx9n8ea/iconfont.css'}], // biji
     ['link', {rel: 'stylesheet', href: '/iconfont/font_6oyf4j0cvmu/iconfont.css'}], // zuzhijiagou
     ['link', {rel: 'stylesheet', href: '/iconfont/font_tmecser0ml/iconfont.css'}], // rongqi
+    ['link', {rel: 'stylesheet', href: '/iconfont/font_o3x7o929hi/iconfont.css'}], // stablediffusion
 ]

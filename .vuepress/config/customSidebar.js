@@ -242,4 +242,12 @@ module.exports = {
             children: path.findMdFiles('/Linux/')
         }
     ],
+    '/StableDiffusion/': [
+        {
+            title: 'StableDiffusion',     // 必要的
+            collapsable: false,           // 可选的, 默认值是 true,
+            sidebarDepth: 3,              // 可选的, 默认值是 1
+            children: path.findMdFiles('/StableDiffusion/')
+        }
+    ],
 }
