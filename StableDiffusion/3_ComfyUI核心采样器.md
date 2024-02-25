@@ -10,7 +10,7 @@ categories:
 
 
 
-在WebUI里，所看到的“采样方法”是一个单一的参数选项，但在Comfy UI 的核心采样器 KSampler 里，它会被“拆分”成两个单独的选项：**Sampler Name（采样器名称）**与 **Scheduler （调度器）**
+在WebUI里，所看到的“采样方法”是一个单一的参数选项，但在Comfy UI 的核心采样器 KSampler 里，它会被“拆分”成两个单独的选项：**Sampler Name（采样器名称）** 与 **Scheduler （调度器）**
 
 SD WebUI 中的采样方法
 
@@ -34,7 +34,7 @@ ComfyUI KSampler 中的相关选项
 
 ![image-20240226003008371](3_ComfyUI核心采样器.assets/051DD782-C690-20EB-1AEA-047D2B48F6B3.png)
 
-那**调度器（Scheduler）**呢？你可以把它看做是采样方法的一部分，主要用于控制采样过程中的时间步长。
+那**调度器（Scheduler）** 呢？你可以把它看做是采样方法的一部分，主要用于控制采样过程中的时间步长。
 
 大部分UI都会习惯将采样方法本身与调度器选项“合并”起来作为一种采样方法呈现给用户，但根据ComfyUI作者 **@ComfyAnonymous** 在[这一个Issue中的答复](https://github.com/comfyanonymous/ComfyUI/discussions/227)：我决定把它作为一个单独的选项，因为它对我来说更有意义。
 
