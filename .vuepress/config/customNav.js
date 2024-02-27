@@ -100,7 +100,7 @@ module.exports = [
     {
         "text": "Stable Diffusion",
         "icon": "iconfont icon-a-stablediffusion",
-        "link": "/StableDiffusion/0_ComfyUI简介"
+        "link": "/StableDiffusion/StableDiffusion/0_StableDiffusion介绍"
     },
     {
         "text": "随笔文档",

@@ -1,5 +1,6 @@
 ---
 title: ComfyUI核心采样器
+date: '2024-02-27'
 tags:
    - Stable Diffusion
    - ComfyUI

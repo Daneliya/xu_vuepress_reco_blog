@@ -1,5 +1,6 @@
 ---
 title: ComfyUI安装
+date: '2024-02-25'
 tags:
    - Stable Diffusion
    - ComfyUI

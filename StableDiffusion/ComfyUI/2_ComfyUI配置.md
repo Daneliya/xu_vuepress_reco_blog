@@ -1,5 +1,6 @@
 ---
 title: ComfyUI配置
+date: '2024-02-26'
 tags:
    - Stable Diffusion
    - ComfyUI

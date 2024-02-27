@@ -4,5 +4,6 @@ yarn.error
 
 *.iml
 .idea/
+.temp/
 
 public/

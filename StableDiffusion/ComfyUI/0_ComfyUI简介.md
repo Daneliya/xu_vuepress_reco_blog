@@ -1,5 +1,6 @@
 ---
 title: ComfyUI简介
+date: '2024-02-24'
 tags:
    - Stable Diffusion
    - ComfyUI
