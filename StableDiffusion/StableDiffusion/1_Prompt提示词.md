@@ -9,7 +9,31 @@ categories:
 
 
 
+## 提示词基本语法
 
+### 提示词类别
+
+内容型提示词（控制画面内容） & 标准化提示词（控制画质和画风）
+
+![img](1_Prompt提示词.assets/prompt01.png)
+
+### 提示词权重
+
+控制提示词呈现的优先级的增减
+
+![img](1_Prompt提示词.assets/prompt02.png)
+
+### 进阶提示词语法
+
+混合、迁移与迭代
+
+![img](1_Prompt提示词.assets/prompt03.png)
+
+### 如何书写提示词？
+
+参考下面“通用模版”
+
+![img](1_Prompt提示词.assets/prompt04.png)
 
 ## 在线提示词网站
 
@@ -22,6 +46,18 @@ PromptTool：https://www.prompttool.com/home/NovelAI
 PromLib：https://promlib.com
 
 国内提示词分享社区，横向细分，单词+例图展示，任务相关的描述较多
+
+
+
+一个工具箱：http://www.atoolbox.net/Tool.php?Id=1101
+
+国内提示词网站
+
+
+
+AI词语加速器：https://ai.dawnmark.cn/
+
+国内提示词网站
 
 
 
