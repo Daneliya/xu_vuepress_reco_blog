@@ -23,7 +23,7 @@ Jay Alammar大佬讲解：https://jalammar.github.io/illustrated-stable-diffusio
 
 中文讲解：https://zhuanlan.zhihu.com/p/618862789
 
-
+电子羊资料包：https://vc4k1knlxj.feishu.cn/docx/RgLJdwEnRokZRTxCK33cqRhPnzd
 
 
 
