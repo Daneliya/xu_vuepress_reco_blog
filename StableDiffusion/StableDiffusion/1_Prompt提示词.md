@@ -37,31 +37,41 @@ categories:
 
 ## 在线提示词网站
 
-PromptTool：https://www.prompttool.com/home/NovelAI
+### PromptTool
+
+链接：[https://www.prompttool.com/home/NovelAI](https://www.prompttool.com/home/NovelAI)
 
 国内提示词网站，图文对照，自带翻译
 
 
 
-PromLib：https://promlib.com
+### PromLib
+
+链接：[https://promlib.com](https://promlib.com)
 
 国内提示词分享社区，横向细分，单词+例图展示，任务相关的描述较多
 
 
 
-一个工具箱：http://www.atoolbox.net/Tool.php?Id=1101
+### 一个工具箱
+
+链接：[http://www.atoolbox.net/Tool.php?Id=1101](http://www.atoolbox.net/Tool.php?Id=1101)
 
 国内提示词网站
 
 
 
-AI词语加速器：https://ai.dawnmark.cn/
+### AI词语加速器
+
+链接：[https://ai.dawnmark.cn/](https://ai.dawnmark.cn/)
 
 国内提示词网站
 
 
 
-PromptHero：http://prompthero.com
+### PromptHero
+
+链接：[http://prompthero.com](http://prompthero.com)
 
 国外优质提示词网站，图文搭配分风格类别罗列，可复制作品提示词。（包含SD、MJ和ChatGPT等提示词）
 
@@ -69,7 +79,7 @@ PromptHero：http://prompthero.com
 
 ## 参考资料
 
-[1]. 20分钟搞懂Prompt与参数设置，你的AI绘画“咒语”学明白了吗？ | 零基础入门Stable Diffusion·保姆级新手教程 | Prompt关键词教学——Nenly同学：https://www.bilibili.com/video/BV12X4y1r7QB
+[1]. Nenly同学：[20分钟搞懂Prompt与参数设置，你的AI绘画“咒语”学明白了吗？ | 零基础入门Stable Diffusion·保姆级新手教程 | Prompt关键词教学_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV12X4y1r7QB/)
 
-[2]. Stable Diffusion提示词全攻略，必备提示词插件，关键词字符解析，写Prompt神器——CG迷李辰：https://www.bilibili.com/video/BV1eP411Y7SD
+[2]. CG迷李辰：[Stable Diffusion提示词全攻略，必备提示词插件，关键词字符解析，写Prompt神器_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1eP411Y7SD/)
 
