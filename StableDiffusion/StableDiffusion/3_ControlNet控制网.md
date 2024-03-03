@@ -203,6 +203,74 @@ Tips：适当“放松”ControlNet的控制力度，有助于AI发挥更多自�
 
 
 
+## 应用场景
+
+### 运用场景：语义分割
+
+[stable diffusion 大场景构图教程｜语义分割 controlnet seg 快速场景构建｜segment anything 局部修改｜快速提取蒙版_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1xM4y1E7kM/?spm_id_from=333.337.search-card.all.click&vd_source=cf23a319db3eaab5d4d6aa80ad236bd8)
+
+### 运用场景：线稿上色
+
+[使用SD给线稿上色_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1DN411u7m2/?spm_id_from=333.788.recommend_more_video.1&vd_source=cf23a319db3eaab5d4d6aa80ad236bd8)
+
+### 运用场景：高清修复
+
+[【Stable Diffusion】图片终极超清化脚本：Stable SR 碾压4xUltraSharp！_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1cs4y1173P/?spm_id_from=333.337.search-card.all.click)
+
+[Multi Diffusion + Tiled VAE + ControlNet Tile模型，低显存打造AI绘画超高清6K分辨率体验！SD扩展插件教程_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Su4y1d7Dp/?spm_id_from=333.788&vd_source=cf23a319db3eaab5d4d6aa80ad236bd8)
+
+### 运用场景：AI扩图
+
+[【AI绘画】Stable Diffusion无限扩图，丝滑流畅！无限循环！(附工具）保姆级教程！包教包会！_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV12e411n7RC/?spm_id_from=333.337.search-card.all.click&vd_source=cf23a319db3eaab5d4d6aa80ad236bd8)
+
+![image-20240303144003700](3_ControlNet控制网.assets/image-20240303144003700.png)
+
+[【保姆级教程】如何用ComfyUI进行拓图、扩图_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1V64y15722/?spm_id_from=333.337.search-card.all.click&vd_source=cf23a319db3eaab5d4d6aa80ad236bd8)
+
+### 运用场景：照片上色
+
+[我用AI修复了50年前的亚运会老照片！Stable Diffusion智能上色+高清修复教程！StableSR + ControlNetTile&Recolor_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1mm4y1575y/?spm_id_from=333.999.0.0&vd_source=cf23a319db3eaab5d4d6aa80ad236bd8)
+
+### 运用场景：电商换装、换背景
+
+[comfyui 实战 : 真正模特换装_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1rA4m1V7M3/?spm_id_from=333.337.search-card.all.click&vd_source=cf23a319db3eaab5d4d6aa80ad236bd8)
+
+[AI商用第二弹！首发全网最简单的AI模特换装方案丨人人都能学会 Stable Diffusion 电商AI模特换装_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Eu4y1h7kY/?spm_id_from=333.337.search-card.all.click&vd_source=cf23a319db3eaab5d4d6aa80ad236bd8)
+
+### 运用场景：AI换脸
+
+[【Stable Diffusion】Reactor AI换脸详细教程，简单好用，秒杀Roop_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1DQ4y1F7vo/?spm_id_from=333.999.0.0&vd_source=cf23a319db3eaab5d4d6aa80ad236bd8)
+
+[AI打开新世界大门！立绘一键“真人化”，还能换皮肤！ControlNet LineArt 线稿上色+换装换背景，Stable Diffusion系统教程_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1oB4y1R7Ms/?spm_id_from=333.788&vd_source=cf23a319db3eaab5d4d6aa80ad236bd8)
+
+### 运用场景：二维码、光影、艺术字
+
+[“牛逼”的教程来了！一次学会AI二维码+艺术字+光影光效+创意Logo生成，绝对是B站最详细的Stable Diffusion特效设计流程教学！AI绘画进阶应用_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1gX4y1J7ei/?spm_id_from=333.788&vd_source=cf23a319db3eaab5d4d6aa80ad236bd8)
+
+[【Stable Diffusion】AI艺术二维码超详细教程 巧妙运用controlnet解决无法识别问题！_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1kk4y1G7Kd/?spm_id_from=333.999.0.0)
+
+### 运用场景：提炼深度图，转3D模型
+
+[SDXL-DPO-告别lora-线稿生成深度图_stable diffusion_SD_sd_文生图_图生图_AIGC教程_人工智能_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Te411U7QD/?spm_id_from=333.337.search-card.all.click&vd_source=cf23a319db3eaab5d4d6aa80ad236bd8)
+
+运用场景：ai视频（瞬息宇宙）
+
+[【AI视频】 SD Deforum插件详细教学 带你瞬息全宇宙！_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Y94y1C7Wz/?spm_id_from=333.999.0.0)
+
+### 运用场景：实时渲染
+
+[stablediffusion加速模型！3秒一张图 SD也能实时渲染！LCM加速模型完整教程！附全套安装下载_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1HC4y1y7cL/?spm_id_from=333.999.0.0&vd_source=cf23a319db3eaab5d4d6aa80ad236bd8)
+
+[(免费) 让任何软件AI实时渲染！打通AI最后500米（一键包2.0版）_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1LH4y1k7js/?spm_id_from=333.788.recommend_more_video.-1&vd_source=cf23a319db3eaab5d4d6aa80ad236bd8)
+
+https://www.bilibili.com/video/BV17b4y1L7WY/?spm_id_from=333.999.0.0
+
+### 运用场景：ps外挂
+
+[一秒打通PS+SD！AI功能免费“平替”，还支持ControlNet？Auto Stable Diffusion Photoshop插件教程，释放轻薄本AI潜力_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Zj411h7od/?spm_id_from=333.999.0.0)
+
+
+
 ## 参考资料
 
 [30分钟零基础掌握ControlNet！绝对是你看过最好懂的控制网原理分析 | 基本操作、插件安装与5大模型应用 · Stable Diffusion教程_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Ds4y1e7ZB/)
