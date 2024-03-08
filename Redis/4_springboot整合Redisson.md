@@ -159,6 +159,16 @@ public void consumer() {
 
 [3]. [SpringBoot集成Redisson实现延迟队列_redssion延时队列订阅](https://blog.csdn.net/qq_40087415/article/details/115940092)
 
+
+
+https://blog.51cto.com/u_16099257/7262841
+
+https://cloud.tencent.com/developer/article/2379783
+
+https://cloud.tencent.com/developer/article/2223087
+
+
+
 https://blog.csdn.net/z1ztai/article/details/129669032
 
 https://blog.csdn.net/BASK2311/article/details/129223472

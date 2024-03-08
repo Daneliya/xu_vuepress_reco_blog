@@ -247,8 +247,9 @@ public class CaffeineConfig {
 
 ## 参考资料
 
-
 https://blog.csdn.net/zhxdick/article/details/105733209
+
+https://www.cnblogs.com/MorningBell/p/16659254.html
 
 [(64条消息) Caffeine （史上最全）_40岁资深老架构师尼恩的博客-CSDN博客](https://blog.csdn.net/crazymakercircle/article/details/113751575)
 
