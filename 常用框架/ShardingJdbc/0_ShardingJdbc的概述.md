@@ -1,5 +1,5 @@
 ---
-title: ShardingJdbc分库分表
+title: ShardingJdbc的概述
 tags:
  - ShardingJdbc
 categories: 
