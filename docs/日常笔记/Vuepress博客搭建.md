@@ -1,3 +1,13 @@
+---
+title: Vuepress博客搭建
+tags:
+  - 日常笔记
+categories:
+  - 日常笔记
+---
+
+
+
 > 官方文档：[https://vuepress.vuejs.org/zh/](https://vuepress.vuejs.org/zh/)
 
 

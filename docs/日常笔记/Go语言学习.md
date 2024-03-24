@@ -1,4 +1,10 @@
-
+---
+title: Go语言学习
+tags:
+ - 日常笔记
+categories: 
+ - 日常笔记
+---
 
 
 

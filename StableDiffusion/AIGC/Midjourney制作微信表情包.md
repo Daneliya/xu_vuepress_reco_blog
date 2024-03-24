@@ -86,17 +86,51 @@ cute girl, emoji pack, 16 emoticons, emoji sheet, mutiple poses and expressions,
 
 ### 3.3 无损放大
 
-
-
-### 3.4 一键去背景
-
 https://clipdrop.co/image-upscaler
 
 上传照片，放大2倍即可。
 
+![image-20240321003727997](Midjourney制作微信表情包.assets/image-20240321003727997.png)
+
+
+
+### 3.4 一键去背景
+
+网址一：https://remove.bg，下载时选择高清版本
+
+![image-20240321004129180](Midjourney制作微信表情包.assets/image-20240321004129180.png)
+
+网址二：https://pixian.ai
+
+![image-20240321004304637](Midjourney制作微信表情包.assets/image-20240321004304637.png)
+
 
 
 ### 3.5 抠图
+
+可以使用Photoshop，Sketch，Figma等设计工具。
+
+或者使用在线处理工具：https://mastergo.com
+
+![image-20240321004915581](Midjourney制作微信表情包.assets/image-20240321004915581.png)
+
+新建容器240*240，然后多复制几个。根据微信表情包的命名规则，重新命名。01,02,03,04...
+
+然后导入表情包图片，双击进行裁剪。
+
+![image-20240321005022820](Midjourney制作微信表情包.assets/image-20240321005022820.png)
+
+![image-20240321005544724](Midjourney制作微信表情包.assets/image-20240321005544724.png)
+
+![image-20240321005719158](Midjourney制作微信表情包.assets/image-20240321005719158.png)
+
+回车，确认后。将裁剪的图片拖进容器中，调整大小，按住shift使图片不变形。
+
+
+
+
+
+
 
 
 
