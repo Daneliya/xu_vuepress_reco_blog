@@ -242,7 +242,17 @@ module.exports = {
 
 ### 数学公式支持
 
-> https://blog.51cto.com/returntmp/7330615
+**markdown-it-texmath**
+
+**markdown-it-katex**
+
+**markdown-it-mathjax3**（当前使用）
+
+**@mdit/plugin-katex**
+
+> https://blog.csdn.net/Flyingheart1991/article/details/126067149
+>
+> https://blog.csdn.net/m0_63748493/article/details/132354410
 
 
 

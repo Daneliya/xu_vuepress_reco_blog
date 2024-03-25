@@ -3,6 +3,7 @@ const customSidebar = require("./config/customSidebar.js");
 const pluginsConf = require("./config/pluginsConf.js");
 const head = require("./config/head.js");
 const nav = require("./nav.js");
+const {katex} = require("@mdit/plugin-katex");
 
 module.exports = {
     "title": "xuxiaolong",
@@ -74,10 +75,13 @@ module.exports = {
     },
     "markdown": {
         "lineNumbers": true,
-        // 引入中文解析
         extendMarkdown: md => {
+            // 引入中文解析
             md.use(require("markdown-it-disable-url-encode"));
-        }
+            // 数学公式支持
+            md.use(require('markdown-it-mathjax3'));
+            md.linkify.set({fuzzyEmail: false});
+        },
     },
     "locales": {
         '/': {
