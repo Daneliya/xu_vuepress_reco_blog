@@ -240,7 +240,16 @@ module.exports = {
 ### vuepress-plugin-bgm-player（音乐播放器 vuepress-reco）
 > [https://github.com/vuepress-reco/vuepress-plugin-bgm-player](https://github.com/vuepress-reco/vuepress-plugin-bgm-player)
 
+### 数学公式支持
+
+> https://blog.51cto.com/returntmp/7330615
+
+
+
+
+
 ## 问题
+
 1、项目打包报错：Note: The code generator has deoptimised the styling of D:\.. as it exceeds the max of 500KB
 > 参考：[https://blog.csdn.net/zora_55/article/details/128797544](https://blog.csdn.net/zora_55/article/details/128797544)
 
@@ -274,6 +283,7 @@ module.exports = {
 
 
 # vdoing 主题
+
 > 主题地址：[https://github.com/xugaoyi/vuepress-theme-vdoing](https://github.com/xugaoyi/vuepress-theme-vdoing)
 > 示例博客：[https://m.sofineday.com](https://m.sofineday.com)
 
