@@ -282,10 +282,10 @@ module.exports = {
             children: path.findMdFiles('/docs/日常笔记/')
         },
         {
-            title: '软考',                // 必要的
-            collapsable: false,           // 可选的, 默认值是 true,
-            sidebarDepth: 3,              // 可选的, 默认值是 1
-            children: path.findMdFiles('/docs/软考/')
+            title: '软考中级软件设计师学习笔记',  // 必要的
+            collapsable: false,              // 可选的, 默认值是 true,
+            sidebarDepth: 3,                 // 可选的, 默认值是 1
+            children: path.findMdFiles('/docs/软考中级软件设计师学习笔记/')
         },
         {
             title: '面试专栏',             // 必要的
