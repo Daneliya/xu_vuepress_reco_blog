@@ -34,11 +34,11 @@ function findMdFiles(relativePath) {
             }
         });
 
-        // 按照从大到小排序
+        // 按照从小到大排序（从大到小改为 bNum - aNum）
         mdFiles.sort((a, b) => {
-            const aNum = parseInt(path.basename(a).slice(1));
-            const bNum = parseInt(path.basename(b).slice(1));
-            return bNum - aNum;
+            const aNum = parseInt(path.basename(a).slice(0));
+            const bNum = parseInt(path.basename(b).slice(0));
+            return aNum - bNum;
         });
         console.log("日志2：" + mdFiles);
         return mdFiles;

@@ -40,9 +40,25 @@ function getPath(path, ele) {
 function getGroupChildren(path, ele, root) {
     let pa = fs.readdirSync(path + "/" + ele + "/");
     let palist = pa;
+    // FIXME 字典排序
     pa = palist.sort(function (a, b) {
         return a.replace(".md", "").match(/[^-]*$/) - b.replace(".md", "").match(/[^-]*$/)
     });
+    // FIXME 自定义排序函数，用于解析文件名中的数字并排序
+    // const sortByNumber = (a, b) => {
+    //     const numA = parseInt(a.replace(/[^\d-]/g, ''), 10); // 提取a中的数字
+    //     const numB = parseInt(b.replace(/[^\d-]/g, ''), 10); // 提取b中的数字
+    //     console.log(numA + numB)
+    //     // 如果两个文件名都是纯数字，则直接比较数字大小
+    //     if (!isNaN(numA) && !isNaN(numB)) {
+    //         return numA - numB;
+    //     }
+    //
+    //     // 如果文件名包含非数字字符，则按字典序排序
+    //     return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
+    // };
+    // pa = palist.sort(sortByNumber);
+
     pa.forEach(function (item, index) {
         let info = fs.statSync(path + "/" + ele + "/" + item);
         if (info.isDirectory()) {
