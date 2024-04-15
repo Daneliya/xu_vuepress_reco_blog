@@ -27,6 +27,8 @@ categories:
 > [https://blog.csdn.net/qq_41327483/article/details/119103300](https://blog.csdn.net/qq_41327483/article/details/119103300)
 > [https://juejin.cn/post/7242181894116573245#heading-6](https://juejin.cn/post/7242181894116573245#heading-6)
 > [https://blog.csdn.net/weixin_42029738/article/details/125833297](https://blog.csdn.net/weixin_42029738/article/details/125833297)
+>
+> https://blog.csdn.net/howareyou2104/article/details/107412555
 
 新建 `.vuepress/styles/palette.styl` 文件增加样式
 ```css
