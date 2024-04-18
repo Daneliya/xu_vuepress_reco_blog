@@ -176,3 +176,60 @@ port="9001-9050"
 2. 使用`uname`命令查看系统信息。例如，`uname -a`命令可以查看系统的内核名/版本、网络主机名、操作系统等信息。
 3. 查看配置文件`/etc/issue`或`/etc/*release`文件。这些文件中会写有操作系统和版本号等信息。例如，对于Redhat/Centos系统，可以查看`/etc/redhat_release`文件；对于Debian系统，可以查看`/etc/os-release`文件。
 4. 此外，还可以通过查看内存文件`/proc/version`来查看操作系统版本号、内核版本号、网络主机名等信息。
+
+
+
+### 使用curl命令在Linux服务器调用接口
+
+一般情况我们测试对方ip端口，都是用**telnet**命令来测试通不通
+
+示例：telnet 127.0.0.1 8080
+
+当服务器不支持 telnet 命令，又无法安装时，我们就可以使用 curl 命令
+
+> curl -X POST -H "Content-Type: application/json" -d 'json请求体的内容' "需要调用的url"
+
+curl命令是一个非常强大的命令行工具，它可以发送各种类型的HTTP请求，并且支持各种协议和认证方式。下面是curl命令的一些常用选项
+
+- -X指定请求方法，如GET、POST、PUT等；
+- -H指定请求头，如Content-Type、uthorization等；
+- -d指定请求体，如JSON、XML等；
+- -u指定认证信息，如用户名、密码等；
+- -o指定输出文件名，用于保存响应结果。
+
+GET请求
+
+~~~sh
+curl -X GET http://localhost:8080/api
+~~~
+
+POST请求
+
+~~~sh
+curl -X POST -H "Content-Type: application/json" -d '{"name":"test"}' http://localhost:8080/api
+~~~
+
+发送文件方式
+
+~~~sh
+// myxmlfile.txt为磁盘上面的xml文件，后面为请求路径
+curl -X POST -H 'content-type: application/xml'  -d @/home/disk/file/myxmlfile.txt http://192.168.1.1:8080/api/uploadfile
+~~~
+
+
+
+### 未知的名称或服务及java.net.UnknownHostException异常
+
+java.net.UnknownHostException异常
+
+https://blog.csdn.net/FMC_WBL/article/details/135737199
+
+未知的名称或服务 DNS 配置问题
+
+https://www.cnblogs.com/sunny3158/p/16778076.html
+
+https://blog.csdn.net/m0_72838865/article/details/126784090
+
+Failed to restart network.service: Unit network.service not found.
+
+https://blog.csdn.net/qq_33468857/article/details/125135211
