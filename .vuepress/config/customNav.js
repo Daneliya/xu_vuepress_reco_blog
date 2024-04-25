@@ -59,7 +59,7 @@ module.exports = [
     {
         "text": "Redis专栏",
         "icon": "iconfont icon-redis",
-        "link": "/Redis/Redis解决限流问题"
+        "link": "/Redis/1_Redis缓存三大问题"
     },
     {
         "text": "常用框架",
