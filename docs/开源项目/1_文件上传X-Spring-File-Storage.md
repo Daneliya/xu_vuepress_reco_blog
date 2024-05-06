@@ -8,7 +8,7 @@ categories:
 
 
 
-## 简介
+## 一、简介
 
 文件操作是平时开发工作中最常接触的一个功能，虽然难度不大，但确实有点繁琐。数据流的开闭、读取很容易出错，尤其是在对接一些云对象存储平台，接一个云平台写一大堆SDK代码，看起来乱糟糟的。X Spring File Storage工具宣称一行代码将文件存储到本地。
 
@@ -16,7 +16,7 @@ categories:
 
 
 
-## SpringBoot快速集成
+## 二、SpringBoot快速集成
 
 ### 引入依赖
 
@@ -95,7 +95,7 @@ public class SpringFileStorageTestApplication {
 }
 ```
 
-## 开始使用
+## 三、开始使用
 
 ### 上传
 
@@ -586,6 +586,9 @@ boolean supportSameMove = fileStorageService.isSupportSameMove("aliyun-oss-1");
 
 
 
-## 其它功能
+> 上面代码可访问博主的仓库：[springboot_chowder/springboot_x_file_storage at main · Daneliya/springboot_chowder (github.com)](https://github.com/Daneliya/springboot_chowder/tree/main/springboot_x_file_storage)
+
+## 四、其它功能
 
 X FIle Storage还有访问策略、签名生成、Metadata 和 UserMetadata上传、存储平台动态配置及自定义Client、文件适配器、MIME类型识别、哈希计算、切面增强等功能，详细可参考官方文档。
+
