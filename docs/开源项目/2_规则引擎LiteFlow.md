@@ -10,6 +10,12 @@ categories:
 
 ## 一、LiteFlow简介
 
+> https://gitee.com/dromara/liteFlow
+>
+> https://liteflow.cc/
+
+
+
 
 
 ## 二、快速开始
@@ -27,3 +33,26 @@ categories:
 ~~~
 
 ### 配置
+
+
+
+## 三、实战
+
+### 简单的串行流程
+
+以一个简单的用户转账接口为例：
+
+提供一个用户转账接口，用户可以给收款方转账，转账成功后生成一个转账账单。
+
+**【step1】确定流程**
+
+
+
+
+
+
+
+参考资料
+
+苏三说技术-聊聊LiteFlow
+
