@@ -44,7 +44,41 @@ categories:
 
 提供一个用户转账接口，用户可以给收款方转账，转账成功后生成一个转账账单。
 
-**【step1】确定流程**
+#### 【step1】确定流程
+
+一个转账行为的步骤如下：
+
+
+
+
+
+#### 【step2】实现组件
+
+根据上面这个流程，我们实现如下组件：
+
+【UserTransferComponent】：用户转账组件，负责执行转账操作。
+
+【UserTransferBillComponent】：用户转账账单组件，记录转账账单。
+
+【UserTransferSuccessComponent】：转账成功组件，设置转账成功标志。
+
+这三个组件的关键是要继承LiteFlow的NodeComponent类，并实现process()方法，如下所示：
+
+
+
+
+
+
+
+#### 【step3】编排组件
+
+接着，我们要新建一个流程配置文件，并在里面描述我们想要的流程。
+
+我们先新建一个flow.el.xml文件，并在application.yml中配置
+
+
+
+
 
 
 
