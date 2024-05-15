@@ -142,6 +142,8 @@ find  实际搜寻硬盘查询文件名称。
 
 https://www.python100.com/html/691DUEI971RX.html
 
+ubuntu中查看防火墙的状态：https://www.cnblogs.com/echohye/p/17348478.html
+
 #### firewall-cmd命令
 
 ~~~sh
