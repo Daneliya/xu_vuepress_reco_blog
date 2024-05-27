@@ -109,3 +109,21 @@ public class DemoDataListener implements ReadListener<ExportExcelEntity> {
 
 
 ### 二、Controller层
+
+```java
+/**
+ * 上传、导入
+ *
+ * @param file
+ * @return
+ * @throws IOException
+ */
+@PostMapping("/upload")
+@ResponseBody
+public String upload(MultipartFile file) throws IOException {
+    EasyExcel.read(file.getInputStream(), ExportExcelEntity.class, new DemoDataListener()).sheet().doRead();
+    // 如果配置了数据持久层
+    //EasyExcel.read(file.getInputStream(), ExportExcelEntity.class, new DemoDataListener(demoService)).sheet().doRead();
+    return "success";
+}
+```
