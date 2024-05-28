@@ -210,28 +210,55 @@ module.exports = {
             children: path.findMdFiles('/Redis/')
         }
     ],
-    '/常用框架/Mybatis': [
+    '/常用框架/': [
         {
-            title: 'Mybatis',   // 必要的
+            title: '常用框架',   // 必要的
             collapsable: false, // 可选的, 默认值是 true,
             sidebarDepth: 3,    // 可选的, 默认值是 1
-            children: path.findMdFiles('/常用框架/Mybatis/')
-        }
-    ],
-    '/常用框架/Activiti7': [
-        {
-            title: '工作流引擎Activiti7',    // 必要的
-            collapsable: false, // 可选的, 默认值是 true,
-            sidebarDepth: 3,    // 可选的, 默认值是 1
-            children: path.findMdFiles('/常用框架/Activiti7/')
-        }
-    ],
-    '/常用框架/Spring': [
-        {
-            title: 'Spring',    // 必要的
-            collapsable: false, // 可选的, 默认值是 true,
-            sidebarDepth: 3,    // 可选的, 默认值是 1
-            children: path.findMdFiles('/常用框架/Spring/')
+            children: [
+                {
+                    title: '工作流引擎Activiti7',    // 必要的
+                    collapsable: false,            // 可选的, 默认值是 true,
+                    sidebarDepth: 3,               // 可选的, 默认值是 1
+                    children: path.findMdFiles('/常用框架/Activiti7/')
+                },
+                {
+                    title: 'Caffeine缓存框架',    // 必要的
+                    collapsable: false,         // 可选的, 默认值是 true,
+                    sidebarDepth: 3,            // 可选的, 默认值是 1
+                    children: path.findMdFiles('/常用框架/Caffeine缓存框架/')
+                },
+                {
+                    title: 'EasyExcel',    // 必要的
+                    collapsable: false,    // 可选的, 默认值是 true,
+                    sidebarDepth: 3,       // 可选的, 默认值是 1
+                    children: path.findMdFiles('/常用框架/EasyExcel/')
+                },
+                {
+                    title: 'Mybatis',   // 必要的
+                    collapsable: false, // 可选的, 默认值是 true,
+                    sidebarDepth: 3,    // 可选的, 默认值是 1
+                    children: path.findMdFiles('/常用框架/Mybatis/')
+                },
+                {
+                    title: 'ShardingJdbc',    // 必要的
+                    collapsable: false,       // 可选的, 默认值是 true,
+                    sidebarDepth: 3,          // 可选的, 默认值是 1
+                    children: path.findMdFiles('/常用框架/ShardingJdbc/')
+                },
+                {
+                    title: 'Spring',    // 必要的
+                    collapsable: false, // 可选的, 默认值是 true,
+                    sidebarDepth: 3,    // 可选的, 默认值是 1
+                    children: path.findMdFiles('/常用框架/Spring/')
+                },
+                {
+                    title: 'XXL-JOB',    // 必要的
+                    collapsable: false,  // 可选的, 默认值是 true,
+                    sidebarDepth: 3,     // 可选的, 默认值是 1
+                    children: path.findMdFiles('/常用框架/XXL-JOB/')
+                }
+            ]
         }
     ],
     '/Linux/': [

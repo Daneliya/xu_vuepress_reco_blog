@@ -1,6 +1,15 @@
+---
+title: SpringBoot炖Caffeine
+tags:
+ - Caffeine
+categories: 
+ - Caffeine
+---
 
 
-# springboot炖cache-caffeine
+
+
+# SpringBoot炖cache-Caffeine
 
 ### 1. 先睹为快
 
