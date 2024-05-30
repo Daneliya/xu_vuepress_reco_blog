@@ -76,6 +76,11 @@ module.exports = [
                 "link": "/常用框架/Caffeine缓存框架/0_Caffeine基本概念"
             },
             {
+                "text": "EasyCaptcha",
+                "icon": "iconfont icon-iconfontmoshi",
+                "link": "/常用框架/EasyCaptcha/0_使用EasyCaptcha生成验证码"
+            },
+            {
                 "text": "EasyExcel",
                 "icon": "iconfont icon-iconfontmoshi",
                 "link": "/常用框架/EasyExcel/0_EasyExcel概述"

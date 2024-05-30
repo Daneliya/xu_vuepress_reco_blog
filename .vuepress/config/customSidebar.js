@@ -229,6 +229,12 @@ module.exports = {
                     children: path.findMdFiles('/常用框架/Caffeine缓存框架/')
                 },
                 {
+                    title: 'EasyCaptcha',    // 必要的
+                    collapsable: false,     // 可选的, 默认值是 true,
+                    sidebarDepth: 3,        // 可选的, 默认值是 1
+                    children: path.findMdFiles('/常用框架/EasyCaptcha/')
+                },
+                {
                     title: 'EasyExcel',    // 必要的
                     collapsable: false,    // 可选的, 默认值是 true,
                     sidebarDepth: 3,       // 可选的, 默认值是 1
