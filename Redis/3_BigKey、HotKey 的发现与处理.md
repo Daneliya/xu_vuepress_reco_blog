@@ -114,7 +114,7 @@ Redis自4.0起提供了MEMORY USAGE命令来帮助分析Key的内存占用，相
 
 我们建议通过风险更低方式来对Key进行分析，Redis对于不同的数据结构提供了不同的命令来返回其长度或成员数量，如下表：
 
-![img](6_BigKey、HotKey 的发现与处理.assets/4fbb1f7dfb274e54b46f1d85317e8189.jpg)
+![img](3_BigKey、HotKey 的发现与处理.assets/4fbb1f7dfb274e54b46f1d85317e8189.jpg)
 
 通过以上Redis内置命令我们可以方便且安全的对Key进行分析而不会影响线上服务，但由于它们返回的结果非Key的真实内存占用数据，因此不够精确，仅可作为参考。
 
@@ -208,7 +208,7 @@ CloudDBA是阿里云的数据库智能服务系统，它集合Redis的Key分析�
 
 CloudDBA中的大Key及热Key分析底层为阿里云Redis内核的Key分析功能，阿里云特有的Redis内核能够直接发现并输出大Key热Key的相关信息，因此，CloudDBA的分析结果准确高效且对性能几乎无任何影响，你可以通过点击“Key分析”进入该功能，如下图：
 
-![image-20240530094448684](6_BigKey、HotKey 的发现与处理.assets/image-20240530094448684.png)
+![image-20240530094448684](3_BigKey、HotKey 的发现与处理.assets/image-20240530094448684.png)
 
 Key分析功能共有两个页面，它们允许在不同的时间维度对对应Redis实例中的Key进行分析：
 
@@ -216,7 +216,7 @@ Key分析功能共有两个页面，它们允许在不同的时间维度对对�
 
 历史：展示该实例近期曾出现过的大Key及热Key，在历史页面中，所有出现过的大Key及热Key都会被记录，哪怕这些Key当前已经不存在，该功能能够很好的反映Redis的历史Key状态，帮助追溯过去或现场已遭破坏的问题。
 
-![image-20240530094832113](6_BigKey、HotKey 的发现与处理.assets/image-20240530094832113.png)
+![image-20240530094832113](3_BigKey、HotKey 的发现与处理.assets/image-20240530094832113.png)
 
 更详细的阿里云数据库Redis控制台中的大Key热Key分析功能可查看该文档：[https://help.aliyun.com/document_detail/279446.html](https://help.aliyun.com/document_detail/279446.html?spm=a2c6h.12873639.article-detail.8.16125a65MSINRE)
 
@@ -320,7 +320,7 @@ https://help.aliyun.com/document_detail/145970.html
 
 QueryCache是阿里云Tair（Redis企业版）服务的企业级特性之一，它的原理如下图：
 
-![img](6_BigKey、HotKey 的发现与处理.assets/p272452.png)
+![img](3_BigKey、HotKey 的发现与处理.assets/p272452.png)
 
 阿里云数据库Redis会根据高效的排序和统计算法识别出实例中存在的热点Key，开启该功能后，Proxy点会根据设定的规则缓存热点Key的请求和查询结果（仅缓存热点Key的查询结果，无需缓存整个Key），当在缓存有效时间内收到相同的请求时Proxy会直接返回结果至客户端，无需和后端的Redis分片执行交互。在提升读取速度的同时，降低了热点Key对数据分片的性能影响，避免发生请求倾斜。
 
