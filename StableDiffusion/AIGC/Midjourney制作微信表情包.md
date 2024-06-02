@@ -153,3 +153,5 @@ https://clipdrop.co/image-upscaler
 ## 参考资料
 
 https://www.bilibili.com/video/BV1kK42187wb
+
+https://zhuanlan.zhihu.com/p/626044821
