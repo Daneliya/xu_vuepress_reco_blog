@@ -1,5 +1,5 @@
 ---
-title: Redis 解决超卖问题
+title: Redis解决超卖问题
 tags:
    - Redis
 categories:
