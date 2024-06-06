@@ -3,7 +3,7 @@ const customSidebar = require("./config/customSidebar.js");
 const pluginsConf = require("./config/pluginsConf.js");
 const head = require("./config/head.js");
 const nav = require("./nav.js");
-const {katex} = require("@mdit/plugin-katex");
+// const {katex} = require("@mdit/plugin-katex");
 
 module.exports = {
     "title": "xuxiaolong",
