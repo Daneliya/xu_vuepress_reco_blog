@@ -10,7 +10,7 @@ categories:
 
 
 
-## JVM命令行
+## JDK命令行
 
 进入到安装jdk的bin目录，有一系列辅助工具。这些辅助工具用来获取目标 JVM 不同方面、不同层次的信息，帮助开发人员很好地解决Java应用程序的一些疑难杂症。
 
@@ -26,9 +26,23 @@ jps(Java Process Status)：显示指定系统内所有的HotSpot虚拟机进程�
 
 说明：对于本地虚拟机进程来说，进程的本地虚拟机ID与操作系统的进程ID是一致的，是唯一的。
 
-基本使用语法为：jps [options] [hostid]
+基本使用语法为：
+
+~~~sh
+jps [options] [hostid]
+~~~
 
 直接使用jps查看进程，也可以通过追加参数，来打印额外的信息。
+
+~~~sh
+C:\Users\xxl>jps
+16528
+29216 Jps
+10632 RemoteMavenServer
+14168
+15592 Launcher
+24600 SpringbootRedisActionApplication
+~~~
 
 #### **options参数**
 
@@ -57,13 +71,15 @@ jstat（JVM Statistics Monitoring Tool）：用于监视虚拟机各种运行状
 
 官方文档：https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstat.html
 
-基本使用语法为：jstat -<option> [-t] [-h<lines>] <vmid> [<interval> [<count>]]
+基本使用语法为：
+
+~~~sh
+jstat -<option> [-t] [-h<lines>] <vmid> [<interval> [<count>]]
+~~~
 
 查看命令相关参数：jstat -h 或 jstat -help
 
 其中vmid是进程id号，也就是jps之后看到的前面的号码。
-
-
 
 #### option参数
 
@@ -105,6 +121,92 @@ jstat还可以用来判断是否出现内存泄漏。
 1. 第1步：在长时间运行的 Java 程序中，我们可以运行jstat命令连续获取多行性能数据，并取这几行数据中 OU 列（即已占用的老年代内存）的最小值。
 2. 第2步：然后，我们每隔一段较长的时间重复一次上述操作，来获得多组 OU 最小值。如果这些值呈上涨趋势，则说明该 Java 程序的老年代内存已使用量在不断上涨，这意味着无法回收的对象在不断增加，因此很有可能存在内存泄漏。
 
+#### 示例
+
+jstat -class：显示ClassLoader的相关信息
+
+~~~sh
+C:\Users\xxl>jstat -class 24600
+Loaded  Bytes  Unloaded  Bytes     Time
+  7704 14369.9        0     0.0       7.25
+~~~
+
+jstat -compiler
+
+~~~sh
+C:\Users\xxl>jstat -compiler 24600
+Compiled Failed Invalid   Time   FailedType FailedMethod
+    3951      0       0     1.14          0
+~~~
+
+jstat -printcompilation
+
+~~~sh
+C:\Users\xxl>jstat -printcompilation 24600
+Compiled  Size  Type Method
+    3953      5    1 org/apache/catalina/core/ContainerBase getBackgroundProcessorDelay
+~~~
+
+jstat -gc：显示与GC相关的堆信息
+
+~~~sh
+C:\Users\xxl>jstat -gc 24600 1000 10
+ S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT    CGC    CGCT     GCT
+ 0.0   14336.0  0.0   14336.0 130048.0 112640.0  117760.0    3820.6   36176.0 35009.9 4608.0 4194.0      6    0.035   0      0.000   4      0.005    0.040
+ 0.0   14336.0  0.0   14336.0 130048.0 112640.0  117760.0    3820.6   36176.0 35009.9 4608.0 4194.0      6    0.035   0      0.000   4      0.005    0.040
+ 0.0   14336.0  0.0   14336.0 130048.0 112640.0  117760.0    3820.6   36176.0 35009.9 4608.0 4194.0      6    0.035   0      0.000   4      0.005    0.040
+~~~
+
+jstat -t：增加-t参数，在输出信息前加上一个Timestamp列，显示程序的运行时间
+
+~~~sh
+C:\Users\xxl>jstat -gc -t 24600 1000 10
+Timestamp        S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT    CGC    CGCT     GCT
+          726.1  0.0   14336.0  0.0   14336.0 130048.0 112640.0  117760.0    3820.6   36176.0 35009.9 4608.0 4194.0      6    0.035   0      0.000   4      0.005    0.040
+          727.2  0.0   14336.0  0.0   14336.0 130048.0 112640.0  117760.0    3820.6   36176.0 35009.9 4608.0 4194.0      6    0.035   0      0.000   4      0.005    0.040
+          728.1  0.0   14336.0  0.0   14336.0 130048.0 112640.0  117760.0    3820.6   36176.0 35009.9 4608.0 4194.0      6    0.035   0      0.000   4      0.005    0.040
+          729.2  0.0   14336.0  0.0   14336.0 130048.0 112640.0  117760.0    3820.6   36176.0 35009.9 4608.0 4194.0      6    0.035   0      0.000   4      0.005    0.040
+~~~
+
+jstat -t -h：增加-h参数，输出多少行数据后输出一个表头信息
+
+~~~sh
+C:\Users\xxl>jstat -gc -t -h3 24600 1000 10
+Timestamp        S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT    CGC    CGCT     GCT
+          780.2  0.0   14336.0  0.0   14336.0 130048.0 112640.0  117760.0    3820.6   36176.0 35009.9 4608.0 4194.0      6    0.035   0      0.000   4      0.005    0.040
+          781.3  0.0   14336.0  0.0   14336.0 130048.0 112640.0  117760.0    3820.6   36176.0 35009.9 4608.0 4194.0      6    0.035   0      0.000   4      0.005    0.040
+          782.3  0.0   14336.0  0.0   14336.0 130048.0 112640.0  117760.0    3820.6   36176.0 35009.9 4608.0 4194.0      6    0.035   0      0.000   4      0.005    0.040
+Timestamp        S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT    CGC    CGCT     GCT
+          783.3  0.0   14336.0  0.0   14336.0 130048.0 112640.0  117760.0    3820.6   36176.0 35009.9 4608.0 4194.0      6    0.035   0      0.000   4      0.005    0.040
+          784.3  0.0   14336.0  0.0   14336.0 130048.0 112640.0  117760.0    3820.6   36176.0 35009.9 4608.0 4194.0      6    0.035   0      0.000   4      0.005    0.040
+          785.3  0.0   14336.0  0.0   14336.0 130048.0 112640.0  117760.0    3820.6   36176.0 35009.9 4608.0 4194.0      6    0.035   0      0.000   4      0.005    0.040
+~~~
+
+gc参数表头释义
+
+
+| 表头 | 含义（字节）                                    |
+| ---- | ----------------------------------------------- |
+| EC   | Eden区的大小                                    |
+| EU   | Eden区已使用的大小                              |
+| S0C  | 幸存者0区的大小                                 |
+| S1C  | 幸存者1区的大小                                 |
+| S0U  | 幸存者0区已使用的大小                           |
+| S1U  | 幸存者1区已使用的大小                           |
+| MC   | 元空间的大小                                    |
+| MU   | 元空间已使用的大小                              |
+| OC   | 老年代的大小                                    |
+| OU   | 老年代已使用的大小                              |
+| CCSC | 压缩类空间的大小                                |
+| CCSU | 压缩类空间已使用的大小                          |
+| YGC  | 从应用程序启动到采样时young gc的次数            |
+| YGCT | 从应用程序启动到采样时young gc消耗时间（秒）    |
+| FGC  | 从应用程序启动到采样时full gc的次数             |
+| FGCT | 从应用程序启动到采样时的full gc的消耗时间（秒） |
+| GCT  | 从应用程序启动到采样时gc的总时间                |
+
+
+
 ### :mushroom:3. jinfo：实时查看和修改JVM配置参数
 
 jinfo(Configuration Info for Java)：查看虚拟机配置参数信息，也可用于调整虚拟机的配置参数。在很多情况卡，Java应用程序不会指定所有的Java虚拟机参数。而此时，开发人员可能不知道某一个具体的Java虚拟机参数的默认值。在这种情况下，可能需要通过查找文档获取某个参数的默认值。这个查找过程可能是非常艰难的。但有了jinfo工具，开发人员可以很方便地找到Java虚拟机参数的当前值。
@@ -127,6 +229,66 @@ jinfo [options] pid
 | -flag name=value | 设定对应名称的参数                                           |
 | -flags           | 输出全部的参数                                               |
 | -sysprops        | 输出系统属性                                                 |
+
+#### 示例
+
+jinfo -sysprops
+
+~~~sh
+C:\Users\xxl>jinfo -sysprops 24600
+Java System Properties:
+#Sat Jun 08 00:26:36 CST 2024
+sun.desktop=windows
+awt.toolkit=sun.awt.windows.WToolkit
+java.specification.version=11
+sun.cpu.isalist=amd64
+sun.jnu.encoding=GBK
+...
+~~~
+
+jinfo -flag name
+
+~~~sh
+C:\Users\xxl>jinfo -flag UseParallelGC 24600
+-XX:-UseParallelGC
+
+C:\Users\xxl>jinfo -flag UseG1GC 24600
+-XX:+UseG1GC
+~~~
+
+jinfo -flag [+-]name
+
+~~~sh
+C:\Users\xxl>jinfo -flag +PrintGCDetails 24600
+C:\Users\xxl>jinfo -flag PrintGCDetails 24600
+-XX:+PrintGCDetails
+
+C:\Users\xxl>jinfo -flag -PrintGCDetails 24600
+C:\Users\xxl>jinfo -flag PrintGCDetails 24600
+-XX:-PrintGCDetails
+~~~
+
+jinfo动态修改VM参数，但并非所有参数都支持动态修改，如果操作了不支持的修改的参数，将会报类似如下的异常：
+
+~~~sh
+Exception in thread "main" com.sun.tools.attach.AttachOperationFailedException: flag 'PrintGCDetails' cannot be changed
+~~~
+
+使用如下命令显示出来的参数，基本上都是支持动态修改的：
+
+```sh
+java -XX:+PrintFlagsInitial
+```
+
+拓展：
+
+~~~sh
+java -XX:+PrintFlagsInitial # 查看所有JVM参数启动的初始值
+
+java -XX:+PrintFlagsFinal # 查看所有JVM参数的最终值
+
+java -XX:+PrintCommandLineFlags # 查看哪些已经被用户或者JVM设置过的详细的XX参数的名称和值
+~~~
 
 
 
@@ -158,23 +320,55 @@ jmap [option] [server_id@] <remote server IP or hostname>
 
 
 
+#### 示例
+
+-dump
+
+dump 堆到文件，format 指定输出格式，live 指明是活着的对象，file 指定文件名
+
+~~~sh
+C:\Users\xxl>jmap -dump:live,format=b,file=java.hprof 12946
+~~~
+
+-heap
+
+~~~sh
+C:\Users\xxl>jmap -heap 12946 # JDK8之后已不能使用
+Error: -heap option used
+Cannot connect to core dump or remote debug server. Use jhsdb jmap instead
+C:\Users\xxl>jhsdb jmap --heap --pid 12946
+~~~
+
+-histo
+
+~~~sh
+# 查看实例信息，输出到本地log.txt文件
+C:\Users\xxl>jmap -histo 12964 > ./log.txt
+~~~
+
+由于jmap将访问堆中的所有对象，为了保证在此过程中不被应用线程干扰，jmap需要借助安全点机制，让所有线程停留在不改变堆中数据的状态。也就是说，由jmap导出的堆快照必定是安全点位置的。这可能导致基于该堆快照的分析结果存在偏差。
+
+举个例子，假设在编译生成的机器码中，某些对象的生命周期在两个安全点之间，那么:live选项将无法探知到这些对象。
+
+另外，如果某个线程长时间无法跑到安全点，jmap将一直等下去。与前面讲的jstat则不同，垃圾回收器会主动将jstat所需要的摘要数据保存至固定位置之中，而jstat只需直接读取即可。
+
 
 
 ### :mushroom:5. jhat：JDK自带堆分析工具
 
 jhat(JVM Heap Analysis Tool)：Sun JDK提供的jhat命令与jmap命令搭配使用，用于分析jmap生成的heap dump文件（堆转储快照）。jhat内置了一个微型的HTTP/HTML服务器，生成dump文件的分析结果后，用户可以在浏览器中查看分析结果（分析虚拟机转储快照信息）。
 
-
-
 使用了jhat命令，就启动了一个http服务，端口是7000，即http://localhost:7000/，就可以在浏览器里分析。
-
-
 
 说明：jhat命令在JDK9、JDK10中已经被删除，官方建议用VisualVM代替。
 
+基本适用语法：
 
+~~~
+jhat <option> <dumpfile>
+~~~
 
-基本适用语法：jhat <option> <dumpfile>
+#### option参数 
 
 | option参数             | 作用                                   |
 | ---------------------- | -------------------------------------- |
