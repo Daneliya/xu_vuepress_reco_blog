@@ -10,9 +10,9 @@ module.exports = [
         "icon": "iconfont icon-cafei",
         "items": [
             {
-                "text": "java开发技巧",
+                "text": "Java开发技巧",
                 "icon": "iconfont icon-LBhouduanfuwuzu",
-                "link": "/Java/java开发技巧/其他/语法糖"
+                "link": "/Java/Java开发技巧/其他/语法糖"
             },
             {
                 "text": "JVM性能调优",

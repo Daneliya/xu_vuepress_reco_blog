@@ -236,7 +236,7 @@ jinfo -flag <name>=<value> <pid>
 
 垃圾收集器之间的搭配使用关系
 
-![ec1538b4-783a-40ca-9f5a-1e22afb928b6](JVM运行时参数.assets/ec1538b4-783a-40ca-9f5a-1e22afb928b6.png)
+![ec1538b4-783a-40ca-9f5a-1e22afb928b6](3_JVM运行时参数.assets/ec1538b4-783a-40ca-9f5a-1e22afb928b6.png)
 
 - 红色虚线表示在jdk8时被Deprecate，jdk9时被删除
 

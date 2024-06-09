@@ -1,22 +1,21 @@
 ---
-title: JVM诊断工具之命令行
+title: JVM监控与诊断工具之命令行
 tags:
  - JVM
-categories: 
+categories:
  - JVM
 ---
 
 
 
+## JVM监控与诊断工具之命令行
 
-
-## JDK命令行
 
 进入到安装jdk的bin目录，有一系列辅助工具。这些辅助工具用来获取目标 JVM 不同方面、不同层次的信息，帮助开发人员很好地解决Java应用程序的一些疑难杂症。
 
-![image-20240607224417249](1_JVM诊断工具之命令行.assets/image-20240607224417249.png)
+![image-20240607224417249](1_JVM监控与诊断工具之命令行.assets/image-20240607224417249.png)
 
-> 官方源码地址：http://hg.openjdk.java.net/jdk/jdk11/file/1ddf9a99e4ad/src/jdk.jcmd/share/classes/sun/tools
+官方源码地址：http://hg.openjdk.java.net/jdk/jdk11/file/1ddf9a99e4ad/src/jdk.jcmd/share/classes/sun/tools
 
 
 
@@ -306,6 +305,7 @@ jmap [option] <executable <core>
 jmap [option] [server_id@] <remote server IP or hostname>
 ~~~
 
+
 #### option参数
 
 | 选项           | 作用                                                         |
@@ -313,7 +313,7 @@ jmap [option] [server_id@] <remote server IP or hostname>
 | -dump          | 生成dump文件（Java堆转储快照），-dump:live只保存堆中的存活对象 |
 | -heap          | 输出整个堆空间的详细信息，包括GC的使用、堆配置信息，以及内存的使用信息等 |
 | -histo         | 输出堆空间中对象的统计信息，包括类、实例数量和合计容量，-histo:live只统计堆中的存活对象 |
-| -J <flag>      | 传递参数给jmap启动的jvm                                      |
+| -J \<flag>     | 传递参数给jmap启动的jvm                                      |
 | -finalizerinfo | 显示在F-Queue中等待Finalizer线程执行finalize方法的对象，仅linux/solaris平台有效 |
 | -permstat      | 以ClassLoader为统计口径输出永久代的内存状态信息，仅linux/solaris平台有效 |
 | -F             | 当虚拟机进程对-dump选项没有任何响应时，强制执行生成dump文件，仅linux/solaris平台有效 |
@@ -379,7 +379,7 @@ jhat <option> <dumpfile>
 | -baseline exclude-file | 指定一个基准堆转储                     |
 | -debug int             | 设置debug级别                          |
 | -version               | 启动后显示版本信息就退出               |
-| -J <flag>              | 传入启动参数，比如-J-Xmx512m           |
+| -J \<flag>             | 传入启动参数，比如-J-Xmx512m           |
 
 
 
@@ -435,4 +435,3 @@ jcmd 进程号 具体命令：显示指定进程的指令命令的数据
 ### :mushroom:8. jstatd：远程主机信息收集
 
 之前的指令只涉及到监控本机的Java应用程序，而在这些工具中，一些监控工具也支持对远程计算机的监控（如jps、jstat）。为了启用远程监控，则需要配合使用jstatd 工具。命令jstatd是一个RMI服务端程序，它的作用相当于代理服务器，建立本地计算机与远程监控工具的通信。jstatd服务器将本机的Java应用程序信息传递到远程计算机。
-

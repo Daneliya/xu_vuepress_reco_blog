@@ -2,25 +2,25 @@
 const path = require('./path.js');
 
 module.exports = {
-    '/Java/java开发技巧/': [
+    '/Java/Java开发技巧/': [
         {
             title: '函数式编程',   // 必要的
             //path: '/Java/java开发技巧/函数式编程/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
             collapsable: false,  // 可选的, 默认值是 true,
             sidebarDepth: 3,     // 可选的, 默认值是 1
-            children: path.findMdFiles('/Java/java开发技巧/函数式编程/')
+            children: path.findMdFiles('/Java/Java开发技巧/函数式编程/')
         },
         {
             title: 'IDEA使用技巧',   // 必要的
             collapsable: false,    // 可选的, 默认值是 true,
             sidebarDepth: 3,       // 可选的, 默认值是 1
-            children: path.findMdFiles('/Java/java开发技巧/IDEA/')
+            children: path.findMdFiles('/Java/Java开发技巧/IDEA/')
         },
         {
             title: '其他',       // 必要的
             collapsable: false, // 可选的, 默认值是 true,
             sidebarDepth: 3,    // 可选的, 默认值是 1
-            children: path.findMdFiles('/Java/java开发技巧/其他/')
+            children: path.findMdFiles('/Java/Java开发技巧/其他/')
         },
     ],
     '/Java/JVM性能调优/': [
@@ -35,6 +35,12 @@ module.exports = {
             collapsable: false,   // 可选的, 默认值是 true,
             sidebarDepth: 3,      // 可选的, 默认值是 1
             children: path.findMdFiles('/Java/JVM性能调优/JVM调优/')
+        },
+        {
+            title: 'JVM性能监控与调优',      // 必要的
+            collapsable: false,           // 可选的, 默认值是 true,
+            sidebarDepth: 3,              // 可选的, 默认值是 1
+            children: path.findMdFiles('/Java/JVM性能调优/JVM性能监控与调优/')
         }
     ],
     '/Java/中间件/': [
