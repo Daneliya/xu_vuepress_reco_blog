@@ -31,12 +31,6 @@ module.exports = {
             children: path.findMdFiles('/Java/JVM性能调优/JVM概念/')
         },
         {
-            title: 'JVM调优',      // 必要的
-            collapsable: false,   // 可选的, 默认值是 true,
-            sidebarDepth: 3,      // 可选的, 默认值是 1
-            children: path.findMdFiles('/Java/JVM性能调优/JVM调优/')
-        },
-        {
             title: 'JVM性能监控与调优',      // 必要的
             collapsable: false,           // 可选的, 默认值是 true,
             sidebarDepth: 3,              // 可选的, 默认值是 1
@@ -287,6 +281,12 @@ module.exports = {
             collapsable: false,           // 可选的, 默认值是 true,
             sidebarDepth: 3,              // 可选的, 默认值是 1
             children: path.findMdFiles('/StableDiffusion/StableDiffusion/')
+        },
+        {
+            title: 'Midjourney',          // 必要的
+            collapsable: false,           // 可选的, 默认值是 true,
+            sidebarDepth: 3,              // 可选的, 默认值是 1
+            children: path.findMdFiles('/StableDiffusion/Midjourney/')
         },
         {
             title: 'WebUI',               // 必要的

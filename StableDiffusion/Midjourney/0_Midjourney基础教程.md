@@ -49,7 +49,7 @@ categories:
 
 https://discord.com/api/oauth2/authorize?client_id=936929561302675456&permissions=274877945856&scope=bot
 
-![image.png](0_Midjourney基础教程.assets/image.png)
+![image.png](0_Midjourney基础教程.assets/image-1717346468460.png)
 
 2、点击一下链接，确认邀请加入>点击授权即可邀请成功
 
@@ -63,25 +63,15 @@ https://discord.com/api/oauth2/authorize?client_id=936929561302675456&permission
 
 可以让AI帮你画图啦（搜索/imagine）在后面添加关键词
 
-![img](https://cdn.nlark.com/yuque/0/2023/png/34410982/1682907363917-a138736b-5ea0-488d-b438-99592490c078.png?x-oss-process=image%2Fformat%2Cwebp%2Fresize%2Cw_845%2Climit_0)
+![image-1717346486708](0_Midjourney基础教程.assets/image-1717346486708.png)
 
+![image-1717346486709](0_Midjourney基础教程.assets/image-1717346486709.png)
 
+![image-1717346486710](0_Midjourney基础教程.assets/image-1717346486710.png)
 
-![img](https://cdn.nlark.com/yuque/0/2023/png/34410982/1682907370834-2c5e72db-5352-42bd-b896-0e7eee268dc7.png?x-oss-process=image%2Fformat%2Cwebp%2Fresize%2Cw_848%2Climit_0)
+![image-1717346486711](0_Midjourney基础教程.assets/image-1717346486711.png)
 
-
-
-![img](https://cdn.nlark.com/yuque/0/2023/png/34410982/1682907379959-84c39be4-7e71-44de-a578-cac2819019f7.png?x-oss-process=image%2Fformat%2Cwebp%2Fresize%2Cw_846%2Climit_0)
-
-
-
-![img](https://cdn.nlark.com/yuque/0/2023/png/34410982/1682907392812-a8840aac-0949-4f10-a117-9dd9c4651a14.png?x-oss-process=image%2Fformat%2Cwebp%2Fresize%2Cw_848%2Climit_0)
-
-
-
-![img](https://cdn.nlark.com/yuque/0/2023/png/34410982/1682907399603-91b7d13b-2eb4-4f57-911a-7d71fa1d929e.png?x-oss-process=image%2Fformat%2Cwebp%2Fresize%2Cw_848%2Climit_0)
-
-
+![image-1717346486712](0_Midjourney基础教程.assets/image-1717346486712.png)
 
 
 
@@ -89,7 +79,7 @@ https://discord.com/api/oauth2/authorize?client_id=936929561302675456&permission
 
 ## 资料
 
-Discord网址：https://discord.com/
+Discord网址：[https://discord.com/](https://discord.com/)
 
-文档资料：https://www.yuque.com/u32937722/qb6y63/kmhvqbx97gtn7wy5#V7bxK
+文档资料：[https://www.yuque.com/u32937722/qb6y63/kmhvqbx97gtn7wy5#V7bxK](https://www.yuque.com/u32937722/qb6y63/kmhvqbx97gtn7wy5#V7bxK)
 

@@ -9,7 +9,11 @@ categories:
 
 
 
-Kohya训练器简介%E2%80%8B Kohya GUI的核心是由开源社区开发者@Kohya.S 基于Simo Ryu（@cloneofsimo）的发现编写的LoRA训练脚本sd-scripts 。这是SD社区里出现最早的LoRA训练脚本，后续的大多数训练器与训练脚本均是在这个脚本的基础上衍生开发的。%E2%80%8B 我们使用的Kohya训练器，来源于另一位开发者@bmaltais 在Kohya脚本的基础上使用Gradio制作的图形界面（GUI），内置了可视化的界面帮助我们合理地输入、调整各项参数，并整合了参数预设、数据整理打标等在内的一系列配套功能（虽然我不常用kk）。
+## Kohya训练器简介
+
+Kohya GUI的核心是由开源社区开发者@Kohya.S 基于Simo Ryu（@cloneofsimo）的发现编写的LoRA训练脚本sd-scripts 。这是SD社区里出现最早的LoRA训练脚本，后续的大多数训练器与训练脚本均是在这个脚本的基础上衍生开发的。
+
+我们使用的Kohya训练器，来源于另一位开发者@bmaltais 在Kohya脚本的基础上使用Gradio制作的图形界面（GUI），内置了可视化的界面帮助我们合理地输入、调整各项参数，并整合了参数预设、数据整理打标等在内的一系列配套功能（虽然我不常用kk）。
 
 
 
