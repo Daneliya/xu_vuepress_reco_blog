@@ -337,6 +337,12 @@ module.exports = {
             collapsable: false,           // 可选的, 默认值是 true,
             sidebarDepth: 3,              // 可选的, 默认值是 1
             children: path.findMdFiles('/docs/面试专栏/')
+        },
+        {
+            title: '高等数学',             // 必要的
+            collapsable: false,           // 可选的, 默认值是 true,
+            sidebarDepth: 3,              // 可选的, 默认值是 1
+            children: path.findMdFiles('/docs/高等数学/')
         }
     ]
 }
