@@ -505,6 +505,8 @@ https://github.com/Daneliya/springboot_chowder/tree/main/springboot_redis_repeat
 
 参考资料：
 
+https://cloud.tencent.com/developer/article/2185751
+
 https://www.cnblogs.com/zys2019/p/17385568.html
 
 https://blog.csdn.net/Jason009/article/details/127896906
@@ -513,3 +515,10 @@ https://blog.csdn.net/Jason009/article/details/127896906
 
 [Redis分布式锁的一点小理解](https://www.cnblogs.com/zhangweicheng/p/11495971.html)
 
+[为什么使用LUA脚本](https://blog.csdn.net/weixin_44259720/article/details/121968837)
+
+https://www.cnblogs.com/wangyingshuo/p/14510524.html
+
+Redis实现分布式锁的7种方案 https://www.cnblogs.com/wangyingshuo/p/14510524.html
+
+https://www.cnblogs.com/zys2019/p/17385568.html

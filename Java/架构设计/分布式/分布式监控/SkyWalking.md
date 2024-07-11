@@ -11,7 +11,10 @@ categories:
 ---
 
 
-## 基本介绍
+
+> 官网：https://skywalking.apache.org
+
+## 一、简介
 
 - 什么是链路追踪
 
@@ -42,11 +45,28 @@ SkyWalking 特点
 
 ![skywalking](SkyWalking.assets/cf05a5a5_1151004.png)
 
-## 安装
+## 二、安装
 
-下载地址：https://archive.apache.org/dist/skywalking/ or http://skywalking.apache.org/downloads
+从地址`https://archive.apache.org/dist/skywalking/` 
 
+或skywalking的官网`http://skywalking.apache.org/downloads`
 
+下载包，包的结构如下：
+
+~~~
+skywalking
+|-- agent     本地代理模块（探针）
+|-- bin       收集启动脚本
+|-- config    skywalking数据收集器配置，告警配置等
+|-- config-examples
+|-- LICENSE
+|-- licenses
+|-- NOTICE
+|-- oap-libs
+|-- README.txt
+|-- tools
+|-- webapp    数据展示UI服务，系统依赖展示，链路追踪
+~~~
 
 ### Windows平台安装
 
@@ -56,7 +76,7 @@ Windows下载解压后（.tar.gz），直接点击`bin/startup.bat`就可以了�
 
 ### Linux平台安装
 
-下载
+#### 下载
 
 如果数据是存储在elasticsearch，需要下载对应的版本，否则启动报错
 
@@ -91,21 +111,43 @@ elasticsearch7:
 
 
 
-`skywalking`提供了一个可视化的监控平台，安装好之后，在浏览器中输入([http://localhost:8080 (opens new window)](http://localhost:8080/))就可以访问了。
+
+
+#### 启动收集器
+
+`skywalking`提供了一个可视化的监控平台.
+
+启动skywalking收集器服务，启动脚本为`bin`目录下`startup.sh`.
+
+webapp相关配置修改在`webapp`目录下`webapp.yml`.
+
+安装好之后，在浏览器中访问默认地址：http://IP:8080 就可以访问了。
+
+![image-20240711102104024](SkyWalking.assets/image-20240711102104024.png)
+
+#### 启动项目
+
+拷贝agent目录到所需位置，探针包含整个目录，不要改变目录结构，可修改`agent/config/agent.config`配置`agent.service_name=xxl-job`为自己的应用名，增加JVM启动参数`-javaagent:/.../skywalking-agent/skywalking-agent.jar`。参数值为skywalking-agent.jar的绝对路径
 
 
 
-## 使用
+### Docker安装
 
-复制安装包目录中的agent到java程序所在的机器上，启动脚本增加如下配置
+https://zhuanlan.zhihu.com/p/479291356
 
-~~~
--javaagent:本地目录别配错了/skywalking-agent.jar -Dskywalking.agent.service_name=服务名 -Dskywalking.collector.backend_service=上边安装的服务器ip:11800 
+
+
+## 三、使用
+
+复制安装包目录中的agent目录到java程序所在的机器上，探针包含整个目录，不要改变目录结构，可修改`agent/config/agent.config`配置`agent.service_name=xxl-job`为自己的应用名，增加JVM启动参数
+
+~~~sh
+-javaagent:/skywalking-agent.jar的绝对路径/skywalking-agent.jar -Dskywalking.agent.service_name=服务名 -Dskywalking.collector.backend_service=上边安装的服务器ip:11800 
 ~~~
 
 例如
 
-~~~
+~~~sh
 java -javaagent:/data/apache-skywalking-apm-bin-es7/agent/skywalking-agent.jar -Dskywalking.agent.namespace=dev -Dskywalking.agent.service_name=service-gateway -Dskywalking.collector.backend_service=127.0.0.1:11800 -Dspring.profiles.active=dev -jar /demo.jar
 ~~~
 
@@ -118,3 +160,13 @@ java -javaagent:/data/apache-skywalking-apm-bin-es7/agent/skywalking-agent.jar -
 [1]. https://blog.csdn.net/chengqwertyuiop/article/details/125065633
 
 [2]. http://doc.ruoyi.vip/ruoyi-cloud/cloud/skywalking.html
+
+agent：https://zhuanlan.zhihu.com/p/483352555
+
+简介：https://blog.csdn.net/feiying0canglang/article/details/120319399
+
+https://www.cnblogs.com/swave/p/11347711.html
+
+https://juejin.cn/post/7379416139975589951?searchId=20240711111734E120A0E1DA0C45950289#heading-3
+
+https://juejin.cn/post/7330828921100861478?searchId=20240711111734E120A0E1DA0C45950289#heading-8
