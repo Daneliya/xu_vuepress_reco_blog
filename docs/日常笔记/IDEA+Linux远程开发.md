@@ -17,26 +17,28 @@ categories:
 VMware下载：[https://www.vmware.com/cn/products/workstation-player.html](https://www.vmware.com/cn/products/workstation-player.html)
 下载，更改安装位置进行安装。
 启动，选择免费试用，免费版足够满足大部分开发需求。
-![image.png](IDEA+Linux远程开发.assets/image.png)
+![image.png](IDEA+Linux远程开发.assets/image-1723376990533.png)
 
 ### 镜像下载
 
 centos（已停止维护）：[https://www.centos.org/download/](https://www.centos.org/download/)
 或
 ubuntu：[https://releases.ubuntu.com/](https://releases.ubuntu.com/)
-![image.png](IDEA+Linux远程开发.assets/image.png)
-![image.png](IDEA+Linux远程开发.assets/image.png)
+
+![image.png](IDEA+Linux远程开发.assets/image-1723377021801.png)
+
+![image.png](IDEA+Linux远程开发.assets/image-1723377026412.png)
 
 ### 安装镜像
 
 打开VMware，新建虚拟机，选择镜像文件。
-![image.png](IDEA+Linux远程开发.assets/image.png)
+![image.png](IDEA+Linux远程开发.assets/image-1723377284490.png)
 指定虚拟机目录，建议直接在vmware安装目录下新建个目录安装。
-![image.png](IDEA+Linux远程开发.assets/image.png)
+![image.png](IDEA+Linux远程开发.assets/image-1723377065221.png)
 设置给虚拟机分配的硬盘空间大小。
-![image.png](IDEA+Linux远程开发.assets/image.png)
+![image.png](IDEA+Linux远程开发.assets/image-1723377083404.png)
 根据实际自定义硬件，点击完成。
-![image.png](IDEA+Linux远程开发.assets/image.png)
+![image.png](IDEA+Linux远程开发.assets/image-1723377089960.png)
 等待安装完成。☕
 
 更改分辨率：按下win键，输入 **resolution** ，设置为 200%。
@@ -76,9 +78,9 @@ sudo apt install net-tools
 ```
 
 查看ip
-![image.png](IDEA+Linux远程开发.assets/image.png)
+![image.png](IDEA+Linux远程开发.assets/image-1723377101564.png)
 win上测试是否连通
-![image.png](IDEA+Linux远程开发.assets/image.png)
+![image.png](IDEA+Linux远程开发.assets/image-1723377110967.png)
 
 ### 安装ssh支持
 
@@ -112,31 +114,32 @@ mvn -v
 启动项目时，用本地电脑连接远程Linux服务器，通过远程执行命令的方式来编译代码，运行代码。
 远程开发6个阶段：编写代码、文件同步、代码运行、编译构建、部署调试。
 
-![image.png](IDEA+Linux远程开发.assets/image.png)
+![image.png](IDEA+Linux远程开发.assets/image-1723377118686.png)
 
 ### IDEA配置
 
 建立一个简单地springboot测试项目
-![image.png](IDEA+Linux远程开发.assets/image.png)
+![image.png](IDEA+Linux远程开发.assets/image-1723377129104.png)
 配置文件同步
-![image.png](IDEA+Linux远程开发.assets/image.png)
+![image.png](IDEA+Linux远程开发.assets/image-1723377137737.png)
 添加sftp配置，配置ssh地址
-![image.png](IDEA+Linux远程开发.assets/image-1711299519890.png)
+![image.png](IDEA+Linux远程开发.assets/image-1723377173168.png)
 配置文件映射
 ![image.png](IDEA+Linux远程开发.assets/image-1711299519890.png)
 项目上右键部署
-![image.png](IDEA+Linux远程开发.assets/image-1711299519891.png)
+![image.png](IDEA+Linux远程开发.assets/image-1723377435892.png)
+
 ![image.png](IDEA+Linux远程开发.assets/image-1711299519891.png)
 在Linux上进入映射目录查看是否同步成功。
 如果嫌每次手动同步麻烦，可以开启自动同步
-![image.png](IDEA+Linux远程开发.assets/image-1711299519904.png)
+![image.png](IDEA+Linux远程开发.assets/image-1723377203371.png)
 选项options中可以配置不弹框提示删除
 ![image.png](IDEA+Linux远程开发.assets/image-1711299519904.png)
 
 ### 远程运行
 
 进入IDEA终端，连接远程服务器
-![image.png](IDEA+Linux远程开发.assets/image-1711299519920.png)
+![image.png](IDEA+Linux远程开发.assets/image-1723377217796.png)
 
 ```shell
 // 进入代码目录
@@ -181,7 +184,7 @@ IDEA进入入口页面，新建ssh连接
 打开项目后启动。
 启动时可能会报执行错误，需要在setting-compiler-vm option中增加参数
 -Djdk.lang.Process.launchMechanism=vfork
-![image.png](IDEA+Linux远程开发.assets/image-1711299519959.png)
+![image.png](IDEA+Linux远程开发.assets/image-1723377243938.png)
 设置转发端口，即可直接访问本地地址。
 ![image.png](IDEA+Linux远程开发.assets/image-1711299519959.png)
 

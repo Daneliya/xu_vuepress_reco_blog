@@ -7,11 +7,10 @@ categories:
 ---
 
 
-找出某个Java进程中最耗费CPU的Java线程并定位堆栈信息，用到的命令有：ps、top、printf、jstack、grep。
 
 
 
-## 问题原因
+## 一、问题原因
 
 现实企业级Java应用开发、维护中，有时候我们会碰到下面这些问题：
 
@@ -23,7 +22,11 @@ categories:
 
 这些问题在日常开发、维护中可能被很多人忽视（比如有的人遇到上面的问题只是重启服务器或者调大内存，而不会深究问题根源），但能够理解并解决这些问题是Java程序员进阶的必备要求。
 
-## 排查步骤
+
+
+## 二、常用命令
+
+找出某个Java进程中最耗费CPU的Java线程并定位堆栈信息，用到的命令有：ps、top、printf、jstack、grep。
 
 ### jps
 
@@ -32,8 +35,6 @@ jps主要用来输出JVM中运行的进程状态信息。语法格式如下：
 ```shell
 jps [options] [hostid]
 ```
-
-
 
 如果不指定hostid就默认为当前主机或服务器。
 
@@ -49,8 +50,6 @@ jps [options] [hostid]
 -v 输出传入JVM的参数
 ```
 
-
-
 比如下面：
 
 ```shell
@@ -64,8 +63,6 @@ root@ubuntu:/# jps -m -l
 21711 mrf-center.jar
 ```
 
-
-
 ### jstack
 
 jstack主要用来查看某个Java进程内的线程堆栈信息。语法格式如下：
@@ -76,8 +73,6 @@ jstack [option] executable core
 jstack [option] [server-id@]remote-hostname-or-ip
 ```
 
-
-
 命令行参数选项说明如下：
 
 ```shell
@@ -87,9 +82,18 @@ jstack [option] [server-id@]remote-hostname-or-ip
 -l long listings
 ```
 
-
-
 jstack可以定位到线程堆栈，根据堆栈信息我们可以定位到具体代码，所以它在JVM性能调优中使用得非常多。
+
+## 三、排查步骤
+
+Java开发中遇到线上服务器cpu占用过高问题如何解决？
+
+1. top拿到cpu占用高的进程ID
+2. 根据进程ID查看cpu占用高的线程ID
+3. 将线程ID转换成16进制
+4. jstack分析线程栈信息
+
+
 
 下面我们来一个实例找出某个Java进程中最耗费CPU的Java线程并定位堆栈信息，用到的命令有ps、top、printf、jstack、grep。
 
@@ -101,8 +105,6 @@ jstack可以定位到线程堆栈，根据堆栈信息我们可以定位到具�
 [root@storm-master home] ps -ef | grep wordcount
 root    2860  2547 13 02:09 pts/0  00:02:03 java -jar wordcount.jar /home/input 3 
 ```
-
-
 
 得到进程ID为 2860 。
 
@@ -120,8 +122,6 @@ root    2860  2547 13 02:09 pts/0  00:02:03 java -jar wordcount.jar /home/input 
 top -Hp 2860
 ```
 
-
-
 输出如下：
 
 ![img](找出某个Java进程中最耗费CPU的Java线程.assets/ThreadTopCpuList.png)
@@ -131,8 +131,6 @@ TIME列就是各个Java线程耗费的CPU时间，显然CPU时间最长的是ID�
 ```shell
 printf "%x\n" 2968
 ```
-
-
 
 得到2968的十六进制值为b98，下面会用到。
 
@@ -144,8 +142,6 @@ printf "%x\n" 2968
 [root@storm-master home] jstack 2860 | grep b98 
 "SessionTracker" prio=10 tid=0x00007f55a44e4800 nid=0xb53 in Object.wait() [0x00007f558e06c000 
 ```
-
-
 
 可以看到CPU消耗在SessionTracker这个类的Object.wait()，于是就能很容易的定位到相关的代码了。
 
@@ -159,9 +155,10 @@ printf "%x\n" 2968
 jstack -l 7052 >> thread.txt
 ~~~
 
+-----
 
+**第四步：**分析堆栈信息
 
-2、分析堆栈信息
 将thread.txt下载到本地，使用IBM Thread and Monitor Dump Analyzer for Java打开分析 
 
 ![img](找出某个Java进程中最耗费CPU的Java线程.assets/20201218101730997.png)
@@ -170,20 +167,22 @@ jstack -l 7052 >> thread.txt
 
 ------
 
-## 其他问题排查
+## 四、其他问题排查思路
 
 **查看某进程及某线程占用 CPU 的例子**
 
 - `jps`: 列出 java 进程,找到 pid.
-- `pidstat -p pid -u 1 3 -u -t`: 查看 pid 的进程所有线程的 cpu 使用情况.
-- `jstack -l pid > /tmp/thread.txt`: 导出指定 Java 应用的所有线程.
+- `pidstat -p pid -u 1 3 -u -t`: 查看 pid 的进程所有线程的 cpu 使用情况。
+- `jstack -l pid > /tmp/thread.txt`: 导出指定 Java 应用的所有线程。
 
-然后查看 `nid=xxx`(即第二步里线程号的线程),即可定位到某段代码.
+然后查看 `nid=xxx`(即第二步里线程号的线程),即可定位到某段代码。
+
+
 
 **查看某进程及某线程占用 IO 的例子**
 
 - `jps`: 列出 java 进程,找到 pid.
-- `pidstat -p pid -u 1 3 -d -t`: 查看 pid 的进程所有线程的 IO 使用情况.
-- `jstack -l pid > /tmp/thread.txt`: 导出指定 Java 应用的所有线程.
+- `pidstat -p pid -u 1 3 -d -t`: 查看 pid 的进程所有线程的 IO 使用情况。
+- `jstack -l pid > /tmp/thread.txt`: 导出指定 Java 应用的所有线程。
 
-然后查看 `nid=xxx`(即第二步里线程号的线程),即可定位到某段代码.
+然后查看 `nid=xxx`(即第二步里线程号的线程),即可定位到某段代码。
