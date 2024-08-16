@@ -237,3 +237,38 @@ https://blog.csdn.net/m0_72838865/article/details/126784090
 Failed to restart network.service: Unit network.service not found.
 
 https://blog.csdn.net/qq_33468857/article/details/125135211
+
+
+
+
+
+### 查看所有java应用的内存占用情况
+
+~~~sh
+top -b -n 1 | grep java| awk '{print "PID:"$1",mem:"$6",CPU percent:"$9"%","mem percent:"$10"%"}'
+~~~
+
+结果
+
+~~~sh
+root@qydy:~# top -b -n 1 | grep java| awk '{print "PID:"$1",mem:"$6",CPU percent:"$9"%","mem percent:"$10"%"}'
+
+PID:21509,mem:868988,CPU percent:12.5% mem percent:1.3%
+PID:327578,mem:1.9g,CPU percent:6.2% mem percent:3.1%
+PID:1581117,mem:4.9g,CPU percent:6.2% mem percent:7.8%
+PID:1856910,mem:873336,CPU percent:6.2% mem percent:1.3%
+PID:1041,mem:720216,CPU percent:0.0% mem percent:1.1%
+PID:9466,mem:1.3g,CPU percent:0.0% mem percent:2.1%
+PID:39646,mem:1.6g,CPU percent:0.0% mem percent:2.5%
+PID:42408,mem:1.2g,CPU percent:0.0% mem percent:1.9%
+PID:108419,mem:1.5g,CPU percent:0.0% mem percent:2.4%
+PID:326532,mem:1.2g,CPU percent:0.0% mem percent:2.0%
+PID:339477,mem:1.6g,CPU percent:0.0% mem percent:2.6%
+PID:342861,mem:1.2g,CPU percent:0.0% mem percent:1.9%
+PID:343467,mem:1.5g,CPU percent:0.0% mem percent:2.4%
+PID:687881,mem:1.8g,CPU percent:0.0% mem percent:2.8%
+PID:719273,mem:1.4g,CPU percent:0.0% mem percent:2.3%
+PID:761835,mem:1.8g,CPU percent:0.0% mem percent:2.8%
+PID:800379,mem:2.3g,CPU percent:0.0% mem percent:3.7%
+~~~
+
