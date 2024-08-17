@@ -1,5 +1,5 @@
 ---
-title: MYSQL日期函数
+title: MySQL日期函数
 tags:
  - MySQL
 categories: 
