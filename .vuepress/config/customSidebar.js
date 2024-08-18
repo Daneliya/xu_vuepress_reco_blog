@@ -131,7 +131,14 @@ module.exports = {
             // path: '/Java/架构/高可用/降级熔断/README',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
             collapsable: false, // 可选的, 默认值是 true,
             sidebarDepth: 3,    // 可选的, 默认值是 1
-            children: path.findMdFiles('/Java/架构设计/高可用/')
+            children: [
+                {
+                    title: '高可用架构设计概述',   // 必要的
+                    collapsable: false,  // 可选的, 默认值是 true,
+                    sidebarDepth: 3,     // 可选的, 默认值是 1
+                    children: path.findMdFiles('/Java/架构设计/高可用/0_概述/')
+                }
+            ]
         }
     ],
     '/Java/设计模式/': [
@@ -174,6 +181,14 @@ module.exports = {
             collapsable: false,       // 可选的, 默认值是 true,
             sidebarDepth: 3,          // 可选的, 默认值是 1
             children: path.findMdFiles('/Java/微服务专栏/远程调用Feign/')
+        }
+    ],
+    '/Java/系统优化/': [
+        {
+            title: '系统优化',    // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/Java/系统优化/')
         }
     ],
     '/数据库/': [

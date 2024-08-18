@@ -48,6 +48,11 @@ module.exports = [
                 "text": "数据结构",
                 "icon": "iconfont icon-shujujiegou",
                 "link": "/Java/数据结构/排序算法"
+            },
+            {
+                "text": "系统优化",
+                "icon": "iconfont icon-shujujiegou",
+                "link": "/Java/系统优化/1_幂等设计"
             }
         ]
     },

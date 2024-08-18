@@ -1,13 +1,13 @@
 ---
-title: skywalking链路追踪
+title: SkyWalking链路追踪
 tags:
  - 分布式监控
  - 链路追踪
- - skywalking
+ - SkyWalking
 categories: 
  - 分布式监控
  - 链路追踪
- - skywalking
+ - SkyWalking
 ---
 
 
