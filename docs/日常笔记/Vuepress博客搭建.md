@@ -23,12 +23,16 @@ categories:
 
 ## 自定义样式
 > [http://www.taodudu.cc/news/show-3334923.html?action=onClick](http://www.taodudu.cc/news/show-3334923.html?action=onClick)
+>
 > [https://bbs.csdn.net/topics/607761494](https://bbs.csdn.net/topics/607761494)
+>
 > [https://blog.csdn.net/qq_41327483/article/details/119103300](https://blog.csdn.net/qq_41327483/article/details/119103300)
+>
 > [https://juejin.cn/post/7242181894116573245#heading-6](https://juejin.cn/post/7242181894116573245#heading-6)
+>
 > [https://blog.csdn.net/weixin_42029738/article/details/125833297](https://blog.csdn.net/weixin_42029738/article/details/125833297)
 >
-> https://blog.csdn.net/howareyou2104/article/details/107412555
+> [https://blog.csdn.net/howareyou2104/article/details/107412555](https://blog.csdn.net/howareyou2104/article/details/107412555)
 
 新建 `.vuepress/styles/palette.styl` 文件增加样式
 ```css
@@ -105,7 +109,7 @@ module.exports = {
 ### vuepress-plugin-auto-sidebar（自动生成侧边栏 vuepress）
 > 项目地址：[https://github.com/shanyuhai123/vuepress-plugin-auto-sidebar](https://github.com/shanyuhai123/vuepress-plugin-auto-sidebar)
 >
-> 项目文档：https://shanyuhai123.github.io/vuepress-plugin-auto-sidebar/zh/
+> 项目文档：[https://shanyuhai123.github.io/vuepress-plugin-auto-sidebar/zh/](https://shanyuhai123.github.io/vuepress-plugin-auto-sidebar/zh/)
 
 
 1. 安装
@@ -155,6 +159,7 @@ vuepress nav docs
 
 ### 代码实现自动生成侧边栏
 > 参考（vuepress-theme-reco）：[https://blog.csdn.net/weixin_44113868/article/details/118343085](https://blog.csdn.net/weixin_44113868/article/details/118343085)
+>
 > 参考：[https://blog.csdn.net/weixin_42068913/article/details/116207129](https://blog.csdn.net/weixin_42068913/article/details/116207129)
 
 ```shell
@@ -252,9 +257,9 @@ module.exports = {
 
 **@mdit/plugin-katex**
 
-> https://blog.csdn.net/Flyingheart1991/article/details/126067149
+> [https://blog.csdn.net/Flyingheart1991/article/details/126067149](https://blog.csdn.net/Flyingheart1991/article/details/126067149)
 >
-> https://blog.csdn.net/m0_63748493/article/details/132354410
+> [https://blog.csdn.net/m0_63748493/article/details/132354410](https://blog.csdn.net/m0_63748493/article/details/132354410)
 
 
 
@@ -286,9 +291,10 @@ module.exports = {
 # Vuepress-reco 1.0 主题
 > 官方文档：[http://v1.vuepress-reco.recoluan.com/views/1.x/](http://v1.vuepress-reco.recoluan.com/views/1.x/)
 
-
 [http://zpj80231.gitee.io/znote/other/project.html](http://zpj80231.gitee.io/znote/other/project.html)
+
 [https://www.bookbook.cc/](https://www.bookbook.cc/)
+
 # Vuepress-reco 2.0 主题
 > 官方文档：[https://vuepress-theme-reco.recoluan.com/](https://vuepress-theme-reco.recoluan.com/)
 
@@ -297,17 +303,23 @@ module.exports = {
 # vdoing 主题
 
 > 主题地址：[https://github.com/xugaoyi/vuepress-theme-vdoing](https://github.com/xugaoyi/vuepress-theme-vdoing)
+>
 > 示例博客：[https://m.sofineday.com](https://m.sofineday.com)
 
 
 # 示例博客
 [https://zpj80231.gitee.io/znote/](https://zpj80231.gitee.io/znote/)
+
 [https://www.bookbook.cc/](https://www.bookbook.cc/)
+
 [https://www.xk857.com/](https://www.xk857.com/)
+
 [https://www.pdai.tech/](https://www.pdai.tech/)
 
 
 # 参考资料
 [1]. [https://www.bilibili.com/video/BV1vb411m7NY](https://www.bilibili.com/video/BV1vb411m7NY)
+
 [https://blog.csdn.net/qq_19978927/article/details/108039032](https://blog.csdn.net/qq_19978927/article/details/108039032)
+
 [https://blog.csdn.net/weixin_45732455/article/details/129940312](https://blog.csdn.net/weixin_45732455/article/details/129940312)
