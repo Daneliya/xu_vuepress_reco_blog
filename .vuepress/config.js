@@ -6,7 +6,7 @@ const nav = require("./nav.js");
 // const {katex} = require("@mdit/plugin-katex");
 
 module.exports = {
-    "title": "xuxiaolong",
+    "title": "xiaolong",
     "description": "描述",
     "dest": "public",
     "port": 8081,
