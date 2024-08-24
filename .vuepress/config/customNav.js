@@ -52,7 +52,7 @@ module.exports = [
             {
                 "text": "系统优化",
                 "icon": "iconfont icon-shujujiegou",
-                "link": "/Java/系统优化/1_幂等设计"
+                "link": "/Java/系统优化/系统优化/1_幂等设计"
             }
         ]
     },

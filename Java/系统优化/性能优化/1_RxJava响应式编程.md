@@ -8,7 +8,7 @@ categories:
 
 
 
-## 背景
+## 一、背景
 
 之前一些查询功能是等所有内容全部生成后，再返回给前端，用户可能要等待较长的时间。
 
@@ -55,7 +55,7 @@ public Flowable<ModelData> doRequestFlowable(List<ChatMessage> messages, Boolean
 
 实际上 Flowable 是 RxJava 响应式编程库中定义的类，为了更好地进行流式开发，我们要先来了解下响应式编程和 RxJava。
 
-## 什么是响应式编程？
+## 二、什么是响应式编程？
 
 响应式编程（Reactive Programming）是一种编程范式，它专注于 **异步数据流** 和 **变化传播**。
 
@@ -84,7 +84,7 @@ list.stream()
 
 注意，响应式编程更倾向于声明式编程风格，通过定义数据流的转换和组合来实现复杂的逻辑。比如，可以利用 map、filter 等函数来实现数据转换，而不是将一大堆复杂的逻辑混杂在一个代码块中。
 
-## 什么是 RxJava？
+## 三、什么是 RxJava？
 
 RxJava 是一个基于事件驱动的、利用可观测序列来实现异步编程的类库，是响应式编程在 Java 语言上的实现。
 
@@ -112,7 +112,7 @@ btn.onClick(()->{
 
 可以理解为在数据流的基础上封装了一层，多加了一点方法。
 
-## RxJava 应用场景
+## 四、RxJava 应用场景
 
 它的一个核心应用场景就是 UI 场景，像 Android 开发都会用到 RxJava。
 
@@ -164,7 +164,7 @@ subscribe((Action1) (bitmap) -> { imageCollectorView.addImage(bitmap) });` 是�
 
 想必我们已经知晓的 RxJava 的便捷之处了，接下来我们再来学学 RxJava 的核心知识点。
 
-## RxJava 的核心知识点
+## 五、RxJava 的核心知识点
 
 ### 观察者模式
 
@@ -257,7 +257,7 @@ flowable.observeOn(Schedulers.io())
 
 了解这么多就够用了，更多可以查看官网 https://reactivex.io/，支持多种不同的编程语言。
 
-## DEMO 演示
+## 六、DEMO 演示
 
 1）引入依赖
 
@@ -293,7 +293,7 @@ void rxJavaDemo() throws InterruptedException {
 }
 ```
 
-## RxJava 和 WebFlux 的区别
+## 七、补充：RxJava 和 WebFlux 的区别
 
 Spring WebFlux 和 RxJava 都是用于构建反应式编程模型的工具和框架，它们有一定的关联，但也有不同的用途和实现方式。以下是两者的关联和区别：
 

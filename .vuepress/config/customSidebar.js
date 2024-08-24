@@ -188,7 +188,13 @@ module.exports = {
             title: '系统优化',    // 必要的
             collapsable: false, // 可选的, 默认值是 true,
             sidebarDepth: 3,    // 可选的, 默认值是 1
-            children: path.findMdFiles('/Java/系统优化/')
+            children: path.findMdFiles('/Java/系统优化/系统优化/')
+        },
+        {
+            title: '性能优化',    // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/Java/系统优化/性能优化/')
         }
     ],
     '/数据库/': [
