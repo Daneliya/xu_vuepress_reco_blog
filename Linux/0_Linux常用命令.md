@@ -272,3 +272,14 @@ PID:761835,mem:1.8g,CPU percent:0.0% mem percent:2.8%
 PID:800379,mem:2.3g,CPU percent:0.0% mem percent:3.7%
 ~~~
 
+
+
+
+
+
+
+### yum配置
+
+[CentOS7配置阿里yum源 超详细！！！-阿里云开发者社区 (aliyun.com)](https://developer.aliyun.com/article/1366034)
+
+[CentOS7配置阿里云镜像源（超详细过程）_centos7 一键配置 配置阿里源脚本-CSDN博客](https://blog.csdn.net/KingveyLee/article/details/114984534)
