@@ -18,6 +18,7 @@ categories:
 
 
 
+一、什么是延时队列
 
 
 
@@ -25,6 +26,19 @@ categories:
 
 
 
+
+
+三、RabbitMQ中的TTL
+
+
+
+
+
+
+
+
+
+https://cloud.tencent.com/developer/article/1659393
 
 https://blog.csdn.net/Mou_O/article/details/106093749
 
@@ -48,9 +62,27 @@ https://blog.csdn.net/m0_46114643/article/details/122543014
 
 
 
+确认消息报错：Channel shutdown: channel error; protocol method
 
+```
+@RabbitListener(queues = DELAYED_QUEUE_NAME)
+public void receiveD(Message message, Channel channel) throws IOException {
+    String msg = new String(message.getBody());
+    log.info("当前时间：{},延时队列收到消息：{}", new Date().toString(), msg);
+    channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+}
+```
 
+https://blog.csdn.net/hantanxin/article/details/103871321
 
+修改配置为手动签收
 
-
+~~~
+    listener:
+      simple:
+        concurrency: 1
+        max-concurrency: 1
+        acknowledge-mode: manual
+        prefetch: 1 
+~~~
 
