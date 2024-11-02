@@ -1,5 +1,5 @@
 ---
-title: FlowLong飞龙工作流笔记
+title: FlowLong飞龙工作流
 tags:
  - 开发文档
 categories: 
