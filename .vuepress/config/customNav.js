@@ -143,7 +143,7 @@ module.exports = [
             },
             {
                 "text": "🚀开发文档",
-                "link": "/docs/开发文档/Mysql主从复制"
+                "link": "/docs/开发文档/PDF转换"
             },
             {
                 "text": "🚀开源项目",
