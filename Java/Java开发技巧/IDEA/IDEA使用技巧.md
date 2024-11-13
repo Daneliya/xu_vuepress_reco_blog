@@ -118,3 +118,26 @@ https://blog.csdn.net/jx520/article/details/127058046
 ## IDEA无法打开Marketplace
 
 [https://blog.csdn.net/weixin_44161378/article/details/110295965](https://blog.csdn.net/weixin_44161378/article/details/110295965)
+
+
+
+## 创建模板文件
+
+File --> Settings --> Editor--> File and Code Templates
+
+![image-20241113095636885](IDEA使用技巧.assets/image-20241113095636885.png)
+
+插入模板信息
+
+~~~
+/**
+ * @Classname ${NAME}
+ * @Description TODO
+ * @Date ${DATE} ${TIME}
+ * @Created by ${USER}
+ */
+~~~
+
+方法设置模板
+
+https://blog.csdn.net/sdut406/article/details/81750858

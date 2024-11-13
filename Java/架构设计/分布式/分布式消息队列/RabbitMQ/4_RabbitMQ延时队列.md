@@ -11,28 +11,12 @@ categories:
 
 
 
-
-
-
-
-
-
-
 一、什么是延时队列
 
 
 
 
-
-
-
-
-
 三、RabbitMQ中的TTL
-
-
-
-
 
 
 
