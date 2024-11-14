@@ -197,6 +197,14 @@ module.exports = {
             children: path.findMdFiles('/Java/系统优化/性能优化/')
         }
     ],
+    '/Python/': [
+        {
+            title: 'Python',      // 必要的
+            collapsable: false,   // 可选的, 默认值是 true,
+            sidebarDepth: 3,      // 可选的, 默认值是 1
+            children: path.findMdFiles('/Python/')
+        }
+    ],
     '/数据库/': [
         {
             title: 'MongoDB',     // 必要的
