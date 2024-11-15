@@ -57,6 +57,11 @@ module.exports = [
         ]
     },
     {
+        "text": "Python",
+        "icon": "iconfont icon-python",
+        "link": "/Python/Python基础语法"
+    },
+    {
         "text": "数据库",
         "icon": "iconfont icon-shujuku",
         "link": "/数据库/MongoDB/0_MongoDB简介"

@@ -1,3 +1,12 @@
+---
+title: ubuntu安装应用
+tags:
+ - Linux
+categories: 
+ - Linux
+---
+
+
 
 Ubuntu20.04安装VMware tools一直失败，通过命令行进行安装
 
