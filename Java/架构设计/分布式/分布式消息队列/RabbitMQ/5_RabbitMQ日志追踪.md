@@ -1,5 +1,5 @@
 ---
-title: RabbitMQ延时队列
+title: RabbitMQ日志追踪
 tags:
  - 消息队列
  - RabbitMQ
@@ -45,6 +45,14 @@ rabbitmq-plugins disable rabbitmq_tracing
 ~~~
 
 
+
+## trace消息跟踪显示乱码（谷歌如何修改字符编码）
+
+从github上下载最新的crx：https://[github](https://so.csdn.net/so/search?q=github&spm=1001.2101.3001.7020).com/jinliming2/Chrome-Charset/releases
+
+选择谷歌设置–扩展程序，将crx拖入谷歌浏览器，确认即可。
+
+选择插件修改编码格式为utf-8,问题解决。
 
 
 
