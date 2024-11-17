@@ -541,7 +541,6 @@ for name, gpa in gpa_dict.items():
 print("=====================")
 for name, gpa in gpa_dict.items():
     print(f"{name}你好，你的当前绩点为：{gpa:.2f}")
-
 ```
 
 
@@ -550,22 +549,558 @@ for name, gpa in gpa_dict.items():
 
 函数没有`return`语句，默认为`return None`
 
+```python
+# 定义一个函数，计算扇形的面积
+def calculate_sector(central_angle, radius):
+    # 接下来是一些定义函数的代码
+    sector_area = central_angle / 360 * 3.14 * radius ** 2
+    print(f"此扇形面积为：{sector_area}")
+    return sector_area
 
 
+# 调用函数
+sector_area_1 = calculate_sector(160, 30)
+sector_area_2 = calculate_sector(60, 15)
+sector_area_3 = calculate_sector(30, 16)
+
+"""
+写一个计算BMI的函数，函数名为 calculate_BMI。
+1. 可以计算任意体重和身高的BMI值
+2. 执行过程中打印一句话，“您的BMI分类为：xx”
+3. 返回计算出的BMI值
+
+BMI = 体重 / (身高 ** 2)
+
+BMI分类
+偏瘦: BMI <= 18.5
+正常: 18.5 < BMI <= 25
+偏胖: 25 < BMI <= 30
+肥胖: BMI > 30
+"""
 
 
+def calculate_BMI(weight, height):
+    BMI = weight / height ** 2
+    if BMI <= 18.5:
+        category = "偏瘦"
+    elif 18.5 < BMI <= 25:
+        category = "正常"
+    elif 25 < BMI <= 30:
+        category = "偏胖"
+    else:
+        category = "肥胖"
+    print(f"您的BMI分类为：{category}")
+    return BMI
 
+
+calculate_BMI(70, 1.8)
+```
 
 
 
 ## 引入模块
 
+内置函数、内置类型：无需引入，只需`import`
+
+内置模块：无需引入，只需`import`
+
+第三方模块：需要安装+引入，需要`pip install`
+
+
+
+Python官方标准库：https://docs.python.org/zh-cn/3/library/index.html
+
+第三方库：https://pypi.org/
+
+
+
+引入模块方式如下
+
+```python
+# 引入模块方式一：import 语句
+import statistics
+
+print(statistics.median([19, -5, 36]))
+print(statistics.mean([19, -5, 36]))
+
+# 引入模块方式二：from...import... 语句
+from statistics import median, mean
+
+print(median([19, -5, 36]))
+print(mean([19, -5, 36]))
+
+# 引入模块方式三：from...import* 语句
+from statistics import *
+
+print(median([19, -5, 36]))
+print(mean([19, -5, 36]))
+
+# 引入第三方库 akshare 财经数据库
+# 提前 pip install akshare
+import akshare
+
+# 使用 get_czce_daily 函数获取2024年2月22日中国金融期货交易所交易数据
+print(akshare.get_czce_daily("20240222"))
+```
+
+
 
 ## 面向对象
 
+面向对象编程，简称OOP（Object Oriented Programming）
+
+与之相对的是面向过程编程（函数）：将事情拆分成步骤，依次完成。
 
 
 
+面向对象编程以对象为核心，并不会聚焦于每一步，而是模拟真实世界，考虑各个对象有什么性质、能做什么事情，提取性质，定义类，使用类创建对象。
+
+类与对象之间的关系是：**类是创建对象的模板，对象是类的实例**。
+
+对象能够绑定属性（Attribute）、方法（Method）。
+
+属性对应对象拥有的性质，方法对应对象能做些什么。
+
+属性就是放在类里面的变量，方法就是放在类里面的函数。
+
+面向过程是编年体，面向对象是纪传体。
 
 
 
+面向对象三大特性：**封装、继承、多态**。
+
+
+
+## 类
+
+Python定义类名不同于定义普通变量用的下划线命名法，使用的是**Pascal命名法**，例子：UserAccount、CustomerOrder
+
+基本 语法
+
+```python
+# 基本语法
+# class NameOfClass:
+#     # 接下来是一些定义类的代码
+#     # ...
+
+# 示例一
+# 定义可爱猫猫类
+class CuteCat:
+    # 构造函数，self 表示对象自身
+    def __init__(self):
+        # 定义猫猫的名字属性，一定要加self，不然会被Python认为是变量
+        self.name = "Lambton"
+
+
+# 创建对象
+cat1 = CuteCat()
+print(cat1.name)
+
+
+# 示例二
+# 定义可爱猫猫类，构造函数增加参数
+class CuteCat2:
+    def __init__(self, cat_name):
+        self.name = cat_name
+
+
+# 创建对象
+cat1 = CuteCat2("Jojo")
+print(cat1.name)
+
+
+# 示例三
+# 定义可爱猫猫类，构造函数增加更多属性
+class CuteCat3:
+    def __init__(self, cat_name, cat_age, cat_color):
+        self.name = cat_name
+        self.age = cat_age
+        self.color = cat_color
+
+
+# 创建对象
+cat1 = CuteCat3("Jojo", 2, "橙色")
+print(f"小猫{cat1.name}的年龄是{cat1.age}岁，花色是{cat1.color}")
+```
+
+类中定义方法
+
+```python
+# 定义对象中的方法
+class CuteCat:
+    def __init__(self, cat_name, cat_age, cat_color):
+        self.name = cat_name
+        self.age = cat_age
+        self.color = cat_color
+
+    def speak(self):
+        print("喵" * self.age)
+
+    def think(self, content):
+        print(f"小猫{self.name}在思考{content}...")
+
+
+cat1 = CuteCat("Jojo", 3, "橙色")
+cat1.speak()
+cat1.think("现在去抓沙发还是去撕纸箱")
+
+
+# 实践
+# 定义一个学生类
+# 要求：
+# 1. 属性包括学生姓名、学号，以及语数英三科成绩
+# 2. 能够设置学生某科目的成绩
+# 3. 能够打印出该学生所有科目的成绩
+
+class Student:
+    def __init__(self, name, student_id):
+        self.name = name
+        self.student_id = student_id
+        self.grades = {"语文": 0, "数学": 0, "英语": 0}
+
+    def set_grade(self, course, grade):
+        if course in self.grades:
+            self.grades[course] = grade
+
+    def print_grades(self):
+        print(f"学生{self.name}（学号：{self.student_id}）的成绩为：")
+        for course in self.grades:
+            print(f"{course}：{self.grades[course]}分")
+
+
+chen = Student("小陈", "100618")
+print(chen.name)
+zeng = Student("小曾", "100622")
+zeng.set_grade("语文", 92)
+zeng.set_grade("数学", 94)
+zeng.print_grades()
+```
+
+
+
+## 类继承
+
+什么时候用继承？
+
+A是B，class A(B)
+
+人类是动物，class Human(Animal)
+
+新能源是车，class ElectricCar(Car)
+
+```python
+# 类继承练习：人力系统
+# - 员工分为两类：全职员工 FullTimeEmployee、兼职员工 PartTimeEmployee。
+# - 全职和兼职都有"姓名 name"、"工号 id"属性，
+#   都具备"打印信息 print_info"（打印姓名、工号）方法。
+# - 全职有"月薪 monthly_salary"属性，
+#   兼职有"日薪 daily_salary"属性、"每月工作天数 work_days"的属性。
+# - 全职和兼职都有"计算月薪 calculate_monthly_pay"的方法，但具体计算过程不一样。
+
+class Employee:
+    def __init__(self, name, id):
+        self.name = name
+        self.id = id
+
+    def print_info(self):
+        print(f"员工名字：{self.name}，工号：{self.id}")
+
+
+class FullTimeEmployee(Employee):
+    def __init__(self, name, id, monthly_salary):
+        super().__init__(name, id)
+        self.monthly_salary = monthly_salary
+
+    def calculate_monthly_pay(self):
+        return self.monthly_salary
+
+
+class PartTimeEmployee(Employee):
+    def __init__(self, name, id, daily_salary, work_days):
+        super().__init__(name, id)
+        self.daily_salary = daily_salary
+        self.work_days = work_days
+
+    def calculate_monthly_pay(self):
+        return self.daily_salary * self.work_days
+
+
+zhangsan = FullTimeEmployee("张三", "1001", 6000)
+lisi = PartTimeEmployee("李四", "1002", 230, 15)
+zhangsan.print_info()
+lisi.print_info()
+print(zhangsan.calculate_monthly_pay())
+print(lisi.calculate_monthly_pay())
+```
+
+
+
+## 文件路径
+
+绝对路径：从根目录出发的路径，以斜杠开头（windows是以分区名+反斜杠开头，D:\）
+
+相对路径：从一个参考位置出发
+
+
+
+## 文件操作
+
+使用open函数打开文件
+
+
+
+open参数中的mode模式
+
+- r：读取模式，只读，默认模式
+- w：写入模式，只写
+- a：附加模式，只写
+- r+：读写模式
+
+读取方法
+
+- read：返回全部文件内容的字符串。
+- readline：返回一行文件内容的字符串。自带换行
+- readlines：返回全部文件内容组成的列表。
+
+
+
+使用with关键字会自动关闭文件资源，不需要再f.close手动关闭
+
+```python
+# 需自行创建data.txt文件，并放在和此代码文件同一目录下，才能读出内容
+# 也可以自行更改文件路径
+
+# 1. read方法读文件
+with open("./data.txt", "r", encoding="utf-8") as f:
+    content = f.read()
+    print(content)
+
+# 2. readline方法读文件
+with open("./data.txt", "r", encoding="utf-8") as f:
+    line = f.readline()
+    while line != "":
+        print(line)
+        line = f.readline()
+
+# 3. readlines方法读文件
+with open("./data.txt", "r", encoding="utf-8") as f:
+    lines = f.readlines()
+    for line in lines:
+        print(line)
+```
+
+使用写入模式，如果文件不存在，会自动创建。
+
+如果已经存在，会把原来的内容清空。
+
+如果不想清空使用附件模式（a）
+
+```python
+# 任务1：在一个新的名字为"poem.txt"的文件里，写入以下内容：
+# 我欲乘风归去，
+# 又恐琼楼玉宇，
+# 高处不胜寒。
+with open("./poem.txt", "w", encoding="utf-8") as f:
+    f.write("我欲乘风归去，\n又恐琼楼玉宇，\n高处不胜寒。\n")
+
+# 任务2：在上面的"poem.txt"文件结尾处，添加以下两句：
+# 起舞弄清影，
+# 何似在人间。
+with open("./poem.txt", "a", encoding="utf-8") as f:
+    f.write("起舞弄清影，\n")
+    f.write("何似在人间。")
+```
+
+
+
+## 异常处理
+
+```python
+try:  # 有可能产生错误的代码
+    user_weight = float(input("请输入您的体重（单位：kg）："))
+    user_height = float(input("请输入您的身高（单位：m）："))
+    user_BMI = user_weight / user_height ** 2
+except ValueError:  # 产生值错误时会运行
+    print("输入不为合理数字，请重新运行程序，并输入正确的数字。")
+except ZeroDivisionError:  # 产生除零错误时会运行
+    print("身高不能为零，请重新运行程序，并输入正确的数字。")
+except:  # 产生其它错误时会运行
+    print("发生了未知错误，请重新运行程序。")
+else:  # 没有错误时会运行
+    print("您的BMI值为：" + str(user_BMI))
+finally:  # 不管发生错误与否都会运行
+    print("程序结束运行。")
+```
+
+
+
+## 测试
+
+`assert` 断言语句，后面跟上布尔表达式，如果有错，会产生`AssertionError`断言错误。
+
+但是断言有异常会直接中止，后面的不会执行，并不能知道后面的代码还有没有其他问题。
+
+使用专门做测试的库，一次性跑多个测试用例。
+
+`unittest` 测试库
+
+测试类、测试方法以`test_`开头，因为`unittest`只会把`test_`开头的作为测试用例。
+
+`unittest.TestCase`类的常见测试方法
+
+| 方法                | 类似于            |
+| ------------------- | ----------------- |
+| assertEqual(A,B)    | assert A==B       |
+| assertTrue(A)       | assert A is True  |
+| assertIn(A,B)       | assert A in B     |
+| assertNotEqual(A,B) | assert A != B     |
+| assertFalse(A)      | assert A is False |
+| assertNotIn(A,B)    | assert A not in B |
+
+   为了减少重复创建对象，可以使用`TestCase`类里的`setUp`方法。在运行各个测试方法，也就是`test_`开头的方法前，`setUp`方法都会先被运行一次
+
+```python
+'''
+注意：此文件是针对以下类的测试文件。
+可以在此文件同一文件夹下新建shopping_list.py，并复制以下内容到该文件：
+
+class ShoppingList:
+    """初始化购物清单，shopping_list是字典类型，包含商品名和对应价格
+    例子：{"牙刷": 5, "沐浴露": 15, "电池": 7}"""
+    def __init__(self, shopping_list):
+        self.shopping_list = shopping_list
+
+    """返回购物清单上有多少项商品"""
+    def get_item_count(self):
+        return len(self.shopping_list)
+
+    """返回购物清单商品价格总额数字"""
+    def get_total_price(self):
+        total_price = 0
+        for price in self.shopping_list.values():
+            total_price += price
+        return total_price
+'''
+
+import unittest
+from shopping_list import ShoppingList
+
+
+class TestShoppingList(unittest.TestCase):
+    def setUp(self):
+        self.shopping_list = ShoppingList({"纸巾": 8, "帽子": 30, "拖鞋": 15})
+
+    def test_get_item_count(self):
+        self.assertEqual(self.shopping_list.get_item_count(), 3)
+
+    def test_get_total_price(self):
+        self.assertEqual(self.shopping_list.get_total_price(), 55)
+```
+
+在程序目录下打开命令行，执行`python -m unittest`，就可以看到测试结果
+
+```shell
+.F
+======================================================================
+FAIL: test_get_total_price (test_shopping_list.TestShoppingList)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Program Files\JetBrains\python_project\python_study_project\1_basic\test_shopping_list.py", line 35, in test_get_total_price
+    self.assertEqual(self.shopping_list.get_total_price(), 55)
+AssertionError: 53 != 55
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=1)
+```
+
+
+
+## 高阶和匿名函数
+
+高阶函数：把函数作为参数的函数，给函数提供更多灵活性。
+
+注意：作为参数的函数，直接写函数名进行传入，表示函数其本身，不要带括号和参数，一旦有括号这个函数就被调用了，传入的就是函数的执行结果，而不是函数本身了。
+
+```python
+# 普通函数
+def calculate_and_print(num, power):
+    if power == 2:
+        result = num * num
+    elif power == 3:
+        result = num * num * num
+    else:
+        print("只支持计算二次方和三次方")
+        return
+    print(f"""
+    | 数字参数 | {num} |
+    | 计算结果 | {result} |""")
+
+
+calculate_and_print(3, 3)
+
+
+# 改造后
+def calculate_and_print(num, calculator):
+    result = calculator(num)
+    print(f"""
+    | 数字参数 | {num} |
+    | 计算结果 | {result} |""")
+
+
+def calculate_square(num):
+    return num * num
+
+
+def calculate_cube(num):
+    return num * num * num
+
+
+def calculate_plus_10(num):
+    return num + 10
+
+
+def calculate_times_5(num):
+    return num * 5
+
+
+calculate_and_print(3, calculate_square)
+calculate_and_print(7, calculate_plus_10)
+calculate_and_print(7, calculate_times_5)
+
+
+# 进一步改造，把格式作为参数，扩展不同打印格式
+def calculate_and_print(num, calculator, formatter):
+    result = calculator(num)
+    formatter(num, result)
+
+
+def print_with_vertical_bar(num, result):
+    print(f"""
+    | 数字参数 | {num} |
+    | 计算结果 | {result} |""")
+
+
+calculate_and_print(7, calculate_times_5, print_with_vertical_bar)
+```
+
+
+
+匿名函数
+
+匿名函数（LAMBDA）不需要起名字，像个一次性物品一样，即用即扔
+
+匿名函数基本格式：
+
+```python
+# 关键字 函数参数 : 函数返回表达式
+lambda num1,, num2: num1 + num2
+
+# 直接调用
+(lambda num1,, num2: num1 + num2)(2, 3)
+```
+
+匿名函数局限性
+
+冒号后面没法有多个语句表达式，只适用于比较简单的场景。
