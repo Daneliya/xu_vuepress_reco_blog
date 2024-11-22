@@ -59,7 +59,23 @@ module.exports = [
     {
         "text": "Python",
         "icon": "iconfont icon-python",
-        "link": "/Python/Python基础语法"
+        "items": [
+            {
+                "text": "基础语法",
+                "icon": "iconfont icon-LBhouduanfuwuzu",
+                "link": "/Python/基础语法/Python基础语法"
+            },
+            {
+                "text": "数据分析",
+                "icon": "iconfont icon-duozhongzhifu",
+                "link": "/Python/数据分析/Python数据分析"
+            },
+            {
+                "text": "AI大模型应用开发",
+                "icon": "iconfont icon-duozhongzhifu",
+                "link": "/Python/AI大模型应用开发/Python AI大模型应用开发"
+            }
+        ]
     },
     {
         "text": "数据库",

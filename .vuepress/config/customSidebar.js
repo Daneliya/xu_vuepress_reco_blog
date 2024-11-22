@@ -199,10 +199,22 @@ module.exports = {
     ],
     '/Python/': [
         {
-            title: 'Python',      // 必要的
+            title: '基础语法',      // 必要的
             collapsable: false,   // 可选的, 默认值是 true,
             sidebarDepth: 3,      // 可选的, 默认值是 1
-            children: path.findMdFiles('/Python/')
+            children: path.findMdFiles('/Python/基础语法/')
+        },
+        {
+            title: '数据分析',     // 必要的
+            collapsable: false,  // 可选的, 默认值是 true,
+            sidebarDepth: 3,     // 可选的, 默认值是 1
+            children: path.findMdFiles('/Python/数据分析/')
+        },
+        {
+            title: 'AI大模型应用开发',    // 必要的
+            collapsable: false,        // 可选的, 默认值是 true,
+            sidebarDepth: 3,           // 可选的, 默认值是 1
+            children: path.findMdFiles('/Python/AI大模型应用开发/')
         }
     ],
     '/数据库/': [
