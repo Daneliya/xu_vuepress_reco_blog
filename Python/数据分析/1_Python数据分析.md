@@ -1,33 +1,33 @@
-原资料：[https://www.bilibili.com/cheese/play/ss2298](https://www.bilibili.com/cheese/play/ss2298)
-
-下载资料：[https://www.hezuclub.com/1775.html](https://www.hezuclub.com/1775.html)
-
-下载链接：[下载链接](https://since1982-my.sharepoint.com/personal/hezuclub2024_since1982_org/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fhezuclub2024%5Fsince1982%5Forg%2FDocuments%2FP1775%20%E5%B0%8F%E7%99%BD%E7%8E%A9%E8%BD%ACPython%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%AE%AD%E7%BB%83%E8%90%A5&sortField=LinkFilename&isAscending=true)
-
-[https://github.com/NaturalCutie/Python-Data-Analysis-Notes/tree/main](https://github.com/NaturalCutie/Python-Data-Analysis-Notes/tree/main)
+---
+title: Python数据分析
+tags:
+  - Python
+categories:
+  - Python
+---
 
 
 
 ## Jupyter Notebook介绍
-### 定义
+### 一、定义
 Jupyter Notebook是一个基于网页的交互式计算环境，是数据分析、数据科学，甚至机器学习领域里非常流行的一款工具。
 
 可以用来编写代码、运行代码、查看输出、可视化数据，并分享输出的报告文档。
 
-### 优点
-#### Jupyter Notebook可以按单元格运行代码
+### 二、优点
+#### 1、Jupyter Notebook可以按单元格运行代码
 对于搞数据的人来说，不是所有时候都想从头运行到结尾，比如数据量特别大的时候，假如读取数据要等几秒，清洗数据要等几秒，那在我们每次修改分析公式，想反复运行看效果的时候，不希望前面没有改动的步骤，比如说读取数据，还要反复被运行，因为这会浪费很多等待时间。
 
 用Jupyter Notebook就很简单了，我们可以把不同步骤放在不同单元格里，每次运行一个单元格的代码，这样我们可以只读取一遍数据，当反复修改和运行分析代码时，读数据的代码就不会再被运行了。
 
-#### 可展示的信息格式更丰富
+#### 2、可展示的信息格式更丰富
 我们用常规编辑器时，注释和代码一样都是纯文本，但分析数据时，有时需要记录和解释更多东西，比如数据的北京、使用的公式、分析思路等等。
 
 用Jupyter Notebook可以用Markdown标记语言，让注释更加清晰、有层次，还可以用LaTex插入公式。
 
 当你把Jupyter Notebook上的内容，以HTML等格式分享给其他人的时候，这些效果丰富的文字，也会原封不动地展示给对方，帮助对方更好地理解你思考和分析的过程，也节约了你解答疑问的时间。
 
-#### 交互式运行环境
+#### 3、交互式运行环境
 交互模式相比命令行模式的好处是，当我们想查看输出的时候，不需要加上打印语句就能看到。
 
 那我们就可以很方便地查看变量的值,输出中间结果，有利于快速探索数据，试验不同分析方法。
@@ -50,7 +50,7 @@ jupyter notebook界面
 
 
 ## Jupyter Notebook使用
-### 启动Jupyter Notebook
+### 一、启动Jupyter Notebook
 1. 启动
     1. Windows系统，在菜单栏搜索CMD，点击命令提示符。
     2. macOS系统，点击顶部菜单栏的放大镜，输入"终端"或"terminal"，回车进入。
@@ -61,32 +61,32 @@ jupyter notebook界面
 
 
 
-### 创建Jupyter Notebook文件
-#### 创建文件
+### 二、创建Jupyter Notebook文件
+#### 1、创建文件
 希望文件在什么位置，就点进那个文件夹，然后点击New，Notebook，一个新的编辑界面就会被打开，而且在桌面上也能看到一个全新的文件出现了。
 
-#### 重命名文件
+#### 2、重命名文件
 在编辑界面，点下标题，输入想要的名字。
 
 
 
-### Jupyter Notebook编辑界面
+### 三、Jupyter Notebook编辑界面
 标题下面分别是菜单栏、工具条以及单元格。
 
 工具条就是把菜单栏里一些最常用的操作摆出来，所以大部分时候我们只需要通过工具条和单元格打交道，单元格主要用来写Python代码和文字。
 
 
 
-#### 编辑模式和命令模式
-##### 编辑模式
+#### （一）编辑模式和命令模式
+##### 1、编辑模式
 在我们点击单元格里面后，外框会变成绿色，表示当前是编辑模式，
 
-##### 命令模式
+##### 2、命令模式
 完成输入后，点Esc键，或者鼠标点下其它地方，外框会变成蓝色，表示当前是命令模式
 
 
 
-#### 工具栏
+#### （二）工具栏
 ![](https://cdn.nlark.com/yuque/0/2024/png/20357988/1732286152234-967bd1ba-4977-4d7b-936b-a36f4e6f92c4.png)
 
 1. 第一个按钮，表示保存文件内容。
@@ -132,30 +132,30 @@ jupyter notebook界面
 
 
 
-### 分享Jupyter Notebook
-#### 可以自行编辑和运行
+### 三、分享Jupyter Notebook
+#### 1、可以自行编辑和运行
 如果对方使用JN，可以把这个以.ipynb为后缀的文件，直接发给对方。
 
-#### 只读
+#### 2、只读
 点击File，选择Save and Export Notebook as，有很多选项。
 
 比如HTML，这是针对网页的标记语言，所以对方可以直接用浏览器打开，所有代码以及Markdown文字都会原封不动得展示出来。
 
 
 
-### 打开之前创建过的Jupyter Notebook
+### 四、打开之前创建过的Jupyter Notebook
 启动JN，进入存放notebook的目录，点击.ipynb的文件。
 
 
 
 ## Markdown语法
-### 优势
-#### 格式比纯文本更丰富
+### 一、优势
+#### 1、格式比纯文本更丰富
 代码中的注释没法添加任何格式，或添加丰富的信息。
 
 Markdown支持标题、粗体、引用、列表、代码块等常用格式。
 
-#### 体积比富文本更轻量
+#### 2、体积比富文本更轻量
 Word或者一些网站支持的富文本编辑器，可以让我们更改内容样式或排版。但它的功能过于强大多样，让产出文件更加臃肿。
 
 不支持自定义字体、颜色等操作，所有样式都是通过简单的符号来添加的。因此Markdown文件非常轻量，和纯文本差不了多少。
@@ -166,50 +166,50 @@ Word或者一些网站支持的富文本编辑器，可以让我们更改内容�
 
 
 
-### 语法
-#### 标题
+### 二、语法
+#### 1、标题
 通过在前面添加1~6个#和1个空格，可以把文字设置成一至六级标题。
 
-#### 加粗、斜体、删除样式
+#### 2、加粗、斜体、删除样式
 用两个*把文字包住，把文字变成粗体。
 
 用一个*把文字包住，把文字变成斜体。
 
 用两个~把文字包住，把文字用删除线划掉。*注意是英文输入法下的小波浪。
 
-#### 普通文字
+#### 3、普通文字
 不把文字用任何符号包围的话，那就默认是普通的段落文字。
 
 特点：加的换行，只会在文字之间出现一个空格。
 
 如果想让文字分隔在不同行，一个方法是多打一次换行，另一个方法是在第一行后面额外加两个空格。
 
-#### 列表
+#### 4、列表
 无序列表：在每个列表元素前面，加上短横杠、空格"- "。
 
 有序列表：在每个列表元素前面，加上数字、英文句号、空格"1. "。
 
-#### 链接
+#### 5、链接
 完整的链接是要带协议名的，比如前面的`https://`
 
-1. 展示链接
+1）展示链接
 
 把链接直接像普通文字那样放进去，如果Markdown识别出来这是个链接，就会把它变成可跳转的。
 
-2. 展示链接标题 更直观地告知读者链接指向的内容
+2）展示链接标题 更直观地告知读者链接指向的内容
 
 方括号把链接包围起来，在后面紧跟着的括号里面，放上链接。。
 
 [必应]([https://cn.bing.com/)](https://cn.bing.com/))
 
-#### 图片
+#### 6、图片
 方括号里放文字，圆括号里面放图片链接，同时在方括号前面加上一个英文感叹号。
 
 ![城市景观]([https://img0.baidu.com/it/u=25183460,870873689&fm=253)](https://img0.baidu.com/it/u=25183460,870873689&fm=253))
 
 插入图片，方括号里放文字的意义是，如果图片加载不出来的话，就会显示那个文字内容作为替代。
 
-#### 引用
+#### 7、引用
 插入一个引用段落，用右书名号、空格，后面紧跟着引用内容。
 
 引用段落里的文字，和普通段落里的文字一样，不会因为你在内容里加了换行，展示效果里就有换行。
@@ -219,7 +219,7 @@ Word或者一些网站支持的富文本编辑器，可以让我们更改内容�
 白露为霜
 ```
 
-#### 代码
+#### 8、代码
 要在文字里插入代码，就用反引号包裹住代码，``import math``
 
 如果我们要插入独占一段的代码段落，就用三个反引号包裹住代码段落。
@@ -234,7 +234,7 @@ print(math.pi)
 ```
 ```
 
-#### 公式
+#### 9、公式
 1. 在行内插入公式，就用1个$，包裹住那个公式。
 2. 要插入一个独占一行的公式，就用2个$，包裹住那个公式。
 3. 复杂的公式，可以用LaTex语法来表示。
@@ -246,7 +246,7 @@ LaTex是一个排版系统，可以负责定义书籍、简历、论文等格式
 
 在JN的使用场景里，用LaTex就是为了在Markdown里插入公式，所以只需学会公式相关语法即可
 
-### 加减乘除
+### 一、加减乘除
 表示加减的符号，就是键盘上的加减。
 
 乘号和除号是没有的，用`\times`表示乘号，`\div`表示除号。
@@ -262,7 +262,7 @@ $$x \div y$$
 
 
 
-### 上标下标
+### 二、上标下标
 要加上标，用插入符`^`，跟上作为上标的内容；要加下标，用下划线`_`，后面跟上作为下标的内容。
 
 LaTex默认上标或下标只包含1位字符，如果想把多个字符作为上标或下标，用花括号把它们组合起来，就可以了
@@ -277,7 +277,7 @@ $$S_{input}$$
 
 
 
-### 求和求根
+### 三、求和求根
 求根符号，`\sqrt`，后面可以跟上方括号，里面的数字表示求几次方根。
 
 LaTex默认求根符号的横线只拉到第1个字符，如果对一个长公式求根，可以在方括号后面跟上花括号，把要求根的内容全部包围起来。
@@ -296,7 +296,7 @@ $$\sqrt[3]{a^2m^2}$$
 
 ![image](https://cdn.nlark.com/yuque/__latex/d4a41117ec8a15e6afdf7caee3a27eff.svg)
 
-### 分数线
+### 四、分数线
 用`\frac`表示，后面跟着两个花括号，在第一个花括号里面，放分数线上面的内容；在第二个花括号里，放分数线下面的内容。
 
 ```markdown
@@ -311,7 +311,7 @@ $$\frac{x+y}{x-y}$$
 
 
 
-### 其他
+### 五、其他
 除上面之外，LaTex还能搞定其它无数的公式符号，参考官方文档
 
 其他公式符号语法：[https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols)
@@ -324,6 +324,14 @@ $$\frac{x+y}{x-y}$$
 
 
 
-## 
+## 参考资料
+
+原资料：[https://www.bilibili.com/cheese/play/ss2298](https://www.bilibili.com/cheese/play/ss2298)
+
+下载资料：[https://www.hezuclub.com/1775.html](https://www.hezuclub.com/1775.html)
+
+下载链接：[下载链接](https://since1982-my.sharepoint.com/personal/hezuclub2024_since1982_org/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fhezuclub2024%5Fsince1982%5Forg%2FDocuments%2FP1775%20%E5%B0%8F%E7%99%BD%E7%8E%A9%E8%BD%ACPython%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%AE%AD%E7%BB%83%E8%90%A5&sortField=LinkFilename&isAscending=true)
+
+[https://github.com/NaturalCutie/Python-Data-Analysis-Notes/tree/main](https://github.com/NaturalCutie/Python-Data-Analysis-Notes/tree/main)
 
 
