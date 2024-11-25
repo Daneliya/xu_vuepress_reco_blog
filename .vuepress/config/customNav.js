@@ -51,7 +51,7 @@ module.exports = [
             },
             {
                 "text": "系统优化",
-                "icon": "iconfont icon-shujujiegou",
+                "icon": "iconfont icon-icon_nav_xitongyouhua_default",
                 "link": "/Java/系统优化/系统优化/1_幂等设计"
             }
         ]
@@ -62,17 +62,17 @@ module.exports = [
         "items": [
             {
                 "text": "基础语法",
-                "icon": "iconfont icon-LBhouduanfuwuzu",
+                "icon": "iconfont icon-jichuyufa",
                 "link": "/Python/基础语法/Python基础语法"
             },
             {
                 "text": "数据分析",
-                "icon": "iconfont icon-duozhongzhifu",
-                "link": "/Python/数据分析/Python数据分析"
+                "icon": "iconfont icon-shujufenxi",
+                "link": "/Python/数据分析/1_Python数据分析"
             },
             {
                 "text": "AI大模型应用开发",
-                "icon": "iconfont icon-duozhongzhifu",
+                "icon": "iconfont icon-AIdamoxing",
                 "link": "/Python/AI大模型应用开发/Python AI大模型应用开发"
             }
         ]
@@ -171,7 +171,7 @@ module.exports = [
                 "link": "/docs/开源项目/0_开源项目"
             },
             {
-                "text": "🚀软考中级软件设计师学习笔记",
+                "text": "🚀软考中级",
                 "link": "/docs/软考中级软件设计师学习笔记/01_计算机组成与体系结构"
             },
             {

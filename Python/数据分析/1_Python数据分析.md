@@ -41,11 +41,11 @@ macos使用`pip3 install notebook`
 
 安装完成后，运行启动命令`jupyter notebook`，会自动在浏览器打开一个窗口
 
-![](https://cdn.nlark.com/yuque/0/2024/png/20357988/1731842199949-8f1eafcb-e4c8-4db9-881a-d7da5cc8ac27.png)
+![img](1_Python数据分析.assets/image-1732545023782.png)
 
 jupyter notebook界面
 
-![](https://cdn.nlark.com/yuque/0/2024/png/20357988/1731845340251-599cb041-7fd6-4daf-ab3b-c9a7e4948135.png)
+![img](1_Python数据分析.assets/image-1732544485045.png)
 
 
 
@@ -87,7 +87,7 @@ jupyter notebook界面
 
 
 #### （二）工具栏
-![](https://cdn.nlark.com/yuque/0/2024/png/20357988/1732286152234-967bd1ba-4977-4d7b-936b-a36f4e6f92c4.png)
+![img](1_Python数据分析.assets/image-1732544497068.png)
 
 1. 第一个按钮，表示保存文件内容。
 2. 第二个加号按钮，表示在当前选中的单元格下面，新建一个单元格。
@@ -200,12 +200,18 @@ Word或者一些网站支持的富文本编辑器，可以让我们更改内容�
 
 方括号把链接包围起来，在后面紧跟着的括号里面，放上链接。。
 
+~~~markdown
 [必应]([https://cn.bing.com/)](https://cn.bing.com/))
+~~~
+
+
 
 #### 6、图片
 方括号里放文字，圆括号里面放图片链接，同时在方括号前面加上一个英文感叹号。
 
+~~~markdown
 ![城市景观]([https://img0.baidu.com/it/u=25183460,870873689&fm=253)](https://img0.baidu.com/it/u=25183460,870873689&fm=253))
+~~~
 
 插入图片，方括号里放文字的意义是，如果图片加载不出来的话，就会显示那个文字内容作为替代。
 
@@ -227,7 +233,7 @@ Word或者一些网站支持的富文本编辑器，可以让我们更改内容�
 在开头的三个反引号后面，还可以跟上代码语言的名字，这样Markdown就会展示针对那个语言的语法高亮。
 
 ```markdown
-```python
+​```python
 import math
 print("Hello World!")
 print(math.pi)
@@ -251,7 +257,7 @@ LaTex是一个排版系统，可以负责定义书籍、简历、论文等格式
 
 乘号和除号是没有的，用`\times`表示乘号，`\div`表示除号。
 
-```markdown
+​```markdown
 """
 $$x + y$$
 $$x - y$$
@@ -332,6 +338,6 @@ $$\frac{x+y}{x-y}$$
 
 下载链接：[下载链接](https://since1982-my.sharepoint.com/personal/hezuclub2024_since1982_org/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fhezuclub2024%5Fsince1982%5Forg%2FDocuments%2FP1775%20%E5%B0%8F%E7%99%BD%E7%8E%A9%E8%BD%ACPython%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%AE%AD%E7%BB%83%E8%90%A5&sortField=LinkFilename&isAscending=true)
 
-[https://github.com/NaturalCutie/Python-Data-Analysis-Notes/tree/main](https://github.com/NaturalCutie/Python-Data-Analysis-Notes/tree/main)
+代码：[https://github.com/NaturalCutie/Python-Data-Analysis-Notes/tree/main](https://github.com/NaturalCutie/Python-Data-Analysis-Notes/tree/main)
 
 

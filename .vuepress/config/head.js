@@ -26,6 +26,10 @@ module.exports = [
     ['link', {rel: 'stylesheet', href: '/iconfont/font_tmecser0ml/iconfont.css'}], // rongqi
     ['link', {rel: 'stylesheet', href: '/iconfont/font_o3x7o929hi/iconfont.css'}], // stablediffusion
     ['link', {rel: 'stylesheet', href: '/iconfont/font_qpo7ov9uo7e/iconfont.css'}], // python
+    ['link', {rel: 'stylesheet', href: '/iconfont/font_o6ur3qwvq4k/iconfont.css'}], // 系统优化
+    ['link', {rel: 'stylesheet', href: '/iconfont/font_530mtleffzr/iconfont.css'}], // Python 基础语法
+    ['link', {rel: 'stylesheet', href: '/iconfont/font_9ggbupsr8d/iconfont.css'}], // Python 数据分析
+    ['link', {rel: 'stylesheet', href: '/iconfont/font_lystyiufdck/iconfont.css'}], // Python AI大模型
     ['link', {rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css'}], // 让md支持数学公式
     ['link', {rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"}]  // 让md支持数学公式
 ]
