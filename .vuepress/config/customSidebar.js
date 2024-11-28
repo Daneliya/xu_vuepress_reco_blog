@@ -304,6 +304,12 @@ module.exports = {
                     collapsable: false,  // 可选的, 默认值是 true,
                     sidebarDepth: 3,     // 可选的, 默认值是 1
                     children: path.findMdFiles('/常用框架/XXL-JOB/')
+                },
+                {
+                    title: 'Thymeleaf',    // 必要的
+                    collapsable: false,    // 可选的, 默认值是 true,
+                    sidebarDepth: 3,       // 可选的, 默认值是 1
+                    children: path.findMdFiles('/常用框架/Thymeleaf/')
                 }
             ]
         }

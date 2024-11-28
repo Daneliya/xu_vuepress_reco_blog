@@ -97,12 +97,12 @@ module.exports = [
                 "link": "/常用框架/Activiti7/Activiti整合Spring"
             },
             {
-                "text": "Caffeine缓存框架",
+                "text": "缓存框架Caffeine",
                 "icon": "iconfont icon-iconfontmoshi",
                 "link": "/常用框架/Caffeine缓存框架/0_Caffeine基本概念"
             },
             {
-                "text": "EasyCaptcha",
+                "text": "验证码EasyCaptcha",
                 "icon": "iconfont icon-iconfontmoshi",
                 "link": "/常用框架/EasyCaptcha/0_使用EasyCaptcha生成验证码"
             },
@@ -140,6 +140,11 @@ module.exports = [
                 "text": "XXL-JOB",
                 "icon": "iconfont icon-iconfontmoshi",
                 "link": "/常用框架/XXL-JOB/0_分布式任务调度框架概述"
+            },
+            {
+                "text": "模板引擎Thymeleaf",
+                "icon": "iconfont icon-iconfontmoshi",
+                "link": "/常用框架/Thymeleaf/1_基本语法"
             }
         ]
     },
