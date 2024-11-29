@@ -99,7 +99,7 @@ module.exports = [
             {
                 "text": "缓存框架Caffeine",
                 "icon": "iconfont icon-iconfontmoshi",
-                "link": "/常用框架/Caffeine缓存框架/0_Caffeine基本概念"
+                "link": "/常用框架/Caffeine/0_Caffeine基本概念"
             },
             {
                 "text": "验证码EasyCaptcha",
@@ -107,7 +107,7 @@ module.exports = [
                 "link": "/常用框架/EasyCaptcha/0_使用EasyCaptcha生成验证码"
             },
             {
-                "text": "EasyExcel",
+                "text": "表格工具EasyExcel",
                 "icon": "iconfont icon-iconfontmoshi",
                 "link": "/常用框架/EasyExcel/0_EasyExcel概述"
             },
@@ -117,27 +117,27 @@ module.exports = [
                 "link": "/Java/架构设计/分布式/分布式搜索/分布式搜索引擎Elasticsearch01"
             },
             {
-                "text": "Mybatis",
+                "text": "三剑客Mybatis",
                 "icon": "iconfont icon-iconfontmoshi",
                 "link": "/常用框架/Mybatis/Mybatis-Plus-Join连表查询"
             },
             {
-                "text": "ShardingJdbc",
+                "text": "分库分表ShardingJdbc",
                 "icon": "iconfont icon-iconfontmoshi",
                 "link": "/常用框架/ShardingJdbc/0_ShardingJdbc的概述"
             },
             {
-                "text": "Spring",
+                "text": "三剑客Spring",
                 "icon": "iconfont icon-iconfontmoshi",
                 "link": "/常用框架/Spring/Spring容器初始化源码解析"
             },
             {
-                "text": "SpringBootAdmin",
+                "text": "监控工具SpringBootAdmin",
                 "icon": "iconfont icon-iconfontmoshi",
                 "link": "/Java/架构设计/分布式/分布式监控/SpringBootAdmin"
             },
             {
-                "text": "XXL-JOB",
+                "text": "任务调度XXL-JOB",
                 "icon": "iconfont icon-iconfontmoshi",
                 "link": "/常用框架/XXL-JOB/0_分布式任务调度框架概述"
             },

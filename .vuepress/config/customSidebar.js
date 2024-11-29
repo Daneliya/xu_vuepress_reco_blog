@@ -264,51 +264,51 @@ module.exports = {
                     children: path.findMdFiles('/常用框架/Activiti7/')
                 },
                 {
-                    title: 'Caffeine缓存框架',    // 必要的
+                    title: '缓存框架Caffeine',    // 必要的
                     collapsable: false,         // 可选的, 默认值是 true,
                     sidebarDepth: 3,            // 可选的, 默认值是 1
-                    children: path.findMdFiles('/常用框架/Caffeine缓存框架/')
+                    children: path.findMdFiles('/常用框架/Caffeine/')
                 },
                 {
-                    title: 'EasyCaptcha',    // 必要的
-                    collapsable: false,     // 可选的, 默认值是 true,
-                    sidebarDepth: 3,        // 可选的, 默认值是 1
+                    title: '验证码EasyCaptcha',    // 必要的
+                    collapsable: false,           // 可选的, 默认值是 true,
+                    sidebarDepth: 3,              // 可选的, 默认值是 1
                     children: path.findMdFiles('/常用框架/EasyCaptcha/')
                 },
                 {
-                    title: 'EasyExcel',    // 必要的
-                    collapsable: false,    // 可选的, 默认值是 true,
-                    sidebarDepth: 3,       // 可选的, 默认值是 1
+                    title: '表格工具EasyExcel',    // 必要的
+                    collapsable: false,           // 可选的, 默认值是 true,
+                    sidebarDepth: 3,              // 可选的, 默认值是 1
                     children: path.findMdFiles('/常用框架/EasyExcel/')
                 },
                 {
-                    title: 'Mybatis',   // 必要的
-                    collapsable: false, // 可选的, 默认值是 true,
-                    sidebarDepth: 3,    // 可选的, 默认值是 1
+                    title: '三剑客Mybatis',   // 必要的
+                    collapsable: false,      // 可选的, 默认值是 true,
+                    sidebarDepth: 3,         // 可选的, 默认值是 1
                     children: path.findMdFiles('/常用框架/Mybatis/')
                 },
                 {
-                    title: 'ShardingJdbc',    // 必要的
-                    collapsable: false,       // 可选的, 默认值是 true,
-                    sidebarDepth: 3,          // 可选的, 默认值是 1
+                    title: '分库分表ShardingJdbc',    // 必要的
+                    collapsable: false,             // 可选的, 默认值是 true,
+                    sidebarDepth: 3,                // 可选的, 默认值是 1
                     children: path.findMdFiles('/常用框架/ShardingJdbc/')
                 },
                 {
-                    title: 'Spring',    // 必要的
-                    collapsable: false, // 可选的, 默认值是 true,
-                    sidebarDepth: 3,    // 可选的, 默认值是 1
+                    title: '三剑客Spring',    // 必要的
+                    collapsable: false,      // 可选的, 默认值是 true,
+                    sidebarDepth: 3,         // 可选的, 默认值是 1
                     children: path.findMdFiles('/常用框架/Spring/')
                 },
                 {
-                    title: 'XXL-JOB',    // 必要的
-                    collapsable: false,  // 可选的, 默认值是 true,
-                    sidebarDepth: 3,     // 可选的, 默认值是 1
+                    title: '任务调度XXL-JOB',    // 必要的
+                    collapsable: false,        // 可选的, 默认值是 true,
+                    sidebarDepth: 3,           // 可选的, 默认值是 1
                     children: path.findMdFiles('/常用框架/XXL-JOB/')
                 },
                 {
-                    title: 'Thymeleaf',    // 必要的
-                    collapsable: false,    // 可选的, 默认值是 true,
-                    sidebarDepth: 3,       // 可选的, 默认值是 1
+                    title: '模板引擎Thymeleaf',    // 必要的
+                    collapsable: false,          // 可选的, 默认值是 true,
+                    sidebarDepth: 3,             // 可选的, 默认值是 1
                     children: path.findMdFiles('/常用框架/Thymeleaf/')
                 }
             ]
