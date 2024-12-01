@@ -89,18 +89,18 @@ CharType：验证码字符类型
 
 Font：字体
 
-| 字体            | 效果                                                    |
-| --------------- | ------------------------------------------------------- |
-| Captcha.FONT_1  | ![img](https://oss.xk857.com/typora/2022/07/msMe6U.png) |
-| Captcha.FONT_2  | ![img](https://oss.xk857.com/typora/2022/07/msMAf0.png) |
-| Captcha.FONT_3  | ![img](https://oss.xk857.com/typora/2022/07/msMCwj.png) |
-| Captcha.FONT_4  | ![img](https://oss.xk857.com/typora/2022/07/msM9mQ.png) |
-| Captcha.FONT_5  | ![img](https://oss.xk857.com/typora/2022/07/msKz6S.png) |
-| Captcha.FONT_6  | ![img](https://oss.xk857.com/typora/2022/07/msKxl8.png) |
-| Captcha.FONT_7  | ![img](https://oss.xk857.com/typora/2022/07/msMPTs.png) |
-| Captcha.FONT_8  | ![img](https://oss.xk857.com/typora/2022/07/msMmXF.png) |
-| Captcha.FONT_9  | ![img](https://oss.xk857.com/typora/2022/07/msMVpV.png) |
-| Captcha.FONT_10 | ![img](0_使用EasyCaptcha生成验证码.assets/msMZlT.png)   |
+| 字体            | 效果                                                  |
+| --------------- | ----------------------------------------------------- |
+| Captcha.FONT_1  | ![img](0_使用EasyCaptcha生成验证码.assets/msMe6U.png) |
+| Captcha.FONT_2  | ![img](0_使用EasyCaptcha生成验证码.assets/msMAf0.png) |
+| Captcha.FONT_3  | ![img](0_使用EasyCaptcha生成验证码.assets/msMCwj.png) |
+| Captcha.FONT_4  | ![img](0_使用EasyCaptcha生成验证码.assets/msM9mQ.png) |
+| Captcha.FONT_5  | ![img](0_使用EasyCaptcha生成验证码.assets/msKz6S.png) |
+| Captcha.FONT_6  | ![img](0_使用EasyCaptcha生成验证码.assets/msKxl8.png) |
+| Captcha.FONT_7  | ![img](0_使用EasyCaptcha生成验证码.assets/msMPTs.png) |
+| Captcha.FONT_8  | ![img](0_使用EasyCaptcha生成验证码.assets/msMmXF.png) |
+| Captcha.FONT_9  | ![img](0_使用EasyCaptcha生成验证码.assets/msMVpV.png) |
+| Captcha.FONT_10 | ![img](0_使用EasyCaptcha生成验证码.assets/msMZlT.png) |
 
 代码
 
