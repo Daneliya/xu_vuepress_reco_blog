@@ -12,7 +12,7 @@ set -e
 cd ./public
 
 # 如果是发布到自定义域名
-# echo 'www.example.com' > CNAME
+echo 'www.luckilyxxl.xyz' > CNAME
 
 git init
 git add -A
