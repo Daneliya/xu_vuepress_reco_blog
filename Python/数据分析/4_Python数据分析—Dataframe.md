@@ -1,3 +1,13 @@
+---
+title: Python数据分析—Dataframe
+tags:
+  - Python
+categories:
+  - Python
+---
+
+
+
 # **Pandas_Dataframe**
 ## 一、DataFrame简介
 相比Series，由多个Series组成的DataFrame，才是我们分析数据是最常打交道的数据结构。

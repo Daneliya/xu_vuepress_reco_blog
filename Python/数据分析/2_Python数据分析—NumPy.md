@@ -1,3 +1,13 @@
+---
+title: Python数据分析—NumPy
+tags:
+  - Python
+categories:
+  - Python
+---
+
+
+
 ## NumPy入门
 用Python做数据分析离不开两个最常用的库，NumPy和Pandas。
 

@@ -1,3 +1,13 @@
+---
+title: Python数据分析—Pandas
+tags:
+  - Python
+categories:
+  - Python
+---
+
+
+
 ## Pandas
 **Pandas优势在于：由于它是构建在NumPy之上的，所以继承了NumPy高性能的数组计算功能，同时它还提供了更多复杂精细的数据处理功能。**
 
