@@ -232,7 +232,7 @@ sns.kdeplot(region_b_height)
 plt.show()
 ```
 
-![](13_Python数据分析—统计学进阶.assets/output_14_0-1733846327281.png)
+![](14_Python数据分析—统计学进阶.assets/output_14_0.png)
 
 ##### 3、建立假设
 
@@ -323,7 +323,7 @@ sns.kdeplot(region_b_height2)
 plt.show()
 ```
 
-![](13_Python数据分析—统计学进阶.assets/output_35_0.png)
+![](14_Python数据分析—统计学进阶.assets/output_35_0.png)
 
 ##### 3、建立假设
 
