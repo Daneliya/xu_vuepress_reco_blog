@@ -6,8 +6,6 @@ categories:
   - Python
 ---
 
-
-
 CSV是数据分析师最喜欢的数据格式。
 
 与JSON一样，CSV也是纯文本文件，也就是说文字内容不存在粗体、下划线、字号、颜色等特征
@@ -15,10 +13,13 @@ CSV是数据分析师最喜欢的数据格式。
 如果把逗号对齐，CSV的结构基本上就是一个表格。
 
 ## 一、CSV
+
 ### 1、概念
+
 CSV，全称是Comma-Separated Values，表示逗号分隔值。
 
 ### 2、结构
+
 1）表头
 
 a、有表头：CSV文件第一行，也就是展示列名那行，大部分情况下是表格头，包含了许多属性名
@@ -32,11 +33,13 @@ a、在表头下面，每一条数据都是独占一行的，因此当我们把C
 b、每行数据里所包含的值的数量应该是相同的，逗号分隔符的数量也必须相同，但凡哪行多了或少了，说明那就不是一个合格有效的CSV
 
 ### 3、特殊情况
+
 1）当数据值里面包含英文逗号，可以用引号围完整的值。里面的逗号，就不会被当成分隔符的逗号了
 
 2）当某个值为空缺，可以让两个分隔逗号相邻，表示中间那个值不存在
 
 ### 4、CSV与JSON对比
+
 CSV本身是一个非常规整的二维结构，能一眼就知道它所对应的表格长什么样子
 
 JSON则不同，它的结构能非常灵活，也可以层层嵌套，很难直观看出对应表格长什么样
@@ -44,17 +47,21 @@ JSON则不同，它的结构能非常灵活，也可以层层嵌套，很难直�
 因此，JSON是通用编程时受欢迎的数据结构，而CSV是数据分析时受欢迎的数据结构
 
 ### 5、编写CSV
+
 打开代码编辑器或文本编辑器，按照CSV格式的规则写好后，把文件保存为以.csv结尾的文件即可
 
 ### 6、默认规范
+
 用代码分析数据时，尽量让源数据文件，以CSV、JSON等纯文本格式，或者sqlite等数据库文件格式
 
 ### 7、优点
+
 体积小，结构工整，容易让人理解，能非常直接地转换成表格。
 
 可以用Excel软件去读取、修改或导出CSV。
 
 ### 8、读取
+
 在实际的数据分析中，由于一般数据量比较大，动辄1G以上的CSV数据集是很常见的，
 
 1）Excel
@@ -70,10 +77,13 @@ JSON则不同，它的结构能非常灵活，也可以层层嵌套，很难直�
 
 
 ## 二、读取CSV
+
 ### 1、导入Pandas
+
 `import pandas as pd`
 
 ### 2、read_csv函数
+
 顾名思义是用来读CSV文件的
 
 把文件的路径作为参数
@@ -87,9 +97,10 @@ df1 = pd.read_csv('fifa_players_22.csv')
 df1.head()
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/png/20357988/1733152362233-d763ae69-bb4d-406e-9b43-12aaba3e4cbe.png)
+![](7_Python数据分析—读取CSV.assets/image-1733845825106.png)
 
 #### 1）可选参数header
+
 a、csv文件有表头，省略可选参数header，默认会把第一行内容作为列名
 
 b、csv文件无表头，设置'header=None'，表示不要把第一行当做列名。那解析出来的DataFrame就会把第一行视为第一条数据，列名用从0开始的数据代替
@@ -99,11 +110,12 @@ df = pd.read_csv('fifa_players_22.csv', header=None)
 df.head()
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/png/20357988/1733152437440-8ca5fa06-5339-4c09-bdc6-20cb1836e10b.png)
+![](7_Python数据分析—读取CSV.assets/image-1733845825205.png)
 
 
 
 #### 2）可选参数index_col
+
 a、只用位置索引，省略可选参数index_col，默认用位置索引
 
 b、把某一列作为标签索引，设置'index_col=列名/列的位置索引'，返回的DataFrame就会把列名的值作为标签索引。如下例子，可以通过标签索引'球员ID'，而不是仅通过位置索引，来提取数据了
@@ -114,7 +126,7 @@ df1.head()
 df1.loc[261667]
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/png/20357988/1733158649664-c9acafd4-0075-4dc4-89aa-a0811b71af57.png)
+![](7_Python数据分析—读取CSV.assets/image-1733845825230.png)
 
 
 
@@ -123,7 +135,9 @@ df1.loc[261667]
 
 
 ## 三、展示CSV的方法
+
 ### (一)、set_option函数
+
 1、更改展示列数上限
 
 默认只展示20列。
@@ -141,8 +155,8 @@ pd.set_option('display.max_columns', 150)
 df1
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/png/20357988/1733157546176-1c4eb716-e2be-4edd-a0fc-452acd1fe040.png)  
- 
+![](7_Python数据分析—读取CSV.assets/image-1733845825217.png)  
+
 
 2、更改展示值的字符上限
 
@@ -161,10 +175,11 @@ pd.set_option('display.max_colwidth', 500)
 df1
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/png/20357988/1733157724790-94e2fece-e502-4e65-9eba-e6dff616f6d3.png)  
- 
+![](7_Python数据分析—读取CSV.assets/image-1733845825233.png)  
+
 
 ### (二)、head/tail/sample方法
+
 可以得到开头/结尾/随机的N行
 
 ```python
@@ -177,6 +192,7 @@ df1.sample()
 
 
 ### (三)、info方法
+
 快速了解一个DataFrame，除了看它实际的数据之外，还可以通过info，获得DataFrame的概况信息
 
 1、当列数太多时，只会展示部分信息
@@ -207,17 +223,17 @@ df3.head(2)
 df3.info()
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/png/20357988/1733158369966-1920d272-406d-4b71-969e-957d355ed46b.png)
+![](7_Python数据分析—读取CSV.assets/image-1733845825238.png)
 
 
 
 ### (四)、descirbe方法
+
 针对数字类型的列，一次性展示多种统计信息
 
 ```python
 df1.describe()
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/png/20357988/1733158145135-a00b6880-0c7c-4aa3-aaf1-889a43cb0fbe.png)  
- 
+![](7_Python数据分析—读取CSV.assets/image-1733845825257.png)  
 
