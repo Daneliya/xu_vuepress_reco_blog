@@ -179,23 +179,19 @@ Matplotlib
 
 也是一个可视化库。Seaborn是基于Matplotlib实现的。Matplotlib虽然操作起来没有Seaborn简单，但是它更灵活和自由，所以让我们能对图表做各种自定义操作
 
-### (一)、安装和导入Seaborn和Matplotlib
-
-**安装****Seaborn**
+### (一)、安装Seaborn
 
 在CMD或终端，输入`pip install seaborn`
 
 macOS有可能使用`pip3 install seaborn`
 
-**安装****Matplotlib**
+### (二)、安装Matplotlib
 
 在CMD或终端，输入`pip install matplotlib`
 
 macOS有可能使用`pip3 install matplotlib`
 
-
-
-**导入**
+### (三)、导入Seaborn和Matplotlib
 
 Matplotlib中大部分我们会用到的功能都在pyplot的子模块下
 
@@ -230,7 +226,7 @@ Name: bill_length_mm, Length: 152, dtype: float64
 
 ## 五、绘制图表—对单个变量绘制图表
 
-### (二)、对Series进行绘图
+### (一)、对Series进行绘图
 
 **如果用Jupyter Notebook运行绘图函数的话，可以在输出里看到直方图；**
 
@@ -292,7 +288,7 @@ sns.violinplot(bill)
 ![](13_Python数据分析—可视化数据.assets/output_17_1.png)  
 
 
-### (三)、对DataFrame进行绘图
+### (二)、对DataFrame进行绘图
 
 ```python
 df
@@ -337,7 +333,7 @@ plt.show()
 
 ![](13_Python数据分析—可视化数据.assets/output_25_0.png)
 
-### (四)、给图表添加标题和轴标签
+### (三)、给图表添加标题和轴标签
 
 #### 1、给图表添加标题
 
