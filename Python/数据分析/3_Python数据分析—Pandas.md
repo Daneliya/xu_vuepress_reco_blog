@@ -49,7 +49,7 @@ dtype: int64
 [ 5 17  3 26 31]
 ```
 
-**Series和NumPy数组的区别在于:不止展示了有什么元素，元素左边还专门展示对应的index，最后一行的dtype还展示了Series里元素的类型。**
+**Series和NumPy数组的区别在于：不止展示了有什么元素，元素左边还专门展示对应的index，最后一行的dtype还展示了Series里元素的类型。**
 
 ### 2、获得Series的元素和索引
 
