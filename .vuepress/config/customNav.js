@@ -132,6 +132,11 @@ module.exports = [
                 "link": "/常用框架/Spring/Spring容器初始化源码解析"
             },
             {
+                "text": "三剑客SpringBoot",
+                "icon": "iconfont icon-iconfontmoshi",
+                "link": "/常用框架/SpringBoot/SpringBoot程序开发/2_SpringBoot程序测试"
+            },
+            {
                 "text": "监控工具SpringBootAdmin",
                 "icon": "iconfont icon-iconfontmoshi",
                 "link": "/Java/架构设计/分布式/分布式监控/SpringBootAdmin"

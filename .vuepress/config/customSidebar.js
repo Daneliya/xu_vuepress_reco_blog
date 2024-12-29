@@ -251,6 +251,14 @@ module.exports = {
             children: path.findMdFiles('/Redis/')
         }
     ],
+    '/常用框架/SpringBoot/': [
+        {
+            title: 'SpringBoot程序开发',    // 必要的
+            collapsable: false,           // 可选的, 默认值是 true,
+            sidebarDepth: 3,              // 可选的, 默认值是 1
+            children: path.findMdFiles('/常用框架/SpringBoot/SpringBoot程序开发/')
+        }
+    ],
     '/常用框架/': [
         {
             title: '常用框架',   // 必要的
