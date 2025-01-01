@@ -15,7 +15,7 @@ SpringBoot程序开发完成之后，需要对程序的功能进行测试，这�
 
 修改pom.xml配置文件，引入测试相关依赖包。
 
-~~~java
+~~~xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-test</artifactId>
