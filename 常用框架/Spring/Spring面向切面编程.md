@@ -56,3 +56,15 @@ Spring切面可以应用五种类型的通知：
 3. **after-returning**: 仅当方法成功完成后执行的通知。
 4. **after-throwing**: 在方法抛出异常退出时执行的通知。
 5. **around**: 在方法执行之前和之后调用的通知。
+
+
+
+### Spring AOP 切点表达式args与@args区别
+
+[https://blog.csdn.net/qq_19922839/article/details/117412231](https://blog.csdn.net/qq_19922839/article/details/117412231)
+
+
+
+### execution表达式
+
+https://cloud.tencent.com/developer/article/1640230

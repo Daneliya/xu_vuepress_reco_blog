@@ -136,6 +136,10 @@ find  实际搜寻硬盘查询文件名称。
 
 
 
+> 补充
+>
+> windows查看进程：https://blog.csdn.net/mrxutada/article/details/119203981
+
 
 
 ### 防火墙相关
