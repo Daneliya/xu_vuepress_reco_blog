@@ -257,6 +257,18 @@ module.exports = {
             collapsable: false,           // 可选的, 默认值是 true,
             sidebarDepth: 3,              // 可选的, 默认值是 1
             children: path.findMdFiles('/常用框架/SpringBoot/SpringBoot程序开发/')
+        },
+        {
+            title: 'SpringBoot与Web应用',    // 必要的
+            collapsable: false,             // 可选的, 默认值是 true,
+            sidebarDepth: 3,                // 可选的, 默认值是 1
+            children: path.findMdFiles('/常用框架/SpringBoot/SpringBoot与Web应用/')
+        },
+        {
+            title: 'SpringBoot服务整合',    // 必要的
+            collapsable: false,           // 可选的, 默认值是 true,
+            sidebarDepth: 3,              // 可选的, 默认值是 1
+            children: path.findMdFiles('/常用框架/SpringBoot/SpringBoot服务整合/')
         }
     ],
     '/常用框架/': [
