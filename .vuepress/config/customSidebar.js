@@ -4,6 +4,12 @@ const path = require('./path.js');
 module.exports = {
     '/Java/Java开发技巧/': [
         {
+            title: '高效编程',    // 必要的
+            collapsable: false,  // 可选的, 默认值是 true,
+            sidebarDepth: 3,     // 可选的, 默认值是 1
+            children: path.findMdFiles('/Java/Java开发技巧/高效编程/')
+        },
+        {
             title: '函数式编程',   // 必要的
             //path: '/Java/java开发技巧/函数式编程/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
             collapsable: false,  // 可选的, 默认值是 true,

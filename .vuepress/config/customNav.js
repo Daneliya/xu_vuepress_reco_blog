@@ -12,7 +12,7 @@ module.exports = [
             {
                 "text": "Java开发技巧",
                 "icon": "iconfont icon-LBhouduanfuwuzu",
-                "link": "/Java/Java开发技巧/其他/语法糖"
+                "link": "/Java/Java开发技巧/高效编程/1_资源关闭优化方案"
             },
             {
                 "text": "JVM性能调优",

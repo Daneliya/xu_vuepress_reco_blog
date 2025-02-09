@@ -1,11 +1,13 @@
 ---
-title: Optional容器类
+title: JDK8新特性Optional容器类
+tags:
+  - 高效编程
+categories:
+  - 高效编程
 ---
 
 
-# Optional容器类
-
-
+## Optional容器类
 
 Optional类(java.util.Optional)是一个容器类，代表一个值存在或不存在，原来用null表示一个值不存在，现在Optional可以更好的表达这个概念。并且可以避免空指针异常。
 
@@ -13,10 +15,13 @@ Optional类(java.util.Optional)是一个容器类，代表一个值存在或不�
 
 ### Optional容器类的常用方法
 
-~~~java
+~~~markdown
+# 三种创建optional对象方式
 Optional.of(T t)：创建一个Optional实例
 Optional.empty()：创建一个空的Optional实例
 Optional.ofNullable(T t)：若t不为null,创建Optional实列，否则创建空实例
+
+# optional方法
 isPresent()：判断是否包含值
 orElse(T t)：如果调用对象包含值，返回该值，否则返回t
 orElseGet(Supplier s)：如果调用对象包含值，返回该值，否则返回s获取的值
