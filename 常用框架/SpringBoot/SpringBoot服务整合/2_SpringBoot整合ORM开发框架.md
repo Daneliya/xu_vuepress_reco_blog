@@ -573,3 +573,21 @@ public class TransactionConfig {
 
 此时程序中的事务控制可以利用TransactionConfig类结合AspectJ切面与业务层中的方法匹配，而后就不再需要业务方法使用@Transactional注解重复定义了。
 
+### 4、测试
+
+~~~java
+@SpringBootTest(classes = SpringBootIntegrationTransactionalApplication.class)        // 定义要测试的SpringBoot类
+@RunWith(SpringJUnit4ClassRunner.class)                            // 使用Junit进行测试
+@WebAppConfiguration                                            // 进行Web应用配置
+public class TestDeptService {
+
+    @Autowired
+    private IDeptService deptService;                            // 注入业务接口对象
+
+    @Test
+    public void testAdd() {
+        this.deptService.addDept("科室1");
+    }
+}
+~~~
+
