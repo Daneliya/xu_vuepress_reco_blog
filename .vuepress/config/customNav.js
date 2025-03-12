@@ -37,7 +37,7 @@ module.exports = [
             {
                 "text": "微服务专栏",
                 "icon": "iconfont icon-mseweifuwuyinqing",
-                "link": "/Java/微服务专栏/流控组件Sentinel/微服务保护"
+                "link": "/Java/微服务专栏/SpringCloud/1_SpringCloud简介"
             },
             {
                 "text": "架构设计",

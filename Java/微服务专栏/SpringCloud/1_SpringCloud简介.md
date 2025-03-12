@@ -10,7 +10,7 @@ categories:
 
 ## 一、RPC分布式开发技术
 
-RPC（Remote Procedure Call，远程过程调用）技术是进行项目业务拆分的重要技术手段，SpringCloud是新一代的RPC技术，其在SpringBoot技术上进行构建，基于Restful架构，采用标准数据结构（JSON）进行数据交互。本章将为读者讲解RPC技术的发展过程及SpringCloud的整体架构。
+RPC（Remote Procedure Call，远程过程调用）技术是进行项目业务拆分的重要技术手段，SpringCloud是新一代的RPC技术，其在SpringBoot技术上进行构建，基于Restful架构，采用标准数据结构（JSON）进行数据交互。
 
 目的设计与开发实质上是业务层设计与业务功能的完善，在传统的单主机项目中，业务层的变化一般很少，所以可以直接将业务层定义在Web之中。
 
