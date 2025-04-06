@@ -41,3 +41,14 @@ Spring Boot开发框架有如下核心功能。
 ### SpringBoot编程起步
 
 SpringBoot编程需要依赖于Maven或Gradle构建工具完成。
+
+
+
+### 参考资料
+
+[1]. W3shhool教程：https://www.w3ccoo.com/spring_boot/index.html
+
+[2]. Java微服务架构实战-周兴华代码示例：https://github.com/CoderDream/SpringBoot-SpringCloud-Docker-RabbitMQ
+
+[3]. Springboot一些相关问题：https://sloving.top/SpringBoot/%E8%BF%88%E5%85%A5%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E6%97%B6%E4%BB%A3.html
+

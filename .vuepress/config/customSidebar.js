@@ -147,6 +147,21 @@ module.exports = {
             ]
         }
     ],
+    '/Java/解决方案/支付解决方案/': [
+        {
+            title: '支付解决方案',   // 必要的
+            collapsable: false,   // 可选的, 默认值是 true,
+            sidebarDepth: 3,      // 可选的, 默认值是 1
+            children: [
+                {
+                    title: '支付宝支付API对接指南',   // 必要的
+                    collapsable: false,           // 可选的, 默认值是 true,
+                    sidebarDepth: 3,              // 可选的, 默认值是 1
+                    children: path.findMdFiles('/Java/解决方案/支付解决方案/支付宝支付API对接指南/')
+                }
+            ]
+        }
+    ],
     '/Java/设计模式/': [
         {
             title: '设计模式',    // 必要的
@@ -351,7 +366,26 @@ module.exports = {
             title: 'Linux',     // 必要的
             collapsable: false, // 可选的, 默认值是 true,
             sidebarDepth: 3,    // 可选的, 默认值是 1
-            children: path.findMdFiles('/Linux/')
+            children: [
+                {
+                    title: 'Shell命令',           // 必要的
+                    collapsable: false,          // 可选的, 默认值是 true,
+                    sidebarDepth: 3,             // 可选的, 默认值是 1
+                    children: path.findMdFiles('/Linux/Shell命令/')
+                },
+                {
+                    title: 'Linux安装软件',       // 必要的
+                    collapsable: false,          // 可选的, 默认值是 true,
+                    sidebarDepth: 3,             // 可选的, 默认值是 1
+                    children: path.findMdFiles('/Linux/Linux安装软件/')
+                },
+                {
+                    title: 'Nginx',              // 必要的
+                    collapsable: false,          // 可选的, 默认值是 true,
+                    sidebarDepth: 3,             // 可选的, 默认值是 1
+                    children: path.findMdFiles('/Linux/Nginx/')
+                }
+            ]
         }
     ],
     '/StableDiffusion/': [

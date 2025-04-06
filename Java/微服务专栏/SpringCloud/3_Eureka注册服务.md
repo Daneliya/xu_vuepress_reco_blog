@@ -532,3 +532,11 @@ Eureka作为独立的微服务存在，也需要进行项目打包与部署。�
 运行product-7102：java -jar eureka-server.jar --spring.profiles.active=product-7102。
 
 运行product-7103：java -jar eureka-server.jar --spring.profiles.active=product-7103。
+
+
+
+## 参考资料
+
+[1]. https://blog.csdn.net/Pireley/article/details/133784749
+
+[2]. https://www.jianshu.com/p/cc61898291e3

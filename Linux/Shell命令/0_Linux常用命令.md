@@ -6,15 +6,21 @@ tags:
  - Linux
 categories: 
  - Linux
-
 ---
+
+
+
+### 命令大全
+
+[https://www.runoob.com/linux/linux-command-manual.html](https://www.runoob.com/linux/linux-command-manual.html)
+
 
 
 ### 命令操作之文件与目录
 
 - **is**：查看文件和目录列表
 - **ls -a**：查看文件和目录列表（包含隐藏文件）
-- **ll**：显示出文件的权限、属主、大小等详细信息，是 `ls -l` 的简写，[具体介绍](https://www.xk857.com/linux/centos/文件列表的详细信息)
+- **ll**：显示出文件的权限、属主、大小等详细信息，是 `ls -l` 的简写。
 - **pwd**：看当前所在目录的绝对路径
 - **cd**：切换目录，`cd ..`代表切换到上一级，`./user`代表切换到当前目录下的user目录
 - **touch**：创建文件
@@ -27,8 +33,17 @@ categories:
 - **解压zip格式**：`unzip 文件地址+名称`
 - **重命名**：`mv 旧文件地址加名称 新文件地址加名称`
 
+### 命令操作之文件位置
 
-### **linux查看文件位置**
+实际工作中文件多了，可能就会忘掉它的位置，这个时候就可以使用一些出文件所在目录的地址，提升了文件查找的效率。
+
+- which 查看可执行文件的位置。
+
+- whereis 查看文件的位置。 
+
+- find  实际搜寻硬盘查询文件名称。
+
+
 
 1、whereis
 
@@ -71,13 +86,7 @@ which命令的作用是，在PATH变量指定的路径中，搜索某个系统�
 
 也就是说，使用which命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。 
 
-命令行输入export可以查看PATH变量
-
-~~~
-export
-~~~
-
-
+命令行输入`export`可以查看PATH变量
 
 ~~~
 which java
@@ -85,27 +94,21 @@ which java
 
 说明：查看java可执行文件的地址
 
-备注：
-
-which 查看可执行文件的位置。
-
-whereis 查看文件的位置。 
-
-find  实际搜寻硬盘查询文件名称。
 
 
+### 命令操作之进程和磁盘管理
 
-### 查看内存使用情况
-
-- ps -ef|grep java (查看所有java运行的进程)
-- df -h (查看磁盘使用情况)
-- free -m|g （m和g表示单位，二选一）查看内存使用情况
-- top (实时显示系统中各个进程的资源占用状况)
-- top -d 1 -p pid (pid 进程id) 查看单个进程占用资源状况
+- **查看进程**：`ps -ef|grep java` （查看所有java运行的进程）
+- **结束进程**：`kill -9 pid`
+- **查看磁盘使用情况**：`df -h`
+- **查看目录占用磁盘空间大小**：`du -m | sort -nr`
+- **查看内存使用情况**：`free -m|g`（m和g表示单位，二选一）
+- **实时显示系统中各个进程的资源占用状况**：top
+- **查看单个进程占用资源状况**：`top -d 1 -p pid`（pid 进程id）
 
 
 
-### 查看端口被哪个进程被占用的六个方法
+### 命令操作之查看占用端口的进程
 
 - lsof命令：lsof(list open files)命令可以列出当前系统中打开的所有文件，包括网络端口。可以使用lsof命令查看某个端口被哪个进程占用。具体的命令为：**sudo lsof -i :端口号**，其中端口号为需要查询的端口号。
 
@@ -144,38 +147,80 @@ find  实际搜寻硬盘查询文件名称。
 
 ### 防火墙相关
 
-https://zhuanlan.zhihu.com/p/452927048
+firewalld与iptables命令：https://zhuanlan.zhihu.com/p/452927048
 
-https://www.python100.com/html/691DUEI971RX.html
-
-ubuntu中查看防火墙的状态：https://www.cnblogs.com/echohye/p/17348478.html
-
-#### firewall-cmd命令
+firewalld服务重载、重启、停止
 
 ~~~sh
-firewall-cmd --list-all
-
-# 查看开启的端口
-firewall-cmd --zone=public --list-ports
-
-# 添加/删除端口
-firewall-cmd --zone=public --add-port=80/tcp --permanent
-firewall-cmd --zone=public --remove-port=80/tcp --permanent
-
-# 重新载入防火墙
+# 重新加载防火墙配置
 firewall-cmd --reload
-
-# FirewallD is not running 未开启
-systemctl status firewalld
-systemctl start firewalld
-
+# 查看状态
+systemctl status firewalld.service
 # unit is masked 防火墙默认是锁定的，需要取消服务的锁定
 systemctl unmask firewalld
+# 重启防火墙(redhat系列)
+systemctl restart firewalld.service
+# 临时关闭防火墙
+systemctl stop firewalld.service
+# 开机启用防火墙
+systemctl enable firewalld.service
+# 开机禁止防火墙
+systemctl disable firewalld.service
+# 查看firewalld的运行状态
+firewall-cmd --state
+~~~
 
+firewalld开放端口（public）
+
+~~~sh
+# 公共区域设置开放21端口永久生效并写入配置文件（参数：--permanent）
+# 参数：--permanent，设置即立刻生效并且写入配置文件
+firewall-cmd --zone=public --add-port=21/tcp --permanent
 # 开启防火墙范围
 vim /etc/firewalld/zones/public.xml
 port="9001-9050"
+# 查询防火墙端口21是否开放
+firewall-cmd --zone=public --query-port=21/tcp
+# 移除开放的端口21
+firewall-cmd --zone=public --remove-port=21/tcp --permanent
 ~~~
+
+firewalld区域规则修改
+
+~~~sh
+# 查询防火墙规则列表
+firewall-cmd --zone=public --list-all
+# 查看开启的端口
+firewall-cmd --zone=public --list-ports
+# 新增一条区域规则httpd服务
+firewall-cmd --permanent --zone=internal --add-service=http
+# 验证规则
+firewall-cmd  --zone=internal --list-all
+~~~
+
+ubuntu中查看防火墙的状态
+
+~~~sh
+# 在 Ubuntu 中查看防火墙的状态，可以使用 ufw 命令。ufw 是 Uncomplicated Firewall 的缩写，是 Ubuntu 默认的防火墙管理工具。
+# 如果您想要查看防火墙的状态，可以使用以下命令：
+sudo ufw status
+# 该命令将显示防火墙的状态，如果防火墙已经开启，则会显示如下信息：
+Status: active
+To                         Action      From
+--                         ------      ----
+OpenSSH                    ALLOW       Anywhere
+它会显示出所有被允许的端口，及其来源。如果您没有配置防火墙或者所有端口都已经被开放，则状态可能如下所示：
+Status: inactive
+# 如果防火墙被激活，并且您需要开放某些端口，请参考以下示例，使用 ufw 命令打开和关闭端口：
+sudo ufw allow 80/tcp  # 开放TCP 80端口
+sudo ufw deny 113     # 拒绝UDP 113端口
+sudo ufw delete allow 53/tcp  # 删除TCP 53端口
+# 如果您想要关闭防火墙，请使用以下命令：
+sudo ufw disable
+# 需要注意的是，对防火墙的任何更改都需要使用 sudo 权限进行设置。
+~~~
+
+
 
 ### 查看Linux系统版本
 
@@ -275,10 +320,6 @@ PID:719273,mem:1.4g,CPU percent:0.0% mem percent:2.3%
 PID:761835,mem:1.8g,CPU percent:0.0% mem percent:2.8%
 PID:800379,mem:2.3g,CPU percent:0.0% mem percent:3.7%
 ~~~
-
-
-
-
 
 
 

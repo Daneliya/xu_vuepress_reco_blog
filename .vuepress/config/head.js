@@ -30,6 +30,7 @@ module.exports = [
     ['link', {rel: 'stylesheet', href: '/iconfont/font_530mtleffzr/iconfont.css'}], // Python 基础语法
     ['link', {rel: 'stylesheet', href: '/iconfont/font_9ggbupsr8d/iconfont.css'}], // Python 数据分析
     ['link', {rel: 'stylesheet', href: '/iconfont/font_lystyiufdck/iconfont.css'}], // Python AI大模型
+    ['link', {rel: 'stylesheet', href: '/iconfont/font_47disko5523/iconfont.css'}], // 支付
     ['link', {rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css'}], // 让md支持数学公式
     ['link', {rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"}]  // 让md支持数学公式
 ]

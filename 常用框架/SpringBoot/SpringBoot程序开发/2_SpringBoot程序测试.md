@@ -24,7 +24,8 @@ SpringBoot程序开发完成之后，需要对程序的功能进行测试，这�
 <dependency>
     <groupId>junit</groupId>
     <artifactId>junit</artifactId>
-<scope>test</scope>
+    <scope>test</scope>
+</dependency>
 ~~~
 
 ## 二、编写一个测试程序类
@@ -111,3 +112,8 @@ junit.framework.ComparisonFailure:
 ...
 ~~~
 
+
+
+> 补充
+>
+> 利用MockMvc编写测试用例：https://developer.aliyun.com/article/1641912

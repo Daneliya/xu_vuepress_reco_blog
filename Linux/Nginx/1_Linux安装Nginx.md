@@ -94,8 +94,32 @@ ps -ef | grep nginx
 sudo ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx
 ~~~
 
-
 现在就可以不用路径直接输入nginx启动。
+
+### 3、Docker安装
+
+https://gitee.com/xu_xiaolong/docker-compose/blob/master/compose/nginx/run.md
+
+~~~nginx
+version: '3'
+services:
+  nginx:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/nginx:1.21.1                 # 镜像`nginx:1.21.1`
+    container_name: nginx               # 容器名为'nginx'
+    restart: unless-stopped                                       # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    volumes:                            # 数据卷挂载路径设置,将本机目录映射到容器目录
+      - "./nginx/conf/nginx.conf:/etc/nginx/nginx.conf"
+      - "./nginx/conf/conf.d/default.conf:/etc/nginx/conf.d/default.conf"
+      - "./nginx/html:/usr/share/nginx/html"
+      - "./nginx/log:/var/log/nginx"
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+    ports:                              # 映射端口
+      - "80:80"
+~~~
+
+
 
 
 ## 二、配置开机启动服务
@@ -393,8 +417,8 @@ https://blog.csdn.net/xinxian1768/article/details/131165831
 
 ## 参考资料
 
-[1]. https://blog.csdn.net/xun527/article/details/131305955
+[1]. 安装教程：https://blog.csdn.net/xun527/article/details/131305955
 
 [2]. nginx启动命令详解：https://www.python100.com/html/89170.html
 
-
+[3]. nginx详细参数配置：https://www.cnblogs.com/hanease/p/15890509.html

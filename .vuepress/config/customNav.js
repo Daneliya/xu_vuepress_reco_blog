@@ -45,6 +45,11 @@ module.exports = [
                 "link": "/Java/架构设计/分布式/分布式事务/分布式事务Seata"
             },
             {
+                "text": "解决方案",
+                "icon": "iconfont icon-zhifubaozhifu",
+                "link": "/Java/解决方案/支付解决方案/支付宝支付API对接指南/1_商家基本信息获取"
+            },
+            {
                 "text": "数据结构",
                 "icon": "iconfont icon-shujujiegou",
                 "link": "/Java/数据结构/排序算法"
@@ -134,7 +139,7 @@ module.exports = [
             {
                 "text": "三剑客SpringBoot",
                 "icon": "iconfont icon-iconfontmoshi",
-                "link": "/常用框架/SpringBoot/SpringBoot程序开发/2_SpringBoot程序测试"
+                "link": "/常用框架/SpringBoot/SpringBoot程序开发/0_SpringBoot编程起步"
             },
             {
                 "text": "监控工具SpringBootAdmin",
@@ -156,7 +161,7 @@ module.exports = [
     {
         "text": "Linux",
         "icon": "iconfont icon-centos",
-        "link": "/Linux/0_Linux常用命令"
+        "link": "/Linux/Shell命令/0_Linux常用命令"
     },
     {
         "text": "Stable Diffusion",
