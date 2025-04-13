@@ -10,8 +10,16 @@ categories:
 
 > 官方文档：[https://vuepress.vuejs.org/zh/](https://vuepress.vuejs.org/zh/)
 
-
 # Vuepress搭建
+
+`Vuepress` 是由 `Vue` 支持的静态网站生成工具，因为 `Vue` 上手起来很简单，所以 `Vuepress` 使用起来也不难。如果想快速搭建一个静态的博客网站来简单记录记录笔记或者文章，用 `Vuepress` 是个不错的选择，因为它对新手很友好。
+
+其他一些类似的博客工具
+
+- docsify
+- docusaurus
+- NotionNext
+
 ## 准备开发环境
 
 1. git（版本管理）
@@ -20,6 +28,8 @@ categories:
 4. vscode/WebStorm（编译器）
 
 ## 徽章
+
+
 
 ## 自定义样式
 > [http://www.taodudu.cc/news/show-3334923.html?action=onClick](http://www.taodudu.cc/news/show-3334923.html?action=onClick)
@@ -85,6 +95,78 @@ a.sidebar-link.active {
 ## 让Google搜索到GitHub上的个人博客
 [https://blog.csdn.net/weixin_44058333/article/details/100165245](https://blog.csdn.net/weixin_44058333/article/details/100165245)
 
+
+
+## 添加 iconfont 图标
+
+iconfont官网下载图标：[https://www.iconfont.cn](https://www.iconfont.cn/)
+
+方法1：
+
+1.  首先，在iconfont网站上创建或下载需要的图标。 
+2.  下载完成后，会得到一份包含iconfont.css、iconfont.eot、iconfont.svg、iconfont.ttf、iconfont.woff等文件的压缩包。 
+3.  将这些文件放入的VuePress项目的.vuepress/public目录下。 
+4.  在.vuepress/config.js文件中的head属性中引入iconfont.css文件。例如： 
+
+```javascript
+module.exports = {
+  head: [
+    ['link', { rel: 'stylesheet', href: '/iconfont.css' }]
+  ],
+  // 其他配置...
+}
+```
+
+1. 然后，就可以在你的Markdown文件或Vue组件中使用这些图标了。例如：
+
+```javascript
+<i class="iconfont icon-example"></i>
+```
+
+注意，icon-example应该替换为图标的类名。可以在iconfont.css文件中找到这些类名。
+
+
+
+方法2：（未成功）
+
+参考：https://juejin.cn/post/7242181894116573245#heading-6
+
+打包报错window is not defined：https://blog.csdn.net/Miss_Liang/article/details/99843061
+
+根据参考链接中的方法，直接在 `.vuepress` 下新建 `enhanceApp.js`，style目录下存放在 iconfont 官网下载的图标。一直无法成功，代码如下：
+
+```javascript
+//enhanceApp.js
+//import './styles/font_20csbaofexh/iconfont.css'
+//import './styles/font_cs5v8kb16mu/iconfont.css'
+//const pluginsConf1 = require("./styles/font_20csbaofexh/iconfont.js");
+//const pluginsConf2 = require("./styles/font_cs5v8kb16mu/iconfont.js");
+
+module.export = {
+    mounted() {
+        import('./styles/font_20csbaofexh/iconfont.js').then(icon => {
+        })
+        import('./styles/font_cs5v8kb16mu/iconfont.js').then(icon => {
+        })
+    }
+}
+```
+
+
+
+## 添加评论
+
+参考：https://valine.js.org/
+
+1. 注册 LeanCloud ，获取APP ID 和 APP Key
+2. config.js 中增加插件配置
+
+
+
+## 添加复制显示版权信息
+
+参考：https://www.jianshu.com/p/0082676af581
+
 ## 插件
 ### markdown-it-disable-url-encode（中文识别）
 
@@ -106,10 +188,14 @@ module.exports = {
 };
 ```
 
-### vuepress-plugin-auto-sidebar（自动生成侧边栏 vuepress）
+### vuepress-plugin-auto-sidebar（自动生成侧边栏 vuepress⭐）
 > 项目地址：[https://github.com/shanyuhai123/vuepress-plugin-auto-sidebar](https://github.com/shanyuhai123/vuepress-plugin-auto-sidebar)
 >
 > 项目文档：[https://shanyuhai123.github.io/vuepress-plugin-auto-sidebar/zh/](https://shanyuhai123.github.io/vuepress-plugin-auto-sidebar/zh/)
+
+缺点：左侧侧边栏只能识别到同一级目录下的文件，无法识别到子集
+
+
 
 
 1. 安装
@@ -158,94 +244,126 @@ vuepress nav docs
 ```
 
 ### 代码实现自动生成侧边栏
-> 参考（vuepress-theme-reco）：[https://blog.csdn.net/weixin_44113868/article/details/118343085](https://blog.csdn.net/weixin_44113868/article/details/118343085)
->
-> 参考：[https://blog.csdn.net/weixin_42068913/article/details/116207129](https://blog.csdn.net/weixin_42068913/article/details/116207129)
+> 1. 参考（vuepress-theme-reco）：[https://blog.csdn.net/weixin_44113868/article/details/118343085](https://blog.csdn.net/weixin_44113868/article/details/118343085)
+>2. 参考：[https://blog.csdn.net/weixin_42068913/article/details/116207129](https://blog.csdn.net/weixin_42068913/article/details/116207129)
+> 3. 参考⭐：https://blog.csdn.net/qq_44402184/article/details/133671540
 
-```shell
+使用参考3中的，并对其进行改造，使其支持子集目录
+
+```javascript
+// 侧边栏识别工具js
+const fs = require('fs');
+const path = require('path');
+
 /**
- * 自动生成侧边栏文件
- * 技术：node文件模块的相关pai函数的使用
- * 使用：在config.js中引用该文件，然后配置项 sidebar: createSideBar()
+ * 读取指定目录下的所有.md文件，按照文件名从大到小排列
+ * @param relativePath 相对路径
+ * @returns {string[]|*[]} 文件名数组
  */
-const fs = require('fs') // 文件模块
-const file_catalogue = {} // 最终返回的路由
- 
-module.exports = {
-	/**
-	 * 自动生成侧边栏
-	 * @param {String} path 路径，特指存放文章的根目录
-	 * @param {Array} white_path 路由白名单 表示不参与构建路由的文件名称
-	 */
-	createSideBar(path = '', white_path = []) {
-		this.getFileCatalogue('/' + path, white_path)
- 
-		return this.reverse(file_catalogue)
-	},
- 
-	/**
-	 * 查询某一文件夹目录下的所有文件
-	 * @param {string} path 文件根目录
-	 * @param {Array} white_path 路由白名单 表示不参与构建路由的文件名称
-	 */
-	getFileCatalogue(path= '', white_path = []) {
-		// 1. 过滤掉白名单的文件
-		const catagolue_list = fs.readdirSync('./docs' + path).filter(file => !white_path.includes(file))
-		if (!catagolue_list.length) {
-			return
-		}
- 
-		// 2.找到的文件包含.md字符，判定为单一文件
-		file_catalogue[path + '/'] = [
-			{
-				title: path.split('/')[path.split('/').length - 1],
-				children: catagolue_list.filter(v => v.includes('.md')).map(file => { return file === 'README.md' || white_path.includes(file) ? '' : file.substring(0, file.length - 3) })
-			}
-		]
- 
-		// 3.找到的文件存在不包含.md文件，即存在文件夹，继续查找
-		catagolue_list
-			.filter(v => !v.includes('.md'))
-			.forEach(new_path => this.getFileCatalogue(path + '/' + new_path, white_path))
-	},
- 
-	/**
-	 * 反序
-	 * 原因：查找侧边栏是从上到下匹配，但是生成的配置是从外到内，即更详细的目录结构其实是放在最下边，所以要反序
-	 */
-	reverse(info) {
-		let new_info = {}
-		const info_keys = Object.keys(info).reverse()
- 
-		info_keys.forEach(key => {
-			new_info[key] = info[key]
-		})
-		return new_info
-	}
+function findMdFiles(relativePath) {
+  const directoryPath = path.join(process.cwd(), relativePath);
+
+  let mdFiles = [];
+  console.log("日志1：" + directoryPath);
+  try {
+    const files = fs.readdirSync(directoryPath);
+
+    files.forEach((file) => {
+      const filePath = path.join(directoryPath, file);
+      const stats = fs.statSync(filePath);
+
+      if (stats.isDirectory()) {
+        // mdFiles = mdFiles.concat(findMdFiles(filePath));
+        const relativeFilePath = path.relative(process.cwd(), filePath);
+        mdFiles = mdFiles.concat(findMdFiles(relativeFilePath));
+      } else if (file.endsWith('.md') && file !== 'README.md') {
+        //mdFiles.push(path.parse(file).name);
+        //mdFiles.push(filePath);
+        //path.relative(process.cwd(), filePath) 来获取从 relativePath 开始的路径加上 .md 文件名。
+        // 修改了排序函数，使其使用 path.basename(a) 和 path.basename(b) 来获取文件名，然后再进行比较
+        const relativeFilePath = path.relative(process.cwd(), filePath).replace(/\\/g, '/');
+        const htmlFilePath1 = relativeFilePath.replace('.md', '');
+        mdFiles.push("/" + htmlFilePath1);
+      }
+    });
+
+    // 按照从大到小排序
+    mdFiles.sort((a, b) => {
+      const aNum = parseInt(path.basename(a).slice(1));
+      const bNum = parseInt(path.basename(b).slice(1));
+      return bNum - aNum;
+    });
+    console.log("日志2：" + mdFiles);
+    return mdFiles;
+  } catch (error) {
+    console.error(`Error reading directory ${directoryPath}: ${error}`);
+        return [];
+    }
 }
- 
-// 上面的代码我是放在util文件夹的autoCreateSideBar.js里面，所以我们需要进行引用
-// config.js
-const sideBar = require('./util/autoCreateSideBar')
+
 module.exports = {
-	// ...code
-	themeConfig: {
-		// ...code
-		
-		sidebar: sideBar.createSideBar('technology', ['img']) // 配置两个参数，一个是文章的根目录，第二是白名单（选择性配置）
-	}
-}
+    findMdFiles
+};
 ```
-### vuepress-theme-sidebar（自动生成导航栏 vuepress2.x）
-> 项目地址：[https://github.com/dingshaohua-cn/vuepress-theme-sidebar](https://github.com/dingshaohua-cn/vuepress-theme-sidebar)
+使用时引用即可
+
+```javascript
+const path = require('./path.js');
+...
+...
+'/Java/java开发技巧/': [
+        {
+            title: '函数式编程',   // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 3,    // 可选的, 默认值是 1
+            children: path.findMdFiles('/Java/java开发技巧/函数式编程/')
+        },
+  ]
+```
+
+
+
+### vuepress-theme-sidebar（自动生成导航栏 vuepress2.x默认主题可用）
+
+项目地址：https://github.com/dingshaohua-cn/vuepress-theme-sidebar
+
 
 
 ### plugin-register-components（.vue文件识别）
-> 参考：[https://www.cnblogs.com/wangdashi/p/16308107.html](https://www.cnblogs.com/wangdashi/p/16308107.html)
+
+参考：https://www.cnblogs.com/wangdashi/p/16308107.html
+
 
 
 ### vuepress-plugin-bgm-player（音乐播放器 vuepress-reco）
-> [https://github.com/vuepress-reco/vuepress-plugin-bgm-player](https://github.com/vuepress-reco/vuepress-plugin-bgm-player)
+
+参考：https://github.com/vuepress-reco/vuepress-plugin-bgm-player
+
+
+
+### 多页面生成（同一个md生成多个html页面）
+
+参考：https://www.cnblogs.com/dingshaohua/p/15386262.html
+
+
+
+### 添加侧边栏访问地图（vdoing主题可用）
+
+参考：[https://wiki.eryajf.net/pages/76f813/#_1-%E6%95%88%E6%9E%9C](https://wiki.eryajf.net/pages/76f813/#_1-效果)
+
+
+
+### 集成element-ui
+
+参考：https://cloud.tencent.com/developer/article/1700029
+
+
+
+### 基于Algolia实现网站全文搜索
+
+参考：https://zhuanlan.zhihu.com/p/549263050?utm_id=0
+
+
 
 ### 数学公式支持
 
@@ -320,6 +438,6 @@ module.exports = {
 # 参考资料
 [1]. [https://www.bilibili.com/video/BV1vb411m7NY](https://www.bilibili.com/video/BV1vb411m7NY)
 
-[https://blog.csdn.net/qq_19978927/article/details/108039032](https://blog.csdn.net/qq_19978927/article/details/108039032)
+[2]. [https://blog.csdn.net/qq_19978927/article/details/108039032](https://blog.csdn.net/qq_19978927/article/details/108039032)
 
-[https://blog.csdn.net/weixin_45732455/article/details/129940312](https://blog.csdn.net/weixin_45732455/article/details/129940312)
+[3]. [https://blog.csdn.net/weixin_45732455/article/details/129940312](https://blog.csdn.net/weixin_45732455/article/details/129940312)

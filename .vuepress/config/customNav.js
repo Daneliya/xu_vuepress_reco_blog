@@ -227,11 +227,11 @@ module.exports = [
             }
         ]
     },
-    {
-        "text": "时间线",
-        "link": "/timeline/",
-        "icon": "iconfont icon-shijianzhou"
-    },
+    // {
+    //     "text": "时间线",
+    //     "link": "/timeline/",
+    //     "icon": "iconfont icon-shijianzhou"
+    // },
     {
         "text": "关于",
         "icon": "reco-message",
