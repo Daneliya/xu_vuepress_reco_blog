@@ -10,7 +10,7 @@ categories:
 
 
 
-
+## 方式一：命令行
 
 ### 1、查看分区状况
 
@@ -241,10 +241,30 @@ tmpfs                    378M  4.0K  378M    1% /run/user/42
 tmpfs                    378M   40K  378M    1% /run/user/0
 ```
 
-
-
 ### 参考资料
 
 https://blog.csdn.net/yanchenyu365/article/details/131453446
 
+https://blog.csdn.net/weixin_40436144/article/details/86235432
+
+https://www.cnblogs.com/leiblog/p/13560070.html
+
 https://zhuanlan.zhihu.com/p/450057653
+
+## 方式二：gparted图形界面
+
+参照如下资料步骤
+
+https://www.cnblogs.com/liulianzhen99/p/17467752.html
+
+Gparted的iso镜像，官网地址：https://sourceforge.net/projects/gparted/files/gparted-live-stable/
+
+下载镜像首次进入时，需要设置CD为第一启动项，BOOT选项卡中需要按（-/+）排序，https://www.ezd.cc/zs/380532.html
+
+下面示例图为具体分区操作
+
+![Snipaste_2025-06-13_00-21-14](3_Centos7扩容根目录.assets/Snipaste_2025-06-13_00-21-14.png)
+
+![Snipaste_2025-06-13_00-23-16](3_Centos7扩容根目录.assets/Snipaste_2025-06-13_00-23-16.png)
+
+![Snipaste_2025-06-13_00-23-53](3_Centos7扩容根目录.assets/Snipaste_2025-06-13_00-23-53.png)

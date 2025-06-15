@@ -1,3 +1,10 @@
+---
+title: MySQL分词搜索
+tags:
+ - MySQL
+categories: 
+ - MySQL
+---
 
 
 

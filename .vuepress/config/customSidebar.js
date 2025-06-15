@@ -264,6 +264,12 @@ module.exports = {
             children: path.findMdFiles('/数据库/MySQL常见问题及解决方案/')
         },
         {
+            title: '分布式数据库TIDB',     // 必要的
+            collapsable: false,         // 可选的, 默认值是 true,
+            sidebarDepth: 3,            // 可选的, 默认值是 1
+            children: path.findMdFiles('/数据库/分布式数据库TIDB/')
+        },
+        {
             title: 'Neo4j图数据库',     // 必要的
             collapsable: false,       // 可选的, 默认值是 true,
             sidebarDepth: 3,          // 可选的, 默认值是 1
