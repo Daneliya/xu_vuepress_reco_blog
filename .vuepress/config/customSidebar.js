@@ -147,17 +147,37 @@ module.exports = {
             ]
         }
     ],
-    '/Java/解决方案/支付解决方案/': [
+    '/Java/解决方案/': [
         {
-            title: '支付解决方案',   // 必要的
+            title: '解决方案',      // 必要的
             collapsable: false,   // 可选的, 默认值是 true,
             sidebarDepth: 3,      // 可选的, 默认值是 1
             children: [
                 {
-                    title: '支付宝支付API对接指南',   // 必要的
-                    collapsable: false,           // 可选的, 默认值是 true,
-                    sidebarDepth: 3,              // 可选的, 默认值是 1
-                    children: path.findMdFiles('/Java/解决方案/支付解决方案/支付宝支付API对接指南/')
+                    title: '支付解决方案',   // 必要的
+                    collapsable: false,   // 可选的, 默认值是 true,
+                    sidebarDepth: 3,      // 可选的, 默认值是 1
+                    children: [
+                        {
+                            title: '支付宝支付API对接指南',   // 必要的
+                            collapsable: false,           // 可选的, 默认值是 true,
+                            sidebarDepth: 3,              // 可选的, 默认值是 1
+                            children: path.findMdFiles('/Java/解决方案/支付解决方案/支付宝支付API对接指南/')
+                        }
+                    ]
+                },
+                {
+                    title: '数据同步',      // 必要的
+                    collapsable: false,   // 可选的, 默认值是 true,
+                    sidebarDepth: 3,      // 可选的, 默认值是 1
+                    children: [
+                        {
+                            title: '数据同步',              // 必要的
+                            collapsable: false,           // 可选的, 默认值是 true,
+                            sidebarDepth: 3,              // 可选的, 默认值是 1
+                            children: path.findMdFiles('/Java/解决方案/数据同步/')
+                        }
+                    ]
                 }
             ]
         }

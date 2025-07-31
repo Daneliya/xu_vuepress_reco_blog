@@ -1,3 +1,10 @@
+---
+title: SeaTunnel
+tags:
+ - 数据同步
+categories: 
+ - 数据同步
+---
 
 
 
@@ -15,22 +22,35 @@ https://blog.csdn.net/qq_41865652/article/details/134574104
 
 https://www.cnblogs.com/DolphinScheduler/p/18989962
 
-## 安装seatunnel
+## 一、安装seatunnel
 
-> 官方文档：https://seatunnel.incubator.apache.org/docs/2.3.3/about/
+> 官方文档：[https://seatunnel.incubator.apache.org/docs/2.3.3/about/](https://seatunnel.incubator.apache.org/docs/2.3.3/about/)
+
+### 1、准备工作
+
+所需软件包及版本要求
+
+- JDK >= 1.8.151
+
+- Maven >= 3.6.3
+- MySQL >= 5.7.28
 
 
 
-版本：apache-seatunnel-2.3.11-bin.tar.gz
+下载地址：[https://seatunnel.apache.org/download](https://seatunnel.apache.org/download)
 
-### 解压软件
+准备安装版本：`apache-seatunnel-2.3.11-bin.tar.gz`
+
+
+
+### 2、解压软件
 
 ~~~sh
 sudo tar -zxvf apache-seatunnel-2.3.11-bin.tar.gz
 # 指定目录 -C ./seatunnel
 ~~~
 
-### **配置环境变量**
+### 3、配置环境变量
 
 在`/etc/profile.d/seatunnel.sh`中配置环境变量
 
@@ -53,7 +73,7 @@ echo $SEATUNNEL_HOME
 
 
 
-### 下载连接器插件
+### 4、下载连接器插件
 
 从2.2.0-beta版本开始，二进制包不再默认提供连接器依赖，因此在第一次使用时，需要执行以下命令来安装连接器：(当然，也可以从 [Apache Maven Repository](https://repo.maven.apache.org/maven2/org/apache/seatunnel/) 手动下载连接器，然后将其移动至`connectors/`目录下，如果是2.3.5之前则需要放入`connectors/seatunnel`目录下)。
 
@@ -78,7 +98,7 @@ connector-cdc-mongodb
 --end--
 ~~~
 
-### 测试验证
+### 5、测试验证
 
 ~~~sh
 #进入安装目录
@@ -104,7 +124,7 @@ taskCount                 :                   1
 ***********************************************
 ~~~
 
-### 启动服务
+### 6、启动服务
 
 ~~~sh
 #进入安装目录
@@ -152,19 +172,19 @@ finishedJobCount          :                   0
 
 
 
-## 安装seatunnel-web
+## 二、安装seatunnel-web
 
 > 官方文档：https://seatunnel.apache.org/zh-CN/seatunnel_web/1.0.0/about
 
-### 准备工作
+### 1、准备工作
 
-版本：apache-seatunnel-web-1.0.2-bin.tar.gz
+下载地址：[https://seatunnel.apache.org/download](https://seatunnel.apache.org/download)
 
-在seatunnel的web端机器上需要部署seatunnel客户端
+准备安装版本：`apache-seatunnel-web-1.0.2-bin.tar.gz`
 
+注意：在seatunnel的web端机器上需要先部署seatunnel客户端。
 
-
-### 解压软件
+### 2、解压软件
 
 ~~~sh
 sudo tar -zxvf apache-seatunnel-web-1.0.2-bin.tar.gz
@@ -173,7 +193,7 @@ sudo tar -zxvf apache-seatunnel-web-1.0.2-bin.tar.gz
 
 
 
-### **初始化数据库**
+### 3、初始化数据库
 
 #### 修改配置
 
@@ -223,7 +243,7 @@ mysql: [Warning] option 'port': value -u adjusted to 0.
 Enter password:
 ~~~
 
-### 配置后端服务
+### 4、配置后端服务
 
 #### 修改端口与数据源
 
@@ -294,7 +314,7 @@ sudo cp /home/disk2/tools/apache-seatunnel-2.3.11/config/hazelcast-client.yaml .
 sudo cp /home/disk2/tools/apache-seatunnel-2.3.11/connectors/plugin-mapping.properties ./conf/
 ~~~
 
-### 下载配置数据源JAR包
+### 5、下载配置数据源JAR包
 
 配置jar包非常关键，否则会出现各种各样的问题，常见的有：
 
