@@ -21,7 +21,7 @@ categories:
 
 ### 关于Stable Diffusion
 
-**Stable Diffusion（简称SD）**是2022年发布的一个深度学习文本到图像生成模型，由慕尼黑大学的CompVis研究团体首先提出，并与初创公司Stability AI、Runway合作开发，同时得到了EleutherAI和LAION的支持。
+**Stable Diffusion（简称SD）** 是2022年发布的一个深度学习文本到图像生成模型，由慕尼黑大学的CompVis研究团体首先提出，并与初创公司Stability AI、Runway合作开发，同时得到了EleutherAI和LAION的支持。
 
 它可以实现的功能有很多，可以根据文本的描述生成指定内容的图片（图生图），也可以用于已有图片内容的转绘（图生图），还可以用作图像的局部重绘、外补扩充、高清修复，甚至是视频的“动画化”生成。 
 

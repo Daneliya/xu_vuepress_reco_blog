@@ -170,14 +170,7 @@ module.exports = {
                     title: '数据同步',      // 必要的
                     collapsable: false,   // 可选的, 默认值是 true,
                     sidebarDepth: 3,      // 可选的, 默认值是 1
-                    children: [
-                        {
-                            title: '数据同步',              // 必要的
-                            collapsable: false,           // 可选的, 默认值是 true,
-                            sidebarDepth: 3,              // 可选的, 默认值是 1
-                            children: path.findMdFiles('/Java/解决方案/数据同步/')
-                        }
-                    ]
+                    children: path.findMdFiles('/Java/解决方案/数据同步/')
                 }
             ]
         }
@@ -422,12 +415,6 @@ module.exports = {
             children: path.findMdFiles('/StableDiffusion/StableDiffusion/')
         },
         {
-            title: 'Midjourney',          // 必要的
-            collapsable: false,           // 可选的, 默认值是 true,
-            sidebarDepth: 3,              // 可选的, 默认值是 1
-            children: path.findMdFiles('/StableDiffusion/Midjourney/')
-        },
-        {
             title: 'WebUI',               // 必要的
             collapsable: false,           // 可选的, 默认值是 true,
             sidebarDepth: 3,              // 可选的, 默认值是 1
@@ -438,6 +425,12 @@ module.exports = {
             collapsable: false,           // 可选的, 默认值是 true,
             sidebarDepth: 3,              // 可选的, 默认值是 1
             children: path.findMdFiles('/StableDiffusion/ComfyUI/')
+        },
+        {
+            title: 'Midjourney',          // 必要的
+            collapsable: false,           // 可选的, 默认值是 true,
+            sidebarDepth: 3,              // 可选的, 默认值是 1
+            children: path.findMdFiles('/StableDiffusion/Midjourney/')
         },
         {
             title: 'AIGC',                // 必要的

@@ -8,19 +8,7 @@ categories:
 
 
 
-SeaTunnel 与 DataX 、Sqoop、Flume、Flink CDC 对比：https://cloud.tencent.com/developer/article/2401413
 
-
-
-
-
-https://blog.csdn.net/thc1987/article/details/131240445
-
-https://blog.csdn.net/u013995172/article/details/134422053
-
-https://blog.csdn.net/qq_41865652/article/details/134574104
-
-https://www.cnblogs.com/DolphinScheduler/p/18989962
 
 ## 一、安装seatunnel
 
@@ -180,7 +168,7 @@ finishedJobCount          :                   0
 
 下载地址：[https://seatunnel.apache.org/download](https://seatunnel.apache.org/download)
 
-准备安装版本：`apache-seatunnel-web-1.0.2-bin.tar.gz`
+准备安装版本：`apache-seatunnel-web-1.0.1-bin.tar.gz`（最新的1.0.2一直没启动成功o(╯□╰)o）
 
 注意：在seatunnel的web端机器上需要先部署seatunnel客户端。
 
@@ -297,6 +285,14 @@ spring:
         web-allow-others: false
 ~~~
 
+开启调试模式
+
+~~~yaml
+logging:
+  level:
+    root: DEBUG
+~~~
+
 #### 配置client信息
 
 将seatunnel引擎服务节点的安装目录下的config目录下的关于引擎客户端的配置文件拷贝到seatunnel-web安装目录下的conf目录下，同一台机器下部署直接使用以下拷贝命令（注意修改服务的安装目录为你自己的安装目录）
@@ -332,48 +328,110 @@ sudo cp /home/disk2/tools/apache-seatunnel-2.3.11/connectors/plugin-mapping.prop
 
 脚本在`bin/download_datasource.sh`
 
+修改
+
+~~~sh
+# the datasource default version is 1.0.0, you can also choose a custom version. eg: 1.1.2:  sh install-datasource.sh 2.1.2
+version=1.0.1
+~~~
+
 直接执行脚本
 
-~~~
+~~~sh
 ./bin/download_datasource.sh ./libs
 ~~~
 
 或者
 
-复制带windows上，使用本地maven加速下载
+复制到windows上，使用本地maven加速下载
 
 ![image-20250730174138073](SeaTunnel.assets/image-20250730174138073.png)
 
 使用git自带的ssh工具
 
+~~~sh
+./download_datasource.sh
 ~~~
-sh download_datasource.sh
+
+### 6、启动服务
+
+~~~sh
+sudo sh bin/seatunnel-backend-daemon.sh start
 ~~~
 
+浏览器访问`服务器地址:8801`
 
 
 
+### 7、报错
 
-
-
-报错
+报错1
 
 ~~~
 yum安装的jdk没有环境变量，直接在脚本中显式设置（更推荐在环境变量中设置）
 
-export JAVA_HOME=/home/disk2/tools/jdk-11.0.10/
+export JAVA_HOME=/usr/local/jdk-11.0.2/
 export PATH=$JAVA_HOME/bin:$PATH
+
+export SEATUNNEL_HOME=/home/tools/apache-seatunnel-2.3.11/
 ~~~
 
 
 
-报错
+报错2
 
 ~~~
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'connectorCache' defined in URL [jar:file:/home/disk2/tools/apache-seatunnel-web-1.0.2/libs/seatunnel-app-1.0.2.jar!/org/apache/seatunnel/app/bean/connector/ConnectorCache.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.seatunnel.app.bean.connector.ConnectorCache]: Constructor threw exception; nested exception is java.lang.NoClassDefFoundError: org/apache/seatunnel/api/table/factory/ChangeStreamTableSourceFactory
 ~~~
 
+将缺失的 `hadoop3-3.1.4-uber-2.3.2-optional.jar` 包下载并放置到 `$SEATUNNEL_HOME/lib` 目录下
 
 
 
+报错3
 
+~~~
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is java.lang.IllegalArgumentException: No selectors
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:163)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:745)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:420)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1317)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.apache.seatunnel.app.SeatunnelApplication.main(SeatunnelApplication.java:36)
+Caused by: java.lang.IllegalArgumentException: No selectors
+	at org.eclipse.jetty.io.SelectorManager.<init>(SelectorManager.java:63)
+	at org.eclipse.jetty.server.ServerConnector$ServerConnectorManager.<init>(ServerConnector.java:600)
+	at org.eclipse.jetty.server.ServerConnector.newSelectorManager(ServerConnector.java:223)
+	at org.eclipse.jetty.server.ServerConnector.<init>(ServerConnector.java:216)
+	at org.eclipse.jetty.server.ServerConnector.<init>(ServerConnector.java:132)
+	at org.springframework.boot.web.embedded.jetty.JettyServletWebServerFactory.createConnector(JettyServletWebServerFactory.java:200)
+	at org.springframework.boot.web.embedded.jetty.JettyServletWebServerFactory.createServer(JettyServletWebServerFactory.java:186)
+	at org.springframework.boot.web.embedded.jetty.JettyServletWebServerFactory.getWebServer(JettyServletWebServerFactory.java:163)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:182)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:160)
+	... 8 common frames omitted
+~~~
+
+删除hive包
+
+~~~
+cd apache-seatunnel-web-1.0.0-bin/libs
+rm -rf datasource-hive-1.0.0.jar
+~~~
+
+
+
+## 参考资料
+
+SeaTunnel 与 DataX 、Sqoop、Flume、Flink CDC 对比：https://cloud.tencent.com/developer/article/2401413
+
+https://blog.csdn.net/thc1987/article/details/131240445
+
+https://blog.csdn.net/u013995172/article/details/134422053
+
+https://blog.csdn.net/qq_41865652/article/details/134574104
+
+https://blog.csdn.net/taogumo/article/details/149407864
