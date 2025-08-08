@@ -27,23 +27,23 @@ categories:
 
 下载地址：[https://seatunnel.apache.org/download](https://seatunnel.apache.org/download)
 
-准备安装版本：`apache-seatunnel-2.3.11-bin.tar.gz`
+准备安装版本：`apache-seatunnel-2.3.3-bin.tar.gz`
 
 
 
 ### 2、解压软件
 
 ~~~sh
-sudo tar -zxvf apache-seatunnel-2.3.11-bin.tar.gz
+sudo tar -zxvf apache-seatunnel-2.3.3-bin.tar.gz
 # 指定目录 -C ./seatunnel
 ~~~
 
 ### 3、配置环境变量
 
-在`/etc/profile.d/seatunnel.sh`中配置环境变量
+在`/etc/profile`中配置环境变量
 
 ~~~sh
-export SEATUNNEL_HOME=/home/disk2/tools/apache-seatunnel-2.3.11
+SEATUNNEL_HOME=/home/disk2/tools/apache-seatunnel-2.3.3
 export PATH=$SEATUNNEL_HOME/bin:$PATH
 ~~~
 
@@ -90,7 +90,7 @@ connector-cdc-mongodb
 
 ~~~sh
 #进入安装目录
-cd /home/disk2/tools/apache-seatunnel-2.3.11/
+cd /home/disk2/tools/apache-seatunnel-2.3.3/
 #启动服务
 ./bin/seatunnel.sh --config ./config/v2.batch.config.template -e local
 ~~~
@@ -116,7 +116,7 @@ taskCount                 :                   1
 
 ~~~sh
 #进入安装目录
-cd /home/disk2/tools/apache-seatunnel-2.3.11/
+cd /home/disk2/tools/apache-seatunnel-2.3.3/
 #启动服务
 nohup sh bin/seatunnel-cluster.sh 2>&1 &
 ~~~
@@ -162,20 +162,20 @@ finishedJobCount          :                   0
 
 ## 二、安装seatunnel-web
 
-> 官方文档：https://seatunnel.apache.org/zh-CN/seatunnel_web/1.0.0/about
+> 官方文档：[https://seatunnel.apache.org/zh-CN/seatunnel_web/1.0.0/about](https://seatunnel.apache.org/zh-CN/seatunnel_web/1.0.0/about)
 
 ### 1、准备工作
 
 下载地址：[https://seatunnel.apache.org/download](https://seatunnel.apache.org/download)
 
-准备安装版本：`apache-seatunnel-web-1.0.1-bin.tar.gz`（最新的1.0.2一直没启动成功o(╯□╰)o）
+准备安装版本：`apache-seatunnel-web-1.0.0-bin.tar.gz`（最新的1.0.2一直没启动成功o(╯□╰)o）
 
 注意：在seatunnel的web端机器上需要先部署seatunnel客户端。
 
 ### 2、解压软件
 
 ~~~sh
-sudo tar -zxvf apache-seatunnel-web-1.0.2-bin.tar.gz
+sudo tar -zxvf apache-seatunnel-web-1.0.0-bin.tar.gz
 # 指定目录 -C ./seatunnel-web
 ~~~
 
@@ -226,7 +226,7 @@ mysql -h${HOSTNAME} -P${PORT} -u${USERNAME} -p${PASSWORD} < ${workDir}/seatunnel
 执行命令`sh init_sql.sh`，无异常则执行成功。注意需要输入一遍确认密码。
 
 ~~~sh
-root@ekroot-b760mds3hddr4:/home/disk2/tools/apache-seatunnel-web-1.0.2/script# ./init_sql.sh
+root@ekroot-b760mds3hddr4:/home/disk2/tools/apache-seatunnel-web-1.0.0/script# ./init_sql.sh
 mysql: [Warning] option 'port': value -u adjusted to 0.
 Enter password:
 ~~~
@@ -298,8 +298,8 @@ logging:
 将seatunnel引擎服务节点的安装目录下的config目录下的关于引擎客户端的配置文件拷贝到seatunnel-web安装目录下的conf目录下，同一台机器下部署直接使用以下拷贝命令（注意修改服务的安装目录为你自己的安装目录）
 
 ~~~sh
-# 当前目录 /home/disk2/tools/apache-seatunnel-web-1.0.2
-sudo cp /home/disk2/tools/apache-seatunnel-2.3.11/config/hazelcast-client.yaml ./conf/
+# 当前目录 /home/disk2/tools/apache-seatunnel-web-1.0.0
+sudo cp /home/disk2/tools/apache-seatunnel-2.3.3/config/hazelcast-client.yaml ./conf/
 ~~~
 
 #### 配置支持的插件信息
@@ -307,18 +307,19 @@ sudo cp /home/disk2/tools/apache-seatunnel-2.3.11/config/hazelcast-client.yaml .
 将seatunnel引擎服务节点的安装目录下的connectors目录下的`plugin-mapping.properties`配置文件拷贝到seatunnel-web安装目录下的conf目录下，同一台机器下部署直接使用以下拷贝命令（注意修改服务的安装目录为你自己的安装目录）
 
 ~~~sh
-sudo cp /home/disk2/tools/apache-seatunnel-2.3.11/connectors/plugin-mapping.properties ./conf/
+sudo cp /home/disk2/tools/apache-seatunnel-2.3.3/connectors/plugin-mapping.properties ./conf/
 ~~~
 
 ### 5、下载配置数据源JAR包
 
 配置jar包非常关键，否则会出现各种各样的问题，常见的有：
 
-1.没有数据源可以进行创建
+1. 没有数据源可以进行创建
 
-2.没有source或者sink进行选择
+2. 没有source或者sink进行选择
 
-3.配置好任务后无法执行
+3. 配置好任务后无法执行
+
 
 #### 配置元数据mysql的jar包
 
@@ -332,7 +333,7 @@ sudo cp /home/disk2/tools/apache-seatunnel-2.3.11/connectors/plugin-mapping.prop
 
 ~~~sh
 # the datasource default version is 1.0.0, you can also choose a custom version. eg: 1.1.2:  sh install-datasource.sh 2.1.2
-version=1.0.1
+version=1.0.0
 ~~~
 
 直接执行脚本
@@ -345,7 +346,7 @@ version=1.0.1
 
 复制到windows上，使用本地maven加速下载
 
-![image-20250730174138073](SeaTunnel.assets/image-20250730174138073.png)
+![image-20250730174138073](3_SeaTunnel.assets/seatunnel_01.png)
 
 使用git自带的ssh工具
 
@@ -359,15 +360,23 @@ version=1.0.1
 sudo sh bin/seatunnel-backend-daemon.sh start
 ~~~
 
-浏览器访问`服务器地址:8801`
+浏览器访问`服务器IP地址:配置端口/ui`（默认`服务器IP地址:8081/ui`）
+
+![seatunnel_01](3_SeaTunnel.assets/seatunnel_02.jpg)
+
+默认用户名，密码为admin/admin
+
+![seatunnel_02](3_SeaTunnel.assets/seatunnel_03.jpg)
+
+设置中可以修改语言。
 
 
 
-### 7、报错
+## 三、遇到问题及解决方法
 
-报错1
+### 报错1
 
-~~~
+~~~sh
 yum安装的jdk没有环境变量，直接在脚本中显式设置（更推荐在环境变量中设置）
 
 export JAVA_HOME=/usr/local/jdk-11.0.2/
@@ -378,9 +387,9 @@ export SEATUNNEL_HOME=/home/tools/apache-seatunnel-2.3.11/
 
 
 
-报错2
+### 报错2
 
-~~~
+~~~sh
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'connectorCache' defined in URL [jar:file:/home/disk2/tools/apache-seatunnel-web-1.0.2/libs/seatunnel-app-1.0.2.jar!/org/apache/seatunnel/app/bean/connector/ConnectorCache.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.seatunnel.app.bean.connector.ConnectorCache]: Constructor threw exception; nested exception is java.lang.NoClassDefFoundError: org/apache/seatunnel/api/table/factory/ChangeStreamTableSourceFactory
 ~~~
 
@@ -388,9 +397,9 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 
 
 
-报错3
+### 报错3
 
-~~~
+~~~sh
 org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is java.lang.IllegalArgumentException: No selectors
 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:163)
 	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577)
@@ -417,21 +426,29 @@ Caused by: java.lang.IllegalArgumentException: No selectors
 
 删除hive包
 
-~~~
+~~~sh
 cd apache-seatunnel-web-1.0.0-bin/libs
 rm -rf datasource-hive-1.0.0.jar
 ~~~
 
 
 
+### 问题4
+
+安装完seatunnel web，新建数据源时，无下拉框和数据源选项。
+
+把后端的connectors和plugins相关jar包放到web下的lib下再试试
+
+
+
 ## 参考资料
 
-SeaTunnel 与 DataX 、Sqoop、Flume、Flink CDC 对比：https://cloud.tencent.com/developer/article/2401413
+SeaTunnel 与 DataX 、Sqoop、Flume、Flink CDC 对比：[https://cloud.tencent.com/developer/article/2401413](https://cloud.tencent.com/developer/article/2401413)
 
-https://blog.csdn.net/thc1987/article/details/131240445
+[https://blog.csdn.net/thc1987/article/details/131240445](https://blog.csdn.net/thc1987/article/details/131240445)
 
-https://blog.csdn.net/u013995172/article/details/134422053
+[https://blog.csdn.net/u013995172/article/details/134422053](https://blog.csdn.net/u013995172/article/details/134422053)
 
-https://blog.csdn.net/qq_41865652/article/details/134574104
+[https://blog.csdn.net/qq_41865652/article/details/134574104](https://blog.csdn.net/qq_41865652/article/details/134574104)
 
-https://blog.csdn.net/taogumo/article/details/149407864
+[https://blog.csdn.net/taogumo/article/details/149407864](https://blog.csdn.net/taogumo/article/details/149407864)
