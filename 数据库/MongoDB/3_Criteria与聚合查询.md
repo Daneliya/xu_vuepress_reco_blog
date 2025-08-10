@@ -369,9 +369,9 @@ System.out.println(results);
 
 ## 参考资料
 
-https://blog.csdn.net/Java_Rookie_Xiao/article/details/125602833
+[https://blog.csdn.net/Java_Rookie_Xiao/article/details/125602833](https://blog.csdn.net/Java_Rookie_Xiao/article/details/125602833)
 
-[org.springframework.data.mongodb.core.aggregation.Aggregation Java Exaples (programcreek.com)](https://www.programcreek.com/java-api-examples/index.php?api=org.springframework.data.mongodb.core.aggregation.Aggregation)
+[https://www.programcreek.com/java-api-examples/index.php?api=org.springframework.data.mongodb.core.aggregation.Aggregation](https://www.programcreek.com/java-api-examples/index.php?api=org.springframework.data.mongodb.core.aggregation.Aggregation)
 
-[mongodb聚合在Java中的使用（包含mongo多表关联查询） - B1nbin - 博客园 (cnblogs.com)](https://www.cnblogs.com/wangzhebin/p/16494929.html)
+mongodb聚合在Java中的使用（包含mongo多表关联查询）：[https://www.cnblogs.com/wangzhebin/p/16494929.html](https://www.cnblogs.com/wangzhebin/p/16494929.html)
 

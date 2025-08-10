@@ -1,10 +1,17 @@
+---
+title: RabbitMQAssistant使用
+tags:
+ - 开发文档
+categories: 
+ - 开发文档
+---
 
 
 
 
 RabbitMQ Assistant是RabbitMQ可视化管理与监控工具
 
-> 官网：https://www.redisant.cn/rta
+> 官网：[https://www.redisant.cn/rta](https://www.redisant.cn/rta)
 
 ## 主要功能
 

@@ -11,15 +11,15 @@ categories:
 
 
 
-> 官方文档：https://mybatis-flex.com/
+> 官方文档：[https://mybatis-flex.com/](https://mybatis-flex.com/)
 
-## Mybatis-Flex 是什么
+## 一、Mybatis-Flex 是什么
 
 Mybatis-Flex 是一个优雅的 Mybatis 增强框架，它非常轻量、同时拥有极高的性能与灵活性。我们可以轻松的使用 Mybaits-Flex 链接任何数据库，其内置的 QueryWrapper^亮点 帮助我们极大的减少了 SQL 编写的工作的同时，减少出错的可能性。
 
 总而言之，Mybatis-Flex 能够极大地提高我们的开发效率和开发体验，让我们有更多的时间专注于自己的事情。
 
-## Mybatis-Flex的有什么特点
+## 二、Mybatis-Flex的有什么特点
 
 **1、轻量**：除了 MyBatis，没有任何第三方依赖轻依赖、没有任何拦截器，其原理是通过 SqlProvider 的方式实现的轻实现。同时，在执行的过程中，没有任何的 Sql 解析（Parse）轻运行。 这带来了几个好处：1、极高的性能；2、极易对代码进行跟踪和调试； 3、把控性更高。
 
@@ -74,7 +74,7 @@ Mybatis-Flex 是一个优雅的 Mybatis 增强框架，它非常轻量、同时�
 
 **具体性能对比测试，移步：**
 
-> - https://mybatis-flex.com/zh/intro/benchmark.html
+> - [https://mybatis-flex.com/zh/intro/benchmark.html](https://mybatis-flex.com/zh/intro/benchmark.html)
 
 ## 四、Mybatis-Flex支持的数据库类型
 
@@ -120,7 +120,7 @@ MyBatis-Flex 支持的数据库类型，如下表格所示，我们还可以通�
 | greenplum     | Greenplum 数据库        |
 | uxdb          | 优炫数据库              |
 
-## 快速开始
+## 五、快速开始
 
 **第 1 步：创建数据库表**
 
@@ -228,7 +228,7 @@ public interface AccountMapper extends BaseMapper<Account> {
 
 这部分也可以使用 MyBatis-Flex 的代码生成器来生，功能非常强大的。详情进入：
 
-> - https://mybatis-flex.com/zh/others/codegen.html
+> - [https://mybatis-flex.com/zh/others/codegen.html](https://mybatis-flex.com/zh/others/codegen.html)
 
 **第 5 步：开始使用**
 
@@ -269,12 +269,12 @@ Account(id=1, userName=张三, age=18, birthday=Sat Jan 11 00:00:00 CST 2020)
 
 > 获取本文源码可访问
 >
-> https://github.com/Daneliya/springboot_chowder/tree/main/springboot_myBaits_flex
+> [https://github.com/Daneliya/springboot_chowder/tree/main/springboot_myBaits_flex](https://github.com/Daneliya/springboot_chowder/tree/main/springboot_myBaits_flex)
 
 
 
-## 参考资料
+## 六、参考资料
 
-[1]. 公众号-Java技术迷-超越 MyBatis-Plus？来领略一下 MyBatis-Flex 的优雅魅力！
+[1]. [https://blog.csdn.net/zhipengfang/article/details/132353553](https://blog.csdn.net/zhipengfang/article/details/132353553)
 
 

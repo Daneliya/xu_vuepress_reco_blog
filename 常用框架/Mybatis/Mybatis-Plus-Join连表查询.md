@@ -21,9 +21,7 @@ categories:
 
 
 
-### 仓库地址
-
-https://gitee.com/best_handsome/mybatis-plus-join
+> 项目地址：[https://gitee.com/best_handsome/mybatis-plus-join](https://gitee.com/best_handsome/mybatis-plus-join)
 
 ## 使用
 
@@ -41,7 +39,7 @@ https://gitee.com/best_handsome/mybatis-plus-join
 
 - Gradle
 
-  ```xml
+  ```go
   implementation 'com.github.yulichang:mybatis-plus-join-boot-starter:1.4.4'
   ```
 
@@ -125,12 +123,12 @@ WHERE (
 
 MPJLambdaWrapper 还有很多其他的功能
 
-- 简单的SQL函数使用：`https://gitee.com/best_handsome/mybatis-plus-join/wikis/selectFunc()?sort_id=4082479`
-- ON语句多条件支持：`https://gitee.com/best_handsome/mybatis-plus-join/wikis/leftJoin?sort_id=3496671`
+- 简单的SQL函数使用：[https://gitee.com/best_handsome/mybatis-plus-join/wikis/selectFunc()?sort_id=4082479](https://gitee.com/best_handsome/mybatis-plus-join/wikis/selectFunc()?sort_id=4082479)
+- ON语句多条件支持：[https://gitee.com/best_handsome/mybatis-plus-join/wikis/leftJoin?sort_id=3496671](https://gitee.com/best_handsome/mybatis-plus-join/wikis/leftJoin?sort_id=3496671)
 
 等效于ResultMap
 
-```
+```xml
 <resultMap id="xxxxxxxx" type="com.github.yulichang.join.dto.UserDTO">
     <result property="id" column="id"/>
     <result property="name" column="name"/>
@@ -147,15 +145,15 @@ MPJLambdaWrapper 还有很多其他的功能
 
 MPJLambdaWrapper其他功能
 
-- 一对一，一对多使用：https://ylctmh.com/pages/core/lambda/select/selectCollection.html
-- 简单的SQL函数使用：https://ylctmh.com/pages/core/lambda/select/selectFunc.html
-- ON语句多条件支持：https://ylctmh.com/pages/core/lambda/join/leftJoin.html
+- 一对一，一对多使用：[https://ylctmh.com/pages/core/lambda/select/selectCollection.html](https://ylctmh.com/pages/core/lambda/select/selectCollection.html)
+- 简单的SQL函数使用：[https://ylctmh.com/pages/core/lambda/select/selectFunc.html](https://ylctmh.com/pages/core/lambda/select/selectFunc.html)
+- ON语句多条件支持：[https://ylctmh.com/pages/core/lambda/join/leftJoin.html](https://ylctmh.com/pages/core/lambda/join/leftJoin.html)
 
 ### String形式用法（MPJQueryWrapper）
 
 #### 简单的连表查询
 
-```
+```java
 class test {
     @Resource
     private UserMapper userMapper;
@@ -180,7 +178,7 @@ class test {
 
 对应sql
 
-```
+```sql
 SELECT 
     t.id,
     t.name,
@@ -208,7 +206,7 @@ WHERE (
 
 #### 还可以这么操作,但不建议
 
-```
+```java
 class test {
     @Resource
     private UserMapper userMapper;
@@ -234,7 +232,7 @@ class test {
 
 对应sql
 
-```
+```sql
 SELECT 
     t.id,
     t.name,
@@ -261,9 +259,8 @@ ORDER BY
 
 > 获取本文代码可访问
 >
-> https://github.com/Daneliya/springboot_chowder/tree/main/springboot_mybatis_plus_join
+> [https://github.com/Daneliya/springboot_chowder/tree/main/springboot_mybatis_plus_join](https://github.com/Daneliya/springboot_chowder/tree/main/springboot_mybatis_plus_join)
 
 ## 参考资料
 
-[1]. 公众号-Java基基-MyBatis-Plus 还手写 Join 联表查询？一个依赖轻松搞定，真香！
-
+[1]. [https://blog.csdn.net/weixin_44421461/article/details/130191133](https://blog.csdn.net/weixin_44421461/article/details/130191133)

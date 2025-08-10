@@ -14,7 +14,7 @@ categories:
 
 ### 1. 下载安装包
 
-> https://www.mongodb.com/try/download/community
+> [https://www.mongodb.com/try/download/community](https://www.mongodb.com/try/download/community)
 
 选择zip的格式进行下载
 
@@ -22,7 +22,7 @@ categories:
 
 附加：mongodb的命名格式: x.y.z
 
-```
+```markdown
 - y为奇数表示当前版本为开发版,如:1.5.2、4.1.13
 - y为偶数表示当前版本为稳定版,如:1.6.3、4.0.10
 - z为修正版本号,越大越好
@@ -142,11 +142,11 @@ mongod #是处理MongoDB系统的主要进程。它处理数据请求，管理�
 
 
 
-参考资料
+## 参考资料
 
-[1]. mongodb template打印sql：https://blog.csdn.net/weixin_35754676/article/details/129072221
+[1]. mongodb template打印sql：[https://blog.csdn.net/weixin_35754676/article/details/129072221](https://blog.csdn.net/weixin_35754676/article/details/129072221)
 
-[2]. MongoDB 性能监控：https://www.mryunwei.com/371009.html
+[2]. MongoDB 性能监控：[https://www.mryunwei.com/371009.html](https://www.mryunwei.com/371009.html)
 
-[3]. MongoDB调优-查询优化-MongoDB Profiler：https://www.cnblogs.com/operationhome/p/10728654.html
+[3]. MongoDB调优-查询优化-MongoDB Profiler：[https://www.cnblogs.com/operationhome/p/10728654.html](https://www.cnblogs.com/operationhome/p/10728654.html)
 
