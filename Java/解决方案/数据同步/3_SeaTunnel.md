@@ -452,3 +452,7 @@ SeaTunnel 与 DataX 、Sqoop、Flume、Flink CDC 对比：[https://cloud.tencent
 [https://blog.csdn.net/qq_41865652/article/details/134574104](https://blog.csdn.net/qq_41865652/article/details/134574104)
 
 [https://blog.csdn.net/taogumo/article/details/149407864](https://blog.csdn.net/taogumo/article/details/149407864)
+
+同步脚本示例：[https://segmentfault.com/a/1190000045093609](https://segmentfault.com/a/1190000045093609)
+
+同步脚本示例：[https://help.primeton.com/dws/7.1.0/product-doc/dws_reference/development/samples/template/sea-MultiTableMigration.html](https://help.primeton.com/dws/7.1.0/product-doc/dws_reference/development/samples/template/sea-MultiTableMigration.html)

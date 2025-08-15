@@ -186,3 +186,11 @@ jstack -l 7052 >> thread.txt
 - `jstack -l pid > /tmp/thread.txt`: 导出指定 Java 应用的所有线程。
 
 然后查看 `nid=xxx`(即第二步里线程号的线程),即可定位到某段代码。
+
+
+
+
+
+
+
+https://www.cnblogs.com/dennyzhangdd/p/11585971.html
