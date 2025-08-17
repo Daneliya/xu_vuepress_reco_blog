@@ -78,7 +78,7 @@ module.exports = [
             {
                 "text": "AI大模型应用开发",
                 "icon": "iconfont icon-AIdamoxing",
-                "link": "/Python/AI大模型应用开发/Python AI大模型应用开发"
+                "link": "/Python/AI大模型应用开发/1_AI大模型科普"
             }
         ]
     },
@@ -90,7 +90,7 @@ module.exports = [
     {
         "text": "Redis专栏",
         "icon": "iconfont icon-redis",
-        "link": "/Redis/1_Redis缓存三大问题"
+        "link": "/Redis/Redis基础/1_Redis缓存三大问题"
     },
     {
         "text": "常用框架",

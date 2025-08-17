@@ -56,18 +56,18 @@ channel's applier threads. This enables each channel to function independently.
 
 1. 在备库 B 上通过 change master 命令，设置主库 A 的 IP、端口、用户名、密码，以及要从哪个位置开始请求 binlog，这个位置包含文件名和日志偏移量。
 
-```plain
-CHANGE MASTER TO 
-MASTER_HOST='192.168.56.104',
-MASTER_USER='root',
-MASTER_PASSWORD='qwer_123',
-MASTER_LOG_FILE='mysql-bin.000001',MASTER_LOG_POS=154;
-```
+   ~~~shell
+   CHANGE MASTER TO 
+   MASTER_HOST='192.168.56.104',
+   MASTER_USER='root',
+   MASTER_PASSWORD='qwer_123',
+   MASTER_LOG_FILE='mysql-bin.000001',MASTER_LOG_POS=154;
+   ~~~
 
-1. 备库 B 上执行start slave命令，这时候备库会启动两个线程，就是图中的 io_thread 和 sql_thread。其中 io_thread 负责与主库建立连接。
-2. 主库 A 校验完用户名、密码后，开始按照备库 B 传过来的位置，从本地读取 binlog，发给备库 B。
-3. 备库 B 拿到 binlog 后，写到relay log（中继日志）中。
-4. 备库的 sql_thread 读取 relay log，解析出日志里的命令，并且回放执行。
+2. 备库 B 上执行start slave命令，这时候备库会启动两个线程，就是图中的 io_thread 和 sql_thread。其中 io_thread 负责与主库建立连接。
+3. 主库 A 校验完用户名、密码后，开始按照备库 B 传过来的位置，从本地读取 binlog，发给备库 B。
+4. 备库 B 拿到 binlog 后，写到relay log（中继日志）中。
+5. 备库的 sql_thread 读取 relay log，解析出日志里的命令，并且回放执行。
 
 ### 增量同步详细流程
 
@@ -123,13 +123,14 @@ show master status;
 
 字段含义说明：
 
-file：从哪个日志文件开始推送日志文件
+- file：从哪个日志文件开始推送日志文件
 
-position：从哪个位置开始推送日志
+- position：从哪个位置开始推送日志
 
-binlog_do_db：指定需要同步的数据库
+- binlog_do_db：指定需要同步的数据库
 
-binlog_ignore_db：指定不需要同步的数据库
+- binlog_ignore_db：指定不需要同步的数据库
+
 
 
 
@@ -198,6 +199,6 @@ show slave status; # 8.0.22之前
 
 [4]. [binlog_ignore_db 参数的具体使用](https://www.jb51.net/article/201609.htm)
 
-[5]. https://blog.csdn.net/qq_41772936/article/details/80380950
+[5]. [https://blog.csdn.net/qq_41772936/article/details/80380950](https://blog.csdn.net/qq_41772936/article/details/80380950)
 
-[6]. https://blog.csdn.net/m0_62473957/article/details/124140928
+[6]. [https://blog.csdn.net/m0_62473957/article/details/124140928](https://blog.csdn.net/m0_62473957/article/details/124140928)

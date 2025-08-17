@@ -294,7 +294,26 @@ module.exports = {
             title: 'Redis',     // 必要的
             collapsable: false, // 可选的, 默认值是 true,
             sidebarDepth: 3,    // 可选的, 默认值是 1
-            children: path.findMdFiles('/Redis/')
+            children: [
+                {
+                    title: 'Redis基础',     // 必要的
+                    collapsable: false,    // 可选的, 默认值是 true,
+                    sidebarDepth: 3,       // 可选的, 默认值是 1
+                    children: path.findMdFiles('/Redis/Redis基础/')
+                },
+                {
+                    title: 'Redis实战',          // 必要的
+                    collapsable: false,         // 可选的, 默认值是 true,
+                    sidebarDepth: 3,            // 可选的, 默认值是 1
+                    children: path.findMdFiles('/Redis/Redis实战/')
+                },
+                {
+                    title: 'Redis数据结构',     // 必要的
+                    collapsable: false,       // 可选的, 默认值是 true,
+                    sidebarDepth: 3,          // 可选的, 默认值是 1
+                    children: path.findMdFiles('/Redis/Redis数据结构/')
+                }
+            ]
         }
     ],
     '/常用框架/SpringBoot/': [

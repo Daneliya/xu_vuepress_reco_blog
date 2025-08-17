@@ -1,5 +1,5 @@
 ---
-title: Python AI大模型应用开发
+title: 给AI模型用工具的能力
 tags:
   - Python
 categories:
