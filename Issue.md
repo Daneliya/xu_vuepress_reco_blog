@@ -29,3 +29,12 @@ https://shanyuhai123.github.io/vuepress-plugin-auto-sidebar/zh/features/markdown
 6. 背景图
 
 https://bbs.csdn.net/topics/607761494
+
+7. 解决 The code generator has deoptimised the styling of xxx.md as it exceeds the max of 500KB.
+
+https://blog.csdn.net/qq_34917408/article/details/125543249
+
+
+中文识别插件：npm i markdown-it-disable-url-encode
+
+自动生成侧边栏插件：npm i vuepress-plugin-auto-sidebar -D
