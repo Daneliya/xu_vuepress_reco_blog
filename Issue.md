@@ -30,7 +30,17 @@ https://shanyuhai123.github.io/vuepress-plugin-auto-sidebar/zh/features/markdown
 
 https://bbs.csdn.net/topics/607761494
 
-7. 解决 The code generator has deoptimised the styling of xxx.md as it exceeds the max of 500KB.
+7. FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+
+https://www.cnblogs.com/diongk/p/18921762
+
+https://blog.csdn.net/ZYC88888/article/details/120543578
+
+https://blog.csdn.net/qq_41910413/article/details/145144548
+
+https://blog.csdn.net/qq_42351675/article/details/131704901
+
+8. 解决 The code generator has deoptimised the styling of xxx.md as it exceeds the max of 500KB.
 
 https://blog.csdn.net/qq_34917408/article/details/125543249
 

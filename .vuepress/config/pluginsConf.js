@@ -47,15 +47,24 @@ module.exports = {
     },
     // 复制弹窗插件
     // npm install -D vuepress-plugin-nuggets-style-copy
-    "vuepress-plugin-nuggets-style-copy": {
-        copyText: "复制代码",
-        tip: {
-            content: "复制成功!"
-        }
-    }
+    // "vuepress-plugin-nuggets-style-copy": {
+    //     copyText: "复制代码",
+    //     tip: {
+    //         content: "复制成功!"
+    //     }
+    // }
     // npm i -D vuepress-plugin-copy-code1
     // "copy-code1": {
     //     copy: "复制代码",
     //     hint: "复制成功!"
     // }
+    // "@vuepress/plugin-copy-code": {
+    //     copy: "复制代码",
+    //     copied: "复制成功!"
+    // }
+    // npm install vuepress-plugin-code-copy
+    "vuepress-plugin-code-copy": {
+        copy: "复制代码",
+        copied: "复制成功!"
+    }
 }

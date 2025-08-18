@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "vuepress dev . --open --host \"localhost\"",
     "build": "vuepress build .",
-    "build_node": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress build .",
-    "serve_node": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress dev . --open --host \"localhost\" --temp .temp",
+    "build_node": "set NODE_OPTIONS=--max_old_space_size=4096 --openssl-legacy-provider && vuepress build .",
+    "serve_node": "set \"NODE_OPTIONS=--max-old-space-size=4096 --openssl-legacy-provider\" && vuepress dev . --open --host \"localhost\" --temp .temp",
     "nav": "vuepress nav -f",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "fix-memory-limit": "cross-env LIMIT=4096 increase-memory-limit"
   },
   "devDependencies": {
     "@vuepress/plugin-pwa": "^1.9.10",
@@ -27,6 +28,7 @@
     "markdown-it-disable-url-encode": "^1.0.1",
     "markdown-it-mathjax3": "^4.3.2",
     "mkdir-recursive": "^0.4.0",
+    "vuepress-plugin-code-copy": "^1.0.6",
     "vuepress-theme-sidebar": "^0.0.9"
   }
 }
