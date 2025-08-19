@@ -6,6 +6,8 @@ categories:
   - Python
 ---
 
+
+
 ## 一、玩转Open AI聊天模型
 
 ### 1、模型（Model）：AI应用的核心
@@ -133,19 +135,295 @@ LangChain的 `langchain-community` 库支持集成来自不同服务商的多种
 
 ## 二、让模型的输入超级灵活
 
+### 一、提示模板的核心优势
 
+与手动构建提示相比，代码化的提示模板可通过插入变量实现动态调整，能灵活适配不同示例或数据需求，显著提升效率和灵活性。
+
+### 二、聊天模型的提示模板类型
+
+LangChain 的`prompt`模块下，针对不同角色的消息提供了专用模板：
+
+1. **SystemMessagePromptTemplate**：用于系统消息（设定模型行为、背景等）
+2. **HumanMessagePromptTemplate**：用于人类消息（用户输入内容）
+3. **AIMessagePromptTemplate**：用于 AI 消息（模型回复内容）
+
+### 三、提示模板的创建与变量处理
+
+1. **创建方式**：
+   所有模板均通过`from_template`方法创建，传入包含变量的字符串（变量用`{}`包围）。
+   示例：`SystemMessagePromptTemplate.from_template("将{input_language}翻译成{output_language}")`
+2. **变量识别**：
+   花括号包围的内容会被自动识别为变量（如`input_language`、`output_language`），无需额外声明，可通过模板的`input_variables`属性查看变量列表。
+
+### 四、变量填充与消息生成
+
+1. **填充变量**：
+   用`format`方法传入变量值，模板会返回对应角色的消息对象：
+   - 系统消息模板→`SystemMessage`
+   - 人类消息模板→`HumanMessage`
+   - AI 消息模板→`AIMessage`
+2. **获取模型回应**：
+   将填充后的消息对象放入列表，作为参数传入聊天模型的`invoke`方法即可。
+
+### 五、简化方案：ChatPromptTemplate
+
+若需统一管理多角色消息，可使用`ChatPromptTemplate`：
+
+1. **创建方式**：通过`from_messages`方法接收消息模板列表，每个元素为（角色标识，内容字符串）的元组，角色标识可设为`"system"`、`"human"`、`"ai"`。
+2. **变量填充**：调用`invoke`方法传入字典（键为变量名，值为变量内容），一次性填充所有角色消息中的变量。
+3. **结果使用**：返回`ChatPromptValue`对象，包含填充后的完整消息列表，直接传入模型的`invoke`方法即可获取回应。
+
+### 六、提示模板的核心价值
+
+对于批量处理不同需求（如多语言翻译、不同风格生成等），无需逐个硬编码提示，只需通过循环为同一模板传入不同变量值，即可高效生成多样化结果，大幅提升开发效率。
 
 ## 三、高效往提示里塞示范
 
+### 1、少样本学习（Few-Shot Learning）
 
+在提示词工程中，**少样本提示（Few-Shot Prompting）** 是一种让AI快速适应新任务的高效方法。
+
+- **核心思想**：将几个包含输入（问题）和期望输出（答案）的对话示例（demonstrations）作为上下文，与新的用户提示一起发送给模型。
+- **优势**：无需对模型进行任何训练，成本低、灵活性高。
+
+### 2、少样本提示的挑战与优化
+
+#### 2.1、挑战
+
+虽然少样本提示非常有效，但当示例数量较多时，手动编写每个示例的完整消息列表会变得繁琐且容易出错。观察示例可以发现，它们的**格式高度相似**，主要区别仅在于具体的输入和输出值。
+
+#### 2.2、解决方案：使用模板
+
+既然示例结构相似，我们就可以利用**提示模板（Prompt Template）** 来动态生成这些示例，从而大大提高效率。
+
+### 3、`FewShotChatMessagePromptTemplate`：少样本提示的利器
+
+LangChain的 `langchain_core.prompts` 模块提供了一个专门用于构建少样本提示的类：`FewShotChatMessagePromptTemplate`。
+
+### 1. 核心参数
+
+- **`example_prompt`**：一个**提示模板**，用于定义**单个示例**的结构。这个模板可以包含动态变量（用花括号 `{}` 包围），例如 `{input}` 和 `{output}`。
+- **`examples`**：一个**示例列表**，列表中的每个元素都是一个**字典**。字典的**键**对应 `example_prompt` 模板中的变量名，字典的**值**则是该变量在具体示例中应填充的实际内容。
+
+### 2. 使用步骤
+
+1. **创建 `example_prompt` 模板** 定义一个包含 `HumanMessage` 和 `AIMessage` 的模板，用于表示一个完整的问答对。
+
+   ```
+   from langchain_core.prompts import ChatPromptTemplate, FewShotChatMessagePromptTemplate
+   
+   # 定义单个示例的模板
+   example_prompt = ChatPromptTemplate.from_messages([
+       ("human", "{input}"),
+       ("ai", "{output}")
+   ])
+   ```
+
+2. **准备 `examples` 数据** 创建一个包含多个具体示例值的列表。
+
+   ```
+   examples = [
+       {"input": "我今年25岁，来自北京。", "output": "年龄：25岁，所在地：北京市"},
+       {"input": "我30岁了，住在杭州。", "output": "年龄：30岁，所在地：浙江省杭州市"}
+   ]
+   ```
+
+3. **构建少样本提示模板** 将 `example_prompt` 和 `examples` 传入 `FewShotChatMessagePromptTemplate` 的构造函数。
+
+   ```
+   few_shot_prompt = FewShotChatMessagePromptTemplate(
+       example_prompt=example_prompt,
+       examples=examples
+   )
+   ```
+
+4. **组合完整提示模板** 将少样本提示模板与最终的用户提示模板组合成一个完整的 `ChatPromptTemplate`。`ChatPromptTemplate.from_messages` 方法支持将其他提示模板作为列表元素。
+
+   ```
+   final_prompt = ChatPromptTemplate.from_messages([
+       ("system", "你是一个信息提取助手。请按照示例格式提取年龄和所在地信息。"),
+       few_shot_prompt,  # 少样本示例会在这里被动态插入
+       ("human", "{input}")  # 用户的新输入
+   ])
+   ```
+
+5. **填充变量并调用模型** 使用 `invoke` 方法，传入包含新用户输入的字典来填充最终的提示。
+
+   ```
+   # 假设 llm 是已创建的聊天模型实例
+   chain = final_prompt | llm
+   response = chain.invoke({"input": "我今年28岁，来自成都。"})
+   print(response.content)  # 输出: 年龄：28岁，所在地：四川省成都市
+   ```
+
+### 4、总结与优势
+
+- **`FewShotChatMessagePromptTemplate`** 极大地简化了少样本提示的构建过程。
+- 核心优势：
+  - **效率高**：只需定义一次模板和提供示例数据，即可自动生成所有示例消息。
+  - **易维护**：增加新的示例时，只需向 `examples` 列表中添加新的字典，无需重写整个消息结构。
+  - **减少错误**：避免了手动编写大量重复格式消息时可能出现的格式错误。
+- **适用场景**：当你需要向模型提供多个结构相似的示例来指导其行为时，使用此模板是最佳实践。
 
 ## 四、从模型输出里提取列表
 
+### 1、输出解析器的作用
 
+在代码与 AI 模型交互时，需对模型输出进行后续处理（如提取信息、展示等），但 AI 输出格式存在不确定性。LangChain 的输出解析器主要解决两方面问题：
+
+1. **规范输出格式**：向模型下达指令，要求其按指定格式输出内容。
+2. **解析输出内容**：自动处理模型的回应，提取所需信息（如转换为特定数据结构）。
+
+### 2、逗号分隔列表输出解析器（CommaSeparatedListOutputParser）
+
+以提取颜色色号为例，该解析器适用于将输出转换为 Python 列表，具体使用步骤如下：
+
+#### 1. 创建解析器实例
+
+通过`langchain.output_parsers`模块中的`CommaSeparatedListOutputParser`类创建实例，用于后续生成指令和解析结果。
+
+#### 2. 获取格式指令
+
+解析器的`get_format_instructions()`方法会返回规范模型输出的文字指令，例如：
+
+> "你的回应应该是一串以逗号分隔的值，例如 foo, bar, baz"
+
+该指令需嵌入系统提示中，确保模型按要求输出。
+
+#### 3. 构建提示模板并调用模型
+
+- 结合系统提示（包含解析器指令）和用户提示（如 “生成 5 个符合要求的颜色色号”），使用`ChatPromptTemplate`创建提示模板。
+- 调用模板的`invoke`方法传入变量值，生成最终提示并传给模型，模型会返回逗号分隔的字符串（如 “#FF0000, #00FF00, #0000FF”）。
+
+#### 4. 解析模型输出
+
+直接调用解析器的`invoke`方法，传入模型的回应，即可自动将逗号分隔的字符串转换为 Python 列表（如`["#FF0000", "#00FF00", "#0000FF"]`），无需手动处理文本。
 
 ## 五、从模型输出里提取JSON
 
+### 1、JSON 输出解析的优势与应用场景
 
+JSON 是一种结构化强、易解析的格式，可轻松转换为字典、列表或类实例，适用于需要提取特定字段信息的场景（如从书籍介绍中提取书名、作者、题材等）。
+
+- 核心需求：确保 AI 输出的 JSON 中，字段名、值的类型与预期完全匹配（避免因字段名错误或类型不符导致解析失败）。
+
+### 2、PydanticOutputParser 的作用
+
+LangChain 的`PydanticOutputParser`是处理 JSON 输出的关键工具，依托 Pydantic 库（用于数据解析和验证）实现两大功能：
+
+1. 向 AI 下达指令，要求其输出符合指定数据模式的 JSON。
+2. 自动解析 AI 返回的 JSON 字符串，转换为对应的类实例，方便提取信息。
+
+### 3、使用步骤详解
+
+#### 3.1、准备工作：安装并导入依赖
+
+- 安装 Pydantic 库（若未安装）。
+- 从pydantic导入核心组件：
+  - `BaseModel`：用于定义数据模式（类似 “数据说明书”）。
+  - `Field`：为字段提供描述信息和验证条件。
+
+#### 3.2、定义数据模式（类）
+
+创建继承自`BaseModel`的类（如`BookInfo`），明确所需字段的名称、类型及描述：
+
+- **字段类型**：通过类型提示指定（如`bookname: str`、`author: str`表示字符串；`genres: List[str]`表示字符串列表）。
+
+- **字段描述**：使用`Field`函数补充说明（如`Field(description="书籍的标题")`），该描述会传递给 AI，帮助其理解字段含义。
+
+  示例：
+
+  ```python
+  from pydantic import BaseModel, Field
+  from typing import List
+  
+  class BookInfo(BaseModel):
+      bookname: str = Field(description="书籍的标题")
+      author: str = Field(description="书籍的作者")
+      genres: List[str] = Field(description="书籍的题材类别列表")
+  ```
+
+#### 3.3、创建 PydanticOutputParser 实例
+
+将定义的数据模式类传入`PydanticOutputParser`，生成解析器：
+
+```python
+from langchain.output_parsers import PydanticOutputParser
+
+parser = PydanticOutputParser(pydantic_object=BookInfo)
+```
+
+
+
+#### 3.4、生成格式指令并嵌入提示
+
+- 调用解析器的`get_format_instructions()`方法，获取规范 AI 输出的指令（包含数据模式要求）。
+- 将指令嵌入提示模板（如`ChatPromptTemplate`），确保 AI 按格式输出 JSON。
+
+#### 3.5、调用模型并解析输出
+
+- 模型返回符合要求的 JSON 字符串（字段名、类型与`BookInfo`一致）。
+
+- 调用解析器的invoke方法，传入模型回应，自动将 JSON 字符串转换为BookInfo类实例：
+
+  ```python
+  book_data = parser.invoke(model_response)
+  ```
+
+- 直接通过实例提取信息（如`book_data.bookname`、`book_data.genres`）。
+
+### 4、核心价值
+
+通过 Pydantic 的类型验证和 LangChain 解析器的协作，既能保证 AI 输出的结构化，又能简化后续信息提取流程，尤其适合需要批量处理结构化数据的场景（如网站信息展示、数据入库等）。
 
 ## 六、串起提示模板-模型-输出解析器
 
+### 1、核心组件的共性：`invoke`方法
+
+LangChain 中的多个核心组件（如提示模板、聊天模型、输出解析器）均实现了`Runnable`接口，因此都具备`invoke`方法，这是 LangChain 表达式语言（LCEL）中统一的调用方式。不同组件的`invoke`方法功能如下：
+
+- **提示模板（如`ChatPromptTemplate`）**：接收含变量值的字典，返回填充后的提示值（`PromptValue`）。
+- **聊天模型（如`ChatModel`）**：接收提示值或消息列表，返回模型生成的聊天信息。
+- **输出解析器（如`PydanticOutputParser`）**：接收模型的聊天信息，返回解析后的结构化结果。
+
+### 2、组件的串联关系
+
+各组件的`invoke`方法存在 “输入 - 输出” 的上下游依赖：
+
+- 提示模板的输出（提示值）是聊天模型的输入。
+- 聊天模型的输出（生成内容）是输出解析器的输入。
+
+因此，可通过连续调用`invoke`方法实现完整流程，例如：
+
+`提示模板.invoke(变量) → 聊天模型.invoke(提示值) → 解析器.invoke(模型输出)`
+
+~~~
+字典（Dictionary） -> 输入 -> 提示模板（Prompt Template） -> 输出 -> 提示值（Prompt Value） -> 输入 -> 聊天模型（Chat Model） -> 输出 -> 聊天消息（Chat Message） -> 输入 -> 输出解析器（Output Parser） -> 输出 -> 解析结果（类型取决于解析器）
+~~~
+
+代码示例
+
+~~~
+
+~~~
+
+### 3、链（Chain）与 LangChain 表达式语言（LCEL）
+
+~~~
+(prompt | model | output_parser).invoke()
+~~~
+
+1. **链的定义**：将多个组件按 “上游输出作为下游输入” 的逻辑组合成的流程，称为 “链”。
+2. **LCEL 的管道语法**：通过`|`（管道操作符）直观表示组件间的串联关系，例如：
+   `prompt | model | parser`
+   含义：提示模板的输出传给模型，模型的输出再传给解析器。
+3. **链的调用**：对整个链调用`invoke`方法时，只需传入第一个组件所需的参数（因后续组件的输入由上游提供），即可得到最终结果。
+
+### 4、链的灵活性
+
+链的组合方式非常灵活，可根据需求调整组件：
+
+- 中间的聊天模型可替换为其他语言模型（如`LLM`）。
+- 提示模板或输出解析器并非必需，可根据场景省略。
+
+通过链，能轻松构建复杂的 AI 交互流程，且组件间的依赖关系清晰易懂。
