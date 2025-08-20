@@ -65,6 +65,7 @@ module.exports = {
     // npm install vuepress-plugin-code-copy
     "vuepress-plugin-code-copy": {
         copy: "复制代码",
-        copied: "复制成功!"
+        copied: "复制成功!",
+        successText: "复制成功!"
     }
 }

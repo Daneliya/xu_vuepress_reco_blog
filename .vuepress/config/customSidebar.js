@@ -385,6 +385,12 @@ module.exports = {
                     children: path.findMdFiles('/常用框架/Spring/')
                 },
                 {
+                    title: 'AI框架Spring AI',    // 必要的
+                    collapsable: false,         // 可选的, 默认值是 true,
+                    sidebarDepth: 3,            // 可选的, 默认值是 1
+                    children: path.findMdFiles('/常用框架/SpringAI/')
+                },
+                {
                     title: '任务调度XXL-JOB',    // 必要的
                     collapsable: false,        // 可选的, 默认值是 true,
                     sidebarDepth: 3,           // 可选的, 默认值是 1
@@ -395,6 +401,12 @@ module.exports = {
                     collapsable: false,          // 可选的, 默认值是 true,
                     sidebarDepth: 3,             // 可选的, 默认值是 1
                     children: path.findMdFiles('/常用框架/Thymeleaf/')
+                },
+                {
+                    title: '重试框架Retry',        // 必要的
+                    collapsable: false,          // 可选的, 默认值是 true,
+                    sidebarDepth: 3,             // 可选的, 默认值是 1
+                    children: path.findMdFiles('/常用框架/重试框架/')
                 }
             ]
         }

@@ -8,7 +8,7 @@ categories:
 
 
 
-## 一、玩转Open AI聊天模型
+## 一、Model—玩转Open AI聊天模型
 
 ### 1、模型（Model）：AI应用的核心
 
@@ -34,7 +34,7 @@ LangChain主要将模型分为两大类：
 
 首先，需要安装LangChain与OpenAI集成的专用库。
 
-```
+```sh
 pip install langchain-openai
 ```
 
@@ -42,13 +42,13 @@ pip install langchain-openai
 
 1. **导入模块**： 从 `langchain_openai` 库中导入 `ChatOpenAI` 类。
 
-   ```
+   ```python
    from langchain_openai import ChatOpenAI
    ```
 
 2. **创建实例**： 创建一个 `ChatOpenAI` 的实例。
 
-   ```
+   ```python
    # 假设你的OpenAI API密钥已设置在环境变量中
    llm = ChatOpenAI(model="gpt-3.5-turbo")  # 指定模型，如 gpt-3.5-turbo, gpt-4
    ```
@@ -66,7 +66,7 @@ pip install langchain-openai
 
   - 例如 `frequency_penalty`（频率惩罚）、`presence_penalty`（存在惩罚）等不那么常用的参数。
 
-  ```
+  ```python
   llm = ChatOpenAI(
       model="gpt-3.5-turbo",
       temperature=0.7,
@@ -93,20 +93,20 @@ pip install langchain-openai
 
 1. **导入消息类**：
 
-   ```
+   ```python
    from langchain_core.messages import SystemMessage, HumanMessage
    ```
 
 2. **创建消息实例**：
 
-   ```
+   ```python
    system_message = SystemMessage(content="你是一个翻译专家，擅长将英文翻译成中文。")
    human_message = HumanMessage(content="Hello, how are you?")
    ```
 
 3. **组合成消息列表**：
 
-   ```
+   ```python
    messages = [system_message, human_message]
    ```
 
@@ -114,7 +114,7 @@ pip install langchain-openai
 
 最后，调用模型的 `invoke` 方法（或 `__call__` 方法）来获取回复。
 
-```
+```python
 # 调用模型
 response = llm.invoke(messages)  # 或者 llm(messages)
 
@@ -133,13 +133,59 @@ LangChain的 `langchain-community` 库支持集成来自不同服务商的多种
 
 开发者可以申请相应服务的API密钥，并通过类似的方式集成这些国产大模型，实现模型的灵活切换。
 
-## 二、让模型的输入超级灵活
+### 6、Model使用示例
 
-### 一、提示模板的核心优势
+~~~python
+from langchain_openai import ChatOpenAI
+~~~
+
+~~~python
+model = ChatOpenAI(model="gpt-3.5-turbo")
+# model = ChatOpenAI(model="gpt-3.5-turbo", temperature=1.2, max_tokens=500, model_kwargs={"frequency_penalty":1.1})
+~~~
+
+~~~python
+from langchain.schema.messages import HumanMessage, SystemMessage
+~~~
+
+~~~python
+messages = [
+    SystemMessage(content="请你作为我的物理课助教，用通俗易懂且间接的语言帮我解释物理概念。"),
+    HumanMessage(content="什么是波粒二象性？"),
+]
+~~~
+
+~~~python
+response = model.invoke(messages)
+~~~
+
+~~~python
+response
+~~~
+
+~~~python
+AIMessage(content='嗨！波粒二象性是一个非常有趣的物理概念。它指的是，微观粒子（比如电子、光子等）既可以表现出波动性，也可以表现出粒子性。\n\n让我们以光子为例来说明。光子是光的基本粒子，而光又是一种电磁波。当我们将光通过一个狭缝时，它会呈现出波动的特性，产生干涉和衍射现象，就像波一样。但当我们观察光子通过一个光敏探测器时，我们会发现它们的行为更像是粒子，因为它们只在一个点上被探测到。\n\n这就是波粒二象性的精髓所在：微观粒子既可以像波一样传播，又可以像粒子一样被探测到。这种二象性挑战了我们对物质本质的传统观念，但也为我们理解微观世界的奇妙规律提供了新的思路。')
+~~~
+
+~~~python
+print(response.content)
+~~~
+
+~~~python
+嗨！波粒二象性是一个非常有趣的物理概念。它指的是，微观粒子（比如电子、光子等）既可以表现出波动性，也可以表现出粒子性。
+
+让我们以光子为例来说明。光子是光的基本粒子，而光又是一种电磁波。当我们将光通过一个狭缝时，它会呈现出波动的特性，产生干涉和衍射现象，就像波一样。但当我们观察光子通过一个光敏探测器时，我们会发现它们的行为更像是粒子，因为它们只在一个点上被探测到。
+
+这就是波粒二象性的精髓所在：微观粒子既可以像波一样传播，又可以像粒子一样被探测到。这种二象性挑战了我们对物质本质的传统观念，但也为我们理解微观世界的奇妙规律提供了新的思路。
+~~~
+
+## 二、Prompt Template—让模型的输入超级灵活
+
+### 1、提示模板的核心优势
 
 与手动构建提示相比，代码化的提示模板可通过插入变量实现动态调整，能灵活适配不同示例或数据需求，显著提升效率和灵活性。
 
-### 二、聊天模型的提示模板类型
+### 2、聊天模型的提示模板类型
 
 LangChain 的`prompt`模块下，针对不同角色的消息提供了专用模板：
 
@@ -147,7 +193,7 @@ LangChain 的`prompt`模块下，针对不同角色的消息提供了专用模�
 2. **HumanMessagePromptTemplate**：用于人类消息（用户输入内容）
 3. **AIMessagePromptTemplate**：用于 AI 消息（模型回复内容）
 
-### 三、提示模板的创建与变量处理
+### 3、提示模板的创建与变量处理
 
 1. **创建方式**：
    所有模板均通过`from_template`方法创建，传入包含变量的字符串（变量用`{}`包围）。
@@ -155,7 +201,7 @@ LangChain 的`prompt`模块下，针对不同角色的消息提供了专用模�
 2. **变量识别**：
    花括号包围的内容会被自动识别为变量（如`input_language`、`output_language`），无需额外声明，可通过模板的`input_variables`属性查看变量列表。
 
-### 四、变量填充与消息生成
+### 4、变量填充与消息生成
 
 1. **填充变量**：
    用`format`方法传入变量值，模板会返回对应角色的消息对象：
@@ -165,7 +211,7 @@ LangChain 的`prompt`模块下，针对不同角色的消息提供了专用模�
 2. **获取模型回应**：
    将填充后的消息对象放入列表，作为参数传入聊天模型的`invoke`方法即可。
 
-### 五、简化方案：ChatPromptTemplate
+### 5、简化方案：ChatPromptTemplate
 
 若需统一管理多角色消息，可使用`ChatPromptTemplate`：
 
@@ -173,11 +219,97 @@ LangChain 的`prompt`模块下，针对不同角色的消息提供了专用模�
 2. **变量填充**：调用`invoke`方法传入字典（键为变量名，值为变量内容），一次性填充所有角色消息中的变量。
 3. **结果使用**：返回`ChatPromptValue`对象，包含填充后的完整消息列表，直接传入模型的`invoke`方法即可获取回应。
 
-### 六、提示模板的核心价值
+### 6、提示模板的核心价值
 
 对于批量处理不同需求（如多语言翻译、不同风格生成等），无需逐个硬编码提示，只需通过循环为同一模板传入不同变量值，即可高效生成多样化结果，大幅提升开发效率。
 
-## 三、高效往提示里塞示范
+### 7、Prompt Template使用示例
+
+~~~python
+from langchain.prompts import (
+    SystemMessagePromptTemplate,
+    AIMessagePromptTemplate,
+    HumanMessagePromptTemplate,
+)
+~~~
+
+~~~python
+# 提示模板一
+system_template_text="你是一位专业的翻译，能够将{input_language}翻译成{output_language}，并且输出文本会根据用户要求的任何语言风格进行调整。请只输出翻译后的文本，不要有任何其它内容。"
+system_prompt_template = SystemMessagePromptTemplate.from_template(system_template_text)
+~~~
+
+~~~python
+system_prompt_template
+~~~
+
+~~~python
+SystemMessagePromptTemplate(prompt=PromptTemplate(input_variables=['input_language', 'output_language'], template='你是一位专业的翻译，能够将{input_language}翻译成{output_language}，并且输出文本会根据用户要求的任何语言风格进行调整。请只输出翻译后的文本，不要有任何其它内容。'))
+~~~
+
+~~~python
+system_prompt_template.input_variables
+~~~
+
+~~~python
+['input_language', 'output_language']
+~~~
+
+~~~python
+# 提示模板二
+human_template_text="文本：{text}\n语言风格：{style}"
+human_prompt_template = HumanMessagePromptTemplate.from_template(human_template_text)
+~~~
+
+~~~python
+human_prompt_template.input_variables
+~~~
+
+~~~python
+['style', 'text']
+~~~
+
+~~~python
+system_prompt = system_prompt_template.format(input_language="英语", output_language="汉语")
+system_prompt
+~~~
+
+~~~python
+SystemMessage(content='你是一位专业的翻译，能够将英语翻译成汉语，并且输出文本会根据用户要求的任何语言风格进行调整。请只输出翻译后的文本，不要有任何其它内容。')
+~~~
+
+~~~python
+human_prompt = human_prompt_template.format(text="I'm so hungry I could eat a horse", style="文言文")
+human_prompt
+~~~
+
+~~~python
+HumanMessage(content="文本：I'm so hungry I could eat a horse\n语言风格：文言文")
+~~~
+
+~~~python
+from langchain_openai import ChatOpenAI
+~~~
+
+~~~python
+model = ChatOpenAI(model="gpt-3.5-turbo")
+response = model.invoke([
+    system_prompt,
+    human_prompt
+])
+~~~
+
+~~~python
+print(response.content)
+~~~
+
+~~~python
+吾飢甚，能食千里馬。
+~~~
+
+
+
+## 三、Few Shot Templates—高效往提示里塞示范
 
 ### 1、少样本学习（Few-Shot Learning）
 
@@ -209,7 +341,7 @@ LangChain的 `langchain_core.prompts` 模块提供了一个专门用于构建少
 
 1. **创建 `example_prompt` 模板** 定义一个包含 `HumanMessage` 和 `AIMessage` 的模板，用于表示一个完整的问答对。
 
-   ```
+   ```python
    from langchain_core.prompts import ChatPromptTemplate, FewShotChatMessagePromptTemplate
    
    # 定义单个示例的模板
@@ -221,7 +353,7 @@ LangChain的 `langchain_core.prompts` 模块提供了一个专门用于构建少
 
 2. **准备 `examples` 数据** 创建一个包含多个具体示例值的列表。
 
-   ```
+   ```python
    examples = [
        {"input": "我今年25岁，来自北京。", "output": "年龄：25岁，所在地：北京市"},
        {"input": "我30岁了，住在杭州。", "output": "年龄：30岁，所在地：浙江省杭州市"}
@@ -230,7 +362,7 @@ LangChain的 `langchain_core.prompts` 模块提供了一个专门用于构建少
 
 3. **构建少样本提示模板** 将 `example_prompt` 和 `examples` 传入 `FewShotChatMessagePromptTemplate` 的构造函数。
 
-   ```
+   ```python
    few_shot_prompt = FewShotChatMessagePromptTemplate(
        example_prompt=example_prompt,
        examples=examples
@@ -239,7 +371,7 @@ LangChain的 `langchain_core.prompts` 模块提供了一个专门用于构建少
 
 4. **组合完整提示模板** 将少样本提示模板与最终的用户提示模板组合成一个完整的 `ChatPromptTemplate`。`ChatPromptTemplate.from_messages` 方法支持将其他提示模板作为列表元素。
 
-   ```
+   ```python
    final_prompt = ChatPromptTemplate.from_messages([
        ("system", "你是一个信息提取助手。请按照示例格式提取年龄和所在地信息。"),
        few_shot_prompt,  # 少样本示例会在这里被动态插入
@@ -249,7 +381,7 @@ LangChain的 `langchain_core.prompts` 模块提供了一个专门用于构建少
 
 5. **填充变量并调用模型** 使用 `invoke` 方法，传入包含新用户输入的字典来填充最终的提示。
 
-   ```
+   ```python
    # 假设 llm 是已创建的聊天模型实例
    chain = final_prompt | llm
    response = chain.invoke({"input": "我今年28岁，来自成都。"})
@@ -265,7 +397,7 @@ LangChain的 `langchain_core.prompts` 模块提供了一个专门用于构建少
   - **减少错误**：避免了手动编写大量重复格式消息时可能出现的格式错误。
 - **适用场景**：当你需要向模型提供多个结构相似的示例来指导其行为时，使用此模板是最佳实践。
 
-## 四、从模型输出里提取列表
+## 四、Output Parser—从模型输出里提取列表
 
 ### 1、输出解析器的作用
 
@@ -299,7 +431,7 @@ LangChain的 `langchain_core.prompts` 模块提供了一个专门用于构建少
 
 直接调用解析器的`invoke`方法，传入模型的回应，即可自动将逗号分隔的字符串转换为 Python 列表（如`["#FF0000", "#00FF00", "#0000FF"]`），无需手动处理文本。
 
-## 五、从模型输出里提取JSON
+## 五、Output Parser —从模型输出里提取JSON
 
 ### 1、JSON 输出解析的优势与应用场景
 
@@ -376,7 +508,7 @@ parser = PydanticOutputParser(pydantic_object=BookInfo)
 
 通过 Pydantic 的类型验证和 LangChain 解析器的协作，既能保证 AI 输出的结构化，又能简化后续信息提取流程，尤其适合需要批量处理结构化数据的场景（如网站信息展示、数据入库等）。
 
-## 六、串起提示模板-模型-输出解析器
+## 六、Chain—串起提示模板-模型-输出解析器
 
 ### 1、核心组件的共性：`invoke`方法
 
@@ -427,3 +559,24 @@ LangChain 中的多个核心组件（如提示模板、聊天模型、输出解�
 - 提示模板或输出解析器并非必需，可根据场景省略。
 
 通过链，能轻松构建复杂的 AI 交互流程，且组件间的依赖关系清晰易懂。
+
+### 5、Chain使用示例
+
+~~~
+from langchain_openai import ChatOpenAI
+from langchain.output_parsers import CommaSeparatedListOutputParser
+from langchain.prompts import ChatPromptTemplate
+~~~
+
+~~~
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "{parser_instructions}"),
+    ("human", "列出5个{subject}色系的十六进制颜色码。")
+])
+~~~
+
+~~~
+output_parser = CommaSeparatedListOutputParser()
+parser_instructions = output_parser.get_format_instructions()
+~~~
+
