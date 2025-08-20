@@ -1,5 +1,5 @@
 ---
-title: mybatis-plus-join连表查询
+title: Mybatis-Plus-Join连表查询
 tags:
  - MyBatis
  - mybatis-plus-join

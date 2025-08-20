@@ -1,5 +1,5 @@
 ---
-title: AOP实战之日志拦截
+title: SpringAOP实战之日志拦截
 tags:
  - Spring
 categories: 
@@ -67,6 +67,12 @@ categories:
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * 启动类
+ *
+ * @author xxl
+ * @date 2022/5/8 18:54
+ */
 @SpringBootApplication
 public class Application {
 
@@ -83,6 +89,12 @@ public class Application {
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+/**
+ * 用户实体
+ *
+ * @author xxl
+ * @date 2022/5/8 18:55
+ */
 @Data
 @AllArgsConstructor
 public class User {
@@ -102,6 +114,12 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;
 
+/**
+ * 获取参数工具类
+ *
+ * @author xxl
+ * @date 2022/5/8 18:56
+ */
 public class ParametersUtils {
 
     public static String getParameters(HttpServletRequest req) {
@@ -132,6 +150,12 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * 参数记录AOP类
+ *
+ * @author xxl
+ * @date 2022/5/8 19:55
+ */
 @Slf4j
 @Aspect
 @Component
@@ -171,6 +195,12 @@ import com.xxl.vo.User;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 测试控制器
+ *
+ * @author xxl
+ * @date 2022/5/8 18:57
+ */
 @RestController
 public class DemoController {
 
@@ -187,6 +217,6 @@ public class DemoController {
 
 
 
-> 获取源码访问
+> 获取作者源码访问
 >
 > [Daneliya/springboot_chowder: springboot大乱炖 (github.com)](https://github.com/Daneliya/springboot_chowder/tree/main/springboot_access_log)

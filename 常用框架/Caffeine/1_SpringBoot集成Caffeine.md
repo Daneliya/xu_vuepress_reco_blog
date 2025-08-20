@@ -8,9 +8,6 @@ categories:
 
 
 
-
-# SpringBoot炖cache-Caffeine
-
 ### 1. 先睹为快
 
 
@@ -27,7 +24,7 @@ categories:
 
 #### 2.3 pom.xml文件中加入依赖
 
-```
+```xml
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -40,7 +37,7 @@ categories:
 
 #### 2.4 pom.xml文件中加入springboot-starter依赖
 
-```
+```xml
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -69,7 +66,7 @@ categories:
 
 #### 2.5 pom.xml文件中加入maven-springboot打包插件
 
-```
+```xml
 <build>
     <plugins>
         <plugin>
@@ -84,7 +81,7 @@ categories:
 
 #### 2.6 开发启动类
 
-```
+```java
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
@@ -104,7 +101,7 @@ public class Application {
 
 #### 2.7 开发用户实体类
 
-```
+```java
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -132,7 +129,7 @@ public class User {
 @Caching 将多个缓存组合在一个方法上（该注解可以允许一个方法同时设置多个注解）
 @CacheConfig 在类级别设置一些缓存相关的共同配置（与其它缓存配合使用）
 
-```
+```java
 import com.oven.vo.User;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -159,7 +156,7 @@ public class UserService {
 
 #### 2.9 开发用户控制层
 
-```
+```java
 import com.oven.service.UserService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -190,7 +187,7 @@ public class UserController {
 
 #### 2.10 开发缓存枚举类
 
-```
+```java
 public enum CacheType {
 
     TEN(10),
@@ -214,7 +211,7 @@ public enum CacheType {
 
 #### 2.11 开发caffeine缓存配置类
 
-```
+```java
 import com.github.benmanes.caffeine.cache.Caffeine;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.caffeine.CaffeineCache;
@@ -253,21 +250,3 @@ public class CaffeineConfig {
 ### 3. 应用场景
 
 
-
-## 参考资料
-
-https://blog.csdn.net/zhxdick/article/details/105733209
-
-https://www.cnblogs.com/MorningBell/p/16659254.html
-
-[(64条消息) Caffeine （史上最全）_40岁资深老架构师尼恩的博客-CSDN博客](https://blog.csdn.net/crazymakercircle/article/details/113751575)
-
-https://blog.csdn.net/CSDN_WYL2016/article/details/128258565
-
-https://blog.csdn.net/Listening_Wind/article/details/110085228
-
-多级缓存优化
-
-[(64条消息) 项目理解（七）多级缓存优化性能_多级缓存事务性_lzw2019sun的博客-CSDN博客](https://blog.csdn.net/liuzewei2015/article/details/99706438)
-
-[数据量很大，分页查询很慢，怎么优化？ - 简书 (jianshu.com)](https://www.jianshu.com/p/864d0bd80115)

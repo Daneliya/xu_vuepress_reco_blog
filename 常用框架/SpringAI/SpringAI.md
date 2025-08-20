@@ -1,5 +1,5 @@
 ---
-title: Spring AI Alibaba 整合阿里云百炼 DeepSeek
+title: SpringAI Alibaba 整合阿里云百炼 DeepSeek
 tags:
  - Spring
 categories: 
@@ -229,3 +229,6 @@ DeepSeek R1 本地部署：[https://henjihenji.feishu.cn/wiki/MN3Vwl2STigk2qk1r6
 
 SpringBoot + Spring AI Alibaba 整合阿里云百炼DeepSeek大模型：[https://zhuanlan.zhihu.com/p/26299836051](https://zhuanlan.zhihu.com/p/26299836051)
 
+https://cloud.tencent.com/developer/article/2531641
+
+https://blog.csdn.net/wanganui/article/details/145593518
