@@ -14,13 +14,15 @@ function replaceStr(filePath, sourceRegx, targetSrt) {
     })
 }
 
-var wfPath = 'D:/Program Files/JetBrains/java_project/my_project/ibooks/xu_vuepress_reco_blog/node_modules/.bin'
+// var wfPath = 'D:/Program Files/JetBrains/java_project/my_project/ibooks/xu_vuepress_reco_blog/node_modules/.bin'
+var wfPath = 'D:/Program Files (x86)/JetBrains/java_project/my_project/xu_vuepress_reco_blog/node_modules/.bin'
 fs.readdir(wfPath, (err, files) => {
     if (err) console.log(err);
     else {
         if (files.length != 0) {
             files.forEach((item) => {
-                var wfPath = 'D:/Program Files/JetBrains/java_project/my_project/ibooks/xu_vuepress_reco_blog/node_modules/.bin';// 或者var wfPath = path.resolve(__dirname, '../node_modules/.bin')
+                // var wfPath = 'D:/Program Files/JetBrains/java_project/my_project/ibooks/xu_vuepress_reco_blog/node_modules/.bin';// 或者var wfPath = path.resolve(__dirname, '../node_modules/.bin')
+                var wfPath = 'D:/Program Files (x86)/JetBrains/java_project/my_project/xu_vuepress_reco_blog/node_modules/.bin';// 或者var wfPath = path.resolve(__dirname, '../node_modules/.bin')
                 if (item.split('.')[1] === 'cmd') {
                     wfPath += `/${item}`;
                     replaceStr(wfPath, /"%_prog%"/, '%_prog%')
